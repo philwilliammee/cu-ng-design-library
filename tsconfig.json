@@ -3,6 +3,12 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "cu-ng-design-library": [
+        "dist/cu-ng-design-library/cu-ng-design-library",
+        "dist/cu-ng-design-library"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

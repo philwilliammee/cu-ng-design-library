@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "cu-ng-design-library": {
+      "projectType": "library",
+      "root": "projects/cu-ng-design-library",
+      "sourceRoot": "projects/cu-ng-design-library/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cu-ng-design-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cu-ng-design-library/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cu-ng-design-library/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cu-ng-design-library/src/test.ts",
+            "tsConfig": "projects/cu-ng-design-library/tsconfig.spec.json",
+            "karmaConfig": "projects/cu-ng-design-library/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "cu-ng-design-library"
 }
