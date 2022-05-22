@@ -1,6 +1,7 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import Button from './button.component';
+import CustomMDXDocumentation from './Custom-MDX-Documentation.mdx';
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
@@ -10,6 +11,12 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
+  parameters: {
+    docs: {
+      page: CustomMDXDocumentation,
+    },
+  },
+
 } as Meta;
 
 // More on component templates: https://storybook.js.org/docs/angular/writing-stories/introduction#using-args

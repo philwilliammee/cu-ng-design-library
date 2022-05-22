@@ -1,0 +1,13 @@
+#skipnav a {
+  color: rgb(255, 255, 255);
+  white-space: nowrap;
+  position: absolute;
+  left: -1000em;
+  padding: 2px 8px;
+  text-decoration: none;
+}
+
+#skipnav a:focus {
+  left: 0px;
+  background: rgb(46, 86, 144);
+}
