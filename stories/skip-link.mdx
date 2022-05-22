@@ -1,0 +1,26 @@
+import { Story } from "@storybook/addon-docs";
+
+# Skip Links aka Bypass Links
+
+[Bypass Links](https://ssit.scl.cornell.edu/web-accessibility/how/basics)
+
+All pages must have a mechanism to bypass repeated content - Skip navigation/Skip to main content.
+
+## Implementations
+
+The skip-link is hidden until to the user navigates to it with a keyboard.
+
+To be usable by all keyboard users, particularly sighted keyboard users, the link must:
+
+- be hidden by default
+- be accessible to keyboard navigation
+- become prominently visible when it is focused
+- properly set focus to the main content area when activated
+
+## Usage
+
+by default the skip link will not be visable unless the user navigates to it with a keyboard.
+
+Click on this page then press tab to navigate to the hidden link. When the link is focused it will become visible.
+
+<Story id="cu-ng-design-library-components-layout-skiplink--default" />

@@ -4,6 +4,7 @@
 
 
 export * from './lib/components/layout/skip-link/skip-link.component';
+export * from './lib/components/layout/skip-link/skip-link.module';
 
 export * from './lib/cu-ng-design-library.service';
 export * from './lib/cu-ng-design-library.component';

@@ -2,20 +2,22 @@ import { Component } from '@angular/core';
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {
   SkipLinkComponent,
-  CuNgDesignLibraryModule,
+  SkipLinkModule,
 } from 'cu-ng-design-library';
 
+import  SkipLinkDocumentation from './skip-link.mdx';
+
 export default {
-  title: 'Example/SkipLink',
+  title: 'CU-NG-Design-Library/Components/Layout/SkipLink',
   component: SkipLinkComponent,
-  // decorators: [
-  //   moduleMetadata({
-  //     imports: [CuNgDesignLibraryModule],
-  //   }),
-  // ],
+  decorators: [
+    moduleMetadata({
+      imports: [SkipLinkModule],
+    }),
+  ],
   parameters: {
     docs: {
-      page: null,
+      page: SkipLinkDocumentation,
     },
   },
 } as Meta;

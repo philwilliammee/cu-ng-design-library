@@ -432,7 +432,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div id=\"skipnav\"><a href=\"#main\">Skip to main content</a></div>\n"
+            "templateData": "<div id=\"skipnav\"><a href=\"#main\">Skip to main content</a></div>\nIt Worked\n"
         }
     ],
     "modules": [
@@ -475,6 +475,42 @@
                             "name": "SkipLinkComponent"
                         }
                     ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SkipLinkModule",
+            "id": "module-SkipLinkModule-5713a6e90800faad5d2e1725c7ceee3ef650c4602b8fb73dfeefdc9e603044473841354d948f57f47aea9da24680b075bd65ac4e50f361ea8f91f7a7a6085e32",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/skip-link/skip-link.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule\n  ]\n})\nexport class SkipLinkModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
                 },
                 {
                     "type": "bootstrap",
@@ -609,6 +645,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/cu-ng-design-library.skip-link.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -687,6 +733,16 @@
             "stories/cu-ng-design-library.skip-link.stories.ts": [
                 {
                     "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/cu-ng-design-library.skip-link.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/cu-ng-design-library.skip-link.stories.ts",
@@ -1035,6 +1091,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/cu-ng-design-library.skip-link.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
