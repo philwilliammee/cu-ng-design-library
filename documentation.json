@@ -220,6 +220,68 @@
             ]
         },
         {
+            "name": "FooterComponent",
+            "id": "component-FooterComponent-528fb0526fa5f370dcf8eaa45660941d27bea780f128556b0372c3a39656b9f36d46893214ed6e3af2005d9cad574b678269f4c7242271c64065e41940f90719",
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/footer/footer.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-footer",
+            "styleUrls": [
+                "./footer.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./footer.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-footer',\n  templateUrl: './footer.component.html',\n  styleUrls: ['./footer.component.scss']\n})\nexport class FooterComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "footer {\n  line-height: 1.6;\n  background: #333;\n  color: #bbb;\n  font-size: 13px;\n  padding: 0;\n  position: relative;\n  // text-align: center;\n  z-index: 2;\n  float: left;\n  width: 100%;\n  display: block;\n}\n",
+                    "styleUrl": "./footer.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<footer>\n  <ng-content></ng-content>\n</footer>\n"
+        },
+        {
             "name": "HeaderComponent",
             "id": "component-HeaderComponent-dd3ecb406918e653bee50589b91f3ec0ec38e81558c3fa2e3fb05bdbe14ec25a66a7ada70cc03b988df49f8ab65e0862f8823317ce43a9c8b22a9fa5cefe73b3",
             "file": "stories/header.component.ts",
@@ -432,7 +494,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div id=\"skipnav\"><a href=\"#main\">Skip to main content</a></div>\nIt Worked\n"
+            "templateData": "<div id=\"skipnav\"><a href=\"#main\">Skip to main content</a></div>\n"
         }
     ],
     "modules": [
@@ -475,6 +537,46 @@
                             "name": "SkipLinkComponent"
                         }
                     ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "FooterModule",
+            "id": "module-FooterModule-71f349359d29ca824a9e5b5919485ee831345bc5a9856238e64d01f32dd43736969886529b2f96cb89dcba12eb455ff5043eb32870c65c17a591bb42b519fb8a",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/footer/footer.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FooterComponent } from './footer.component';\n\n\n\n@NgModule({\n  declarations: [\n    FooterComponent\n  ],\n  imports: [\n    CommonModule\n  ]\n})\nexport class FooterModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "FooterComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
                 },
                 {
                     "type": "bootstrap",
@@ -550,6 +652,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/cu-ng-design-library.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -645,16 +757,6 @@
                 "defaultValue": "Template.bind({})"
             },
             {
-                "name": "Small",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/cu-ng-design-library.skip-link.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -703,6 +805,16 @@
                 "deprecationMessage": "",
                 "type": "Story<CuNgDesignLibraryComponent>",
                 "defaultValue": "(args: CuNgDesignLibraryComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<FooterComponent>",
+                "defaultValue": "(args: FooterComponent) => ({\n  props: args,\n})"
             }
         ],
         "functions": [],
@@ -742,16 +854,6 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/cu-ng-design-library.skip-link.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -782,6 +884,28 @@
                     "deprecationMessage": "",
                     "type": "Story<CuNgDesignLibraryComponent>",
                     "defaultValue": "(args: CuNgDesignLibraryComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "stories/footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<FooterComponent>",
+                    "defaultValue": "(args: FooterComponent) => ({\n  props: args,\n})"
                 }
             ],
             "stories/Button.stories.ts": [
@@ -910,6 +1034,15 @@
         "count": 3,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/cu-ng-design-library/src/lib/components/layout/footer/footer.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FooterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
             {
                 "filePath": "projects/cu-ng-design-library/src/lib/components/layout/skip-link/skip-link.component.ts",
                 "type": "component",
@@ -1100,16 +1233,6 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Small",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/cu-ng-design-library.skip-link.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -1127,6 +1250,26 @@
             },
             {
                 "filePath": "stories/cu-ng-design-library.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/footer.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
