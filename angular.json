@@ -8,6 +8,11 @@
       "root": "projects/cu-ng-design-library",
       "sourceRoot": "projects/cu-ng-design-library/src",
       "prefix": "lib",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -49,7 +54,6 @@
         }
       }
     }
-
   },
   "defaultProject": "cu-ng-design-library"
 }
