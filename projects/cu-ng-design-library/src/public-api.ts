@@ -10,6 +10,10 @@ export * from './lib/components/layout/skip-link/skip-link.module';
 export * from './lib/components/layout/footer/footer.component';
 export * from './lib/components/layout/footer/footer.module';
 
+// sub-footer
+export * from './lib/components/layout/sub-footer/sub-footer.component';
+export * from './lib/components/layout/sub-footer/sub-footer.module';
+
 
 // module
 export * from './lib/cu-ng-design-library.service';
