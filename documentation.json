@@ -549,7 +549,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".vertical-align {\n  display: flex;\n  align-items: center;\n}\n\np {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n\n}\n\n.sub-footer {\n  background: #292929;\n  font-size: 13px;\n  padding: 20px 0;\n\n}\n\na {\n  color: #fff;\n  text-decoration-color: hsla(0, 0%, 100%, .4);\n\n  &:focus {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:hover {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:active {\n    color: #666;\n    text-decoration-color: hsla(0, 0%, 100%, .4);\n  }\n}\n\n.icon {\n  margin-right: .5em;\n}\n",
+                    "data": ".sub-footer {\n  line-height: 1.6;\n  color: #bbb;\n  font-size: 13px;\n  position: relative;\n  z-index: 2;\n  float: left;\n  width: 100%;\n  display: block;\n  background: #292929;\n  padding: 20px 0;\n}\n\n.vertical-align {\n  display: flex;\n  align-items: center;\n}\n\np {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\na {\n  color: #fff;\n  text-decoration-color: hsla(0, 0%, 100%, .4);\n\n  &:focus {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:hover {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:active {\n    color: #666;\n    text-decoration-color: hsla(0, 0%, 100%, .4);\n  }\n}\n\n.icon {\n  margin-right: .5em;\n}\n",
                     "styleUrl": "./sub-footer.component.scss"
                 }
             ],

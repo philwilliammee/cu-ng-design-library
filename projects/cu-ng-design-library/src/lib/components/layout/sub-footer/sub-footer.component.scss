@@ -1,3 +1,16 @@
+.sub-footer {
+  line-height: 1.6;
+  color: #bbb;
+  font-size: 13px;
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100%;
+  display: block;
+  background: #292929;
+  padding: 20px 0;
+}
+
 .vertical-align {
   display: flex;
   align-items: center;
@@ -10,15 +23,6 @@ p {
   &:last-child {
     margin-bottom: 0;
   }
-
-
-}
-
-.sub-footer {
-  background: #292929;
-  font-size: 13px;
-  padding: 20px 0;
-
 }
 
 a {
