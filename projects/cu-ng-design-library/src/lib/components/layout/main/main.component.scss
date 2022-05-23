@@ -1,0 +1,23 @@
+$footer-height: 527px;
+
+article {
+  display: block;
+}
+
+.band {
+  line-height: 1.6;
+  width: 100%;
+}
+
+#main-content {
+  background: #fff;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+@media (min-width:868px) {
+  #main {
+    padding-top: 3.5em;
+    min-height: calc(100vh - $footer-height);
+  }
+}

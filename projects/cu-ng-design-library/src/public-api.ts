@@ -22,6 +22,14 @@ export * from './lib/components/layout/sub-footer/sub-footer.module';
 export * from './lib/components/layout/header/header.component';
 export * from './lib/components/layout/header/header.module';
 
+// main
+export * from './lib/components/layout/main/main.component';
+export * from './lib/components/layout/main/main.module';
+
+// header-buttons
+export * from './lib/components/layout/header-buttons/header-buttons.component';
+export * from './lib/components/layout/header-buttons/header-buttons.module';
+
 // module
 export * from './lib/cu-ng-design-library.service';
 export * from './lib/cu-ng-design-library.component';

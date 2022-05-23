@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { MainMenuComponent } from './components/layout/main-menu/main-menu.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';
+import { MainComponent } from './components/layout/main/main.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { BrowserModule } from '@angular/platform-browser';
     SubFooterComponent,
     HeaderComponent,
     MainMenuComponent,
+    HeaderButtonsComponent,
+    MainComponent,
   ],
   imports: [
     MaterialModule,
