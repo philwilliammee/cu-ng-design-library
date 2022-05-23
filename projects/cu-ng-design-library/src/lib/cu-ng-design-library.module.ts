@@ -10,6 +10,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';
 import { MainComponent } from './components/layout/main/main.component';
+import { MainFooterComponent } from './components/layout/main-footer/main-footer.component';
+import { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';
+import { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';
+import { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';
 
 @NgModule({
   declarations: [
@@ -21,19 +25,12 @@ import { MainComponent } from './components/layout/main/main.component';
     MainMenuComponent,
     HeaderButtonsComponent,
     MainComponent,
+    MainFooterComponent,
+    PrimaryContentComponent,
+    SecondaryContentComponent,
+    UtilityNavComponent,
   ],
-  imports: [
-    MaterialModule,
-    RouterModule,
-    BrowserModule,
-  ],
-  exports: [
-    CuNgDesignLibraryComponent,
-    SkipLinkComponent,
-    FooterComponent,
-    SubFooterComponent,
-    HeaderComponent,
-    MainMenuComponent,
-  ]
+  imports: [MaterialModule, RouterModule, BrowserModule],
+  exports: [CuNgDesignLibraryComponent],
 })
-export class CuNgDesignLibraryModule { }
+export class CuNgDesignLibraryModule {}

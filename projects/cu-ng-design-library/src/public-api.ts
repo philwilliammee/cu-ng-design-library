@@ -30,6 +30,22 @@ export * from './lib/components/layout/main/main.module';
 export * from './lib/components/layout/header-buttons/header-buttons.component';
 export * from './lib/components/layout/header-buttons/header-buttons.module';
 
+// main-footer
+export * from './lib/components/layout/main-footer/main-footer.component';
+export * from './lib/components/layout/main-footer/main-footer.module';
+
+// primary-content
+export * from './lib/components/layout/primary-content/primary-content.component';
+export * from './lib/components/layout/primary-content/primary-content.module';
+
+// secondary-content
+export * from './lib/components/layout/secondary-content/secondary-content.component';
+export * from './lib/components/layout/secondary-content/secondary-content.module';
+
+// utility-nav
+export * from './lib/components/layout/utility-nav/utility-nav.component';
+export * from './lib/components/layout/utility-nav/utility-nav.module';
+
 // module
 export * from './lib/cu-ng-design-library.service';
 export * from './lib/cu-ng-design-library.component';
