@@ -5,8 +5,9 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';
 import { MaterialModule } from './shared/modules/material/material.module';
 import { HeaderComponent } from './components/layout/header/header.component';
-
-
+import { MainMenuComponent } from './components/layout/main-menu/main-menu.component';
+import { RouterModule, Routes } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,12 @@ import { HeaderComponent } from './components/layout/header/header.component';
     FooterComponent,
     SubFooterComponent,
     HeaderComponent,
+    MainMenuComponent,
   ],
   imports: [
     MaterialModule,
+    RouterModule,
+    BrowserModule,
   ],
   exports: [
     CuNgDesignLibraryComponent,
@@ -25,6 +29,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
     FooterComponent,
     SubFooterComponent,
     HeaderComponent,
+    MainMenuComponent,
   ]
 })
 export class CuNgDesignLibraryModule { }

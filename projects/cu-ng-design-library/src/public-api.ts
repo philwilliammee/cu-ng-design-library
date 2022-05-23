@@ -18,6 +18,10 @@ export * from './lib/components/layout/sub-footer/sub-footer.module';
 export * from './lib/components/layout/header/header.component';
 export * from './lib/components/layout/header/header.module';
 
+// main-menu
+export * from './lib/components/layout/main-menu/main-menu.component';
+export * from './lib/components/layout/main-menu/main-menu.module';
+
 
 // module
 export * from './lib/cu-ng-design-library.service';

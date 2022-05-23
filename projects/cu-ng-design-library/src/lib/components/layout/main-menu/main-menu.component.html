@@ -1,0 +1,16 @@
+<nav class="dropdown-menu" id="main-navigation" aria-label="Main Navigation">
+  <div class="container-fluid">
+    <ul class="list-menu links">
+      <ng-container *ngFor="let route of routes">
+        <li class="top-level-item"
+        *ngIf="route.path" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+          <a
+          routerLink="{{route.path}}"
+            >{{route.path}}</a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</nav>
+
