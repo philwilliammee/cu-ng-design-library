@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 @Component({
   selector: 'lib-main-menu',
@@ -9,9 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 export class MainMenuComponent implements OnInit {
   @Input() routes!: Routes;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

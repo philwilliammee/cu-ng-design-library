@@ -46,6 +46,14 @@ export * from './lib/components/layout/secondary-content/secondary-content.modul
 export * from './lib/components/layout/utility-nav/utility-nav.component';
 export * from './lib/components/layout/utility-nav/utility-nav.module';
 
+// mobile-dialog
+export * from './lib/components/layout/mobile-dialog/mobile-dialog.component';
+export * from './lib/components/layout/mobile-dialog/mobile-dialog.module';
+
+// mobile-menu
+export * from './lib/components/layout/mobile-menu/mobile-menu.component';
+export * from './lib/components/layout/mobile-menu/mobile-menu.module';
+
 // module
 export * from './lib/cu-ng-design-library.service';
 export * from './lib/cu-ng-design-library.component';

@@ -1,0 +1,13 @@
+a {
+  text-transform: capitalize;
+}
+
+.mat-dialog-content a {
+  text-align: left;
+}
+
+.mat-dialog-content {
+  .active {
+    background-color: rgba(0, 104, 172, 0.5);
+  }
+}

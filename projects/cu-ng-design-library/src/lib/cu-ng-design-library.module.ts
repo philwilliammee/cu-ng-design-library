@@ -14,6 +14,11 @@ import { MainFooterComponent } from './components/layout/main-footer/main-footer
 import { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';
 import { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';
 import { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';
+import { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';
+import { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';
 
 @NgModule({
   declarations: [
@@ -29,8 +34,16 @@ import { UtilityNavComponent } from './components/layout/utility-nav/utility-nav
     PrimaryContentComponent,
     SecondaryContentComponent,
     UtilityNavComponent,
+    MobileDialogComponent,
+    MobileMenuComponent,
   ],
-  imports: [MaterialModule, RouterModule, BrowserModule],
+  imports: [
+    MaterialModule,
+    RouterModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),
+  ],
   exports: [CuNgDesignLibraryComponent],
 })
 export class CuNgDesignLibraryModule {}

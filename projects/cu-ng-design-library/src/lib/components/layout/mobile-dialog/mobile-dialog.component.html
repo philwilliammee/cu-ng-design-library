@@ -1,0 +1,35 @@
+<div mat-dialog-title>
+  <h1 class='sr-only'>Mobile Menu</h1>
+  <div fxLayout="row" mat-dialog-actions>
+    <div fxLayoutAlign="start" fxFlex="50" *ngIf="data.routes">
+      <button mat-icon-button aria-label="home" routerLink="home" mat-dialog-close>
+        <mat-icon >home</mat-icon>
+      </button>
+    </div>
+    <div fxLayoutAlign="end" fxFlex="50">
+      <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<mat-dialog-content>
+  <mat-selection-list [multiple]="false">
+    <mat-list-option
+    *ngFor="let route of data.routes"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}"
+    >
+      <a mat-button
+        routerLink="{{route.path}}"
+        mat-dialog-close
+        *ngIf="route.data && route.data['menu'] == 'main'"
+        >
+        {{route.path}}
+      </a>
+    </mat-list-option>
+  </mat-selection-list>
+</mat-dialog-content>
+
+<!-- @todo add utility Nav -->
