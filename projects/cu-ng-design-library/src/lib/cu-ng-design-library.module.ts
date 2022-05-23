@@ -4,6 +4,7 @@ import { SkipLinkComponent } from './components/layout/skip-link/skip-link.compo
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';
 import { MaterialModule } from './shared/modules/material/material.module';
+import { HeaderComponent } from './components/layout/header/header.component';
 
 
 
@@ -13,6 +14,7 @@ import { MaterialModule } from './shared/modules/material/material.module';
     SkipLinkComponent,
     FooterComponent,
     SubFooterComponent,
+    HeaderComponent,
   ],
   imports: [
     MaterialModule,
@@ -22,6 +24,7 @@ import { MaterialModule } from './shared/modules/material/material.module';
     SkipLinkComponent,
     FooterComponent,
     SubFooterComponent,
+    HeaderComponent,
   ]
 })
 export class CuNgDesignLibraryModule { }

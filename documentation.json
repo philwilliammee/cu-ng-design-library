@@ -355,6 +355,85 @@
             "stylesData": ""
         },
         {
+            "name": "HeaderComponent",
+            "id": "component-HeaderComponent-be6a33b8cd14333854398d2f4ede8be663506a1f6fba4a27a53a1df60694a8befb9333c7654833083baece5b7706ac068a51ba602f06d6e85eb3a7d5965db9df-1",
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-header",
+            "styleUrls": [
+                "./header.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./header.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "svgIconUrl",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements OnInit {\n  public svgIconUrl: string = '';\n  constructor() { }\n\n  ngOnInit(): void {\n    this.svgIconUrl = \"../../../assets/images/bold_cornell_logo_simple_b31b1b.svg\";\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "img {\n  border-style: none;\n  height: auto;\n  max-width: 100%;\n}\n\nh2 {\n  margin-top: 0;\n  line-height: 1.2;\n  margin-bottom: .7em;\n}\n\n.sans {\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n  font-weight: 400;\n}\n\n#cu-header {\n  float: left;\n  width: 100%;\n\n  .cu-brand {\n    align-items: center;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n    font-weight: 500;\n    padding-bottom: 5px;\n    padding-top: 5px;\n    position: relative;\n\n    h1 {\n      margin: 0;\n      width: 100%;\n    }\n\n    h2 {\n      margin: 6px 0 0 -.05em;\n    }\n\n    h3 {\n      margin: .3em 0 0;\n    }\n\n    .cu-unit {\n      margin: 16px auto 11px;\n      text-align: center;\n    }\n  }\n}\n\nheader {\n  float: left;\n  width: 100%;\n}\n\n.cu-seal {\n  #cu-header {\n    background: #ededed;\n    z-index: 3;\n\n    .cu-brand {\n      h1 {\n        margin: 2px 0 8px;\n\n        a {\n          margin: 0 auto;\n        }\n      }\n\n      .cu-unit {\n        margin: 0 auto 4px;\n        display: block;\n      }\n\n      padding-bottom: 15px;\n      padding-top: 15px;\n    }\n  }\n\n  .cu-logo {\n    a {\n      background: url(../../../../assets/images/bold_cornell_seal_simple_b31b1b.svg) 0 0 no-repeat;\n      height: 80px;\n      min-width: 80px;\n      width: 80px;\n    }\n  }\n}\n\n.cu-seal.no-main-nav {\n  #cu-header {\n    background: #f7f7f7;\n    background: linear-gradient(135deg, #f2f2f2, #f7f7f7);\n    border-bottom: 2px solid #ebebeb;\n  }\n}\n\n.cu-logo {\n  a {\n    background: url(../../../../assets/images/cornell-reduced-red.svg?e403ad1d95538868385fd006c228dd73) 0 0 no-repeat;\n    background-size: 100%;\n    display: block;\n    height: 38px;\n    min-width: 168px;\n    width: 168px;\n  }\n}\n\n.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(../../../../assets/images/cornell-reduced-white.svg?0db6897b466c532187553a4bb2e1bccb);\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-weight: 400;\n      }\n    }\n  }\n}\n\n.cu-seal.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(../../../../assets/images/bold_cornell_seal_simple_white.svg?01f1fa8ec92a5f6779eab550d6c5b5ee);\n    }\n  }\n\n  #cu-header {\n    background: #222;\n    border-bottom: 0;\n    color: #fff;\n\n    .cu-brand {\n      h3 {\n        color: #bebebe;\n      }\n    }\n  }\n}\n\n// .cu-seal.cu-gray.no-main-nav {\n//   #cu-header {\n//     background: linear-gradient(135deg, #222, #474747);\n//   }\n// }\n.cu-seal.cu-gray {\n  #cu-header {\n    background: linear-gradient(135deg, #222, #474747);\n  }\n}\n\n@media (min-width:868px) {\n  .cu-seal {\n    #cu-header {\n      .cu-brand {\n        flex-wrap: nowrap;\n\n        h1 {\n          margin: 0;\n          width: auto;\n        }\n\n        .cu-unit {\n          margin: 0 70px 0 auto;\n        }\n      }\n    }\n\n    .cu-logo {\n      a {\n        height: 100px;\n        margin: 0 50px 0 0 !important;\n        min-width: 100px;\n        width: 100px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      .cu-unit {\n        margin: 20px auto 16px 1px;\n        text-align: left;\n      }\n    }\n  }\n}\n\n@media (min-width:480px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 30px;\n      }\n\n      h3 {\n        font-size: 15px;\n      }\n    }\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 90px;\n        min-width: 90px;\n        width: 90px;\n      }\n    }\n  }\n}\n\n@media (min-width:992px) {\n  .container-fluid {\n    max-width: 1400px;\n    padding-left: 60px;\n    padding-right: 60px;\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 120px;\n        margin: 0 60px 0 0 !important;\n        min-width: 120px;\n        width: 120px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 32px;\n      }\n\n      h3 {\n        font-size: 16px;\n      }\n    }\n  }\n}\n\n@media (min-width:1200px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 36px;\n      }\n\n      h3 {\n        font-size: 18px;\n      }\n    }\n  }\n}\n",
+                    "styleUrl": "./header.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "HeaderComponent-1",
+            "templateData": "<div class=\"cu-seal cu-gray sidebar sidebar-right\">\n  <header id=\"cu-header\">\n    <div class=\"container-fluid cu-brand\">\n      <h1 class=\"cu-logo\"><a href=\"http://www.cornell.edu\"><img class=\"sr-only\"\n             alt=\"Cornell University\" width=\"245\"\n            [src]=\"svgIconUrl\"\n            height=\"62\"></a></h1>\n      <div class=\"cu-unit\">\n        <h2>PROJECT_NAME</h2>\n        <h3 class=\"sans mat-h3\">Project_description</h3>\n      </div>\n      <ng-content></ng-content>\n    </div>\n  </header>\n<div>\n<!-- \\src=\"../../../assets/images/bold_cornell_logo_simple_b31b1b.svg\" -->\n"
+        },
+        {
             "name": "PageComponent",
             "id": "component-PageComponent-7126d8c2607c946741c651482413b43feb72b2d63cac9d3ac173fde206a5e635eb4cdbf7ca7ac9327c7d4d05cf7ef619144c34c11609ad677081d0ee4e855064",
             "file": ".local/stories/page.component.ts",
@@ -571,13 +650,13 @@
     "modules": [
         {
             "name": "CuNgDesignLibraryModule",
-            "id": "module-CuNgDesignLibraryModule-bc2358e3d9ba8db2ea01739350e1b8da5a134dc7c047538ac45ddb2ead44868146e81fabd076badd708a35147a3173d8a69b00c0032fda29f53b9ca65e697c1e",
+            "id": "module-CuNgDesignLibraryModule-b7b75539afdb6289da5a426ef142daef6dd062b9f5d742a88795603e9d0c4e2ca620254c062337993c657ef39295f79ff900218f10146e9311f8f7c89f859abc",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\n\n\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n  ],\n  imports: [\n    MaterialModule,\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n  ]\n})\nexport class CuNgDesignLibraryModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\n\n\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n  ],\n  imports: [\n    MaterialModule,\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n  ]\n})\nexport class CuNgDesignLibraryModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -591,6 +670,9 @@
                         },
                         {
                             "name": "FooterComponent"
+                        },
+                        {
+                            "name": "HeaderComponent"
                         },
                         {
                             "name": "SkipLinkComponent"
@@ -644,6 +726,42 @@
             "file": "projects/cu-ng-design-library/src/lib/components/layout/footer/footer.module.ts",
             "methods": [],
             "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule\n  ]\n})\nexport class FooterModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "HeaderModule",
+            "id": "module-HeaderModule-4d14097bb0d311e4784637b6304198c9909c78db54b67b51592d6bf741d31b31c5bf13d8c88c008490f109aaf817cf9226860875ca1dc2487ef5ee8126f14893",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule\n  ]\n})\nexport class HeaderModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -797,6 +915,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -965,6 +1093,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<HeaderComponent>",
+                "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/skip-link.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1087,6 +1225,28 @@
                     "deprecationMessage": "",
                     "type": "Story<FooterComponent>",
                     "defaultValue": "(args: FooterComponent) => ({\n  props: args,\n  template: `\n  <lib-footer>\n  <div class=\"secondary\" style='margin:auto; max-width:90%'>\n    <h2>SSIT - The footer content container</h2>\n    <p>311 Day Hall<br>Cornell University<br>Ithaca, NY 14853</p>\n  </div>\n  </lib-footer>`,\n})"
+                }
+            ],
+            "stories/header.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<HeaderComponent>",
+                    "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n})"
                 }
             ],
             "stories/skip-link.stories.ts": [
@@ -1553,6 +1713,15 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/cu-ng-design-library/src/lib/components/layout/skip-link/skip-link.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1630,6 +1799,26 @@
             },
             {
                 "filePath": "stories/footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

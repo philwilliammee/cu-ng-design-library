@@ -9,7 +9,8 @@
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "build-storybook": "npm run docs:json && build-storybook",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "private": true,
   "dependencies": {
@@ -40,6 +41,7 @@
     "@storybook/angular": "^6.5.3",
     "@storybook/builder-webpack5": "^6.5.3",
     "@storybook/manager-webpack5": "^6.5.3",
+    "@storybook/storybook-deployer": "^2.8.11",
     "@storybook/testing-library": "^0.0.11",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",

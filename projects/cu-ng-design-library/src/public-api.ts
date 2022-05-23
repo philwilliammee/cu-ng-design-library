@@ -14,6 +14,10 @@ export * from './lib/components/layout/footer/footer.module';
 export * from './lib/components/layout/sub-footer/sub-footer.component';
 export * from './lib/components/layout/sub-footer/sub-footer.module';
 
+// header
+export * from './lib/components/layout/header/header.component';
+export * from './lib/components/layout/header/header.module';
+
 
 // module
 export * from './lib/cu-ng-design-library.service';
