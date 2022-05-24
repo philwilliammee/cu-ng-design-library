@@ -19,6 +19,8 @@ import { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';
+import { TwoColumnComponent } from './pages/two-column/two-column.component';
+// import { OneColumnComponent } from './pages/one-column/one-column.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';
     UtilityNavComponent,
     MobileDialogComponent,
     MobileMenuComponent,
+    TwoColumnComponent,
   ],
   imports: [
     MaterialModule,

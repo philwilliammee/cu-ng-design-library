@@ -54,6 +54,13 @@ export * from './lib/components/layout/mobile-dialog/mobile-dialog.module';
 export * from './lib/components/layout/mobile-menu/mobile-menu.component';
 export * from './lib/components/layout/mobile-menu/mobile-menu.module';
 
+// two-column
+export * from './lib/pages/two-column/two-column.component';
+export * from './lib/pages/two-column/two-column.module';
+
+// BREAK_POINTS
+export * from './lib/cu-ng-design-library.breakpoints';
+
 // module
 export * from './lib/cu-ng-design-library.service';
 export * from './lib/cu-ng-design-library.component';

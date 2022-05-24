@@ -5,7 +5,7 @@ import {
   MobileMenuComponent,
   MobileMenuModule,
 } from 'cu-ng-design-library';
-import { routes, RoutsModule } from './Routes';
+import { routes, RoutesModule } from './Routes';
 // import MobileMenuDocumentation from './MobileMenu.mdx';
 
 export default {
@@ -13,7 +13,7 @@ export default {
   component: MobileMenuComponent,
   decorators: [
     moduleMetadata({
-      imports: [MobileMenuModule, MobileDialogModule, RoutsModule],
+      imports: [MobileMenuModule, MobileDialogModule, RoutesModule],
     }),
   ],
   // parameters: {

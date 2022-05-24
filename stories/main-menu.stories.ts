@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import { MainMenuComponent, MainMenuModule } from 'cu-ng-design-library';
 //import { MainMenuComponent, MainMenuModule } from 'projects/cu-ng-design-library/src/public-api';
-import { routes, RoutsModule } from './Routes';
+import { routes, RoutesModule } from './Routes';
 
 export default {
   title: 'CU-NG-Design-Library/Components/Layout/MainMenu',
   component: MainMenuComponent,
   decorators: [
     moduleMetadata({
-      imports: [MainMenuModule, RoutsModule],
+      imports: [MainMenuModule, RoutesModule],
     }),
   ],
 } as Meta;

@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { APP_BASE_HREF } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { MobileDialogComponent } from '../mobile-dialog/mobile-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [],
@@ -21,11 +22,13 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     MatIconModule,
-    // MatDialogModule,
-    // BrowserAnimationsModule,
-    // MatButtonModule,
-    // RouterModule,
-    // BrowserModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    RouterModule,
+    BrowserModule,
+    FlexLayoutModule,
+    MatListModule,
   ],
   entryComponents: [],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
