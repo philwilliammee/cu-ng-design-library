@@ -1,8 +1,5 @@
 import OneColPageComponent from './one-col-page.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HeaderComponent } from 'cu-ng-design-library';
-import { SubFooterComponent } from 'cu-ng-design-library';
-import TwoColPageComponent from './two-col-page.component';
 import { TwoColumnComponent, OneColumnComponent } from 'cu-ng-design-library';
 
 export const routes: Routes = [
