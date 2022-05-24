@@ -169,6 +169,37 @@
             "templateData": "<footer>\n  <ng-content></ng-content>\n</footer>\n"
         },
         {
+            "name": "GenericComponent",
+            "id": "component-GenericComponent-3a23b3b502e25929aee8fb5647b25f25fe90bdd460d66fd1a008f8a8700522d94184f32a218211256f912f3413f6e215ed780606e214b373e39c265ae19e04a9",
+            "file": "stories/generic.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-generic",
+            "styleUrls": [],
+            "styles": [],
+            "template": "",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'storybook-generic',\n  template: ``,\n})\nexport default class GenericComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
             "name": "HeaderButtonsComponent",
             "id": "component-HeaderButtonsComponent-2f9ca330c113d0f8eb9885bf7f92bb7e7dbc4463d4af84c5c8543f5c4aae48392cfb897b071db4d37d6f67abe36679e3c727c7182dea5a077bda4b22a98afe9e",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/header-buttons/header-buttons.component.ts",
@@ -723,6 +754,99 @@
             "templateData": "<!-- <mat-drawer-container class=\"example-container\" autosize>\n  <mat-drawer #drawer class=\"example-sidenav\" mode=\"side\">\n    <p>Auto-resizing sidenav</p>\n    <p *ngIf=\"showFiller\">Lorem, ipsum dolor sit amet consectetur.</p>\n    <button (click)=\"showFiller = !showFiller\" mat-raised-button>\n      Toggle extra text\n    </button>\n  </mat-drawer>\n\n  <button mat-mini-fab color=\"primary\" aria-label=\"mobile menu\" (click)=\"drawer.toggle()\">\n    <mat-icon>menu</mat-icon>\n  </button>\n\n</mat-drawer-container> -->\n\n<button  mat-flat-button color=\"accent\" aria-label=\"mobile menu\" (click)=\"openDialog()\">\n  <mat-icon>menu</mat-icon>\n</button>\n"
         },
         {
+            "name": "OneColPageComponent",
+            "id": "component-OneColPageComponent-981da4fc403a9cd53c3bb4521cf81022d2066a06e06d243dacc4045cc24202ff2fab74e424d0c8c92d736b38c5982728305df8558be98a3d7da23e887275014d",
+            "file": "stories/one-col-page.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-two-col-page",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<h1>One Column</h1>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod</p>\n<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>\n<p>\n  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia iste\n  molestiae modi odio sit cumque aspernatur quod perspiciatis odit ducimus\n  nam qui velit id, cupiditate ipsum saepe reprehenderit eligendi tenetur!\n  Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem recusandae\n  voluptas voluptate culpa odio quae dolor. Esse doloremque temporibus atque\n  incidunt dolorum sequi adipisci ratione consequuntur asperiores quis,\n  vitae tempora. lorem ipsum dolor sit amet consectetur adipisicing elit.\n  Quia iste molestiae modi odio sit cumque aspernatur quod perspiciatis odit\n  ducimus nam qui velit id, cupiditate ipsum saepe reprehenderit eligendi\n  tenetur!\n</p>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'storybook-two-col-page',\n  template: `\n    <h1>One Column</h1>\n    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod</p>\n    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>\n    <p>\n      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia iste\n      molestiae modi odio sit cumque aspernatur quod perspiciatis odit ducimus\n      nam qui velit id, cupiditate ipsum saepe reprehenderit eligendi tenetur!\n      Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem recusandae\n      voluptas voluptate culpa odio quae dolor. Esse doloremque temporibus atque\n      incidunt dolorum sequi adipisci ratione consequuntur asperiores quis,\n      vitae tempora. lorem ipsum dolor sit amet consectetur adipisicing elit.\n      Quia iste molestiae modi odio sit cumque aspernatur quod perspiciatis odit\n      ducimus nam qui velit id, cupiditate ipsum saepe reprehenderit eligendi\n      tenetur!\n    </p>\n  `,\n})\nexport default class OneColPageComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "OneColumnComponent",
+            "id": "component-OneColumnComponent-1eba6fdd97a4c42bbbfe38942641d4fb440a44ac5c96d63c4bb399114a04aa05c8d2400f5308ac45252940e356b8144f34df87313dbe47492760a6e0f7c56268",
+            "file": "projects/cu-ng-design-library/src/lib/pages/one-column/one-column.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-one-column",
+            "styleUrls": [
+                "./one-column.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./one-column.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-one-column',\n  templateUrl: './one-column.component.html',\n  styleUrls: ['./one-column.component.scss']\n})\nexport class OneColumnComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./one-column.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<lib-main>\n  <h1>One Column</h1>\n  <p>\n    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet dignissimos temporibus enim. Impedit, voluptatum\n    error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos asperiores nobis beatae voluptatibus commodi\n    natus?\n  </p>\n  <h2>Sub Content</h2>\n  <p>\n    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui consectetur voluptate quisquam architecto ducimus\n    earum magni beatae tenetur repellat. Veniam atque vel deleniti voluptatem possimus accusamus quaerat modi eius\n    vitae?\n    Consequatur maiores fuga officiis placeat voluptatem provident non a quam possimus nihil beatae deserunt rem\n    dolore nam, dolor deleniti nemo aspernatur in labore commodi sint, eius quo! Reiciendis, perferendis laborum.\n    Blanditiis, animi possimus quia iste doloremque repudiandae eos voluptatum quam libero in tempora ad, facilis\n    similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem! Sit nulla saepe ullam qui id?\n    Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet velit mollitia quisquam, consequuntur\n    voluptatum minus itaque pariatur voluptatibus autem similique blanditiis atque esse illo aliquid recusandae! Fugit\n    optio atque cum.\n    Officia quod placeat tempora, temporibus ad exercitationem similique dicta ipsa dolores sunt distinctio, sit\n    necessitatibus in. Perferendis harum porro quasi animi deleniti vel corrupti eligendi cumque debitis! Tenetur,\n    eveniet possimus.\n  </p>\n</lib-main>\n\n"
+        },
+        {
             "name": "PrimaryContentComponent",
             "id": "component-PrimaryContentComponent-9bf6802a3cf05845c6c461d019ce6148b46d5cd472108a16eae2bd5229e2bfd8e507aeeb504370a84daf24d67d8eb9a94133a22723588247baa1a65e2e9fbd75",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/primary-content/primary-content.component.ts",
@@ -782,7 +906,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<article id=\"main-article\" class=\"primary\">\n  <div class=\"row\">\n    <ng-content></ng-content>\n  </div>\n</article>\n"
+            "templateData": "<div role=\"article\" id=\"main-article\" class=\"primary\">\n  <div class=\"row\">\n    <ng-content></ng-content>\n  </div>\n</div>\n"
         },
         {
             "name": "SecondaryContentComponent",
@@ -1039,7 +1163,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<lib-skip-link></lib-skip-link>\n<lib-header>\n\n  <lib-header-buttons>\n    <lib-mobile-menu ></lib-mobile-menu>\n    <!-- Search Dropdown-->\n    <lib-utility-nav></lib-utility-nav>\n    <!-- todo add utility links to mobile-menu -->\n\n  </lib-header-buttons>\n</lib-header>\n\n<!-- If Not Mobile Menu -->\n\n<lib-main-menu >\n\n  <lib-main>\n    <h1>Design Patterns</h1>\n    <p>\n      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet dignissimos temporibus enim. Impedit, voluptatum\n      error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos asperiores nobis beatae voluptatibus commodi\n      natus?\n    </p>\n    <h2>Sub Content</h2>\n    <p>\n      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui consectetur voluptate quisquam architecto ducimus\n      earum magni beatae tenetur repellat. Veniam atque vel deleniti voluptatem possimus accusamus quaerat modi eius\n      vitae?\n      Consequatur maiores fuga officiis placeat voluptatem provident non a quam possimus nihil beatae deserunt rem\n      dolore nam, dolor deleniti nemo aspernatur in labore commodi sint, eius quo! Reiciendis, perferendis laborum.\n      Blanditiis, animi possimus quia iste doloremque repudiandae eos voluptatum quam libero in tempora ad, facilis\n      similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem! Sit nulla saepe ullam qui id?\n      Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet velit mollitia quisquam, consequuntur\n      voluptatum minus itaque pariatur voluptatibus autem similique blanditiis atque esse illo aliquid recusandae! Fugit\n      optio atque cum.\n      Officia quod placeat tempora, temporibus ad exercitationem similique dicta ipsa dolores sunt distinctio, sit\n      necessitatibus in. Perferendis harum porro quasi animi deleniti vel corrupti eligendi cumque debitis! Tenetur,\n      eveniet possimus.\n    </p>\n  </lib-main>\n\n</lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer></lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n"
+            "templateData": "<lib-main class=\"sidebar-tint\">\n\n  <div tabindex=\"-1\" fxLayout=\"row\" fxLayout.md=\"column\" fxLayout.sm=\"column\"\n    fxLayout.xs=\"column\" fxLayoutWrap fxLayoutAlign=\"center\">\n\n    <lib-primary-content fxFlex=\"65\">\n      <div>\n        <h1>Template</h1>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n        <h2>Sub Content</h2>\n        <p>\n          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui\n          consectetur voluptate quisquam architecto ducimus\n          earum magni beatae tenetur repellat. Veniam atque vel deleniti\n          voluptatem possimus accusamus quaerat modi eius\n          vitae?\n          Consequatur maiores fuga officiis placeat voluptatem provident non a\n          quam possimus nihil beatae deserunt rem\n          dolore nam, dolor deleniti nemo aspernatur in labore commodi sint,\n          eius quo! Reiciendis, perferendis laborum.\n          Blanditiis, animi possimus quia iste doloremque repudiandae eos\n          voluptatum quam libero in tempora ad, facilis\n          similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem!\n          Sit nulla saepe ullam qui id?\n          Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet\n          velit mollitia quisquam, consequuntur\n          voluptatum minus itaque pariatur voluptatibus autem similique\n          blanditiis atque esse illo aliquid recusandae!\n          Fugit\n          optio atque cum.\n          Officia quod placeat tempora, temporibus ad exercitationem similique\n          dicta ipsa dolores sunt distinctio, sit\n          necessitatibus in. Perferendis harum porro quasi animi deleniti vel\n          corrupti eligendi cumque debitis! Tenetur,\n          eveniet possimus.\n        </p>\n      </div>\n    </lib-primary-content>\n    <div fxFlex=\"10\">\n    </div>\n    <lib-secondary-content fxFlex=\"25\">\n      <h2>Secondary Content</h2>\n      <p>\n        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n        dignissimos temporibus enim. Impedit,\n        voluptatum\n        error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n        asperiores nobis beatae voluptatibus\n        commodi\n        natus?\n      </p>\n    </lib-secondary-content>\n  </div>\n</lib-main>\n"
         },
         {
             "name": "UtilityNavComponent",
@@ -1107,13 +1231,13 @@
     "modules": [
         {
             "name": "CuNgDesignLibraryModule",
-            "id": "module-CuNgDesignLibraryModule-a899d9dfbfdeb1f61072a64b59e55c595abfeaa3c9cc889ea6687dc0778660acfb939de5d0eb5d15483d28668f718ec0d8db3104be3609b6c0ca5d51bc0e98c5",
+            "id": "module-CuNgDesignLibraryModule-df748d17f04725613814f969dae54e5528a553e0d5c5c03ac970c6f5ed1c1002b3b4a64f74a1b62f6b4b227960153d0953754a3365a3a493b55ef1eb24bc5605",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule, Routes } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\n// import { OneColumnComponent } from './pages/one-column/one-column.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [CuNgDesignLibraryComponent],\n})\nexport class CuNgDesignLibraryModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule, Routes } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [CuNgDesignLibraryComponent],\n})\nexport class CuNgDesignLibraryModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -1148,6 +1272,9 @@
                         },
                         {
                             "name": "MobileMenuComponent"
+                        },
+                        {
+                            "name": "OneColumnComponent"
                         },
                         {
                             "name": "PrimaryContentComponent"
@@ -1341,13 +1468,13 @@
         },
         {
             "name": "MainMenuModule",
-            "id": "module-MainMenuModule-409a45ac66f9fafa128977b304d85716d3d79665f4210e2c69dfeccd647d3a3a9eda8df6371b096990d92dfd88d081ca1b5a513565648ef126cabe28e1042d2c",
+            "id": "module-MainMenuModule-c0ac9dab97f044359760b844e0226eb9b5f70b79c138e4ece03b608a49ca192e1ab37815e703f07a35299d38518751847ed7892a822f50b1cd42925263a00e5c",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/components/layout/main-menu/main-menu.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport {RouterModule} from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport {APP_BASE_HREF} from '@angular/common';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    RouterModule,\n    BrowserModule,\n  ],\n  exports : [\n    RouterModule,\n    BrowserModule,\n  ],\n  providers: [{provide: APP_BASE_HREF, useValue : '/' }]\n})\nexport class MainMenuModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { APP_BASE_HREF } from '@angular/common';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule, RouterModule, BrowserModule],\n  exports: [RouterModule, BrowserModule],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MainMenuModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -1485,13 +1612,49 @@
         },
         {
             "name": "MobileMenuModule",
-            "id": "module-MobileMenuModule-256d1719521f9486f96d0c4df343b5059cf00262a511505fd70f835c68444e7635ec98f59415368756bcf2e0914700c18a3cfc5260f3648f2943f79cae985b14",
+            "id": "module-MobileMenuModule-b04c374ab28b402f089dbef97c3ce382eca6870a102a79103c09b5e383458e85f9bbb62abafcd3375b6e778466a54dfcd602ae1c858a61a6af0f2196db9c5a4c",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-menu/mobile-menu.module.ts",
             "methods": [],
-            "sourceCode": "import { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { MatIconModule } from '@angular/material/icon';\nimport { MobileDialogComponent } from '../mobile-dialog/mobile-dialog.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\nimport { RouterModule } from '@angular/router';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n  ],\n  exports: [\n    MatIconModule,\n    // MatDialogModule,\n    // BrowserAnimationsModule,\n    // MatButtonModule,\n    // RouterModule,\n    // BrowserModule,\n  ],\n  entryComponents: [],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileMenuModule {}\n",
+            "sourceCode": "import { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { MatIconModule } from '@angular/material/icon';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\nimport { RouterModule } from '@angular/router';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { MatListModule } from '@angular/material/list';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n  ],\n  exports: [\n    MatIconModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n    FlexLayoutModule,\n    MatListModule,\n  ],\n  entryComponents: [],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileMenuModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "OneColumnModule",
+            "id": "module-OneColumnModule-bd2b0ebd7ffc15376040066d4c27f59356d05b17e4caeb9fa5d5a8a9caa8955caf756f1d6a8d6bb214152695f428b56b4471e20081725f38d3baf5aed0ebe714",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/cu-ng-design-library/src/lib/pages/one-column/one-column.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule\n  ]\n})\nexport class OneColumnModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -1665,13 +1828,13 @@
         },
         {
             "name": "TwoColumnModule",
-            "id": "module-TwoColumnModule-861e8dec360a1abd490200d40326f5a633fd2a8988ea250d71f5f10f3af3889b8aeb42345b0a71d2c8b21e05f176173d6827907d7a48e79d666c1a3862be1bf4",
+            "id": "module-TwoColumnModule-748d5b20109b323d7e77abacd4c382a163b10b0624c24e2bb68bf5bf7f72bd858b70a51679b699f90e24439211418092406219790f18aabbcb30217783e96687",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/pages/two-column/two-column.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { SkipLinkComponent } from '../../components/layout/skip-link/skip-link.component';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n})\nexport class TwoColumnModule {}\n",
+            "sourceCode": "import { MainModule } from './../../components/layout/main/main.module';\nimport { SecondaryContentComponent } from './../../components/layout/secondary-content/secondary-content.component';\nimport { PrimaryContentComponent } from './../../components/layout/primary-content/primary-content.component';\nimport { MainComponent } from './../../components/layout/main/main.component';\nimport { MatIcon } from '@angular/material/icon';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FlexLayoutModule } from '@angular/flex-layout';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n  exports: [FlexLayoutModule],\n})\nexport class TwoColumnModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -1842,6 +2005,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/one-column.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/skip-link.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1862,7 +2035,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/two-column-page.stories.ts",
+                "file": "stories/two-column.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1873,6 +2046,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/utility-nav.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Example",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/example-page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1906,6 +2089,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "RouterModule.forRoot(routes)"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/example-page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<GenericComponent>",
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header>\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer></lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
             },
             {
                 "name": "Template",
@@ -1971,6 +2164,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/one-column.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<OneColumnComponent>",
+                "defaultValue": "(args: OneColumnComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/skip-link.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1991,7 +2194,7 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/two-column-page.stories.ts",
+                "file": "stories/two-column.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<TwoColumnComponent>",
@@ -2197,6 +2400,28 @@
                     "defaultValue": "(args: MobileMenuComponent) => ({\n  props: args,\n  template: `\n  <lib-mobile-menu [routes]=\"routes\">\n  </lib-mobile-menu>\n  <router-outlet></router-outlet>\n  `,\n})"
                 }
             ],
+            "stories/one-column.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/one-column.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/one-column.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<OneColumnComponent>",
+                    "defaultValue": "(args: OneColumnComponent) => ({\n  props: args,\n})"
+                }
+            ],
             "stories/skip-link.stories.ts": [
                 {
                     "name": "Default",
@@ -2241,12 +2466,12 @@
                     "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
                 }
             ],
-            "stories/two-column-page.stories.ts": [
+            "stories/two-column.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/two-column-page.stories.ts",
+                    "file": "stories/two-column.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -2256,7 +2481,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/two-column-page.stories.ts",
+                    "file": "stories/two-column.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<TwoColumnComponent>",
@@ -2283,6 +2508,28 @@
                     "deprecationMessage": "",
                     "type": "Story<UtilityNavComponent>",
                     "defaultValue": "(args: UtilityNavComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "stories/example-page.stories.ts": [
+                {
+                    "name": "Example",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/example-page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/example-page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<GenericComponent>",
+                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header>\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer></lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
                 }
             ],
             "projects/cu-ng-design-library/src/lib/shared/modules/material/material.module.ts": [
@@ -2494,6 +2741,15 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/cu-ng-design-library/src/lib/pages/one-column/one-column.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "OneColumnComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/cu-ng-design-library/src/lib/pages/two-column/two-column.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -2543,6 +2799,26 @@
                 "status": "low"
             },
             {
+                "filePath": "stories/example-page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Example",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/example-page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "stories/footer.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2558,6 +2834,15 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/generic.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GenericComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2663,6 +2948,35 @@
                 "status": "low"
             },
             {
+                "filePath": "stories/one-col-page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "OneColPageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/one-column.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/one-column.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "stories/skip-link.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2703,7 +3017,7 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/two-column-page.stories.ts",
+                "filePath": "stories/two-column.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2713,7 +3027,7 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/two-column-page.stories.ts",
+                "filePath": "stories/two-column.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
