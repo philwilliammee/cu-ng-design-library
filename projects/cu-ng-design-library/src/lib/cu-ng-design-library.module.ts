@@ -20,7 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';
 import { TwoColumnComponent } from './pages/two-column/two-column.component';
-// import { OneColumnComponent } from './pages/one-column/one-column.component';
+import { OneColumnComponent } from './pages/one-column/one-column.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +39,7 @@ import { TwoColumnComponent } from './pages/two-column/two-column.component';
     MobileDialogComponent,
     MobileMenuComponent,
     TwoColumnComponent,
+    OneColumnComponent,
   ],
   imports: [
     MaterialModule,

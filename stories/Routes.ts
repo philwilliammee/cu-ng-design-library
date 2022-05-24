@@ -3,19 +3,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from 'cu-ng-design-library';
 import { SubFooterComponent } from 'cu-ng-design-library';
 import TwoColPageComponent from './two-col-page.component';
+import { TwoColumnComponent, OneColumnComponent } from 'cu-ng-design-library';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'two-col-page', pathMatch: 'full' },
   {
     path: 'two-col-page',
-    component: TwoColPageComponent,
+    component: TwoColumnComponent,
     data: { menu: 'main' },
   },
   {
     path: 'one-col-page',
-    component: OneColPageComponent,
+    component: OneColumnComponent,
     data: { menu: 'main' },
   },
+
   {
     path: 'utility',
     component: OneColPageComponent,

@@ -85,9 +85,7 @@ const Template: Story<GenericComponent> = (args: GenericComponent) => ({
 
 <lib-main-menu [routes]="routes"></lib-main-menu>
 
-<lib-main>
-  <router-outlet></router-outlet>
-</lib-main>
+<router-outlet></router-outlet>
 
 <lib-footer>
   <lib-main-footer></lib-main-footer>
@@ -96,8 +94,8 @@ const Template: Story<GenericComponent> = (args: GenericComponent) => ({
 `,
 });
 
-export const Default = Template.bind({});
+export const Example = Template.bind({});
 
-Default.args = {
+Example.args = {
   routes: routes,
 } as Partial<GenericComponent>;

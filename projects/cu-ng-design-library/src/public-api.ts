@@ -58,6 +58,10 @@ export * from './lib/components/layout/mobile-menu/mobile-menu.module';
 export * from './lib/pages/two-column/two-column.component';
 export * from './lib/pages/two-column/two-column.module';
 
+// one-column
+export * from './lib/pages/one-column/one-column.component';
+export * from './lib/pages/one-column/one-column.module';
+
 // BREAK_POINTS
 export * from './lib/cu-ng-design-library.breakpoints';
 
