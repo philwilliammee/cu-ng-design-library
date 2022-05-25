@@ -2,15 +2,168 @@ import { Meta } from '@storybook/addon-docs';
 
 <Meta title="CU-NG-Design-Library/Installation" />
 
-# Installation
-
-### Step 1: Install the CU NG Design Library
+# Library Installation
 
 To install, open a terminal at the root of your project workspace and run the following command:
 
 ```bash
 npm install cu-ng-design-library
 ```
+
+# New Project Installation
+
+This assumuse you already have angular cli installed globally if not get it `npm install -g @angular/cli`
+
+1. Create a new project
+
+```bash
+ng new client --style=scss --routing=true
+cd client
+npm install cu-ng-design-library
+# optional copy theme files
+cp ./node_modules/cu-ng-design-library/lib/index.scss ./src/styles.scss
+cp -r ./node_modules/cu-ng-design-library/lib/theme/ ./src/
+```
+
+2. Import the library in your app.
+
+```typescript
+// client/src/app/app.module.ts
+import { CuNgDesignLibraryModule } from 'cu-ng-design-library'; // <-- 👀 import the library
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CuNgDesignLibraryModule // <-- 👀 add the library to the imports
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+3. Update routes file to your app with example routes.
+
+```typescript
+// client/src/app/app-routing.module.ts
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { TwoColumnComponent, OneColumnComponent } from 'cu-ng-design-library'; // <-- 👀 import the example components
+
+export const routes: Routes = [
+  { path: '', redirectTo: 'two-col-page', pathMatch: 'full' },
+  {
+    path: 'two-col-page',
+    component: TwoColumnComponent,
+    data: { menu: 'main' },
+  },
+  {
+    path: 'one-col-page',
+    component: OneColumnComponent,
+    data: { menu: 'main' },
+  },
+
+  {
+    path: 'utility',
+    component: OneColumnComponent,
+    data: { menu: 'utility' },
+  },
+  { path: '**', redirectTo: 'two-col-page', pathMatch: 'full' },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
+```
+
+4. Export the routes in your app.
+
+```typescript
+// client/src/app/app.component.ts
+
+import { Component } from '@angular/core';
+import { routes } from './app-routing.module';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'client';
+  routes = routes // <-- 👀 export the routes
+}
+```
+
+5. Update your app component html to include the library.
+
+```html
+<!-- client/src/app/app.component.html  -->
+<lib-skip-link></lib-skip-link>
+<lib-header>
+  <lib-header-buttons>
+    <lib-utility-nav></lib-utility-nav>
+    <lib-mobile-menu [routes]="routes"></lib-mobile-menu>
+  </lib-header-buttons>
+</lib-header>
+
+<lib-main-menu [routes]="routes"></lib-main-menu>
+
+<router-outlet></router-outlet>
+
+<lib-footer>
+  <lib-main-footer></lib-main-footer>
+  <lib-sub-footer [isMobileLayout]="false"></lib-sub-footer>
+</lib-footer>
+```
+
+6. If you copied the theme files in step 1. update index.html
+
+```html
+<!-- client/src/index.html  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Client</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="mat-typography">
+    <app-root></app-root>
+  </body>
+</html>
+```
+
+7. run the app.
+
+```bash
+ng serve
+```
+
+see a working example [StackBlitz Demo](https://stackblitz.com/edit/angular-ivy-j8ckge?devToolsHeight=33&file=src/app/app.component.ts)
 
 ## Resources
 
