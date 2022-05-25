@@ -150,7 +150,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "footer {\n  line-height: 1.6;\n  background: #333;\n  color: #bbb;\n  font-size: 13px;\n  padding: 0;\n  position: relative;\n  // text-align: center;\n  z-index: 2;\n  float: left;\n  width: 100%;\n  display: block;\n}\n",
+                    "data": "@import \"../../../index.scss\";\nfooter {\n  line-height: 1.6;\n  background: #333;\n  color: #bbb;\n  font-size: 13px;\n  padding: 0;\n  position: relative;\n  // text-align: center;\n  z-index: 2;\n  float: left;\n  width: 100%;\n  display: block;\n}\n",
                     "styleUrl": "./footer.component.scss"
                 }
             ],
@@ -243,7 +243,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "// ul {\n// \tmargin-top: 0;\n// \tmargin-bottom: 1.5em;\n// \t&:last-child {\n// \t\tmargin-bottom: 0;\n// \t}\n// }\n// li {\n// \tmargin-bottom: 0.5em;\n// \t&:last-child {\n// \t\tmargin-bottom: 0;\n// \t}\n// }\n// .list-menu {\n// \tpadding: 0;\n// \tmargin: 0 0 1.5em;\n// \tlist-style: none;\n// \tfloat: left;\n// \twidth: 100%;\n// \tclear: both;\n// \t&:last-child {\n// \t\tmargin-bottom: 0;\n// \t}\n// \tli {\n// \t\tfloat: left;\n// \t\tdisplay: block;\n// \t\tbackground: none !important;\n// \t\tpadding: 0 0.6em 0 0;\n// \t\tmargin: 0 0.6em 0.6em 0;\n// \t\tborder-width: 0 1px 0 0;\n// \t\t&:last-child {\n// \t\t\tborder-right-width: 0;\n// \t\t}\n// \t}\n// }\n\n// .list-menu.links {\n// \tli {\n// \t\tpadding: 0;\n// \t\tmargin: 0 2px 2px 0;\n// \t}\n// \ta {\n// \t\tdisplay: block;\n// \t\tbackground: #f5f5f5;\n// \t\tbackground: rgba(0, 0, 0, 0.04);\n// \t\tpadding: 0.4em 0.7em;\n// \t\t&:hover {\n// \t\t\tbackground: rgba(0, 0, 0, 0.07);\n// \t\t\tcolor: #000;\n// \t\t}\n// \t\t&:focus {\n// \t\t\tbackground: rgba(0, 0, 0, 0.07);\n// \t\t\tcolor: #000;\n// \t\t}\n// \t\t&:active {\n// \t\t\tbackground: rgba(0, 0, 0, 0.12);\n// \t\t}\n// \t}\n// }\n// #utility-navigation {\n// \tfloat: left;\n// \tmargin-right: 2px;\n// \tdisplay: none;\n// \tli {\n// \t\tmargin: 0 1px 0 0;\n// \t\tfont-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n// \t\tfont-size: 13px;\n// \t\tfont-weight: 400;\n// \t}\n// \ta {\n// \t\theight: 34px;\n// \t\tline-height: 34px;\n// \t\tpadding: 0 18px;\n// \t\tmargin-top: 1px;\n// \t\ttext-decoration: none;\n// \t\tcolor: #333;\n// \t}\n// }\n\n// \t#utility-navigation {\n// \t\ta {\n// \t\t\tcolor: #ddd;\n// \t\t\tbackground: rgba(255, 255, 255, 0.1);\n// \t\t\t&:hover {\n// \t\t\t\tbackground: rgba(255, 255, 255, 0.2);\n// \t\t\t}\n// \t\t\t&:focus {\n// \t\t\t\tbackground: rgba(255, 255, 255, 0.2);\n// \t\t\t}\n// \t\t\t&:active {\n// \t\t\t\tbackground: rgba(0, 0, 0, 0.8);\n// \t\t\t}\n// \t\t}\n// \t}\n\n.buttons {\n  position: absolute;\n  top: 0;\n  right: 15px;\n}\n\n@media (max-width: 991px) {\n  #mobile-nav {\n    display: block;\n  }\n}\n\n@media (min-width: 992px) {\n  #utility-navigation {\n    display: block;\n  }\n\n  #mobile-nav {\n    display: none;\n  }\n\n  .buttons {\n    right: 60px;\n  }\n}\n\n@media (min-width: 768px) {\n\n  .container-fluid {\n    .buttons {\n      right: 30px;\n    }\n  }\n}\n",
+                    "data": "@import \"../../../index.scss\";\n\n.buttons {\n  position: absolute;\n  top: 0;\n  right: 15px;\n}\n\n@media (max-width: 991px) {\n  #mobile-nav {\n    display: block;\n  }\n}\n\n@media (min-width: 992px) {\n  #utility-navigation {\n    display: block;\n  }\n\n  #mobile-nav {\n    display: none;\n  }\n\n  .buttons {\n    right: 60px;\n  }\n}\n\n@media (min-width: 768px) {\n\n  .container-fluid {\n    .buttons {\n      right: 30px;\n    }\n  }\n}\n",
                     "styleUrl": "./header-buttons.component.scss"
                 }
             ],
@@ -319,7 +319,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "// # @todo set image urls to s3 public bucket\nimg {\n  border-style: none;\n  height: auto;\n  max-width: 100%;\n}\n\nh2 {\n  margin-top: 0;\n  line-height: 1.2;\n  margin-bottom: .7em;\n}\n\n.sans {\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n  font-weight: 400;\n}\n\n#cu-header {\n  float: left;\n  width: 100%;\n\n  .cu-brand {\n    align-items: center;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n    font-weight: 500;\n    padding-bottom: 5px;\n    padding-top: 5px;\n    position: relative;\n\n    h1 {\n      margin: 0;\n      width: 100%;\n    }\n\n    h2 {\n      margin: 6px 0 0 -.05em;\n    }\n\n    h3 {\n      margin: .3em 0 0;\n    }\n\n    .cu-unit {\n      margin: 16px auto 11px;\n      text-align: center;\n    }\n  }\n}\n\nheader {\n  float: left;\n  width: 100%;\n}\n\n.cu-seal {\n  #cu-header {\n    background: #ededed;\n    z-index: 3;\n\n    .cu-brand {\n      h1 {\n        margin: 2px 0 8px;\n\n        a {\n          margin: 0 auto;\n        }\n      }\n\n      .cu-unit {\n        margin: 0 auto 4px;\n        display: block;\n      }\n\n      padding-bottom: 15px;\n      padding-top: 15px;\n    }\n  }\n\n  .cu-logo {\n    a {\n      background: url(../../../assets/images/bold_cornell_seal_simple_b31b1b.svg) 0 0 no-repeat;\n      height: 80px;\n      min-width: 80px;\n      width: 80px;\n    }\n  }\n}\n\n.cu-seal.no-main-nav {\n  #cu-header {\n    background: #f7f7f7;\n    background: linear-gradient(135deg, #f2f2f2, #f7f7f7);\n    border-bottom: 2px solid #ebebeb;\n  }\n}\n\n.cu-logo {\n  a {\n    background: url(../../../assets/images/cornell-reduced-red.svg?e403ad1d95538868385fd006c228dd73) 0 0 no-repeat;\n    background-size: 100%;\n    display: block;\n    height: 38px;\n    min-width: 168px;\n    width: 168px;\n  }\n}\n\n.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(../../../assets/images/cornell-reduced-white.svg?0db6897b466c532187553a4bb2e1bccb);\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-weight: 400;\n      }\n    }\n  }\n}\n\n.cu-seal.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(../../../assets/images/bold_cornell_seal_simple_white.svg?01f1fa8ec92a5f6779eab550d6c5b5ee);\n    }\n  }\n\n  #cu-header {\n    background: #222;\n    border-bottom: 0;\n    color: #fff;\n\n    .cu-brand {\n      h3 {\n        color: #bebebe;\n      }\n    }\n  }\n}\n\n// .cu-seal.cu-gray.no-main-nav {\n//   #cu-header {\n//     background: linear-gradient(135deg, #222, #474747);\n//   }\n// }\n.cu-seal.cu-gray {\n  #cu-header {\n    background: linear-gradient(135deg, #222, #474747);\n  }\n}\n\n@media (min-width:868px) {\n  .cu-seal {\n    #cu-header {\n      .cu-brand {\n        flex-wrap: nowrap;\n\n        h1 {\n          margin: 0;\n          width: auto;\n        }\n\n        .cu-unit {\n          margin: 0 70px 0 auto;\n        }\n      }\n    }\n\n    .cu-logo {\n      a {\n        height: 100px;\n        margin: 0 50px 0 0 !important;\n        min-width: 100px;\n        width: 100px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      .cu-unit {\n        margin: 20px auto 16px 1px;\n        text-align: left;\n      }\n    }\n  }\n}\n\n@media (min-width:480px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 30px;\n      }\n\n      h3 {\n        font-size: 15px;\n      }\n    }\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 90px;\n        min-width: 90px;\n        width: 90px;\n      }\n    }\n  }\n}\n\n@media (min-width:992px) {\n  .container-fluid {\n    max-width: 1400px;\n    padding-left: 60px;\n    padding-right: 60px;\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 120px;\n        margin: 0 60px 0 0 !important;\n        min-width: 120px;\n        width: 120px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 32px;\n      }\n\n      h3 {\n        font-size: 16px;\n      }\n    }\n  }\n}\n\n@media (min-width:1200px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 36px;\n      }\n\n      h3 {\n        font-size: 18px;\n      }\n    }\n  }\n}\n",
+                    "data": "@import \"../../../index.scss\";\n// # @todo set image urls to s3 public bucket\nimg {\n  border-style: none;\n  height: auto;\n  max-width: 100%;\n}\n\nh2 {\n  margin-top: 0;\n  line-height: 1.2;\n  margin-bottom: .7em;\n}\n\n.sans {\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n  font-weight: 400;\n}\n\n#cu-header {\n  float: left;\n  width: 100%;\n\n  .cu-brand {\n    align-items: center;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n    font-weight: 500;\n    padding-bottom: 5px;\n    padding-top: 5px;\n    position: relative;\n\n    h1 {\n      margin: 0;\n      width: 100%;\n    }\n\n    h2 {\n      margin: 6px 0 0 -.05em;\n    }\n\n    h3 {\n      margin: .3em 0 0;\n    }\n\n    .cu-unit {\n      margin: 16px auto 11px;\n      text-align: center;\n    }\n  }\n}\n\nheader {\n  float: left;\n  width: 100%;\n}\n\n.cu-seal {\n  #cu-header {\n    background: #ededed;\n    z-index: 3;\n\n    .cu-brand {\n      h1 {\n        margin: 2px 0 8px;\n\n        a {\n          margin: 0 auto;\n        }\n      }\n\n      .cu-unit {\n        margin: 0 auto 4px;\n        display: block;\n      }\n\n      padding-bottom: 15px;\n      padding-top: 15px;\n    }\n  }\n\n  .cu-logo {\n    a {\n      background: url(../../../assets/images/bold_cornell_seal_simple_b31b1b.svg) 0 0 no-repeat;\n      height: 80px;\n      min-width: 80px;\n      width: 80px;\n    }\n  }\n}\n\n.cu-seal.no-main-nav {\n  #cu-header {\n    background: #f7f7f7;\n    background: linear-gradient(135deg, #f2f2f2, #f7f7f7);\n    border-bottom: 2px solid #ebebeb;\n  }\n}\n\n.cu-logo {\n  a {\n    background: url(../../../assets/images/cornell-reduced-red.svg?e403ad1d95538868385fd006c228dd73) 0 0 no-repeat;\n    background-size: 100%;\n    display: block;\n    height: 38px;\n    min-width: 168px;\n    width: 168px;\n  }\n}\n\n.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(../../../assets/images/cornell-reduced-white.svg?0db6897b466c532187553a4bb2e1bccb);\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-weight: 400;\n      }\n    }\n  }\n}\n\n.cu-seal.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(../../../assets/images/bold_cornell_seal_simple_white.svg?01f1fa8ec92a5f6779eab550d6c5b5ee);\n    }\n  }\n\n  #cu-header {\n    background: #222;\n    border-bottom: 0;\n    color: #fff;\n\n    .cu-brand {\n      h3 {\n        color: #bebebe;\n      }\n    }\n  }\n}\n\n// .cu-seal.cu-gray.no-main-nav {\n//   #cu-header {\n//     background: linear-gradient(135deg, #222, #474747);\n//   }\n// }\n.cu-seal.cu-gray {\n  #cu-header {\n    background: linear-gradient(135deg, #222, #474747);\n  }\n}\n\n@media (min-width:868px) {\n  .cu-seal {\n    #cu-header {\n      .cu-brand {\n        flex-wrap: nowrap;\n\n        h1 {\n          margin: 0;\n          width: auto;\n        }\n\n        .cu-unit {\n          margin: 0 70px 0 auto;\n        }\n      }\n    }\n\n    .cu-logo {\n      a {\n        height: 100px;\n        margin: 0 50px 0 0 !important;\n        min-width: 100px;\n        width: 100px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      .cu-unit {\n        margin: 20px auto 16px 1px;\n        text-align: left;\n      }\n    }\n  }\n}\n\n@media (min-width:480px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 30px;\n      }\n\n      h3 {\n        font-size: 15px;\n      }\n    }\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 90px;\n        min-width: 90px;\n        width: 90px;\n      }\n    }\n  }\n}\n\n@media (min-width:992px) {\n  .container-fluid {\n    max-width: 1400px;\n    padding-left: 60px;\n    padding-right: 60px;\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 120px;\n        margin: 0 60px 0 0 !important;\n        min-width: 120px;\n        width: 120px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 32px;\n      }\n\n      h3 {\n        font-size: 16px;\n      }\n    }\n  }\n}\n\n@media (min-width:1200px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 36px;\n      }\n\n      h3 {\n        font-size: 18px;\n      }\n    }\n  }\n}\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -381,7 +381,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "$footer-height: 527px;\n\narticle {\n  display: block;\n}\n\n.band {\n  line-height: 1.6;\n  width: 100%;\n}\n\n#main-content {\n  background: #fff;\n  overflow-x: hidden;\n  overflow-y: visible;\n}\n\n@media (min-width:868px) {\n  #main {\n    padding-top: 3.5em;\n    min-height: calc(100vh - $footer-height);\n  }\n}\n",
+                    "data": "@import \"../../../index.scss\";\n\n$footer-height: 527px;\n\narticle {\n  display: block;\n}\n\n.band {\n  line-height: 1.6;\n  width: 100%;\n}\n\n#main-content {\n  background: #fff;\n  overflow-x: hidden;\n  overflow-y: visible;\n}\n\n@media (min-width:868px) {\n  #main {\n    padding-top: 3.5em;\n    min-height: calc(100vh - $footer-height);\n  }\n}\n",
                     "styleUrl": "./main.component.scss"
                 }
             ],
@@ -443,7 +443,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "p {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n  color: #bbb;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\n.h3 {\n  margin-top: 0;\n  font-family: Georgia, serif;\n  font-weight: normal;\n  margin-bottom: 0.7em;\n  line-height: 1.2;\n  font-size: 22px;\n  font-family: \"freight-sans-pro\", sans-serif;\n}\n\n.h5 {\n  margin-top: 0;\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n  font-weight: normal;\n  font-weight: normal;\n  margin-bottom: 1em;\n  line-height: 1.4;\n  font-size: 16px;\n  font-weight: 600;\n  color: #444;\n  font-family: \"freight-sans-pro\", sans-serif;\n}\n\n.h6 {\n  margin-top: 0;\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n  font-weight: normal;\n  font-weight: normal;\n  margin-bottom: 1em;\n  line-height: 1.4;\n  font-size: 16px;\n  color: #707070;\n  font-family: \"freight-sans-pro\", sans-serif;\n}\n\n\n.link-block {\n  background: rgba(0, 0, 0, 0.07);\n  padding: 0.5em 0.8em 0.4em 0.7em;\n  display: inline-block;\n  line-height: 1;\n}\n\n.footer-links {\n  li {\n    line-height: 1.4;\n  }\n}\n\na {\n  text-decoration: none;\n  transition: color 0.2s, -moz-text-decoration-color 0.2s, -webkit-text-decoration-color 0.2s, text-decoration-color 0.2s;\n  color: #fff;\n  text-decoration-color: rgba(255, 255, 255, 0.4);\n\n  &:hover {\n    text-decoration: underline;\n    color: #fff;\n    text-decoration-color: white;\n    transition: none;\n  }\n\n  &:focus {\n    text-decoration: underline;\n    color: #fff;\n    text-decoration-color: white;\n    transition: none;\n  }\n\n  &:active {\n    color: #9b9b9b;\n    text-decoration-color: rgba(255, 255, 255, 0.4);\n  }\n}\n\na.link-block {\n  background: rgba(109, 195, 255, 0.15);\n  text-decoration: none;\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n  font-size: 24px;\n  padding: 0.5em 0.8em;\n  margin-top: 8px;\n  font-family: \"freight-sans-pro\", sans-serif;\n  padding: 0.55em 1em 0.6em;\n\n  &:hover {\n    background: rgba(55, 160, 233, 0.4);\n  }\n\n  &:focus {\n    background: rgba(55, 160, 233, 0.4);\n  }\n\n  &:active {\n    background: rgba(55, 160, 233, 0.6);\n    color: #fff;\n  }\n}\n\n\n\n.list-menu.vertical {}\n\n.main-footer {\n  padding: 45px 0;\n  // line-height: 1.6;\n  font-size: 13px;\n}\n\n.h3 {\n  color: #eee;\n}\n\n.h5 {\n  color: #eee;\n  font-size: 14px;\n  margin-top: 0.3em;\n  font-size: 20px;\n  font-weight: 400;\n}\n\n.h6 {\n  color: #eee;\n  font-size: 14px;\n  text-transform: uppercase;\n  margin-top: 0.5em;\n  font-size: 16px;\n  font-weight: 600;\n}\n\nul {\n  li {\n    font-size: 13px;\n    font-size: 15px;\n    font-size: 15px;\n  }\n}\n\n\n.footer-links {\n  margin-bottom: 0;\n\n  >* {\n    float: left;\n    width: 100%;\n    margin: 2em 0 2em;\n  }\n}\n\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.vertical {\n  li {\n    float: none;\n    padding: 0.2em 0;\n    margin: 0;\n    border-width: 0 0 1px 0;\n\n    &:first-child {\n      border-top: 1px solid #4c4c4c;\n    }\n  }\n}\n\n.two-col,\n.three-col {\n  overflow: hidden;\n  clear: both;\n  margin-bottom: 1.5em;\n\n  >* {\n    width: 100%;\n    margin-bottom: 1.5em;\n  }\n}\n\n@media (min-width: 768px) {\n\n\n\n  .sidebar-left {\n    .row {\n      >.primary {\n        width: 64%;\n        float: right;\n      }\n\n      >.secondary {\n        width: 35%;\n        float: left;\n      }\n    }\n  }\n\n  .sidebar-right {\n    .sidebar-left {\n      .row {\n        >.primary {\n          width: 64%;\n          float: right;\n        }\n\n        >.secondary {\n          width: 35%;\n          float: left;\n        }\n      }\n    }\n  }\n\n  .sidebar-tint {\n    .row {\n      position: relative;\n      z-index: 2;\n    }\n  }\n\n  .two-col {\n    >* {\n      &:nth-child(2n+1) {\n        clear: left;\n      }\n\n      float: left;\n      width: 50%;\n    }\n  }\n\n  .three-col {\n    >* {\n      &:nth-child(3n+1) {\n        clear: left;\n      }\n\n      float: left;\n      width: 33.33%;\n    }\n  }\n\n  .two-col.padded,\n  .three-col.padded {\n    margin-left: -15px;\n    margin-right: -15px;\n\n    >* {\n      padding: 0 15px 15px;\n    }\n  }\n\n  .primary {\n    width: 61% !important;\n    margin: 0 !important;\n  }\n\n  .secondary {\n    width: 39% !important;\n    margin: 0 !important;\n  }\n\n  .main-footer {\n    .primary {\n      padding-left: 4%;\n    }\n\n    .container-fluid {\n      position: relative;\n\n      &:after {\n        content: '';\n        display: block;\n        border-right: 1px solid #5e5e5e;\n        position: absolute;\n        left: 39%;\n        top: 0;\n        bottom: 0;\n      }\n    }\n  }\n\n  a.link-block {\n    font-size: 14px;\n    font-size: 15px;\n    padding: 0.6em 1em;\n  }\n}\n\n\n\n\n@media (min-width: 992px) {\n  .primary {\n    width: 68% !important;\n  }\n\n  .secondary {\n    width: 32% !important;\n  }\n\n  .main-footer {\n    .container-fluid {\n      &:after {\n        left: 34%;\n        left: calc(32% + 15px);\n      }\n    }\n  }\n\n  .two-col,\n  .three-col {\n    margin: 0;\n    padding-bottom: 0 !important;\n\n    >* {\n      margin: 0;\n      padding-bottom: 0 !important;\n    }\n  }\n}\n\n\n@media (min-width: 1200px) {\n  .main-footer {\n    .primary {\n      padding-left: 5%;\n    }\n  }\n}\n",
+                    "data": "@import \"../../../index.scss\";\np {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n  color: #bbb;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\n.h3 {\n  margin-top: 0;\n  font-family: Georgia, serif;\n  font-weight: normal;\n  margin-bottom: 0.7em;\n  line-height: 1.2;\n  font-size: 22px;\n  font-family: \"freight-sans-pro\", sans-serif;\n}\n\n.h5 {\n  margin-top: 0;\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n  font-weight: normal;\n  font-weight: normal;\n  margin-bottom: 1em;\n  line-height: 1.4;\n  font-size: 16px;\n  font-weight: 600;\n  color: #444;\n  font-family: \"freight-sans-pro\", sans-serif;\n}\n\n.h6 {\n  margin-top: 0;\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n  font-weight: normal;\n  font-weight: normal;\n  margin-bottom: 1em;\n  line-height: 1.4;\n  font-size: 16px;\n  color: #707070;\n  font-family: \"freight-sans-pro\", sans-serif;\n}\n\n\n.link-block {\n  background: rgba(0, 0, 0, 0.07);\n  padding: 0.5em 0.8em 0.4em 0.7em;\n  display: inline-block;\n  line-height: 1;\n}\n\n.footer-links {\n  li {\n    line-height: 1.4;\n  }\n}\n\na {\n  text-decoration: none;\n  transition: color 0.2s, -moz-text-decoration-color 0.2s, -webkit-text-decoration-color 0.2s, text-decoration-color 0.2s;\n  color: #fff;\n  text-decoration-color: rgba(255, 255, 255, 0.4);\n\n  &:hover {\n    text-decoration: underline;\n    color: #fff;\n    text-decoration-color: white;\n    transition: none;\n  }\n\n  &:focus {\n    text-decoration: underline;\n    color: #fff;\n    text-decoration-color: white;\n    transition: none;\n  }\n\n  &:active {\n    color: #9b9b9b;\n    text-decoration-color: rgba(255, 255, 255, 0.4);\n  }\n}\n\na.link-block {\n  background: rgba(109, 195, 255, 0.15);\n  text-decoration: none;\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n  font-size: 24px;\n  padding: 0.5em 0.8em;\n  margin-top: 8px;\n  font-family: \"freight-sans-pro\", sans-serif;\n  padding: 0.55em 1em 0.6em;\n\n  &:hover {\n    background: rgba(55, 160, 233, 0.4);\n  }\n\n  &:focus {\n    background: rgba(55, 160, 233, 0.4);\n  }\n\n  &:active {\n    background: rgba(55, 160, 233, 0.6);\n    color: #fff;\n  }\n}\n\n\n\n.list-menu.vertical {}\n\n.main-footer {\n  padding: 45px 0;\n  // line-height: 1.6;\n  font-size: 13px;\n}\n\n.h3 {\n  color: #eee;\n}\n\n.h5 {\n  color: #eee;\n  font-size: 14px;\n  margin-top: 0.3em;\n  font-size: 20px;\n  font-weight: 400;\n}\n\n.h6 {\n  color: #eee;\n  font-size: 14px;\n  text-transform: uppercase;\n  margin-top: 0.5em;\n  font-size: 16px;\n  font-weight: 600;\n}\n\nul {\n  li {\n    font-size: 13px;\n    font-size: 15px;\n    font-size: 15px;\n  }\n}\n\n\n.footer-links {\n  margin-bottom: 0;\n\n  >* {\n    float: left;\n    width: 100%;\n    margin: 2em 0 2em;\n  }\n}\n\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.vertical {\n  li {\n    float: none;\n    padding: 0.2em 0;\n    margin: 0;\n    border-width: 0 0 1px 0;\n\n    &:first-child {\n      border-top: 1px solid #4c4c4c;\n    }\n  }\n}\n\n.two-col,\n.three-col {\n  overflow: hidden;\n  clear: both;\n  margin-bottom: 1.5em;\n\n  >* {\n    width: 100%;\n    margin-bottom: 1.5em;\n  }\n}\n\n@media (min-width: 768px) {\n\n\n\n  .sidebar-left {\n    .row {\n      >.primary {\n        width: 64%;\n        float: right;\n      }\n\n      >.secondary {\n        width: 35%;\n        float: left;\n      }\n    }\n  }\n\n  .sidebar-right {\n    .sidebar-left {\n      .row {\n        >.primary {\n          width: 64%;\n          float: right;\n        }\n\n        >.secondary {\n          width: 35%;\n          float: left;\n        }\n      }\n    }\n  }\n\n  .sidebar-tint {\n    .row {\n      position: relative;\n      z-index: 2;\n    }\n  }\n\n  .two-col {\n    >* {\n      &:nth-child(2n+1) {\n        clear: left;\n      }\n\n      float: left;\n      width: 50%;\n    }\n  }\n\n  .three-col {\n    >* {\n      &:nth-child(3n+1) {\n        clear: left;\n      }\n\n      float: left;\n      width: 33.33%;\n    }\n  }\n\n  .two-col.padded,\n  .three-col.padded {\n    margin-left: -15px;\n    margin-right: -15px;\n\n    >* {\n      padding: 0 15px 15px;\n    }\n  }\n\n  .primary {\n    width: 61% !important;\n    margin: 0 !important;\n  }\n\n  .secondary {\n    width: 39% !important;\n    margin: 0 !important;\n  }\n\n  .main-footer {\n    .primary {\n      padding-left: 4%;\n    }\n\n    .container-fluid {\n      position: relative;\n\n      &:after {\n        content: '';\n        display: block;\n        border-right: 1px solid #5e5e5e;\n        position: absolute;\n        left: 39%;\n        top: 0;\n        bottom: 0;\n      }\n    }\n  }\n\n  a.link-block {\n    font-size: 14px;\n    font-size: 15px;\n    padding: 0.6em 1em;\n  }\n}\n\n\n\n\n@media (min-width: 992px) {\n  .primary {\n    width: 68% !important;\n  }\n\n  .secondary {\n    width: 32% !important;\n  }\n\n  .main-footer {\n    .container-fluid {\n      &:after {\n        left: 34%;\n        left: calc(32% + 15px);\n      }\n    }\n  }\n\n  .two-col,\n  .three-col {\n    margin: 0;\n    padding-bottom: 0 !important;\n\n    >* {\n      margin: 0;\n      padding-bottom: 0 !important;\n    }\n  }\n}\n\n\n@media (min-width: 1200px) {\n  .main-footer {\n    .primary {\n      padding-left: 5%;\n    }\n  }\n}\n",
                     "styleUrl": "./main-footer.component.scss"
                 }
             ],
@@ -514,7 +514,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.links {\n  li {\n    padding: 0;\n    margin: 0 2px 2px 0;\n  }\n\n  a {\n    text-transform: capitalize;\n    display: block;\n    background: #f5f5f5;\n    background: rgba(0, 0, 0, 0.04);\n    padding: 0.4em 0.7em;\n\n    &:hover {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:focus {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.12);\n    }\n  }\n}\n\n#main-navigation {\n  background: #666;\n  color: #fff;\n\n  li {\n    margin: 0 1px 0 0;\n    font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n    font-size: 15px;\n    line-height: 18px;\n\n    &:hover {\n      >a {\n        background: #444;\n        background: rgba(0, 0, 0, 0.3);\n      }\n    }\n  }\n\n  a {\n    color: #fff;\n    padding: 14px 1.5em;\n    text-decoration: none;\n    background: transparent;\n    transition: background-color .15s;\n\n    &:hover {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n\n    &:focus {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n\n  li.active {\n    >a {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n}\n",
+                    "data": "@import \"../../../index.scss\";\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.links {\n  li {\n    padding: 0;\n    margin: 0 2px 2px 0;\n  }\n\n  a {\n    text-transform: capitalize;\n    display: block;\n    background: #f5f5f5;\n    background: rgba(0, 0, 0, 0.04);\n    padding: 0.4em 0.7em;\n\n    &:hover {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:focus {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.12);\n    }\n  }\n}\n\n#main-navigation {\n  background: #666;\n  color: #fff;\n\n  li {\n    margin: 0 1px 0 0;\n    font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n    font-size: 15px;\n    line-height: 18px;\n\n    &:hover {\n      >a {\n        background: #444;\n        background: rgba(0, 0, 0, 0.3);\n      }\n    }\n  }\n\n  a {\n    color: #fff;\n    padding: 14px 1.5em;\n    text-decoration: none;\n    background: transparent;\n    transition: background-color .15s;\n\n    &:hover {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n\n    &:focus {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n\n  li.active {\n    >a {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n}\n",
                     "styleUrl": "./main-menu.component.scss"
                 }
             ],
@@ -595,7 +595,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "a {\n  text-transform: capitalize;\n}\n\n.mat-dialog-content a {\n  text-align: left;\n}\n\n.mat-dialog-content {\n  .active {\n    background-color: rgba(0, 104, 172, 0.5);\n  }\n}\n",
+                    "data": "@import \"../../../index.scss\";\na {\n  text-transform: capitalize;\n}\n\n.mat-dialog-content a {\n  text-align: left;\n}\n\n.mat-dialog-content {\n  .active {\n    background-color: rgba(0, 104, 172, 0.5);\n  }\n}\n",
                     "styleUrl": "./mobile-dialog.component.scss"
                 }
             ],
@@ -717,7 +717,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "\nbutton {\n  border-radius: 0px;\n  min-width: 36px;\n  width: 40px;\n  padding: 0px;\n}\n",
+                    "data": "@import \"../../../index.scss\";\nbutton {\n  border-radius: 0px;\n  min-width: 36px;\n  width: 40px;\n  padding: 0px;\n}\n",
                     "styleUrl": "./mobile-menu.component.scss"
                 }
             ],
@@ -828,7 +828,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@import \"../../index.scss\";\n",
                     "styleUrl": "./one-column.component.scss"
                 }
             ],
@@ -890,7 +890,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@import \"../../../index.scss\";\n",
                     "styleUrl": "./primary-content.component.scss"
                 }
             ],
@@ -952,7 +952,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "// .secondary {\n//   padding-left: 60px;\n// }\n",
+                    "data": "@import \"../../../index.scss\";\n// .secondary {\n//   padding-left: 60px;\n// }\n",
                     "styleUrl": "./secondary-content.component.scss"
                 }
             ],
@@ -1014,7 +1014,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "#skipnav a {\n  color: rgb(255, 255, 255);\n  white-space: nowrap;\n  position: absolute;\n  left: -1000em;\n  padding: 2px 8px;\n  text-decoration: none;\n}\n\n#skipnav a:focus {\n  left: 0px;\n  background: rgb(46, 86, 144);\n}\n",
+                    "data": "@import \"../../../index.scss\";\n#skipnav a {\n  color: rgb(255, 255, 255);\n  white-space: nowrap;\n  position: absolute;\n  left: -1000em;\n  padding: 2px 8px;\n  text-decoration: none;\n}\n\n#skipnav a:focus {\n  left: 0px;\n  background: rgb(46, 86, 144);\n}\n",
                     "styleUrl": "./skip-link.component.scss"
                 }
             ],
@@ -1085,7 +1085,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".sub-footer {\n  line-height: 1.6;\n  color: #bbb;\n  font-size: 13px;\n  position: relative;\n  z-index: 2;\n  float: left;\n  width: 100%;\n  display: block;\n  background: #292929;\n  padding: 20px 0;\n}\n\n.vertical-align {\n  display: flex;\n  align-items: center;\n}\n\np {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\na {\n  color: #fff;\n  text-decoration-color: hsla(0, 0%, 100%, .4);\n\n  &:focus {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:hover {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:active {\n    color: #666;\n    text-decoration-color: hsla(0, 0%, 100%, .4);\n  }\n}\n\n.icon {\n  margin-right: .5em;\n}\n",
+                    "data": "@import \"../../../index.scss\";\n.sub-footer {\n  line-height: 1.6;\n  color: #bbb;\n  font-size: 13px;\n  position: relative;\n  z-index: 2;\n  float: left;\n  width: 100%;\n  display: block;\n  background: #292929;\n  padding: 20px 0;\n}\n\n.vertical-align {\n  display: flex;\n  align-items: center;\n}\n\np {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\na {\n  color: #fff;\n  text-decoration-color: hsla(0, 0%, 100%, .4);\n\n  &:focus {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:hover {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:active {\n    color: #666;\n    text-decoration-color: hsla(0, 0%, 100%, .4);\n  }\n}\n\n.icon {\n  margin-right: .5em;\n}\n",
                     "styleUrl": "./sub-footer.component.scss"
                 }
             ],
@@ -1147,7 +1147,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@import \"../../index.scss\";\n",
                     "styleUrl": "./two-column.component.scss"
                 }
             ],
@@ -1209,7 +1209,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "/*! CSS Used from: https://iws-preview.hosting.cornell.edu/ama39/cssf/css/base.css */\nnav {\n  display: block;\n}\n\na {\n  background-color: transparent;\n  -webkit-text-decoration-skip: objects;\n  color: #1176ac;\n\n  &:hover {\n    color: #000;\n  }\n\n  &:focus {\n    color: #000;\n  }\n\n  &:active {\n    color: #666;\n  }\n}\n\n* {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n\n  &:before {\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n  }\n\n  &:after {\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n  }\n}\n\nul {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\nli {\n  margin-bottom: 0.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.links {\n  li {\n    padding: 0;\n    margin: 0 2px 2px 0;\n  }\n\n  a {\n    display: block;\n    background: #f5f5f5;\n    background: rgba(0, 0, 0, 0.04);\n    padding: 0.4em 0.7em;\n\n    &:hover {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:focus {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.12);\n    }\n  }\n}\n\n#utility-navigation {\n  float: left;\n  margin-right: 2px;\n  display: none;\n\n  li {\n    margin: 0 1px 0 0;\n    font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n    font-size: 13px;\n    font-weight: 400;\n  }\n\n  a {\n    height: 34px;\n    line-height: 34px;\n    padding: 0 18px;\n    margin-top: 1px;\n    text-decoration: none;\n    color: #ddd;\n    background: rgba(255, 255, 255, 0.1);\n\n    &:hover {\n      background: rgba(255, 255, 255, 0.2);\n    }\n\n    &:focus {\n      background: rgba(255, 255, 255, 0.2);\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.8);\n    }\n  }\n}\n\n@media (min-width: 992px) {\n  #utility-navigation {\n    display: block;\n  }\n}\n",
+                    "data": "@import \"../../../index.scss\";\nnav {\n  display: block;\n}\n\na {\n  background-color: transparent;\n  -webkit-text-decoration-skip: objects;\n  color: #1176ac;\n\n  &:hover {\n    color: #000;\n  }\n\n  &:focus {\n    color: #000;\n  }\n\n  &:active {\n    color: #666;\n  }\n}\n\n* {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n\n  &:before {\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n  }\n\n  &:after {\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n  }\n}\n\nul {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\nli {\n  margin-bottom: 0.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.links {\n  li {\n    padding: 0;\n    margin: 0 2px 2px 0;\n  }\n\n  a {\n    display: block;\n    background: #f5f5f5;\n    background: rgba(0, 0, 0, 0.04);\n    padding: 0.4em 0.7em;\n\n    &:hover {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:focus {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.12);\n    }\n  }\n}\n\n#utility-navigation {\n  float: left;\n  margin-right: 2px;\n  display: none;\n\n  li {\n    margin: 0 1px 0 0;\n    font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n    font-size: 13px;\n    font-weight: 400;\n  }\n\n  a {\n    height: 34px;\n    line-height: 34px;\n    padding: 0 18px;\n    margin-top: 1px;\n    text-decoration: none;\n    color: #ddd;\n    background: rgba(255, 255, 255, 0.1);\n\n    &:hover {\n      background: rgba(255, 255, 255, 0.2);\n    }\n\n    &:focus {\n      background: rgba(255, 255, 255, 0.2);\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.8);\n    }\n  }\n}\n\n@media (min-width: 992px) {\n  #utility-navigation {\n    display: block;\n  }\n}\n",
                     "styleUrl": "./utility-nav.component.scss"
                 }
             ],
@@ -1985,16 +1985,6 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/main.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/mobile-menu.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2046,6 +2036,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/utility-nav.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/main.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2144,16 +2144,6 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/main.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<MainComponent>",
-                "defaultValue": "(args: MainComponent) => ({\n  props: args,\n  template: `\n  <lib-main>\n    <h2>Lib-Main - The main content container</h2>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat illo cum maxime consequatur error delectus pariatur amet nobis labore, eos, deserunt mollitia laboriosam. Explicabo fuga ullam sunt libero accusamus ab.</p>\n  </lib-main>`,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/mobile-menu.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2209,6 +2199,16 @@
                 "deprecationMessage": "",
                 "type": "Story<UtilityNavComponent>",
                 "defaultValue": "(args: UtilityNavComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/main.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<MainComponent>",
+                "defaultValue": "(args: MainComponent) => ({\n  props: args,\n  template: `\n  <lib-main>\n    <h2>Lib-Main - The main content container</h2>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat illo cum maxime consequatur error delectus pariatur amet nobis labore, eos, deserunt mollitia laboriosam. Explicabo fuga ullam sunt libero accusamus ab.</p>\n  </lib-main>`,\n})"
             }
         ],
         "functions": [],
@@ -2356,28 +2356,6 @@
                     "defaultValue": "(args: MainMenuComponent) => ({\n  props: args,\n  template: `\n  <lib-main-menu [routes]=\"routes\">\n  </lib-main-menu>\n  <router-outlet></router-outlet>\n  `,\n})"
                 }
             ],
-            "stories/main.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/main.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/main.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<MainComponent>",
-                    "defaultValue": "(args: MainComponent) => ({\n  props: args,\n  template: `\n  <lib-main>\n    <h2>Lib-Main - The main content container</h2>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat illo cum maxime consequatur error delectus pariatur amet nobis labore, eos, deserunt mollitia laboriosam. Explicabo fuga ullam sunt libero accusamus ab.</p>\n  </lib-main>`,\n})"
-                }
-            ],
             "stories/mobile-menu.stories.ts": [
                 {
                     "name": "Default",
@@ -2508,6 +2486,28 @@
                     "deprecationMessage": "",
                     "type": "Story<UtilityNavComponent>",
                     "defaultValue": "(args: UtilityNavComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "stories/main.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/main.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/main.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<MainComponent>",
+                    "defaultValue": "(args: MainComponent) => ({\n  props: args,\n  template: `\n  <lib-main>\n    <h2>Lib-Main - The main content container</h2>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat illo cum maxime consequatur error delectus pariatur amet nobis labore, eos, deserunt mollitia laboriosam. Explicabo fuga ullam sunt libero accusamus ab.</p>\n  </lib-main>`,\n})"
                 }
             ],
             "stories/example-page.stories.ts": [

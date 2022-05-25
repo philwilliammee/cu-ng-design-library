@@ -1,0 +1,166 @@
+// https://github.dev/CU-CommunityApps/cwd_framework_lite/tree/main/sass/components
+$cwd-container-fluid-max-width: 1280px;
+
+$grid-gutter-width: 30px;
+$screen-xs-min: 480px;
+$screen-ks-min: 624px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-ml-min: 1080px;
+$screen-lg-min: 1200px;
+$screen-xl-min: 1480px;
+
+html {
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: subpixel-antialiased;
+  height: 100%;
+
+  #main {
+    h2 {
+      color: mat.get-color-from-palette($styleguide-accent);
+    }
+  }
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+.sr-only,
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+
+  >* {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+
+  &:before {
+    content: " ";
+    display: table;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+
+  >.primary {
+    float: left;
+    width: 100%;
+    margin-bottom: 2.5em;
+  }
+
+  >.secondary {
+    float: left;
+    width: 100%;
+    margin-bottom: 2.5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  &:before {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 1340px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-fluid {
+    padding-left: ($grid-gutter-width * 2);
+    padding-right: ($grid-gutter-width * 2);
+    max-width: ($cwd-container-fluid-max-width + ($grid-gutter-width * 4));
+  }
+}
+
+
+@media (min-width: 768px) {
+  .sidebar-tint #main-content {
+    position: relative;
+    z-index: 1;
+  }
+  .sidebar-tint #main-content:before {
+    display: block !important;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 35%;
+    bottom: 0;
+    content: "";
+    z-index: -1;
+    position: absolute;
+    background: #f7f7f7;
+    // width: 32%;
+    // width: calc(35% - #{$grid-gutter-width * 1.3333333334});
+  }
+}
+
+// There must be a better way to do this.
+.cdk-overlay-dark-backdrop {
+  background-color: rgba(51, 51, 51, 0.95);
+}
+.mat-dialog-container {
+  background-color: transparent;
+  color: white;
+  a {
+    color: white;
+  }
+}
