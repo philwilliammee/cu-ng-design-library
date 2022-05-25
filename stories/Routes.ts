@@ -1,4 +1,3 @@
-import OneColPageComponent from './one-col-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TwoColumnComponent, OneColumnComponent } from 'cu-ng-design-library';
 
@@ -17,7 +16,7 @@ export const routes: Routes = [
 
   {
     path: 'utility',
-    component: OneColPageComponent,
+    component: OneColumnComponent,
     data: { menu: 'utility' },
   },
   { path: '**', redirectTo: 'two-col-page', pathMatch: 'full' },

@@ -1985,6 +1985,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/main.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/mobile-menu.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2036,16 +2046,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/utility-nav.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/main.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2144,6 +2144,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/main.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<MainComponent>",
+                "defaultValue": "(args: MainComponent) => ({\n  props: args,\n  template: `\n  <lib-main>\n    <h2>Lib-Main - The main content container</h2>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat illo cum maxime consequatur error delectus pariatur amet nobis labore, eos, deserunt mollitia laboriosam. Explicabo fuga ullam sunt libero accusamus ab.</p>\n  </lib-main>`,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/mobile-menu.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2199,16 +2209,6 @@
                 "deprecationMessage": "",
                 "type": "Story<UtilityNavComponent>",
                 "defaultValue": "(args: UtilityNavComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/main.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<MainComponent>",
-                "defaultValue": "(args: MainComponent) => ({\n  props: args,\n  template: `\n  <lib-main>\n    <h2>Lib-Main - The main content container</h2>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat illo cum maxime consequatur error delectus pariatur amet nobis labore, eos, deserunt mollitia laboriosam. Explicabo fuga ullam sunt libero accusamus ab.</p>\n  </lib-main>`,\n})"
             }
         ],
         "functions": [],
@@ -2356,6 +2356,28 @@
                     "defaultValue": "(args: MainMenuComponent) => ({\n  props: args,\n  template: `\n  <lib-main-menu [routes]=\"routes\">\n  </lib-main-menu>\n  <router-outlet></router-outlet>\n  `,\n})"
                 }
             ],
+            "stories/main.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/main.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/main.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<MainComponent>",
+                    "defaultValue": "(args: MainComponent) => ({\n  props: args,\n  template: `\n  <lib-main>\n    <h2>Lib-Main - The main content container</h2>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat illo cum maxime consequatur error delectus pariatur amet nobis labore, eos, deserunt mollitia laboriosam. Explicabo fuga ullam sunt libero accusamus ab.</p>\n  </lib-main>`,\n})"
+                }
+            ],
             "stories/mobile-menu.stories.ts": [
                 {
                     "name": "Default",
@@ -2486,28 +2508,6 @@
                     "deprecationMessage": "",
                     "type": "Story<UtilityNavComponent>",
                     "defaultValue": "(args: UtilityNavComponent) => ({\n  props: args,\n})"
-                }
-            ],
-            "stories/main.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/main.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/main.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<MainComponent>",
-                    "defaultValue": "(args: MainComponent) => ({\n  props: args,\n  template: `\n  <lib-main>\n    <h2>Lib-Main - The main content container</h2>\n    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat illo cum maxime consequatur error delectus pariatur amet nobis labore, eos, deserunt mollitia laboriosam. Explicabo fuga ullam sunt libero accusamus ab.</p>\n  </lib-main>`,\n})"
                 }
             ],
             "stories/example-page.stories.ts": [
