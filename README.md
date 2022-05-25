@@ -6,6 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 [Storybook Demo](https://philwilliammee.github.io/cu-ng-design-library/?path=/docs/cu-ng-design-library-pages--example)
 
+## StackBlitz (angular-ivy-j8ckge)
+
+link to the [StackBlitz demo](https://stackblitz.com/edit/angular-ivy-j8ckge?devToolsHeight=33&file=src/app/app.component.ts)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
