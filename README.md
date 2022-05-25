@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
+## NPM
+
+[CU NG Design Library NPM Package](https://www.npmjs.com/package/cu-ng-design-library)
+
+```bash
+npm i cu-ng-design-library
+```
+
 ## Demo
 
 [Storybook Demo](https://philwilliammee.github.io/cu-ng-design-library/?path=/docs/cu-ng-design-library-pages--example)
