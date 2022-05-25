@@ -1,6 +1,6 @@
 # CuNgDesignSystem
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+
 
 ## NPM
 
@@ -17,6 +17,8 @@ npm i cu-ng-design-library
 ## StackBlitz (angular-ivy-j8ckge)
 
 link to the [StackBlitz demo](https://stackblitz.com/edit/angular-ivy-j8ckge?devToolsHeight=33&file=src/app/app.component.ts)
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
 ## Development server
 
