@@ -13,6 +13,10 @@ interface DialogData {
 })
 export class MobileDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-  ngOnInit(): void {}
+  public routes?: Routes = this.data.routes;
+  ngOnInit(): void {
+    this.routes = this.data.routes?.filter(
+      (route) => route.data && route.data['menu']
+    );
+  }
 }

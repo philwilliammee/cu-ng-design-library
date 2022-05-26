@@ -17,14 +17,13 @@
 <mat-dialog-content>
   <mat-selection-list [multiple]="false">
     <mat-list-option
-    *ngFor="let route of data.routes"
+    *ngFor="let route of routes"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{exact: true}"
     >
       <a mat-button
         routerLink="{{route.path}}"
         mat-dialog-close
-        *ngIf="route.data && route.data['menu'] == 'main'"
         >
         {{route.path}}
       </a>

@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {
-  HeaderComponent,
-  HeaderModule,
-} from 'cu-ng-design-library';
+import { HeaderComponent, HeaderModule } from 'cu-ng-design-library';
 
 // import  HeaderDocumentation from './Header.mdx';
 
@@ -28,4 +25,7 @@ const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
 
 export const Default = Template.bind({});
 
-Default.args = {} as Partial<HeaderComponent>;
+Default.args = {
+  title: 'CU-NG-Design-Library',
+  subtitle: 'A library of reusable components for the CU-Community-Apps',
+} as Partial<HeaderComponent>;

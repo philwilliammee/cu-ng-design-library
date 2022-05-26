@@ -21,6 +21,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';
 import { TwoColumnComponent } from './pages/two-column/two-column.component';
 import { OneColumnComponent } from './pages/one-column/one-column.component';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -66,5 +67,6 @@ import { OneColumnComponent } from './pages/one-column/one-column.component';
     TwoColumnComponent,
     OneColumnComponent,
   ],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
 })
 export class CuNgDesignLibraryModule {}

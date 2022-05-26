@@ -76,7 +76,7 @@ const Template: Story<GenericComponent> = (args: GenericComponent) => ({
   props: args,
   template: `
   <lib-skip-link></lib-skip-link>
-<lib-header>
+<lib-header title="Example Title" subtitle="A short description usually longer than the title">
   <lib-header-buttons>
     <lib-utility-nav></lib-utility-nav>
     <lib-mobile-menu [routes]="routes"></lib-mobile-menu>
