@@ -1,5 +1,8 @@
-<div class="cu-seal cu-gray sidebar sidebar-right">
+<div [ngClass]="[theme, logo]">
   <header id="cu-header">
+    <ng-template [ngIf]="logo == 'cu-45'">
+      <div class="cu45-helper"></div>
+    </ng-template>
     <div class="container-fluid cu-brand">
       <h1 class="cu-logo"><a href="http://www.cornell.edu"><img class="sr-only"
              alt="Cornell University" width="245"

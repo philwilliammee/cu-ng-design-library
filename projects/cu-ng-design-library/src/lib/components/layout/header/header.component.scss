@@ -1,4 +1,7 @@
 @import "../../../index.scss";
+
+// .cu-gray {
+
 // # @todo set image urls to s3 public bucket
 img {
   border-style: none;
@@ -31,6 +34,8 @@ h2 {
     padding-top: 5px;
     position: relative;
 
+
+
     h1 {
       margin: 0;
       width: 100%;
@@ -48,6 +53,8 @@ h2 {
       margin: 16px auto 11px;
       text-align: center;
     }
+
+
   }
 }
 
@@ -100,7 +107,7 @@ header {
 
 .cu-logo {
   a {
-    background: url(../../../assets/images/cornell-reduced-red.svg?e403ad1d95538868385fd006c228dd73) 0 0 no-repeat;
+    background: url("../../../assets/images/cornell-reduced-red.svg") 0 0 no-repeat;
     background-size: 100%;
     display: block;
     height: 38px;
@@ -109,10 +116,11 @@ header {
   }
 }
 
+.cu-red,
 .cu-gray {
   .cu-logo {
     a {
-      background-image: url(../../../assets/images/cornell-reduced-white.svg?0db6897b466c532187553a4bb2e1bccb);
+      background-image: url("../../../assets/images/cornell-reduced-white.svg");
     }
   }
 
@@ -128,7 +136,7 @@ header {
 .cu-seal.cu-gray {
   .cu-logo {
     a {
-      background-image: url(../../../assets/images/bold_cornell_seal_simple_white.svg?01f1fa8ec92a5f6779eab550d6c5b5ee);
+      background-image: url("../../../assets/images/bold_cornell_seal_simple_white.svg");
     }
   }
 
@@ -145,14 +153,31 @@ header {
   }
 }
 
-// .cu-seal.cu-gray.no-main-nav {
-//   #cu-header {
-//     background: linear-gradient(135deg, #222, #474747);
-//   }
-// }
 .cu-seal.cu-gray {
   #cu-header {
     background: linear-gradient(135deg, #222, #474747);
+  }
+}
+
+.cu45-helper {
+  position: relative;
+
+  &:before {
+    content: '';
+    background: #ededed; // default color
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+  }
+}
+
+.cu-red {
+  .cu45-helper {
+    &:before {
+      background: #b31b1b;
+    }
   }
 }
 
