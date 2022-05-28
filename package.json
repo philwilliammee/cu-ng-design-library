@@ -8,7 +8,7 @@
     "build": "ng build && npm run copyScss",
     "watch": "ng build --watch --configuration development",
     "package": "ng-packagr -p ng-package.json",
-    "copyScss": "cp ./projects/cu-ng-design-library/src/lib/index.scss ./dist/cu-ng-design-library/lib/index.scss && cp -r ./projects/cu-ng-design-library/src/lib/theme --target=./dist/cu-ng-design-library/lib/",
+    "copyScss": "cp ./projects/cu-ng-design-library/src/lib/styles.scss ./dist/cu-ng-design-library/lib/styles.scss && cp -r ./projects/cu-ng-design-library/src/lib/theme --target=./dist/cu-ng-design-library/lib/",
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",

@@ -339,7 +339,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-7fbf96fd37ea91276d1b09121f5cd021ff09efd22b5aea1f2754ba22e51ef366464fad776f67932a85dfb4055365754d1266202e7c63370a76b3a390d7532360",
+            "id": "component-HeaderComponent-11056bb0dfe8deb5b7c329424c12b4077b28741c638b84d558e62c49a553cd983cfe9f69534dae3cd84b97e3a3841e2807a6b97ce539dd109d6a45fbd3092832",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -357,18 +357,34 @@
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "logo",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "logo",
+                    "decorators": []
+                },
+                {
                     "name": "subtitle",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 26,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "theme",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "theme",
                     "decorators": []
                 },
                 {
                     "name": "title",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 25,
                     "type": "string",
                     "decorators": []
                 }
@@ -383,7 +399,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 23,
                     "modifierKind": [
                         123
                     ]
@@ -396,7 +412,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20,
+                    "line": 38,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -408,11 +424,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent implements OnInit {\n  public svgIconUrl: string =\n    'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  constructor() {\n    this.title = this.title || 'CU-NG-Design-Library';\n    this.subtitle =\n      this.subtitle ||\n      'A library of reusable components for the CU-Community-Apps';\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n// Cornell Branding Banner\n// .cu-red - Overrides the default light gray banner to be red with white logo. Affects both 45px and Large Seal options.\n// .cu-black - Overrides the default light gray banner to be black with white logo. Affects both 45px and Large Seal options.\n// .cu-gray - Overrides the default light gray banner to be dark gray with white logo. Affects both 45px and Large Seal options.\n// .cu-45 - Renders as a ~45px banner with small Cornell logo (this is also the default if no body class is defined). Headings appear below the banner. Note: This class is mutually exclusive with .cu-seal.\n// .cu-seal - Renders as a taller banner with a large standalone Cornell seal. Headings appear to the right of the seal. Note: This class is mutually exclusive with .cu-45.\n// .cu-seal-right - Added to .cu-seal to swap the left and right positions of the seal and headings.\n// .cu-45-mobile - Added to .cu-seal to switch to 45px style at mobile sizes.\n// .cu-45-mobile-red - Added to .cu-seal-mobile also activate the red color option on the 45px banner at mobile sizes.\n// .no-main-nav - When .cu-seal is in use and no main navigation bar is planned, this class can be included to apply some subtle adjustments to the Cornell header.\n\ntype theme = 'cu-red' | 'cu-black' | 'cu-gray';\ntype logo = 'cu-seal' | 'cu-45';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent implements OnInit {\n  public svgIconUrl: string =\n    'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme!: theme;\n  @Input() logo!: logo;\n  constructor() {\n    this.title = this.title || 'CU-NG-Design-Library';\n    this.subtitle =\n      this.subtitle ||\n      'A library of reusable components for the CU-Community-Apps';\n    this.theme = this.theme || 'cu-gray';\n    this.logo = this.logo || 'cu-seal';\n  }\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../index.scss\";\n// # @todo set image urls to s3 public bucket\nimg {\n  border-style: none;\n  height: auto;\n  max-width: 100%;\n}\n\nh2 {\n  margin-top: 0;\n  line-height: 1.2;\n  margin-bottom: .7em;\n}\n\n.sans {\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n  font-weight: 400;\n}\n\n#cu-header {\n  float: left;\n  width: 100%;\n\n  .cu-brand {\n    align-items: center;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n    font-weight: 500;\n    padding-bottom: 5px;\n    padding-top: 5px;\n    position: relative;\n\n    h1 {\n      margin: 0;\n      width: 100%;\n    }\n\n    h2 {\n      margin: 6px 0 0 -.05em;\n    }\n\n    h3 {\n      margin: .3em 0 0;\n    }\n\n    .cu-unit {\n      margin: 16px auto 11px;\n      text-align: center;\n    }\n  }\n}\n\nheader {\n  float: left;\n  width: 100%;\n}\n\n.cu-seal {\n  #cu-header {\n    background: #ededed;\n    z-index: 3;\n\n    .cu-brand {\n      h1 {\n        margin: 2px 0 8px;\n\n        a {\n          margin: 0 auto;\n        }\n      }\n\n      .cu-unit {\n        margin: 0 auto 4px;\n        display: block;\n      }\n\n      padding-bottom: 15px;\n      padding-top: 15px;\n    }\n  }\n\n  .cu-logo {\n    a {\n      background: url(../../../assets/images/bold_cornell_seal_simple_b31b1b.svg) 0 0 no-repeat;\n      height: 80px;\n      min-width: 80px;\n      width: 80px;\n    }\n  }\n}\n\n.cu-seal.no-main-nav {\n  #cu-header {\n    background: #f7f7f7;\n    background: linear-gradient(135deg, #f2f2f2, #f7f7f7);\n    border-bottom: 2px solid #ebebeb;\n  }\n}\n\n.cu-logo {\n  a {\n    background: url(../../../assets/images/cornell-reduced-red.svg?e403ad1d95538868385fd006c228dd73) 0 0 no-repeat;\n    background-size: 100%;\n    display: block;\n    height: 38px;\n    min-width: 168px;\n    width: 168px;\n  }\n}\n\n.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(../../../assets/images/cornell-reduced-white.svg?0db6897b466c532187553a4bb2e1bccb);\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-weight: 400;\n      }\n    }\n  }\n}\n\n.cu-seal.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(../../../assets/images/bold_cornell_seal_simple_white.svg?01f1fa8ec92a5f6779eab550d6c5b5ee);\n    }\n  }\n\n  #cu-header {\n    background: #222;\n    border-bottom: 0;\n    color: #fff;\n\n    .cu-brand {\n      h3 {\n        color: #bebebe;\n      }\n    }\n  }\n}\n\n// .cu-seal.cu-gray.no-main-nav {\n//   #cu-header {\n//     background: linear-gradient(135deg, #222, #474747);\n//   }\n// }\n.cu-seal.cu-gray {\n  #cu-header {\n    background: linear-gradient(135deg, #222, #474747);\n  }\n}\n\n@media (min-width:868px) {\n  .cu-seal {\n    #cu-header {\n      .cu-brand {\n        flex-wrap: nowrap;\n\n        h1 {\n          margin: 0;\n          width: auto;\n        }\n\n        .cu-unit {\n          margin: 0 70px 0 auto;\n        }\n      }\n    }\n\n    .cu-logo {\n      a {\n        height: 100px;\n        margin: 0 50px 0 0 !important;\n        min-width: 100px;\n        width: 100px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      .cu-unit {\n        margin: 20px auto 16px 1px;\n        text-align: left;\n      }\n    }\n  }\n}\n\n@media (min-width:480px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 30px;\n      }\n\n      h3 {\n        font-size: 15px;\n      }\n    }\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 90px;\n        min-width: 90px;\n        width: 90px;\n      }\n    }\n  }\n}\n\n@media (min-width:992px) {\n  .container-fluid {\n    max-width: 1400px;\n    padding-left: 60px;\n    padding-right: 60px;\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 120px;\n        margin: 0 60px 0 0 !important;\n        min-width: 120px;\n        width: 120px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 32px;\n      }\n\n      h3 {\n        font-size: 16px;\n      }\n    }\n  }\n}\n\n@media (min-width:1200px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 36px;\n      }\n\n      h3 {\n        font-size: 18px;\n      }\n    }\n  }\n}\n",
+                    "data": "@import \"../../../index.scss\";\n\n// .cu-gray {\n\n// # @todo set image urls to s3 public bucket\nimg {\n  border-style: none;\n  height: auto;\n  max-width: 100%;\n}\n\nh2 {\n  margin-top: 0;\n  line-height: 1.2;\n  margin-bottom: .7em;\n}\n\n.sans {\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n  font-weight: 400;\n}\n\n#cu-header {\n  float: left;\n  width: 100%;\n\n  .cu-brand {\n    align-items: center;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n    font-weight: 500;\n    padding-bottom: 5px;\n    padding-top: 5px;\n    position: relative;\n\n\n\n    h1 {\n      margin: 0;\n      width: 100%;\n    }\n\n    h2 {\n      margin: 6px 0 0 -.05em;\n    }\n\n    h3 {\n      margin: .3em 0 0;\n    }\n\n    .cu-unit {\n      margin: 16px auto 11px;\n      text-align: center;\n    }\n\n\n  }\n}\n\nheader {\n  float: left;\n  width: 100%;\n}\n\n.cu-seal {\n  #cu-header {\n    background: #ededed;\n    z-index: 3;\n\n    .cu-brand {\n      h1 {\n        margin: 2px 0 8px;\n\n        a {\n          margin: 0 auto;\n        }\n      }\n\n      .cu-unit {\n        margin: 0 auto 4px;\n        display: block;\n      }\n\n      padding-bottom: 15px;\n      padding-top: 15px;\n    }\n  }\n\n  .cu-logo {\n    a {\n      background: url(../../../assets/images/bold_cornell_seal_simple_b31b1b.svg) 0 0 no-repeat;\n      height: 80px;\n      min-width: 80px;\n      width: 80px;\n    }\n  }\n}\n\n.cu-seal.no-main-nav {\n  #cu-header {\n    background: #f7f7f7;\n    background: linear-gradient(135deg, #f2f2f2, #f7f7f7);\n    border-bottom: 2px solid #ebebeb;\n  }\n}\n\n.cu-logo {\n  a {\n    background: url(\"../../../assets/images/cornell-reduced-red.svg\") 0 0 no-repeat;\n    background-size: 100%;\n    display: block;\n    height: 38px;\n    min-width: 168px;\n    width: 168px;\n  }\n}\n\n.cu-red,\n.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(\"../../../assets/images/cornell-reduced-white.svg\");\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-weight: 400;\n      }\n    }\n  }\n}\n\n.cu-seal.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(\"../../../assets/images/bold_cornell_seal_simple_white.svg\");\n    }\n  }\n\n  #cu-header {\n    background: #222;\n    border-bottom: 0;\n    color: #fff;\n\n    .cu-brand {\n      h3 {\n        color: #bebebe;\n      }\n    }\n  }\n}\n\n.cu-seal.cu-gray {\n  #cu-header {\n    background: linear-gradient(135deg, #222, #474747);\n  }\n}\n\n.cu45-helper {\n  position: relative;\n\n  &:before {\n    content: '';\n    background: #ededed; // default color\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 48px;\n  }\n}\n\n.cu-red {\n  .cu45-helper {\n    &:before {\n      background: #b31b1b;\n    }\n  }\n}\n\n@media (min-width:868px) {\n  .cu-seal {\n    #cu-header {\n      .cu-brand {\n        flex-wrap: nowrap;\n\n        h1 {\n          margin: 0;\n          width: auto;\n        }\n\n        .cu-unit {\n          margin: 0 70px 0 auto;\n        }\n      }\n    }\n\n    .cu-logo {\n      a {\n        height: 100px;\n        margin: 0 50px 0 0 !important;\n        min-width: 100px;\n        width: 100px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      .cu-unit {\n        margin: 20px auto 16px 1px;\n        text-align: left;\n      }\n    }\n  }\n}\n\n@media (min-width:480px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 30px;\n      }\n\n      h3 {\n        font-size: 15px;\n      }\n    }\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 90px;\n        min-width: 90px;\n        width: 90px;\n      }\n    }\n  }\n}\n\n@media (min-width:992px) {\n  .container-fluid {\n    max-width: 1400px;\n    padding-left: 60px;\n    padding-right: 60px;\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 120px;\n        margin: 0 60px 0 0 !important;\n        min-width: 120px;\n        width: 120px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 32px;\n      }\n\n      h3 {\n        font-size: 16px;\n      }\n    }\n  }\n}\n\n@media (min-width:1200px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 36px;\n      }\n\n      h3 {\n        font-size: 18px;\n      }\n    }\n  }\n}\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -423,12 +439,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 12
+                "line": 28
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"cu-seal cu-gray sidebar sidebar-right\">\n  <header id=\"cu-header\">\n    <div class=\"container-fluid cu-brand\">\n      <h1 class=\"cu-logo\"><a href=\"http://www.cornell.edu\"><img class=\"sr-only\"\n             alt=\"Cornell University\" width=\"245\"\n            [src]=\"svgIconUrl\"\n            height=\"62\"></a></h1>\n      <div class=\"cu-unit\">\n        <h2>{{title}}</h2>\n        <h3 class=\"sans mat-h3\">{{subtitle}}</h3>\n      </div>\n      <ng-content></ng-content>\n    </div>\n  </header>\n<div>\n"
+            "templateData": "<div [ngClass]=\"[theme, logo]\">\n  <header id=\"cu-header\">\n    <ng-template [ngIf]=\"logo == 'cu-45'\">\n      <div class=\"cu45-helper\"></div>\n    </ng-template>\n    <div class=\"container-fluid cu-brand\">\n      <h1 class=\"cu-logo\"><a href=\"http://www.cornell.edu\"><img class=\"sr-only\"\n             alt=\"Cornell University\" width=\"245\"\n            [src]=\"svgIconUrl\"\n            height=\"62\"></a></h1>\n      <div class=\"cu-unit\">\n        <h2>{{title}}</h2>\n        <h3 class=\"sans mat-h3\">{{subtitle}}</h3>\n      </div>\n      <ng-content></ng-content>\n    </div>\n  </header>\n<div>\n"
         },
         {
             "name": "MainComponent",
@@ -2032,6 +2048,16 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
+                "name": "Cu45",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "CustomBreakPointsProvider",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2352,7 +2378,30 @@
             }
         ],
         "functions": [],
-        "typealiases": [],
+        "typealiases": [
+            {
+                "name": "logo",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"cu-seal\" | \"cu-45\"",
+                "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            },
+            {
+                "name": "theme",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"cu-red\" | \"cu-black\" | \"cu-gray\"",
+                "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            }
+        ],
         "enumerations": [],
         "groupedVariables": {
             "projects/cu-ng-design-library/src/test.ts": [
@@ -2374,6 +2423,38 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "literal type"
+                }
+            ],
+            "stories/header.stories.ts": [
+                {
+                    "name": "Cu45",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<HeaderComponent>",
+                    "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n})"
                 }
             ],
             "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts": [
@@ -2428,28 +2509,6 @@
                     "deprecationMessage": "",
                     "type": "Story<FooterComponent>",
                     "defaultValue": "(args: FooterComponent) => ({\n  props: args,\n  template: `\n  <lib-footer>\n  <div class=\"secondary\" style='margin:auto; max-width:90%'>\n    <h2>SSIT - The footer content container</h2>\n    <p>311 Day Hall<br>Cornell University<br>Ithaca, NY 14853</p>\n  </div>\n  </lib-footer>`,\n})"
-                }
-            ],
-            "stories/header.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<HeaderComponent>",
-                    "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n})"
                 }
             ],
             "stories/lib-cu-ng-design-library.stories.ts": [
@@ -2721,7 +2780,32 @@
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
-        "groupedTypeAliases": {}
+        "groupedTypeAliases": {
+            "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts": [
+                {
+                    "name": "logo",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"cu-seal\" | \"cu-45\"",
+                    "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                },
+                {
+                    "name": "theme",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"cu-red\" | \"cu-black\" | \"cu-gray\"",
+                    "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                }
+            ]
+        }
     },
     "routes": [],
     "coverage": {
@@ -2752,7 +2836,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -3005,6 +3089,16 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "GenericComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Cu45",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
