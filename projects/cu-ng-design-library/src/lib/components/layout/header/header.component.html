@@ -1,4 +1,4 @@
-<div [ngClass]="[theme, logo]">
+<div [ngClass]="getClasses()">
   <header id="cu-header">
     <ng-template [ngIf]="logo == 'cu-45'">
       <div class="cu45-helper"></div>

@@ -11,7 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
 // .cu-45-mobile-red - Added to .cu-seal-mobile also activate the red color option on the 45px banner at mobile sizes.
 // .no-main-nav - When .cu-seal is in use and no main navigation bar is planned, this class can be included to apply some subtle adjustments to the Cornell header.
 
-type theme = 'cu-red' | 'cu-black' | 'cu-gray';
+type theme = 'cu-default' | 'cu-red' | 'cu-black' | 'cu-gray';
 type logo = 'cu-seal' | 'cu-45';
 
 @Component({
@@ -26,13 +26,29 @@ export class HeaderComponent implements OnInit {
   @Input() subtitle!: string;
   @Input() theme!: theme;
   @Input() logo!: logo;
+  @Input() useGradient!: boolean;
   constructor() {
     this.title = this.title || 'CU-NG-Design-Library';
     this.subtitle =
       this.subtitle ||
       'A library of reusable components for the CU-Community-Apps';
-    this.theme = this.theme || 'cu-gray';
+    this.theme = this.theme || 'cu-default';
     this.logo = this.logo || 'cu-seal';
+    this.useGradient = this.useGradient || false;
+  }
+
+  getClasses(): string[] {
+    const classes: string[] = [];
+    if (this.theme) {
+      classes.push(this.theme);
+    }
+    if (this.logo) {
+      classes.push(this.logo);
+    }
+    if (this.useGradient) {
+      classes.push('gradient');
+    }
+    return classes;
   }
 
   ngOnInit(): void {}
