@@ -1,5 +1,5 @@
+@use 'sass:map';
 @import "../../../styles.scss";
-
 // # @todo set image urls to s3 public bucket
 
 h2 {
@@ -126,8 +126,8 @@ h2 {
 
 .cu-seal.cu-red #cu-header {
   // background: #b31b1b;
-  background: map-get($styleguide-accent, 500);
-  color: map-get($styleguide-accent, 500-contrast);
+  background: map.get($styles-accent-color, 500);
+  color: map.get($styles-accent-color, '500-contrast');
   border-bottom: 0;
 }
 
@@ -183,7 +183,7 @@ h2 {
 }
 
 .cu-red #cu-header .cu45-helper:before {
-  background: map-get($styleguide-accent, 500);
+  background: map.get($styles-accent-color, 500);
 }
 
 .cu-black #cu-header .cu45-helper:before {

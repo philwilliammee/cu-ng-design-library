@@ -7,7 +7,7 @@
 $dark-primary-text: rgba(black, 0.87);
 $light-primary-text: white;
 
-$md-cutheme-secondary: (
+$cu-theme-secondary: (
     50 : #f6e4e4,
     100 : #e8bbbb,
     200 : #d98d8d,
@@ -41,7 +41,7 @@ $md-cutheme-secondary: (
 );
 
 /* For use in src/lib/core/theming/_palette.scss */
-$md-cutheme-primary: (
+$cu-theme-primary: (
     50 : #e6edf1,
     100 : #c0d1dd,
     200 : #96b3c7,

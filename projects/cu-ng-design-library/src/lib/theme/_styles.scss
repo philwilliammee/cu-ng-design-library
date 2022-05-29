@@ -22,7 +22,7 @@ body {
 
   #main {
     h2 {
-      color: mat.get-color-from-palette($styleguide-accent);
+      color: mat.get-color-from-palette($styles-accent-color);
     }
   }
 }
