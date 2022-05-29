@@ -1,6 +1,7 @@
 @use 'sass:map';
 @import "../../../styles.scss";
 // # @todo set image urls to s3 public bucket
+// @todo get these into material theme mixins?
 
 h2 {
   // margin-top: 0;
@@ -39,6 +40,8 @@ h2 {
 
       h3 {
         margin: .3em 0 0;
+        color: #6a6a79;
+        font-weight: 400;
       }
 
       .cu-unit {
@@ -256,12 +259,6 @@ h2 {
 }
 
 @media (min-width:992px) {
-  .container-fluid {
-    max-width: 1400px;
-    padding-left: 60px;
-    padding-right: 60px;
-  }
-
   .cu-seal {
     .cu-logo {
       a {
