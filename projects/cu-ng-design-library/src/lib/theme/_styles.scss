@@ -164,3 +164,16 @@ body {
     color: white;
   }
 }
+
+// Try and get this into the theme.
+.cu-black #utility-navigation a, .cu-gray #utility-navigation a {
+	color: #ddd !important;
+	background: rgba(255,255,255,0.1) !important;;
+}
+.cu-black #utility-navigation a:hover, .cu-gray #utility-navigation a:hover,
+.cu-black #utility-navigation a:focus, .cu-gray #utility-navigation a:focus {
+	background: rgba(255,255,255,0.2) !important;;
+}
+.cu-black #utility-navigation a:active, .cu-gray #utility-navigation a:active {
+	background: rgba(0,0,0,0.8) !important;;
+}

@@ -55,7 +55,7 @@
     "components": [
         {
             "name": "CuNgDesignLibraryComponent",
-            "id": "component-CuNgDesignLibraryComponent-d83c93c5ea575487b91755b0b07aa9f38566522736ffb7d28e545aa4f76718708b8c0ca5a3a20cdade4dac91ee2e930409d945f233503a8f4330a02a5d63d521",
+            "id": "component-CuNgDesignLibraryComponent-5d767b7bb6a08600973d923f07bc8f2cd1c861a49ad303d18e1c400cb043041b48d29093cfd7e2a46c9149d02fcd4cd4405b26dfde364fd790b0b5c90435dc09",
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -65,15 +65,24 @@
             "selector": "lib-cu-ng-design-library",
             "styleUrls": [],
             "styles": [],
-            "template": "<lib-skip-link></lib-skip-link>\n<lib-header [title]=\"title\" [subtitle]=\"subtitle\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu\n      [routes]=\"routes\"\n      *ngIf=\"isMobileLayout\"\n    ></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\" *ngIf=\"!isMobileLayout\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer></lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"isMobileLayout\"></lib-sub-footer>\n</lib-footer>\n",
+            "template": "<lib-skip-link></lib-skip-link>\n<lib-header\n  [title]=\"title\"\n  [subtitle]=\"subtitle\"\n  [logo]=\"logo\"\n  [theme]=\"theme\"\n  [useGradient]=\"useGradient\"\n>\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu\n      [routes]=\"routes\"\n      *ngIf=\"isMobileLayout\"\n    ></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\" *ngIf=\"!isMobileLayout\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer></lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"isMobileLayout\"></lib-sub-footer>\n</lib-footer>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "logo",
+                    "defaultValue": "'cu-seal'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 41,
+                    "type": "logo",
+                    "decorators": []
+                },
+                {
                     "name": "routes",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 37,
                     "type": "Routes",
                     "decorators": []
                 },
@@ -81,16 +90,34 @@
                     "name": "subtitle",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 32,
+                    "line": 39,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "theme",
+                    "defaultValue": "'cu-default'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "theme",
                     "decorators": []
                 },
                 {
                     "name": "title",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 38,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "useGradient",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "boolean",
                     "decorators": []
                 }
             ],
@@ -104,7 +131,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 34,
+                    "line": 44,
                     "decorators": [
                         {
                             "name": "HostListener",
@@ -123,7 +150,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 41,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -140,7 +167,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 36,
+                    "line": 52,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -168,16 +195,24 @@
                     ],
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34
+                    "line": 44
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostListener, Input, OnInit } from '@angular/core';\nimport { Routes } from '@angular/router';\nimport { CWD_BREAKPOINTS_SIZES } from './cu-ng-design-library.breakpoints';\n\n@Component({\n  selector: 'lib-cu-ng-design-library',\n  template: `\n    <lib-skip-link></lib-skip-link>\n    <lib-header [title]=\"title\" [subtitle]=\"subtitle\">\n      <lib-header-buttons>\n        <lib-utility-nav></lib-utility-nav>\n        <lib-mobile-menu\n          [routes]=\"routes\"\n          *ngIf=\"isMobileLayout\"\n        ></lib-mobile-menu>\n      </lib-header-buttons>\n    </lib-header>\n\n    <lib-main-menu [routes]=\"routes\" *ngIf=\"!isMobileLayout\"></lib-main-menu>\n\n    <router-outlet></router-outlet>\n\n    <lib-footer>\n      <lib-main-footer></lib-main-footer>\n      <lib-sub-footer [isMobileLayout]=\"isMobileLayout\"></lib-sub-footer>\n    </lib-footer>\n  `,\n})\nexport class CuNgDesignLibraryComponent implements OnInit {\n  @Input() routes!: Routes;\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @HostListener('window:resize', ['$event'])\n  public isMobileLayout = false;\n\n  onResize(event: any) {\n    this.isMobileLayout =\n      event.target.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n  }\n\n  ngOnInit(): void {\n    // window.onresize = () => this.isMobileLayout = window.innerWidth <= 768;\n    this.isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n  }\n}\n",
+            "sourceCode": "import { Component, HostListener, Input, OnInit } from '@angular/core';\nimport { Routes } from '@angular/router';\nimport { CWD_BREAKPOINTS_SIZES } from './cu-ng-design-library.breakpoints';\nimport { theme, logo } from './components/layout/header/header.component';\n\n@Component({\n  selector: 'lib-cu-ng-design-library',\n  template: `\n    <lib-skip-link></lib-skip-link>\n    <lib-header\n      [title]=\"title\"\n      [subtitle]=\"subtitle\"\n      [logo]=\"logo\"\n      [theme]=\"theme\"\n      [useGradient]=\"useGradient\"\n    >\n      <lib-header-buttons>\n        <lib-utility-nav></lib-utility-nav>\n        <lib-mobile-menu\n          [routes]=\"routes\"\n          *ngIf=\"isMobileLayout\"\n        ></lib-mobile-menu>\n      </lib-header-buttons>\n    </lib-header>\n\n    <lib-main-menu [routes]=\"routes\" *ngIf=\"!isMobileLayout\"></lib-main-menu>\n\n    <router-outlet></router-outlet>\n\n    <lib-footer>\n      <lib-main-footer></lib-main-footer>\n      <lib-sub-footer [isMobileLayout]=\"isMobileLayout\"></lib-sub-footer>\n    </lib-footer>\n  `,\n})\nexport class CuNgDesignLibraryComponent implements OnInit {\n  @Input() routes!: Routes;\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme: theme = 'cu-default';\n  @Input() logo: logo = 'cu-seal';\n  @Input() useGradient: boolean = false;\n  @HostListener('window:resize', ['$event'])\n  public isMobileLayout = false;\n\n  constructor() {\n    // this.theme = this?.theme || 'cu-default';\n    // this.logo = this?.logo || 'cu-seal';\n    // this.useGradient = this?.useGradient || false;\n  }\n\n  onResize(event: any) {\n    this.isMobileLayout =\n      event.target.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n  }\n\n  ngOnInit(): void {\n    // window.onresize = () => this.isMobileLayout = window.innerWidth <= 768;\n    this.isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 44
+            },
             "implements": [
                 "OnInit"
             ]
@@ -339,7 +374,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-11056bb0dfe8deb5b7c329424c12b4077b28741c638b84d558e62c49a553cd983cfe9f69534dae3cd84b97e3a3841e2807a6b97ce539dd109d6a45fbd3092832",
+            "id": "component-HeaderComponent-0cafc1d0c015183209b6fb300484fe2fc85b04e1acd47a9dedc236dddc4493df86c43d8aee0cc79bea18e244176d440b950c70fca659ee105c93dfb17e128c89",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -387,6 +422,14 @@
                     "line": 25,
                     "type": "string",
                     "decorators": []
+                },
+                {
+                    "name": "useGradient",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "boolean",
+                    "decorators": []
                 }
             ],
             "outputsClass": [],
@@ -407,12 +450,22 @@
             ],
             "methodsClass": [
                 {
+                    "name": "getClasses",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "string[]",
+                    "typeParameters": [],
+                    "line": 40,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38,
+                    "line": 54,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -424,11 +477,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n// Cornell Branding Banner\n// .cu-red - Overrides the default light gray banner to be red with white logo. Affects both 45px and Large Seal options.\n// .cu-black - Overrides the default light gray banner to be black with white logo. Affects both 45px and Large Seal options.\n// .cu-gray - Overrides the default light gray banner to be dark gray with white logo. Affects both 45px and Large Seal options.\n// .cu-45 - Renders as a ~45px banner with small Cornell logo (this is also the default if no body class is defined). Headings appear below the banner. Note: This class is mutually exclusive with .cu-seal.\n// .cu-seal - Renders as a taller banner with a large standalone Cornell seal. Headings appear to the right of the seal. Note: This class is mutually exclusive with .cu-45.\n// .cu-seal-right - Added to .cu-seal to swap the left and right positions of the seal and headings.\n// .cu-45-mobile - Added to .cu-seal to switch to 45px style at mobile sizes.\n// .cu-45-mobile-red - Added to .cu-seal-mobile also activate the red color option on the 45px banner at mobile sizes.\n// .no-main-nav - When .cu-seal is in use and no main navigation bar is planned, this class can be included to apply some subtle adjustments to the Cornell header.\n\ntype theme = 'cu-red' | 'cu-black' | 'cu-gray';\ntype logo = 'cu-seal' | 'cu-45';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent implements OnInit {\n  public svgIconUrl: string =\n    'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme!: theme;\n  @Input() logo!: logo;\n  constructor() {\n    this.title = this.title || 'CU-NG-Design-Library';\n    this.subtitle =\n      this.subtitle ||\n      'A library of reusable components for the CU-Community-Apps';\n    this.theme = this.theme || 'cu-gray';\n    this.logo = this.logo || 'cu-seal';\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n// Cornell Branding Banner\n// .cu-red - Overrides the default light gray banner to be red with white logo. Affects both 45px and Large Seal options.\n// .cu-black - Overrides the default light gray banner to be black with white logo. Affects both 45px and Large Seal options.\n// .cu-gray - Overrides the default light gray banner to be dark gray with white logo. Affects both 45px and Large Seal options.\n// .cu-45 - Renders as a ~45px banner with small Cornell logo (this is also the default if no body class is defined). Headings appear below the banner. Note: This class is mutually exclusive with .cu-seal.\n// .cu-seal - Renders as a taller banner with a large standalone Cornell seal. Headings appear to the right of the seal. Note: This class is mutually exclusive with .cu-45.\n// .cu-seal-right - Added to .cu-seal to swap the left and right positions of the seal and headings.\n// .cu-45-mobile - Added to .cu-seal to switch to 45px style at mobile sizes.\n// .cu-45-mobile-red - Added to .cu-seal-mobile also activate the red color option on the 45px banner at mobile sizes.\n// .no-main-nav - When .cu-seal is in use and no main navigation bar is planned, this class can be included to apply some subtle adjustments to the Cornell header.\n\nexport type theme = 'cu-default' | 'cu-red' | 'cu-black' | 'cu-gray';\nexport type logo = 'cu-seal' | 'cu-45';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent implements OnInit {\n  public svgIconUrl: string =\n    'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme!: theme;\n  @Input() logo!: logo;\n  @Input() useGradient!: boolean;\n  constructor() {\n    this.title = this.title || 'CU-NG-Design-Library';\n    this.subtitle =\n      this.subtitle ||\n      'A library of reusable components for the CU-Community-Apps';\n    this.theme = this.theme || 'cu-default';\n    this.logo = this.logo || 'cu-seal';\n    this.useGradient = this.useGradient || false;\n  }\n\n  getClasses(): string[] {\n    const classes: string[] = [];\n    if (this.theme) {\n      classes.push(this.theme);\n    }\n    if (this.logo) {\n      classes.push(this.logo);\n    }\n    if (this.useGradient) {\n      classes.push('gradient');\n    }\n    return classes;\n  }\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../styles.scss\";\n\n// .cu-gray {\n\n// # @todo set image urls to s3 public bucket\nimg {\n  border-style: none;\n  height: auto;\n  max-width: 100%;\n}\n\nh2 {\n  margin-top: 0;\n  line-height: 1.2;\n  margin-bottom: .7em;\n}\n\n.sans {\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n  font-weight: 400;\n}\n\n#cu-header {\n  float: left;\n  width: 100%;\n\n  .cu-brand {\n    align-items: center;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n    font-weight: 500;\n    padding-bottom: 5px;\n    padding-top: 5px;\n    position: relative;\n\n\n\n    h1 {\n      margin: 0;\n      width: 100%;\n    }\n\n    h2 {\n      margin: 6px 0 0 -.05em;\n    }\n\n    h3 {\n      margin: .3em 0 0;\n    }\n\n    .cu-unit {\n      margin: 16px auto 11px;\n      text-align: center;\n    }\n\n\n  }\n}\n\nheader {\n  float: left;\n  width: 100%;\n}\n\n.cu-seal {\n  #cu-header {\n    background: #ededed;\n    z-index: 3;\n\n    .cu-brand {\n      h1 {\n        margin: 2px 0 8px;\n\n        a {\n          margin: 0 auto;\n        }\n      }\n\n      .cu-unit {\n        margin: 0 auto 4px;\n        display: block;\n      }\n\n      padding-bottom: 15px;\n      padding-top: 15px;\n    }\n  }\n\n  .cu-logo {\n    a {\n      background: url(../../../assets/images/bold_cornell_seal_simple_b31b1b.svg) 0 0 no-repeat;\n      height: 80px;\n      min-width: 80px;\n      width: 80px;\n    }\n  }\n}\n\n.cu-seal.no-main-nav {\n  #cu-header {\n    background: #f7f7f7;\n    background: linear-gradient(135deg, #f2f2f2, #f7f7f7);\n    border-bottom: 2px solid #ebebeb;\n  }\n}\n\n.cu-logo {\n  a {\n    background: url(\"../../../assets/images/cornell-reduced-red.svg\") 0 0 no-repeat;\n    background-size: 100%;\n    display: block;\n    height: 38px;\n    min-width: 168px;\n    width: 168px;\n  }\n}\n\n.cu-red,\n.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(\"../../../assets/images/cornell-reduced-white.svg\");\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-weight: 400;\n      }\n    }\n  }\n}\n\n.cu-seal.cu-gray {\n  .cu-logo {\n    a {\n      background-image: url(\"../../../assets/images/bold_cornell_seal_simple_white.svg\");\n    }\n  }\n\n  #cu-header {\n    background: #222;\n    border-bottom: 0;\n    color: #fff;\n\n    .cu-brand {\n      h3 {\n        color: #bebebe;\n      }\n    }\n  }\n}\n\n.cu-seal.cu-gray {\n  #cu-header {\n    background: linear-gradient(135deg, #222, #474747);\n  }\n}\n\n.cu45-helper {\n  position: relative;\n\n  &:before {\n    content: '';\n    background: #ededed; // default color\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 48px;\n  }\n}\n\n.cu-red {\n  .cu45-helper {\n    &:before {\n      background: #b31b1b;\n    }\n  }\n}\n\n@media (min-width:868px) {\n  .cu-seal {\n    #cu-header {\n      .cu-brand {\n        flex-wrap: nowrap;\n\n        h1 {\n          margin: 0;\n          width: auto;\n        }\n\n        .cu-unit {\n          margin: 0 70px 0 auto;\n        }\n      }\n    }\n\n    .cu-logo {\n      a {\n        height: 100px;\n        margin: 0 50px 0 0 !important;\n        min-width: 100px;\n        width: 100px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      .cu-unit {\n        margin: 20px auto 16px 1px;\n        text-align: left;\n      }\n    }\n  }\n}\n\n@media (min-width:480px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 30px;\n      }\n\n      h3 {\n        font-size: 15px;\n      }\n    }\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 90px;\n        min-width: 90px;\n        width: 90px;\n      }\n    }\n  }\n}\n\n@media (min-width:992px) {\n  .container-fluid {\n    max-width: 1400px;\n    padding-left: 60px;\n    padding-right: 60px;\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 120px;\n        margin: 0 60px 0 0 !important;\n        min-width: 120px;\n        width: 120px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 32px;\n      }\n\n      h3 {\n        font-size: 16px;\n      }\n    }\n  }\n}\n\n@media (min-width:1200px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 36px;\n      }\n\n      h3 {\n        font-size: 18px;\n      }\n    }\n  }\n}\n",
+                    "data": "@use 'sass:map';\n@import \"../../../styles.scss\";\n// # @todo set image urls to s3 public bucket\n// @todo get these into material theme mixins?\n\nh2 {\n  // margin-top: 0;\n  line-height: 1.2;\n  // margin-bottom: .7em;\n}\n\n.sans {\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n  font-weight: 400;\n}\n\n// .cu-45 {\n  #cu-header {\n    float: left;\n    width: 100%;\n\n    .cu-brand {\n      align-items: center;\n      display: flex;\n      flex-wrap: wrap;\n      font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n      font-weight: 500;\n      padding-bottom: 5px;\n      padding-top: 5px;\n      position: relative;\n\n      h1 {\n        margin: 0;\n        width: 100%;\n      }\n\n      h2 {\n        margin: 6px 0 0 -.05em;\n      }\n\n      h3 {\n        margin: .3em 0 0;\n        color: #6a6a79;\n        font-weight: 400;\n      }\n\n      .cu-unit {\n        margin: 16px auto 11px;\n        text-align: center;\n      }\n    }\n  }\n// }\n\n.cu-seal {\n  #cu-header {\n    background: #ededed;\n    z-index: 3;\n\n    .cu-brand {\n      h1 {\n        margin: 2px 0 8px;\n\n        a {\n          margin: 0 auto;\n        }\n      }\n\n      .cu-unit {\n        margin: 0 auto 4px;\n        display: block;\n      }\n\n      padding-bottom: 15px;\n      padding-top: 15px;\n    }\n  }\n\n  .cu-logo {\n    a {\n      background: url(\"../../../assets/images/bold_cornell_seal_simple_b31b1b.svg\") 0 0 no-repeat;\n      height: 80px;\n      min-width: 80px;\n      width: 80px;\n    }\n  }\n}\n\n.cu-seal.gradient {\n  #cu-header {\n    background: #f7f7f7;\n    background: linear-gradient(135deg, #f2f2f2, #f7f7f7);\n    border-bottom: 2px solid #ebebeb;\n  }\n}\n\n.cu-logo {\n  a {\n    background: url(\"../../../assets/images/cornell-reduced-red.svg\") 0 0 no-repeat;\n    background-size: 100%;\n    display: block;\n    height: 38px;\n    min-width: 168px;\n    width: 168px;\n  }\n}\n\n\n/* Color Options (red background, black background, gray background, black logo) */\n.cu-red .cu-logo a,\n.cu-black .cu-logo a,\n.cu-gray .cu-logo a {\n  background-image: url('../../../assets/images/cornell-reduced-white.svg');\n}\n\n.cu-logo.black a {\n  background-image: url('../../../assets/images/cornell-reduced-black.svg');\n}\n\n.cu-seal.cu-red .cu-logo a,\n.cu-seal.cu-black .cu-logo a,\n.cu-seal.cu-gray .cu-logo a {\n  background-image: url('../../../assets/images/bold_cornell_seal_simple_white.svg');\n}\n\n.cu-seal .cu-logo.black a {\n  background-image: url('../../../assets/images/bold_cornell_seal_simple_black.svg');\n}\n\n.cu-seal.cu-red #cu-header {\n  // background: #b31b1b;\n  background: map.get($styles-accent-color, 500);\n  color: map.get($styles-accent-color, '500-contrast');\n  border-bottom: 0;\n}\n\n.cu-seal.cu-black #cu-header {\n  background: #000;\n  color: #fff;\n  border-bottom: 0;\n}\n\n.cu-seal.cu-gray #cu-header {\n  background: #222;\n  color: #fff;\n  border-bottom: 0;\n}\n\n.cu-seal.cu-gray.gradient #cu-header {\n  background: linear-gradient(135deg, #222222 0%, #474747 100%);\n}\n\n.cu-red #cu-header .cu-brand h2,\n.cu-black #cu-header .cu-brand h2,\n.cu-gray #cu-header .cu-brand h2 {\n  font-weight: 400;\n}\n\n.ios #cu-header .cu-brand h2 {\n  font-weight: 500;\n}\n\n.cu-seal.cu-red #cu-header .cu-brand h3 {\n  color: #e4c7ae;\n}\n\n.cu-seal.cu-black #cu-header .cu-brand h3,\n.cu-seal.cu-gray #cu-header .cu-brand h3 {\n  color: #c9c9c9;\n}\n\n// end of color options\n\n.cu45-helper {\n  position: relative;\n\n  &:before {\n    content: '';\n    background: #ededed; // default color\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 48px;\n  }\n}\n\n.cu-red #cu-header .cu45-helper:before {\n  background: map.get($styles-accent-color, 500);\n}\n\n.cu-black #cu-header .cu45-helper:before {\n  background: #000;\n}\n\n.cu-gray #cu-header .cu45-helper:before {\n  background: #222;\n}\n\n@media (min-width:868px) {\n  .cu-seal {\n    #cu-header {\n      .cu-brand {\n        flex-wrap: nowrap;\n\n        h1 {\n          margin: 0;\n          width: auto;\n        }\n\n        .cu-unit {\n          margin: 0 70px 0 auto;\n        }\n      }\n    }\n\n    .cu-logo {\n      a {\n        height: 100px;\n        margin: 0 50px 0 0 !important;\n        min-width: 100px;\n        width: 100px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      .cu-unit {\n        margin: 20px auto 16px 1px;\n        text-align: left;\n      }\n    }\n  }\n}\n\n@media (min-width:480px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 30px;\n      }\n\n      h3 {\n        font-size: 15px;\n      }\n    }\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 90px;\n        min-width: 90px;\n        width: 90px;\n      }\n    }\n  }\n}\n\n@media (min-width:992px) {\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 120px;\n        margin: 0 60px 0 0 !important;\n        min-width: 120px;\n        width: 120px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 32px;\n      }\n\n      h3 {\n        font-size: 16px;\n      }\n    }\n  }\n}\n\n@media (min-width:1200px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 36px;\n      }\n\n      h3 {\n        font-size: 18px;\n      }\n    }\n  }\n}\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -439,12 +492,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 28
+                "line": 29
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div [ngClass]=\"[theme, logo]\">\n  <header id=\"cu-header\">\n    <ng-template [ngIf]=\"logo == 'cu-45'\">\n      <div class=\"cu45-helper\"></div>\n    </ng-template>\n    <div class=\"container-fluid cu-brand\">\n      <h1 class=\"cu-logo\"><a href=\"http://www.cornell.edu\"><img class=\"sr-only\"\n             alt=\"Cornell University\" width=\"245\"\n            [src]=\"svgIconUrl\"\n            height=\"62\"></a></h1>\n      <div class=\"cu-unit\">\n        <h2>{{title}}</h2>\n        <h3 class=\"sans mat-h3\">{{subtitle}}</h3>\n      </div>\n      <ng-content></ng-content>\n    </div>\n  </header>\n<div>\n"
+            "templateData": "<div [ngClass]=\"getClasses()\">\n  <header id=\"cu-header\">\n    <ng-template [ngIf]=\"logo == 'cu-45'\">\n      <div class=\"cu45-helper\"></div>\n    </ng-template>\n    <div class=\"container-fluid cu-brand\">\n      <h1 class=\"cu-logo\"><a href=\"http://www.cornell.edu\"><img class=\"sr-only\"\n             alt=\"Cornell University\" width=\"245\"\n            [src]=\"svgIconUrl\"\n            height=\"62\"></a></h1>\n      <div class=\"cu-unit\">\n        <h2>{{title}}</h2>\n        <h3 class=\"sans mat-h3\">{{subtitle}}</h3>\n      </div>\n      <ng-content></ng-content>\n    </div>\n  </header>\n<div>\n"
         },
         {
             "name": "MainComponent",
@@ -623,7 +676,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../styles.scss\";\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.links {\n  li {\n    padding: 0;\n    margin: 0 2px 2px 0;\n  }\n\n  a {\n    text-transform: capitalize;\n    display: block;\n    background: #f5f5f5;\n    background: rgba(0, 0, 0, 0.04);\n    padding: 0.4em 0.7em;\n\n    &:hover {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:focus {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.12);\n    }\n  }\n}\n\n#main-navigation {\n  background: #666;\n  color: #fff;\n\n  li {\n    margin: 0 1px 0 0;\n    font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n    font-size: 15px;\n    line-height: 18px;\n\n    &:hover {\n      >a {\n        background: #444;\n        background: rgba(0, 0, 0, 0.3);\n      }\n    }\n  }\n\n  a {\n    color: #fff;\n    padding: 14px 1.5em;\n    text-decoration: none;\n    background: transparent;\n    transition: background-color .15s;\n\n    &:hover {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n\n    &:focus {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n\n  li.active {\n    >a {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n}\n",
+                    "data": "@import \"../../../styles.scss\";\n\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.links {\n  li {\n    padding: 0;\n    margin: 0 2px 2px 0;\n  }\n\n  a {\n    text-transform: capitalize;\n    display: block;\n    background: #f5f5f5;\n    background: rgba(0, 0, 0, 0.04);\n    padding: 0.4em 0.7em;\n\n    &:hover {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:focus {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.12);\n    }\n  }\n}\n\n#main-navigation {\n  background: #666;\n  color: #fff;\n  // This is needed to fix the overlay being really big\n  display: block;\n  float: left;\n  width: 100%;\n\n  li {\n    margin: 0 1px 0 0;\n    font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n    font-size: 15px;\n    line-height: 18px;\n\n    &:hover {\n      >a {\n        background: #444;\n        background: rgba(0, 0, 0, 0.3);\n      }\n    }\n  }\n\n  a {\n    color: #fff;\n    padding: 14px 1.5em;\n    text-decoration: none;\n    background: transparent;\n    transition: background-color .15s;\n\n    &:hover {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n\n    &:focus {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n\n  li.active {\n    >a {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n}\n",
                     "styleUrl": "./main-menu.component.scss"
                 }
             ],
@@ -1300,7 +1353,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../styles.scss\";\nnav {\n  display: block;\n}\n\na {\n  background-color: transparent;\n  -webkit-text-decoration-skip: objects;\n  color: #1176ac;\n\n  &:hover {\n    color: #000;\n  }\n\n  &:focus {\n    color: #000;\n  }\n\n  &:active {\n    color: #666;\n  }\n}\n\n* {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n\n  &:before {\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n  }\n\n  &:after {\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n  }\n}\n\nul {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\nli {\n  margin-bottom: 0.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.links {\n  li {\n    padding: 0;\n    margin: 0 2px 2px 0;\n  }\n\n  a {\n    display: block;\n    background: #f5f5f5;\n    background: rgba(0, 0, 0, 0.04);\n    padding: 0.4em 0.7em;\n\n    &:hover {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:focus {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.12);\n    }\n  }\n}\n\n#utility-navigation {\n  float: left;\n  margin-right: 2px;\n  display: none;\n\n  li {\n    margin: 0 1px 0 0;\n    font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n    font-size: 13px;\n    font-weight: 400;\n  }\n\n  a {\n    height: 34px;\n    line-height: 34px;\n    padding: 0 18px;\n    margin-top: 1px;\n    text-decoration: none;\n    color: #ddd;\n    background: rgba(255, 255, 255, 0.1);\n\n    &:hover {\n      background: rgba(255, 255, 255, 0.2);\n    }\n\n    &:focus {\n      background: rgba(255, 255, 255, 0.2);\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.8);\n    }\n  }\n}\n\n@media (min-width: 992px) {\n  #utility-navigation {\n    display: block;\n  }\n}\n",
+                    "data": "@import \"../../../styles.scss\";\n\nnav {\n  display: block;\n}\n\na {\n  background-color: transparent;\n  -webkit-text-decoration-skip: objects;\n  color: #1176ac;\n\n  &:hover {\n    color: #000;\n  }\n\n  &:focus {\n    color: #000;\n  }\n\n  &:active {\n    color: #666;\n  }\n}\n\n* {\n  box-sizing: border-box;\n\n  &:before {\n    box-sizing: border-box;\n  }\n\n  &:after {\n    box-sizing: border-box;\n  }\n}\n\nul {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\nli {\n  margin-bottom: 0.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.links {\n  li {\n    padding: 0;\n    margin: 0 2px 2px 0;\n  }\n\n  a {\n    display: block;\n    background: #f5f5f5;\n    background: rgba(0, 0, 0, 0.04);\n    padding: 0.4em 0.7em;\n\n    &:hover {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:focus {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.12);\n    }\n  }\n}\n\n#utility-navigation {\n  float: left;\n  margin-right: 2px;\n  display: none;\n\n  li {\n    margin: 0 1px 0 0;\n    font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n    font-size: 13px;\n    font-weight: 400;\n  }\n\n  a {\n    height: 34px;\n    line-height: 34px;\n    padding: 0 18px;\n    margin-top: 1px;\n    text-decoration: none;\n    color: #333;\n    // background: rgba(255, 255, 255, 0.1);\n    background: rgba(0, 0, 0, 0.04);\n\n    &:hover {\n      background: rgba(255, 255, 255, 0.2);\n    }\n\n    &:focus {\n      background: rgba(255, 255, 255, 0.2);\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.8);\n    }\n  }\n}\n\n@media (min-width: 992px) {\n  #utility-navigation {\n    display: block;\n  }\n}\n\n/* Utility Navigation */\n// #utility-navigation {\n// \tfloat: left;\n// \tmargin-right: 2px;\n// }\n// #utility-navigation li {\n// \tmargin: 0 1px 0 0;\n//   font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n// \tfont-size: 13px;\n// \tfont-weight: 400;\n// }\n// #utility-navigation a {\n// \theight: 34px;\n// \tline-height: 34px;\n// \tpadding: 0 18px;\n// \tmargin-top: 1px;\n// \ttext-decoration: none;\n// \tcolor: #333;\n// }\n// .more-links-button {\n// \tfont-style: italic;\n// }\n\n.cu-black #utility-navigation a, .cu-gray #utility-navigation a {\n\tcolor: #ddd !important;\n\tbackground: rgba(255,255,255,0.1) !important;;\n}\n.cu-black #utility-navigation a:hover, .cu-gray #utility-navigation a:hover,\n.cu-black #utility-navigation a:focus, .cu-gray #utility-navigation a:focus {\n\tbackground: rgba(255,255,255,0.2) !important;;\n}\n.cu-black #utility-navigation a:active, .cu-gray #utility-navigation a:active {\n\tbackground: rgba(0,0,0,0.8) !important;;\n}\n",
                     "styleUrl": "./utility-nav.component.scss"
                 }
             ],
@@ -2048,7 +2101,37 @@
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
             {
-                "name": "Cu45",
+                "name": "Cu45Black",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Cu45Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Cu45Gray",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Cu45Red",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/header.stories.ts",
@@ -2092,16 +2175,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/footer.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2245,6 +2318,46 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "RouterModule.forRoot(routes)"
+            },
+            {
+                "name": "SealBlack",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "SealDefault",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "SealGray",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "SealRed",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Template",
@@ -2394,7 +2507,7 @@
                 "name": "theme",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "\"cu-red\" | \"cu-black\" | \"cu-gray\"",
+                "rawtype": "\"cu-default\" | \"cu-red\" | \"cu-black\" | \"cu-gray\"",
                 "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2427,7 +2540,7 @@
             ],
             "stories/header.stories.ts": [
                 {
-                    "name": "Cu45",
+                    "name": "Cu45Black",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/header.stories.ts",
@@ -2437,7 +2550,67 @@
                     "defaultValue": "Template.bind({})"
                 },
                 {
-                    "name": "Default",
+                    "name": "Cu45Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Cu45Gray",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Cu45Red",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "SealBlack",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "SealDefault",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "SealGray",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "SealRed",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/header.stories.ts",
@@ -2797,7 +2970,7 @@
                     "name": "theme",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "\"cu-red\" | \"cu-black\" | \"cu-gray\"",
+                    "rawtype": "\"cu-default\" | \"cu-red\" | \"cu-black\" | \"cu-gray\"",
                     "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
@@ -2836,7 +3009,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -2974,7 +3147,7 @@
                 "linktype": "component",
                 "name": "CuNgDesignLibraryComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/12",
                 "status": "low"
             },
             {
@@ -3098,7 +3271,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Cu45",
+                "name": "Cu45Black",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3108,7 +3281,67 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Default",
+                "name": "Cu45Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Cu45Gray",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Cu45Red",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SealBlack",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SealDefault",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SealGray",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SealRed",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
