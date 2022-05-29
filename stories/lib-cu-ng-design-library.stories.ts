@@ -21,6 +21,40 @@ export default {
   //     page: CuNgDesignLibraryDocumentation,
   //   },
   // },
+  argTypes: {
+    routes: {
+      control: {
+        type: 'array',
+      },
+    },
+    title: {
+      control: {
+        type: 'text',
+      },
+    },
+    subtitle: {
+      control: {
+        type: 'text',
+      },
+    },
+    theme: {
+      control: {
+        type: 'select',
+        options: ['cu-default', 'cu-red', 'cu-black', 'cu-gray'],
+      },
+    },
+    logo: {
+      control: {
+        type: 'select',
+        options: ['cu-seal', 'cu-45'],
+      },
+    },
+    useGradient: {
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story<CuNgDesignLibraryComponent> = (

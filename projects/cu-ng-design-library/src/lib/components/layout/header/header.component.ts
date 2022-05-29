@@ -11,8 +11,8 @@ import { Component, Input, OnInit } from '@angular/core';
 // .cu-45-mobile-red - Added to .cu-seal-mobile also activate the red color option on the 45px banner at mobile sizes.
 // .no-main-nav - When .cu-seal is in use and no main navigation bar is planned, this class can be included to apply some subtle adjustments to the Cornell header.
 
-type theme = 'cu-default' | 'cu-red' | 'cu-black' | 'cu-gray';
-type logo = 'cu-seal' | 'cu-45';
+export type theme = 'cu-default' | 'cu-red' | 'cu-black' | 'cu-gray';
+export type logo = 'cu-seal' | 'cu-45';
 
 @Component({
   selector: 'lib-header',

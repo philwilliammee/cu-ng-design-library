@@ -1,12 +1,19 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Routes } from '@angular/router';
 import { CWD_BREAKPOINTS_SIZES } from './cu-ng-design-library.breakpoints';
+import { theme, logo } from './components/layout/header/header.component';
 
 @Component({
   selector: 'lib-cu-ng-design-library',
   template: `
     <lib-skip-link></lib-skip-link>
-    <lib-header [title]="title" [subtitle]="subtitle">
+    <lib-header
+      [title]="title"
+      [subtitle]="subtitle"
+      [logo]="logo"
+      [theme]="theme"
+      [useGradient]="useGradient"
+    >
       <lib-header-buttons>
         <lib-utility-nav></lib-utility-nav>
         <lib-mobile-menu
@@ -30,8 +37,17 @@ export class CuNgDesignLibraryComponent implements OnInit {
   @Input() routes!: Routes;
   @Input() title!: string;
   @Input() subtitle!: string;
+  @Input() theme: theme = 'cu-default';
+  @Input() logo: logo = 'cu-seal';
+  @Input() useGradient: boolean = false;
   @HostListener('window:resize', ['$event'])
   public isMobileLayout = false;
+
+  constructor() {
+    // this.theme = this?.theme || 'cu-default';
+    // this.logo = this?.logo || 'cu-seal';
+    // this.useGradient = this?.useGradient || false;
+  }
 
   onResize(event: any) {
     this.isMobileLayout =
