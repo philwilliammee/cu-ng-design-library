@@ -3,6 +3,7 @@ import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import { MainMenuComponent, MainMenuModule } from 'cu-ng-design-library';
 //import { MainMenuComponent, MainMenuModule } from 'projects/cu-ng-design-library/src/public-api';
 import { routes, RoutesModule } from './Routes';
+import MainMenuDocument from './main-menu.mdx';
 
 export default {
   title: 'CU-NG-Design-Library/Components/Layout/MainMenu',
@@ -12,6 +13,11 @@ export default {
       imports: [MainMenuModule, RoutesModule],
     }),
   ],
+  parameters: {
+    docs: {
+      page: MainMenuDocument,
+    },
+  },
 } as Meta;
 
 const Template: Story<MainMenuComponent> = (args: MainMenuComponent) => ({

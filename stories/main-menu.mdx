@@ -1,0 +1,32 @@
+import { Story } from "@storybook/addon-docs";
+
+# Main Menu
+
+<Story id="cu-ng-design-library-components-layout-mainmenu--default" />
+
+---
+
+Example code
+
+```javascript
+<lib-main-menu [routes]="routes">
+  </lib-main-menu>
+  <router-outlet></router-outlet>
+</code>
+```
+
+## Accesability / design
+
+The main-menu component meets best practices for navigation. As outlined in [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria-practices-1.1/)
+
+The main-menu follows the [ARIA menubar pattern for site navigation](https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html)
+
+* note another pattern that may be more suited for typical site navigation with expandable groups of links is the [disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/). For an example, see [Example Disclosure Navigation Menu](https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-navigation.html).
+
+## Implementations
+
+The main-menu recieves routes property, and renders the menu-item for each route.
+
+The main-menu support nested routes with children up to 2 levels deep.
+
+The nested menu main-menu is built using [Manterial Menu Component](https://material.angular.io/components/menu/api)

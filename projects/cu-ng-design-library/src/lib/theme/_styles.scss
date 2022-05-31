@@ -177,3 +177,21 @@ body {
 .cu-black #utility-navigation a:active, .cu-gray #utility-navigation a:active {
 	background: rgba(0,0,0,0.8) !important;;
 }
+
+// Main menu panel
+.mat-menu-panel {
+  border-radius: 0 !important;
+  background-color: rgb(85, 85, 85);
+  .mat-menu-content {
+    padding: 0 !important;
+    a {
+      &:focus,
+      &:hover {
+        background: rgba(0, 0, 0, 0.3) !important;
+      }
+    }
+  }
+  .mat-menu-item {
+    color: white !important;
+  }
+}

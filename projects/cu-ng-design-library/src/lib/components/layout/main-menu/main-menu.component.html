@@ -6,9 +6,37 @@
         *ngIf="route.data && route.data['menu'] == 'main'"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}">
-          <a
-          routerLink="{{route.path}}"
-            >{{route.path}}</a>
+
+        <ng-container *ngIf="!route.children; else parent ">
+          <a mat-button routerLink="{{route.path}}">
+            {{route.data && route.data['title'] ? route.data['title'] : route.path}}
+          </a>
+        </ng-container>
+
+        <ng-template #parent>
+          <!-- <a mat-button routerLink="{{route.path}}">{{route.path}}</a> -->
+            <button
+              mat-button
+              [matMenuTriggerFor]="menu"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: false}"
+            >
+            {{route.data && route.data['title'] ? route.data['title'] : route.path}} <mat-icon>expand_more</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu" backdropClass="main-menu-backdrop">
+              <ng-container *ngFor="let child of route.children">
+                <a mat-menu-item routerLink="{{route.path}}/{{child.path}}">
+                  {{child.data && child.data['title'] ? child.data['title'] : child.path}}
+                </a>
+              </ng-container>
+            </mat-menu>
+        </ng-template>
+
+
+          <!-- <a routerLink="{{route.path}}" >
+            {{route.path}}
+          </a>
           <ul *ngIf="route.children" class="list-menu links vertical children" style="min-width: 138px;">
             <ng-container *ngFor="let child of route.children">
               <li
@@ -20,7 +48,7 @@
                   >{{child.path}}</a>
               </li>
             </ng-container>
-          </ul>
+          </ul> -->
         </li>
       </ng-container>
     </ul>

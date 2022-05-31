@@ -2,34 +2,34 @@ import { RouterModule, Routes } from '@angular/router';
 import { TwoColumnComponent, OneColumnComponent } from 'cu-ng-design-library';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'two-col-page', pathMatch: 'full' },
+  { path: '', redirectTo: 'template', pathMatch: 'full' },
   {
-    path: 'two-col-page',
+    path: 'template',
     component: TwoColumnComponent,
-    data: { menu: 'main', title: 'Two Column Page' },
+    data: { menu: 'main', title: 'Template' },
   },
   {
-    path: 'one-col-page',
-    component: OneColumnComponent,
+    path: 'dropdown',
+    // component: OneColumnComponent,
     data: {
       menu: 'main',
-      title: 'One Column Page',
+      title: 'Dropdown',
     },
     children: [
       {
-        path: 'nested',
+        path: 'two-column',
         component: TwoColumnComponent,
         data: {
-          menu: 'one-col-page',
-          title: 'Nested Page',
+          menu: 'dropdown',
+          title: 'Two Column Page',
         },
       },
       {
         path: 'nested2',
         component: OneColumnComponent,
         data: {
-          menu: 'one-col-page',
-          title: 'Another Nested Page',
+          menu: 'one-column',
+          title: 'One Column Page',
         },
       },
     ],
@@ -40,7 +40,7 @@ export const routes: Routes = [
     component: OneColumnComponent,
     data: { menu: 'utility', title: 'Utility Page' },
   },
-  // { path: '**', redirectTo: 'two-col-page', pathMatch: 'full' },
+  { path: '**', redirectTo: 'template', pathMatch: 'full' },
 ];
 
 export const RoutesModule = RouterModule.forRoot(routes);
