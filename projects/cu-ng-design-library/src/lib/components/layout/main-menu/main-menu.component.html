@@ -2,13 +2,25 @@
   <div class="container-fluid">
     <ul class="list-menu links">
       <ng-container *ngFor="let route of routes">
-        <li class="top-level-item"
+        <li class="top-level-item parent top-level-li"
         *ngIf="route.data && route.data['menu'] == 'main'"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}">
           <a
           routerLink="{{route.path}}"
             >{{route.path}}</a>
+          <ul *ngIf="route.children" class="list-menu links vertical children" style="min-width: 138px;">
+            <ng-container *ngFor="let child of route.children">
+              <li
+              *ngIf="child.data && child.data['menu'] == route.path"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}">
+                <a
+                routerLink="{{child.path}}"
+                  >{{child.path}}</a>
+              </li>
+            </ng-container>
+          </ul>
         </li>
       </ng-container>
     </ul>
