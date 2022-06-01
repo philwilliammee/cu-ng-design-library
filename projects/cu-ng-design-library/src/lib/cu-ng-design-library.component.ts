@@ -1,7 +1,8 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Routes } from '@angular/router';
 import { CWD_BREAKPOINTS_SIZES } from './cu-ng-design-library.breakpoints';
 import { theme, logo } from './components/layout/header/header.component';
+import { fromEvent, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'lib-cu-ng-design-library',
@@ -34,24 +35,35 @@ import { theme, logo } from './components/layout/header/header.component';
   `,
 })
 export class CuNgDesignLibraryComponent implements OnInit {
-  @Input() routes!: Routes;
+  @Input()
+  routes!: Routes;
   @Input() title!: string;
   @Input() subtitle!: string;
   @Input() theme: theme = 'cu-default';
   @Input() logo: logo = 'cu-seal';
   @Input() useGradient: boolean = false;
-  @HostListener('window:resize', ['$event'])
-  public isMobileLayout: boolean = false;
+  public isMobileLayout!: boolean;
 
-  constructor() {}
+  resizeObservable$?: Observable<Event>;
+  resizeSubscription$?: Subscription;
 
-  onResize(event: any) {
-    // this.isMobileLayout =
-    //   event.target.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
+  constructor() {
+    this.isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
   }
 
-  ngOnInit(): void {
-    // window.onresize = () => this.isMobileLayout = window.innerWidth <= 768;
-    this.isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
+  ngOnInit() {
+    this.resizeObservable$ = fromEvent(window, 'resize');
+    this.resizeSubscription$ = this.resizeObservable$.subscribe(
+      (event: any) => {
+        const innerWidth = event?.target?.innerWidth;
+        if (innerWidth) {
+          this.isMobileLayout = innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
+        }
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.resizeSubscription$?.unsubscribe();
   }
 }

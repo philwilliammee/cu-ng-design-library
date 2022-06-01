@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "DialogData",
-            "id": "interface-DialogData-cfdf74fec3ff85fd1025e4f0a0b4d86a393342b5e1ef366db79775fa461aa35d1e8e52d16c8ff92c48341f002bd3dbc2cc1559e1f28bb49de9b89e9723258f42",
+            "id": "interface-DialogData-c915283cdd1011e1404f677fa4571a1c59d39d4dbd05a969a3632803f9d50105ad60ab1e15f422f780d7ba1a0f623ca27c00ca7ce7074664a9a283a314cb4740",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-dialog/mobile-dialog.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Component, Inject, Input, OnInit } from '@angular/core';\nimport { Router, Routes } from '@angular/router';\nimport { MAT_DIALOG_DATA } from '@angular/material/dialog';\n\ninterface DialogData {\n  routes?: Routes;\n}\n\n@Component({\n  selector: 'lib-mobile-dialog',\n  templateUrl: './mobile-dialog.component.html',\n  styleUrls: ['./mobile-dialog.component.scss'],\n})\nexport class MobileDialogComponent implements OnInit {\n  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}\n  public routes?: Routes = this.data.routes;\n  ngOnInit(): void {\n    this.routes = this.data.routes?.filter(\n      (route) => route.data && route.data['menu']\n    );\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, Inject, Input, OnInit } from '@angular/core';\nimport { Route, Router, Routes } from '@angular/router';\nimport { MAT_DIALOG_DATA } from '@angular/material/dialog';\nimport { ActivatedRoute } from '@angular/router';\n\ninterface DialogData {\n  routes?: Routes;\n}\n\n@Component({\n  selector: 'lib-mobile-dialog',\n  templateUrl: './mobile-dialog.component.html',\n  styleUrls: ['./mobile-dialog.component.scss'],\n})\nexport class MobileDialogComponent implements OnInit {\n  constructor(\n    @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {}\n  public routes?: Routes = this.data.routes;\n  ngOnInit(): void {\n    this.routes = this.data.routes?.filter(\n      (route) => route.data && route.data['menu']\n    );\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    var _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (var i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n}\n",
             "properties": [
                 {
                     "name": "routes",
@@ -17,7 +17,7 @@
                     "type": "Routes",
                     "optional": true,
                     "description": "",
-                    "line": 6
+                    "line": 7
                 }
             ],
             "indexSignatures": [],
@@ -696,7 +696,7 @@
         },
         {
             "name": "MobileDialogComponent",
-            "id": "component-MobileDialogComponent-cfdf74fec3ff85fd1025e4f0a0b4d86a393342b5e1ef366db79775fa461aa35d1e8e52d16c8ff92c48341f002bd3dbc2cc1559e1f28bb49de9b89e9723258f42",
+            "id": "component-MobileDialogComponent-c915283cdd1011e1404f677fa4571a1c59d39d4dbd05a969a3632803f9d50105ad60ab1e15f422f780d7ba1a0f623ca27c00ca7ce7074664a9a283a314cb4740",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-dialog/mobile-dialog.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -722,7 +722,7 @@
                     "type": "DialogData",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 17,
                     "decorators": [
                         {
                             "name": "Inject",
@@ -741,7 +741,7 @@
                     "type": "Routes",
                     "optional": true,
                     "description": "",
-                    "line": 16,
+                    "line": 20,
                     "modifierKind": [
                         123
                     ]
@@ -761,7 +761,35 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 28,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "contentClass",
+                            "type": "string | undefined",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "handleFocus",
+                    "args": [
+                        {
+                            "name": "contentClass",
+                            "type": "string | undefined",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 54,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -782,9 +810,37 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 17,
+                    "line": 21,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "routeHasActiveChild",
+                    "args": [
+                        {
+                            "name": "route",
+                            "type": "Route",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 68,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "route",
+                            "type": "Route",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -794,11 +850,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Inject, Input, OnInit } from '@angular/core';\nimport { Router, Routes } from '@angular/router';\nimport { MAT_DIALOG_DATA } from '@angular/material/dialog';\n\ninterface DialogData {\n  routes?: Routes;\n}\n\n@Component({\n  selector: 'lib-mobile-dialog',\n  templateUrl: './mobile-dialog.component.html',\n  styleUrls: ['./mobile-dialog.component.scss'],\n})\nexport class MobileDialogComponent implements OnInit {\n  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}\n  public routes?: Routes = this.data.routes;\n  ngOnInit(): void {\n    this.routes = this.data.routes?.filter(\n      (route) => route.data && route.data['menu']\n    );\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, Inject, Input, OnInit } from '@angular/core';\nimport { Route, Router, Routes } from '@angular/router';\nimport { MAT_DIALOG_DATA } from '@angular/material/dialog';\nimport { ActivatedRoute } from '@angular/router';\n\ninterface DialogData {\n  routes?: Routes;\n}\n\n@Component({\n  selector: 'lib-mobile-dialog',\n  templateUrl: './mobile-dialog.component.html',\n  styleUrls: ['./mobile-dialog.component.scss'],\n})\nexport class MobileDialogComponent implements OnInit {\n  constructor(\n    @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {}\n  public routes?: Routes = this.data.routes;\n  ngOnInit(): void {\n    this.routes = this.data.routes?.filter(\n      (route) => route.data && route.data['menu']\n    );\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    var _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (var i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../styles.scss\";\n\na {\n  text-transform: capitalize;\n}\n\n.mat-dialog-content a {\n  text-align: left;\n}\n\n.mat-dialog-content {\n  .active {\n    background-color: rgba(0, 104, 172, 0.5);\n  }\n}\n\n.mat-dialog-actions,\n.mat-list-item {\n  border-bottom: white 1px solid;\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n\n  .flex-grow {\n    flex-grow: 1;\n  }\n\n  .icon-wrapper {\n    // margin-right: -1.2em;\n    height: 46px;\n    text-align: center;\n    background: #555;\n    border-left: 1px solid #777;\n    padding: 8px 8px 0px 8px;\n  }\n}\n\n.content {\n  background: rgba(0, 0, 0, 0.3);\n  max-height: 0;\n  overflow: hidden;\n  transition: max-height 0.2s ease-out;\n\n  a {\n    padding: 0 18px;\n  }\n}\n\n.mat-icon {\n  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n\n.collapsible[aria-expanded=\"true\"] {\n  .mat-icon {\n    transform: rotate(180deg);\n  }\n}\n",
+                    "data": "@import \"../../../styles.scss\";\n\nbutton {\n  border-radius: 0;\n}\na {\n  text-transform: capitalize;\n  border-radius: 0;\n}\n\n.mat-dialog-content a {\n  text-align: left;\n  width: 100%;\n}\n\n.mat-dialog-content {\n  .active {\n    background-color: rgba(0, 104, 172, 0.5);\n  }\n  .active-parent {\n    border-left: solid 3px #b31b1b;\n  }\n}\n\n.mat-list-item {\n  border-bottom: white 1px solid;\n\n  &:first-child {\n    border-top: white 1px solid;\n  }\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n\n  .flex-grow {\n    flex-grow: 1;\n  }\n\n  .icon-wrapper {\n    // margin-right: -1.2em;\n    height: 46px;\n    text-align: center;\n    background: #555;\n    border-left: 1px solid #777;\n    padding: 8px 12px 0px 12px;\n  }\n}\n\n.content {\n  background: rgba(0, 0, 0, 0.3);\n  max-height: 0;\n  overflow: hidden;\n  transition: max-height 0.2s ease-out;\n\n  a {\n    padding: 0 36px;\n  }\n}\n\n.mat-icon {\n  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n\n.collapsible{\n  width: 100%;\n}\n\n.collapsible[aria-expanded=\"true\"] {\n  .mat-icon {\n    transform: rotate(180deg);\n  }\n}\n",
                     "styleUrl": "./mobile-dialog.component.scss"
                 }
             ],
@@ -814,13 +870,28 @@
                         "type": "DialogData",
                         "deprecated": false,
                         "deprecationMessage": ""
+                    },
+                    {
+                        "name": "activeRouter",
+                        "type": "ActivatedRoute",
+                        "deprecated": false,
+                        "deprecationMessage": ""
                     }
                 ],
-                "line": 14,
+                "line": 15,
                 "jsdoctags": [
                     {
                         "name": "data",
                         "type": "DialogData",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "activeRouter",
+                        "type": "ActivatedRoute",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "tagName": {
@@ -832,7 +903,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div mat-dialog-title>\n  <h1 class='sr-only'>Mobile Menu</h1>\n  <div fxLayout=\"row\" mat-dialog-actions>\n    <div fxLayoutAlign=\"start\" fxFlex=\"50\" *ngIf=\"data.routes\">\n      <button mat-icon-button aria-label=\"home\" routerLink=\"/\" mat-dialog-close>\n        <mat-icon >home</mat-icon>\n      </button>\n    </div>\n    <div fxLayoutAlign=\"end\" fxFlex=\"50\">\n      <button mat-icon-button aria-label=\"close dialog\" mat-dialog-close>\n        <mat-icon>close</mat-icon>\n      </button>\n    </div>\n  </div>\n</div>\n\n<mat-dialog-content>\n  <mat-selection-list [multiple]=\"false\">\n    <ng-container *ngFor=\"let route of routes\">\n    <ng-container *ngIf=\"!route.children; else parent \">\n      <mat-list-option\n      routerLinkActive=\"active\"\n      [routerLinkActiveOptions]=\"{exact: true}\"\n      >\n        <a mat-button routerLink=\"{{route.path}}\" mat-dialog-close >\n          {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n        </a>\n      </mat-list-option>\n    </ng-container>\n    <ng-template #parent>\n      <mat-list-option\n\n\n      >\n        <button\n          mat-button\n          (click)=\"handleExpandClick(route.path)\"\n          [ngClass]=\"['collapsible', route.path]\"\n          routerLinkActive=\"active\"\n          [routerLinkActiveOptions]=\"{exact: false}\"\n        >\n          <span class='flex'>\n            <span class='text'>{{route.data && route.data['title'] ? route.data['title'] : route.path}}</span>\n            <span class=\"flex-grow\"></span>\n            <span class=\"icon-wrapper\"><mat-icon>expand_more</mat-icon></span>\n          </span>\n        </button>\n      </mat-list-option>\n\n      <div [ngClass]=\"['content', route.path]\">\n        <ng-container *ngFor=\"let child of route.children\">\n          <mat-list-option\n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions]=\"{exact: true}\"\n          >\n            <a\n              mat-button\n              mat-dialog-close\n              routerLink=\"{{route.path}}/{{child.path}}\"\n              >\n              {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n            </a>\n          </mat-list-option>\n        </ng-container>\n      </div>\n\n\n    </ng-template>\n    </ng-container>\n  </mat-selection-list>\n</mat-dialog-content>\n\n"
+            "templateData": "<div mat-dialog-title>\n  <h1 class='sr-only'>Mobile Menu</h1>\n  <div fxLayout=\"row\" mat-dialog-actions>\n    <div fxLayoutAlign=\"start\" fxFlex=\"50\" *ngIf=\"data.routes\">\n      <button mat-icon-button aria-label=\"home\" routerLink=\"/\" mat-dialog-close>\n        <mat-icon >home</mat-icon>\n      </button>\n    </div>\n    <div fxLayoutAlign=\"end\" fxFlex=\"50\">\n      <button mat-icon-button aria-label=\"close dialog\" mat-dialog-close>\n        <mat-icon>close</mat-icon>\n      </button>\n    </div>\n  </div>\n</div>\n\n<mat-dialog-content>\n  <mat-nav-list >\n    <ng-container *ngFor=\"let route of routes\">\n    <ng-container *ngIf=\"!route.children; else parent \">\n      <mat-list-item\n      routerLinkActive=\"active\"\n      [routerLinkActiveOptions]=\"{exact: true}\"\n      >\n        <a mat-button routerLink=\"{{route.path}}\" mat-dialog-close >\n          {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n        </a>\n      </mat-list-item>\n    </ng-container>\n    <ng-template #parent>\n      <mat-list-item [ngClass]=\"routeHasActiveChild(route)\">\n        <button\n          mat-button\n          (click)=\"handleExpandClick(route.path)\"\n          [ngClass]=\"['collapsible', route.path]\"\n        >\n          <span class='flex'>\n            {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            <span class=\"flex-grow\"></span>\n            <span class=\"icon-wrapper\"><mat-icon>expand_more</mat-icon></span>\n          </span>\n        </button>\n      </mat-list-item>\n\n      <div [ngClass]=\"['content', route.path]\">\n        <ng-container *ngFor=\"let child of route.children\">\n          <mat-list-item\n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions]=\"{exact: true}\"\n          >\n            <a\n              mat-button\n              mat-dialog-close\n              routerLink=\"{{route.path}}/{{child.path}}\"\n              (focus)=\"handleFocus(route.path)\"\n              >\n              {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n            </a>\n          </mat-list-item>\n        </ng-container>\n      </div>\n\n\n    </ng-template>\n    </ng-container>\n  </mat-nav-list>\n</mat-dialog-content>\n\n"
         },
         {
             "name": "MobileMenuComponent",
@@ -3275,7 +3346,7 @@
                 "linktype": "component",
                 "name": "MobileDialogComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
