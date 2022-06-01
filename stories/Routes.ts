@@ -1,11 +1,12 @@
+import { TwoColumnExampleComponent } from 'cu-ng-design-library';
+import { OneColumnExampleComponent } from 'cu-ng-design-library';
 import { RouterModule, Routes } from '@angular/router';
-import { TwoColumnComponent, OneColumnComponent } from 'cu-ng-design-library';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'template', pathMatch: 'full' },
   {
     path: 'template',
-    component: TwoColumnComponent,
+    component: TwoColumnExampleComponent,
     data: { menu: 'main', title: 'Template' },
   },
   {
@@ -18,7 +19,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'two-column',
-        component: TwoColumnComponent,
+        component: TwoColumnExampleComponent,
         data: {
           menu: 'dropdown',
           title: 'Two Column Page',
@@ -26,7 +27,7 @@ export const routes: Routes = [
       },
       {
         path: 'nested2',
-        component: OneColumnComponent,
+        component: OneColumnExampleComponent,
         data: {
           menu: 'one-column',
           title: 'One Column Page',
@@ -37,7 +38,7 @@ export const routes: Routes = [
 
   {
     path: 'utility',
-    component: OneColumnComponent,
+    component: OneColumnExampleComponent,
     data: { menu: 'utility', title: 'Utility Page' },
   },
   { path: '**', redirectTo: 'template', pathMatch: 'full' },

@@ -22,6 +22,8 @@ import { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';
 import { TwoColumnComponent } from './pages/two-column/two-column.component';
 import { OneColumnComponent } from './pages/one-column/one-column.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';
+import { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { APP_BASE_HREF } from '@angular/common';
     MobileMenuComponent,
     TwoColumnComponent,
     OneColumnComponent,
+    OneColumnExampleComponent,
+    TwoColumnExampleComponent,
   ],
   imports: [
     MaterialModule,

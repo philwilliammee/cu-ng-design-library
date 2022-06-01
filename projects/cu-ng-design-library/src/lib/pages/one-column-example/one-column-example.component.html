@@ -1,34 +1,8 @@
-import { Component } from '@angular/core';
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import {
-  MainComponent,
-  OneColumnComponent,
-  OneColumnModule,
-} from 'cu-ng-design-library';
-
-// import OneColumnDocumentation from './OneColumn.mdx';
-
-export default {
-  title: 'CU-NG-Design-Library/Pages/OneColumn',
-  component: OneColumnComponent,
-  decorators: [
-    moduleMetadata({
-      imports: [OneColumnModule],
-      declarations: [MainComponent],
-    }),
-  ],
-  // parameters: {
-  //   docs: {
-  //     page: OneColumnDocumentation,
-  //   },
-  // },
-} as Meta;
-
-const Template: Story<OneColumnComponent> = (args: OneColumnComponent) => ({
-  props: args,
-  template: `
-  <lib-one-column>
-  <h1>One Column</h1>
+<lib-one-column>
+  <h1>One Column Example</h1>
+  <p class="intro">
+    This is a one column example.
+  </p>
   <p>
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet dignissimos temporibus enim. Impedit, voluptatum
     error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos asperiores nobis beatae voluptatibus commodi
@@ -50,9 +24,13 @@ const Template: Story<OneColumnComponent> = (args: OneColumnComponent) => ({
     necessitatibus in. Perferendis harum porro quasi animi deleniti vel corrupti eligendi cumque debitis! Tenetur,
     eveniet possimus.
   </p>
-  </lib-one-column>`,
-});
+  <h3>Example code usually used by a router component</h3>
+<pre>
+<code class="html">
+  &lt;lib-one-column&gt;
+    Content...
+  &lt;/lib-one-column&gt;
+</code>
+</pre>
 
-export const Default = Template.bind({});
-
-Default.args = {} as Partial<OneColumnComponent>;
+  </lib-one-column>

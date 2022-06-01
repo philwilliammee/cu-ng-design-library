@@ -65,6 +65,14 @@ export * from './lib/pages/one-column/one-column.module';
 // BREAK_POINTS
 export * from './lib/cu-ng-design-library.breakpoints';
 
+// TwoColumnExampleComponent
+export * from './lib/pages/two-column-example/two-column-example.component';
+export * from './lib/pages/two-column-example/two-column-example.module';
+
+// OneColumnExampleComponent
+export * from './lib/pages/one-column-example/one-column-example.component';
+export * from './lib/pages/one-column-example/one-column-example.module';
+
 // module
 export * from './lib/cu-ng-design-library.service';
 export * from './lib/cu-ng-design-library.component';

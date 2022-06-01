@@ -142,6 +142,11 @@ button.mat-button {
   }
 }
 
+button[routerlinkactive="active"] {
+  background: #444;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 // CWD - style hover over menu
 // .dropdown-menu ul ul {
 //   position: absolute;

@@ -26,7 +26,12 @@
 
             <mat-menu #menu="matMenu" backdropClass="main-menu-backdrop">
               <ng-container *ngFor="let child of route.children">
-                <a mat-menu-item routerLink="{{route.path}}/{{child.path}}">
+                <a
+                  mat-menu-item
+                  routerLink="{{route.path}}/{{child.path}}"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact: true}"
+                  >
                   {{child.data && child.data['title'] ? child.data['title'] : child.path}}
                 </a>
               </ng-container>
