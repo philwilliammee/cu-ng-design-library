@@ -1,19 +1,74 @@
 @import "../../../styles.scss";
+
+button {
+  border-radius: 0;
+}
 a {
   text-transform: capitalize;
+  border-radius: 0;
 }
 
 .mat-dialog-content a {
   text-align: left;
+  width: 100%;
 }
 
 .mat-dialog-content {
   .active {
     background-color: rgba(0, 104, 172, 0.5);
   }
+  .active-parent {
+    border-left: solid 3px #b31b1b;
+  }
 }
 
-.mat-dialog-actions,
 .mat-list-item {
   border-bottom: white 1px solid;
+
+  &:first-child {
+    border-top: white 1px solid;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+
+  .flex-grow {
+    flex-grow: 1;
+  }
+
+  .icon-wrapper {
+    // margin-right: -1.2em;
+    height: 46px;
+    text-align: center;
+    background: #555;
+    border-left: 1px solid #777;
+    padding: 8px 12px 0px 12px;
+  }
+}
+
+.content {
+  background: rgba(0, 0, 0, 0.3);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+
+  a {
+    padding: 0 36px;
+  }
+}
+
+.mat-icon {
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.collapsible{
+  width: 100%;
+}
+
+.collapsible[aria-expanded="true"] {
+  .mat-icon {
+    transform: rotate(180deg);
+  }
 }

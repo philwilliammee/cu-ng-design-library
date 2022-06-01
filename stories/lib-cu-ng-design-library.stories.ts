@@ -54,6 +54,12 @@ export default {
         type: 'boolean',
       },
     },
+    // Issue here https://github.com/storybookjs/storybook/issues/14147
+    // isMobileLayout: {
+    //   control: {
+    //     type: 'boolean',
+    //   },
+    // },
   },
 } as Meta;
 

@@ -41,17 +41,13 @@ export class CuNgDesignLibraryComponent implements OnInit {
   @Input() logo: logo = 'cu-seal';
   @Input() useGradient: boolean = false;
   @HostListener('window:resize', ['$event'])
-  public isMobileLayout = false;
+  public isMobileLayout: boolean = false;
 
-  constructor() {
-    // this.theme = this?.theme || 'cu-default';
-    // this.logo = this?.logo || 'cu-seal';
-    // this.useGradient = this?.useGradient || false;
-  }
+  constructor() {}
 
   onResize(event: any) {
-    this.isMobileLayout =
-      event.target.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
+    // this.isMobileLayout =
+    //   event.target.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
   }
 
   ngOnInit(): void {

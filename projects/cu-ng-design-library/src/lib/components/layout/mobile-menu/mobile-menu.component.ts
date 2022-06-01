@@ -15,6 +15,7 @@ export class MobileMenuComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(MobileDialogComponent, {
+      backdropClass: 'mobile-dialog-backdrop',
       position: {
         top: '0',
         left: '0',

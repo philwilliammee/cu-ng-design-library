@@ -13,22 +13,56 @@
     </div>
   </div>
 </div>
-<!-- should this be mat-nav-list -->
+
 <mat-dialog-content>
-  <mat-selection-list [multiple]="false">
-    <mat-list-option
-    *ngFor="let route of routes"
+  <mat-nav-list >
+    <ng-container *ngFor="let route of routes">
+    <ng-container *ngIf="!route.children; else parent ">
+      <mat-list-item
       routerLinkActive="active"
       [routerLinkActiveOptions]="{exact: true}"
-    >
-      <a mat-button
-        routerLink="{{route.path}}"
-        mat-dialog-close
+      >
+        <a mat-button routerLink="{{route.path}}" mat-dialog-close >
+          {{route.data && route.data['title'] ? route.data['title'] : route.path}}
+        </a>
+      </mat-list-item>
+    </ng-container>
+    <ng-template #parent>
+      <mat-list-item [ngClass]="routeHasActiveChild(route)">
+        <button
+          mat-button
+          (click)="handleExpandClick(route.path)"
+          [ngClass]="['collapsible', route.path]"
         >
-        {{route.path}}
-      </a>
-    </mat-list-option>
-  </mat-selection-list>
+          <span class='flex'>
+            {{route.data && route.data['title'] ? route.data['title'] : route.path}}
+            <span class="flex-grow"></span>
+            <span class="icon-wrapper"><mat-icon>expand_more</mat-icon></span>
+          </span>
+        </button>
+      </mat-list-item>
+
+      <div [ngClass]="['content', route.path]">
+        <ng-container *ngFor="let child of route.children">
+          <mat-list-item
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            <a
+              mat-button
+              mat-dialog-close
+              routerLink="{{route.path}}/{{child.path}}"
+              (focus)="handleFocus(route.path)"
+              >
+              {{child.data && child.data['title'] ? child.data['title'] : child.path}}
+            </a>
+          </mat-list-item>
+        </ng-container>
+      </div>
+
+
+    </ng-template>
+    </ng-container>
+  </mat-nav-list>
 </mat-dialog-content>
 
-<!-- @todo add utility Nav -->
