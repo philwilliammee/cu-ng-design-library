@@ -545,9 +545,11 @@
         },
         {
             "name": "MainFooterComponent",
-            "id": "component-MainFooterComponent-fe15b30d8021ebb5417361596c8f96d1da2f871810ddb684f1cd0c1be75756838dd164de2323528021b3a6062ba0c80ec06dd1b25ef2d57996a353e82df08d79",
+            "id": "component-MainFooterComponent-66648b51cb1211fee2c60f0b20b55a70a9c7882d27cd9cfd2269d7318e1cd743a3e99a14b2e91558fd8899fa6a3ad284a77fb02de82157d22b6a32d3fa7af9f1",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/main-footer/main-footer.component.ts",
-            "encapsulation": [],
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
@@ -583,11 +585,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-main-footer',\n  templateUrl: './main-footer.component.html',\n  styleUrls: ['./main-footer.component.scss']\n})\nexport class MainFooterComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit, ViewEncapsulation } from '@angular/core';\n\n@Component({\n  selector: 'lib-main-footer',\n  templateUrl: './main-footer.component.html',\n  styleUrls: ['./main-footer.component.scss'],\n  encapsulation: ViewEncapsulation.None, // apply global styles to this component\n})\nexport class MainFooterComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../styles.scss\";\np {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n  color: #bbb;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\n.h3 {\n  margin-top: 0;\n  font-family: Georgia, serif;\n  font-weight: normal;\n  margin-bottom: 0.7em;\n  line-height: 1.2;\n  font-size: 22px;\n  font-family: \"freight-sans-pro\", sans-serif;\n}\n\n.h5 {\n  margin-top: 0;\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n  font-weight: normal;\n  font-weight: normal;\n  margin-bottom: 1em;\n  line-height: 1.4;\n  font-size: 16px;\n  font-weight: 600;\n  color: #444;\n  font-family: \"freight-sans-pro\", sans-serif;\n}\n\n.h6 {\n  margin-top: 0;\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n  font-weight: normal;\n  font-weight: normal;\n  margin-bottom: 1em;\n  line-height: 1.4;\n  font-size: 16px;\n  color: #707070;\n  font-family: \"freight-sans-pro\", sans-serif;\n}\n\n\n.link-block {\n  background: rgba(0, 0, 0, 0.07);\n  padding: 0.5em 0.8em 0.4em 0.7em;\n  display: inline-block;\n  line-height: 1;\n}\n\n.footer-links {\n  li {\n    line-height: 1.4;\n  }\n}\n\na {\n  text-decoration: none;\n  transition: color 0.2s, -moz-text-decoration-color 0.2s, -webkit-text-decoration-color 0.2s, text-decoration-color 0.2s;\n  color: #fff;\n  text-decoration-color: rgba(255, 255, 255, 0.4);\n\n  &:hover {\n    text-decoration: underline;\n    color: #fff;\n    text-decoration-color: white;\n    transition: none;\n  }\n\n  &:focus {\n    text-decoration: underline;\n    color: #fff;\n    text-decoration-color: white;\n    transition: none;\n  }\n\n  &:active {\n    color: #9b9b9b;\n    text-decoration-color: rgba(255, 255, 255, 0.4);\n  }\n}\n\na.link-block {\n  background: rgba(109, 195, 255, 0.15);\n  text-decoration: none;\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n  font-size: 24px;\n  padding: 0.5em 0.8em;\n  margin-top: 8px;\n  font-family: \"freight-sans-pro\", sans-serif;\n  padding: 0.55em 1em 0.6em;\n\n  &:hover {\n    background: rgba(55, 160, 233, 0.4);\n  }\n\n  &:focus {\n    background: rgba(55, 160, 233, 0.4);\n  }\n\n  &:active {\n    background: rgba(55, 160, 233, 0.6);\n    color: #fff;\n  }\n}\n\n\n\n.list-menu.vertical {}\n\n.main-footer {\n  padding: 45px 0;\n  // line-height: 1.6;\n  font-size: 13px;\n}\n\n.h3 {\n  color: #eee;\n}\n\n.h5 {\n  color: #eee;\n  font-size: 14px;\n  margin-top: 0.3em;\n  font-size: 20px;\n  font-weight: 400;\n}\n\n.h6 {\n  color: #eee;\n  font-size: 14px;\n  text-transform: uppercase;\n  margin-top: 0.5em;\n  font-size: 16px;\n  font-weight: 600;\n}\n\nul {\n  li {\n    font-size: 13px;\n    font-size: 15px;\n    font-size: 15px;\n  }\n}\n\n\n.footer-links {\n  margin-bottom: 0;\n\n  >* {\n    float: left;\n    width: 100%;\n    margin: 2em 0 2em;\n  }\n}\n\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.vertical {\n  li {\n    float: none;\n    padding: 0.2em 0;\n    margin: 0;\n    border-width: 0 0 1px 0;\n\n    &:first-child {\n      border-top: 1px solid #4c4c4c;\n    }\n  }\n}\n\n.two-col,\n.three-col {\n  overflow: hidden;\n  clear: both;\n  margin-bottom: 1.5em;\n\n  >* {\n    width: 100%;\n    margin-bottom: 1.5em;\n  }\n}\n\n@media (min-width: 768px) {\n\n\n\n  .sidebar-left {\n    .row {\n      >.primary {\n        width: 64%;\n        float: right;\n      }\n\n      >.secondary {\n        width: 35%;\n        float: left;\n      }\n    }\n  }\n\n  .sidebar-right {\n    .sidebar-left {\n      .row {\n        >.primary {\n          width: 64%;\n          float: right;\n        }\n\n        >.secondary {\n          width: 35%;\n          float: left;\n        }\n      }\n    }\n  }\n\n  .sidebar-tint {\n    .row {\n      position: relative;\n      z-index: 2;\n    }\n  }\n\n  .two-col {\n    >* {\n      &:nth-child(2n+1) {\n        clear: left;\n      }\n\n      float: left;\n      width: 50%;\n    }\n  }\n\n  .three-col {\n    >* {\n      &:nth-child(3n+1) {\n        clear: left;\n      }\n\n      float: left;\n      width: 33.33%;\n    }\n  }\n\n  .two-col.padded,\n  .three-col.padded {\n    margin-left: -15px;\n    margin-right: -15px;\n\n    >* {\n      padding: 0 15px 15px;\n    }\n  }\n\n  .primary {\n    width: 61% !important;\n    margin: 0 !important;\n  }\n\n  .secondary {\n    width: 39% !important;\n    margin: 0 !important;\n  }\n\n  .main-footer {\n    .primary {\n      padding-left: 4%;\n    }\n\n    .container-fluid {\n      position: relative;\n\n      &:after {\n        content: '';\n        display: block;\n        border-right: 1px solid #5e5e5e;\n        position: absolute;\n        left: 39%;\n        top: 0;\n        bottom: 0;\n      }\n    }\n  }\n\n  a.link-block {\n    font-size: 14px;\n    font-size: 15px;\n    padding: 0.6em 1em;\n  }\n}\n\n\n\n\n@media (min-width: 992px) {\n  .primary {\n    width: 68% !important;\n  }\n\n  .secondary {\n    width: 32% !important;\n  }\n\n  .main-footer {\n    .container-fluid {\n      &:after {\n        left: 34%;\n        left: calc(32% + 15px);\n      }\n    }\n  }\n\n  .two-col,\n  .three-col {\n    margin: 0;\n    padding-bottom: 0 !important;\n\n    >* {\n      margin: 0;\n      padding-bottom: 0 !important;\n    }\n  }\n}\n\n\n@media (min-width: 1200px) {\n  .main-footer {\n    .primary {\n      padding-left: 5%;\n    }\n  }\n}\n",
+                    "data": "@import \"../../../styles.scss\";\n\n.main-footer {\n  line-height: 1.6;\n  background: #333;\n  color: #bbb;\n  font-size: 13px;\n  padding: 45px 0;\n  // line-height: 1.6;\n  font-size: 13px;\n\n  a {\n    text-decoration: none;\n    transition: color 0.2s, -moz-text-decoration-color 0.2s, -webkit-text-decoration-color 0.2s, text-decoration-color 0.2s;\n    color: #fff;\n    text-decoration-color: rgba(255, 255, 255, 0.4);\n\n    &:hover {\n      text-decoration: underline;\n      color: #fff;\n      text-decoration-color: white;\n      transition: none;\n    }\n\n    &:focus {\n      text-decoration: underline;\n      color: #fff;\n      text-decoration-color: white;\n      transition: none;\n    }\n\n    &:active {\n      color: #9b9b9b;\n      text-decoration-color: rgba(255, 255, 255, 0.4);\n    }\n  }\n\n  p {\n    margin-top: 0;\n    margin-bottom: 1.5em;\n    color: #bbb;\n\n    &:last-child {\n      margin-bottom: 0;\n    }\n  }\n\n  .h3 {\n    margin-top: 0;\n    font-family: Georgia, serif;\n    font-weight: normal;\n    margin-bottom: 0.7em;\n    line-height: 1.2;\n    font-size: 22px;\n    font-family: \"freight-sans-pro\", sans-serif;\n  }\n\n  .h5 {\n    margin-top: 0;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n    font-weight: normal;\n    font-weight: normal;\n    margin-bottom: 1em;\n    line-height: 1.4;\n    font-size: 16px;\n    font-weight: 600;\n    color: #444;\n    font-family: \"freight-sans-pro\", sans-serif;\n  }\n\n  .h6 {\n    margin-top: 0;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n    font-weight: normal;\n    font-weight: normal;\n    margin-bottom: 1em;\n    line-height: 1.4;\n    font-size: 16px;\n    color: #707070;\n    font-family: \"freight-sans-pro\", sans-serif;\n  }\n\n\n  .link-block {\n    background: rgba(0, 0, 0, 0.07);\n    padding: 0.5em 0.8em 0.4em 0.7em;\n    display: inline-block;\n    line-height: 1;\n  }\n\n  .footer-links {\n    li {\n      line-height: 1.4;\n    }\n  }\n\n  a.link-block {\n    background: rgba(109, 195, 255, 0.15);\n    text-decoration: none;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n    font-size: 24px;\n    padding: 0.5em 0.8em;\n    margin-top: 8px;\n    font-family: \"freight-sans-pro\", sans-serif;\n    padding: 0.55em 1em 0.6em;\n\n    &:hover {\n      background: rgba(55, 160, 233, 0.4);\n    }\n\n    &:focus {\n      background: rgba(55, 160, 233, 0.4);\n    }\n\n    &:active {\n      background: rgba(55, 160, 233, 0.6);\n      color: #fff;\n    }\n  }\n\n\n\n  .list-menu.vertical {}\n\n\n  .h3 {\n    color: #eee;\n  }\n\n  .h5 {\n    color: #eee;\n    font-size: 14px;\n    margin-top: 0.3em;\n    font-size: 20px;\n    font-weight: 400;\n  }\n\n  .h6 {\n    color: #eee;\n    font-size: 14px;\n    text-transform: uppercase;\n    margin-top: 0.5em;\n    font-size: 16px;\n    font-weight: 600;\n  }\n\n  ul {\n    li {\n      font-size: 13px;\n      font-size: 15px;\n      font-size: 15px;\n    }\n  }\n\n\n  .footer-links {\n    margin-bottom: 0;\n\n    >* {\n      float: left;\n      width: 100%;\n      margin: 2em 0 2em;\n    }\n  }\n\n  .list-menu {\n    padding: 0;\n    margin: 0 0 1.5em;\n    list-style: none;\n    float: left;\n    width: 100%;\n    clear: both;\n\n    &:last-child {\n      margin-bottom: 0;\n    }\n\n    li {\n      float: left;\n      display: block;\n      background: none !important;\n      padding: 0 0.6em 0 0;\n      margin: 0 0.6em 0.6em 0;\n      border-width: 0 1px 0 0;\n\n      &:last-child {\n        border-right-width: 0;\n      }\n    }\n  }\n\n  .list-menu.vertical {\n    li {\n      float: none;\n      padding: 0.2em 0;\n      margin: 0;\n      border-width: 0 0 1px 0;\n\n      &:first-child {\n        border-top: 1px solid #4c4c4c;\n      }\n    }\n  }\n\n  .two-col,\n  .three-col {\n    overflow: hidden;\n    clear: both;\n    margin-bottom: 1.5em;\n\n    >* {\n      width: 100%;\n      margin-bottom: 1.5em;\n    }\n  }\n}\n\n@media (min-width: 768px) {\n\n  .main-footer {\n    .primary {\n      padding-left: 4%;\n    }\n\n    .container-fluid {\n      position: relative;\n\n      &:after {\n        content: '';\n        display: block;\n        border-right: 1px solid #5e5e5e;\n        position: absolute;\n        left: 39%;\n        top: 0;\n        bottom: 0;\n      }\n    }\n\n    .sidebar-left {\n      .row {\n        >.primary {\n          width: 64%;\n          float: right;\n        }\n\n        >.secondary {\n          width: 35%;\n          float: left;\n        }\n      }\n    }\n\n    .sidebar-right {\n      .sidebar-left {\n        .row {\n          >.primary {\n            width: 64%;\n            float: right;\n          }\n\n          >.secondary {\n            width: 35%;\n            float: left;\n          }\n        }\n      }\n    }\n\n    .sidebar-tint {\n      .row {\n        position: relative;\n        z-index: 2;\n      }\n    }\n\n    .two-col {\n      >* {\n        &:nth-child(2n+1) {\n          clear: left;\n        }\n\n        float: left;\n        width: 50%;\n      }\n    }\n\n    .three-col {\n      >* {\n        &:nth-child(3n+1) {\n          clear: left;\n        }\n\n        float: left;\n        width: 33.33%;\n      }\n    }\n\n    .two-col.padded,\n    .three-col.padded {\n      margin-left: -15px;\n      margin-right: -15px;\n\n      >* {\n        padding: 0 15px 15px;\n      }\n    }\n\n    .primary {\n      width: 61% !important;\n      margin: 0 !important;\n    }\n\n    .secondary {\n      width: 39% !important;\n      margin: 0 !important;\n    }\n\n    a.link-block {\n      font-size: 14px;\n      font-size: 15px;\n      padding: 0.6em 1em;\n    }\n  }\n}\n\n\n\n\n@media (min-width: 992px) {\n  .main-footer {\n    .container-fluid {\n      &:after {\n        left: 34%;\n        left: calc(32% + 15px);\n      }\n    }\n\n    .two-col,\n    .three-col {\n      margin: 0;\n      padding-bottom: 0 !important;\n\n      >* {\n        margin: 0;\n        padding-bottom: 0 !important;\n      }\n    }\n\n    .primary {\n      width: 68% !important;\n    }\n\n    .secondary {\n      width: 32% !important;\n    }\n  }\n}\n\n\n\n\n@media (min-width: 1200px) {\n  .main-footer {\n    .primary {\n      padding-left: 5%;\n    }\n  }\n}\n",
                     "styleUrl": "./main-footer.component.scss"
                 }
             ],
@@ -598,12 +600,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 8
+                "line": 9
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"main-footer\">\n  <div class=\"container-fluid sidebar-left\">\n    <div class=\"row\">\n      <div class=\"primary\">\n        <h2 class=\"h3 sr-only\">Quick Links</h2>\n        <div id=\"block-sclfooterlinks\" class=\"footer-links padded three-col\">\n          <div>\n            <h3 class=\"h6\">Additional Resources</h3>\n            <ul class=\"list-menu vertical\">\n              <li><a href=\"#\">Link number one</a></li>\n            </ul>\n          </div>\n          <div>\n            <h3 class=\"h6\">Additional Resources 2</h3>\n            <ul class=\"list-menu vertical\">\n              <li><a href=\"#\">Link number two</a></li>\n            </ul>\n          </div>\n          <div>\n            <h3 class=\"h6\">Additional Resources 3</h3>\n            <ul class=\"list-menu vertical\">\n              <li><a href=\"#\" class=\"ext\">Link Number four</a></li>\n              <li><a href=\"#\">Link number three</a></li>\n            </ul>\n          </div>\n        </div>\n      </div>\n      <div class=\"secondary\">\n        <h2 class=\"h5\">Student &amp; Campus Life</h2>\n        <p>311 Day Hall<br>\n          Cornell University<br>\n          Ithaca, NY 14853</p>\n        <p>\n          <a class=\"link-block\" href=\"/contact-us\">Contact Student &amp; Campus Life</a>\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"main-footer\">\n  <div class=\"container-fluid sidebar-left\">\n    <div class=\"row\">\n      <div class=\"primary\">\n        <ng-content select=\"[primary]\"></ng-content>\n      </div>\n      <div class=\"secondary\">\n        <ng-content select=\"[secondary]\"></ng-content>\n      </div>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "MainMenuComponent",
@@ -2537,7 +2539,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/two-column.stories.ts",
+                "file": "stories/sub-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2547,7 +2549,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/sub-footer.stories.ts",
+                "file": "stories/two-column.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2650,7 +2652,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<GenericComponent>",
-                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header title=\"Example Title\" subtitle=\"A short description usually longer than the title\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer></lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header title=\"Example Title\" subtitle=\"A short description usually longer than the title\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer>\n    <div primary>\n      <p>\n        Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n      </p>\n      <p>\n        <a href=\"https://www.cornell.edu/privacy-policy\">Privacy Policy</a>\n      </p>\n    </div>\n    <div secondary>\n      <h2 class=\"h5\">Student &amp; Campus Life</h2>\n      <p>311 Day Hall<br>\n        Cornell University<br>\n        Ithaca, NY 14853</p>\n      </div>\n  </lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
             },
             {
                 "name": "Template",
@@ -2690,7 +2692,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<MainFooterComponent>",
-                "defaultValue": "(args: MainFooterComponent) => ({\n  props: args,\n})"
+                "defaultValue": "(args: MainFooterComponent) => ({\n  props: args,\n  template: `\n  <lib-main-footer>\n  <div primary>\n    <p>\n      Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n    </p>\n  </div>\n  <div secondary>\n    <h2 class=\"h5\">Student &amp; Campus Life</h2>\n    <p>311 Day Hall<br>\n      Cornell University<br>\n      Ithaca, NY 14853</p>\n    </div>\n  </lib-main-footer>\n  `,\n})"
             },
             {
                 "name": "Template",
@@ -2746,21 +2748,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/two-column.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<TwoColumnComponent>",
-                "defaultValue": "(args: TwoColumnComponent) => ({\n  props: args,\n  template: `\n    <lib-two-column >\n      <div primary>\n        <h1>Template</h1>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n        <h2>Sub Content</h2>\n        <p>\n          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui\n          consectetur voluptate quisquam architecto ducimus\n          earum magni beatae tenetur repellat. Veniam atque vel deleniti\n          voluptatem possimus accusamus quaerat modi eius\n          vitae?\n          Consequatur maiores fuga officiis placeat voluptatem provident non a\n          quam possimus nihil beatae deserunt rem\n          dolore nam, dolor deleniti nemo aspernatur in labore commodi sint,\n          eius quo! Reiciendis, perferendis laborum.\n          Blanditiis, animi possimus quia iste doloremque repudiandae eos\n          voluptatum quam libero in tempora ad, facilis\n          similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem!\n          Sit nulla saepe ullam qui id?\n          Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet\n          velit mollitia quisquam, consequuntur\n          voluptatum minus itaque pariatur voluptatibus autem similique\n          blanditiis atque esse illo aliquid recusandae!\n          Fugit\n          optio atque cum.\n          Officia quod placeat tempora, temporibus ad exercitationem similique\n          dicta ipsa dolores sunt distinctio, sit\n          necessitatibus in. Perferendis harum porro quasi animi deleniti vel\n          corrupti eligendi cumque debitis! Tenetur,\n          eveniet possimus.\n        </p>\n      </div>\n\n      <div secondary>\n        <h2>Secondary Content</h2>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n      </div>\n    </lib-two-column>\n  `,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/sub-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<SubFooterComponent>",
                 "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/two-column.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<TwoColumnComponent>",
+                "defaultValue": "(args: TwoColumnComponent) => ({\n  props: args,\n  template: `\n    <lib-two-column >\n      <div primary>\n        <h1>Template</h1>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n        <h2>Sub Content</h2>\n        <p>\n          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui\n          consectetur voluptate quisquam architecto ducimus\n          earum magni beatae tenetur repellat. Veniam atque vel deleniti\n          voluptatem possimus accusamus quaerat modi eius\n          vitae?\n          Consequatur maiores fuga officiis placeat voluptatem provident non a\n          quam possimus nihil beatae deserunt rem\n          dolore nam, dolor deleniti nemo aspernatur in labore commodi sint,\n          eius quo! Reiciendis, perferendis laborum.\n          Blanditiis, animi possimus quia iste doloremque repudiandae eos\n          voluptatum quam libero in tempora ad, facilis\n          similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem!\n          Sit nulla saepe ullam qui id?\n          Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet\n          velit mollitia quisquam, consequuntur\n          voluptatum minus itaque pariatur voluptatibus autem similique\n          blanditiis atque esse illo aliquid recusandae!\n          Fugit\n          optio atque cum.\n          Officia quod placeat tempora, temporibus ad exercitationem similique\n          dicta ipsa dolores sunt distinctio, sit\n          necessitatibus in. Perferendis harum porro quasi animi deleniti vel\n          corrupti eligendi cumque debitis! Tenetur,\n          eveniet possimus.\n        </p>\n      </div>\n\n      <div secondary>\n        <h2>Secondary Content</h2>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n      </div>\n    </lib-two-column>\n  `,\n})"
             },
             {
                 "name": "Template",
@@ -3008,7 +3010,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<MainFooterComponent>",
-                    "defaultValue": "(args: MainFooterComponent) => ({\n  props: args,\n})"
+                    "defaultValue": "(args: MainFooterComponent) => ({\n  props: args,\n  template: `\n  <lib-main-footer>\n  <div primary>\n    <p>\n      Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n    </p>\n  </div>\n  <div secondary>\n    <h2 class=\"h5\">Student &amp; Campus Life</h2>\n    <p>311 Day Hall<br>\n      Cornell University<br>\n      Ithaca, NY 14853</p>\n    </div>\n  </lib-main-footer>\n  `,\n})"
                 }
             ],
             "stories/main-menu.stories.ts": [
@@ -3121,28 +3123,6 @@
                     "defaultValue": "(args: SkipLinkComponent) => ({\n  props: args,\n})"
                 }
             ],
-            "stories/two-column.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/two-column.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/two-column.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<TwoColumnComponent>",
-                    "defaultValue": "(args: TwoColumnComponent) => ({\n  props: args,\n  template: `\n    <lib-two-column >\n      <div primary>\n        <h1>Template</h1>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n        <h2>Sub Content</h2>\n        <p>\n          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui\n          consectetur voluptate quisquam architecto ducimus\n          earum magni beatae tenetur repellat. Veniam atque vel deleniti\n          voluptatem possimus accusamus quaerat modi eius\n          vitae?\n          Consequatur maiores fuga officiis placeat voluptatem provident non a\n          quam possimus nihil beatae deserunt rem\n          dolore nam, dolor deleniti nemo aspernatur in labore commodi sint,\n          eius quo! Reiciendis, perferendis laborum.\n          Blanditiis, animi possimus quia iste doloremque repudiandae eos\n          voluptatum quam libero in tempora ad, facilis\n          similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem!\n          Sit nulla saepe ullam qui id?\n          Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet\n          velit mollitia quisquam, consequuntur\n          voluptatum minus itaque pariatur voluptatibus autem similique\n          blanditiis atque esse illo aliquid recusandae!\n          Fugit\n          optio atque cum.\n          Officia quod placeat tempora, temporibus ad exercitationem similique\n          dicta ipsa dolores sunt distinctio, sit\n          necessitatibus in. Perferendis harum porro quasi animi deleniti vel\n          corrupti eligendi cumque debitis! Tenetur,\n          eveniet possimus.\n        </p>\n      </div>\n\n      <div secondary>\n        <h2>Secondary Content</h2>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n      </div>\n    </lib-two-column>\n  `,\n})"
-                }
-            ],
             "stories/sub-footer.stories.ts": [
                 {
                     "name": "Default",
@@ -3163,6 +3143,28 @@
                     "deprecationMessage": "",
                     "type": "Story<SubFooterComponent>",
                     "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "stories/two-column.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/two-column.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/two-column.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TwoColumnComponent>",
+                    "defaultValue": "(args: TwoColumnComponent) => ({\n  props: args,\n  template: `\n    <lib-two-column >\n      <div primary>\n        <h1>Template</h1>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n        <h2>Sub Content</h2>\n        <p>\n          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui\n          consectetur voluptate quisquam architecto ducimus\n          earum magni beatae tenetur repellat. Veniam atque vel deleniti\n          voluptatem possimus accusamus quaerat modi eius\n          vitae?\n          Consequatur maiores fuga officiis placeat voluptatem provident non a\n          quam possimus nihil beatae deserunt rem\n          dolore nam, dolor deleniti nemo aspernatur in labore commodi sint,\n          eius quo! Reiciendis, perferendis laborum.\n          Blanditiis, animi possimus quia iste doloremque repudiandae eos\n          voluptatum quam libero in tempora ad, facilis\n          similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem!\n          Sit nulla saepe ullam qui id?\n          Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet\n          velit mollitia quisquam, consequuntur\n          voluptatum minus itaque pariatur voluptatibus autem similique\n          blanditiis atque esse illo aliquid recusandae!\n          Fugit\n          optio atque cum.\n          Officia quod placeat tempora, temporibus ad exercitationem similique\n          dicta ipsa dolores sunt distinctio, sit\n          necessitatibus in. Perferendis harum porro quasi animi deleniti vel\n          corrupti eligendi cumque debitis! Tenetur,\n          eveniet possimus.\n        </p>\n      </div>\n\n      <div secondary>\n        <h2>Secondary Content</h2>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n      </div>\n    </lib-two-column>\n  `,\n})"
                 }
             ],
             "stories/utility-nav.stories.ts": [
@@ -3206,7 +3208,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<GenericComponent>",
-                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header title=\"Example Title\" subtitle=\"A short description usually longer than the title\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer></lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header title=\"Example Title\" subtitle=\"A short description usually longer than the title\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer>\n    <div primary>\n      <p>\n        Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n      </p>\n      <p>\n        <a href=\"https://www.cornell.edu/privacy-policy\">Privacy Policy</a>\n      </p>\n    </div>\n    <div secondary>\n      <h2 class=\"h5\">Student &amp; Campus Life</h2>\n      <p>311 Day Hall<br>\n        Cornell University<br>\n        Ithaca, NY 14853</p>\n      </div>\n  </lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
                 }
             ],
             "projects/cu-ng-design-library/src/lib/shared/modules/material/material.module.ts": [
