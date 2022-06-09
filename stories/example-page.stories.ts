@@ -88,7 +88,22 @@ const Template: Story<GenericComponent> = (args: GenericComponent) => ({
 <router-outlet></router-outlet>
 
 <lib-footer>
-  <lib-main-footer></lib-main-footer>
+  <lib-main-footer>
+    <div primary>
+      <p>
+        Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.
+      </p>
+      <p>
+        <a href="https://www.cornell.edu/privacy-policy">Privacy Policy</a>
+      </p>
+    </div>
+    <div secondary>
+      <h2 class="h5">Student &amp; Campus Life</h2>
+      <p>311 Day Hall<br>
+        Cornell University<br>
+        Ithaca, NY 14853</p>
+      </div>
+  </lib-main-footer>
   <lib-sub-footer [isMobileLayout]="false"></lib-sub-footer>
 </lib-footer>
 `,

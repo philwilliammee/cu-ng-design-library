@@ -55,7 +55,7 @@
     "components": [
         {
             "name": "CuNgDesignLibraryComponent",
-            "id": "component-CuNgDesignLibraryComponent-1801e9ee506a3fa5708193e443406146b33520524466330d911b0ec0effe9be497b2e4a342998c073a8a14d2c3de33a7bddede445e3573a163fd34a40314a634",
+            "id": "component-CuNgDesignLibraryComponent-e67e8e6a651d628c9b9d577314dcbc7fe752eb0c5b71fd79ebd43ee34bbebe29159fda93778c8fb3f54c9cb7d23c16ce08a013e06b5217aa3a8bf7063f5ba65a",
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -74,7 +74,7 @@
                     "defaultValue": "'cu-seal'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 41,
+                    "line": 43,
                     "type": "logo",
                     "decorators": []
                 },
@@ -82,7 +82,7 @@
                     "name": "routes",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 37,
+                    "line": 39,
                     "type": "Routes",
                     "decorators": []
                 },
@@ -90,7 +90,7 @@
                     "name": "subtitle",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 39,
+                    "line": 41,
                     "type": "string",
                     "decorators": []
                 },
@@ -99,7 +99,7 @@
                     "defaultValue": "'cu-default'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 40,
+                    "line": 42,
                     "type": "theme",
                     "decorators": []
                 },
@@ -107,7 +107,7 @@
                     "name": "title",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 38,
+                    "line": 40,
                     "type": "string",
                     "decorators": []
                 },
@@ -116,7 +116,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 42,
+                    "line": 44,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -125,83 +125,65 @@
             "propertiesClass": [
                 {
                     "name": "isMobileLayout",
-                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 44,
-                    "decorators": [
-                        {
-                            "name": "HostListener",
-                            "stringifiedArguments": "'window:resize', ['$event']"
-                        }
-                    ],
+                    "line": 45,
                     "modifierKind": [
                         123
                     ]
+                },
+                {
+                    "name": "resizeObservable$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<Event>",
+                    "optional": true,
+                    "description": "",
+                    "line": 47
+                },
+                {
+                    "name": "resizeSubscription$",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Subscription",
+                    "optional": true,
+                    "description": "",
+                    "line": 48
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 66,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 54,
                     "deprecated": false,
                     "deprecationMessage": ""
-                },
-                {
-                    "name": "onResize",
-                    "args": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 48,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "any",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
                 }
             ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
-            "hostListeners": [
-                {
-                    "name": "window:resize",
-                    "args": [],
-                    "argsDecorator": [
-                        "$event"
-                    ],
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 44
-                }
-            ],
+            "hostListeners": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, HostListener, Input, OnInit } from '@angular/core';\nimport { Routes } from '@angular/router';\nimport { CWD_BREAKPOINTS_SIZES } from './cu-ng-design-library.breakpoints';\nimport { theme, logo } from './components/layout/header/header.component';\n\n@Component({\n  selector: 'lib-cu-ng-design-library',\n  template: `\n    <lib-skip-link></lib-skip-link>\n    <lib-header\n      [title]=\"title\"\n      [subtitle]=\"subtitle\"\n      [logo]=\"logo\"\n      [theme]=\"theme\"\n      [useGradient]=\"useGradient\"\n    >\n      <lib-header-buttons>\n        <lib-utility-nav></lib-utility-nav>\n        <lib-mobile-menu\n          [routes]=\"routes\"\n          *ngIf=\"isMobileLayout\"\n        ></lib-mobile-menu>\n      </lib-header-buttons>\n    </lib-header>\n\n    <lib-main-menu [routes]=\"routes\" *ngIf=\"!isMobileLayout\"></lib-main-menu>\n\n    <router-outlet></router-outlet>\n\n    <lib-footer>\n      <lib-main-footer></lib-main-footer>\n      <lib-sub-footer [isMobileLayout]=\"isMobileLayout\"></lib-sub-footer>\n    </lib-footer>\n  `,\n})\nexport class CuNgDesignLibraryComponent implements OnInit {\n  @Input() routes!: Routes;\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme: theme = 'cu-default';\n  @Input() logo: logo = 'cu-seal';\n  @Input() useGradient: boolean = false;\n  @HostListener('window:resize', ['$event'])\n  public isMobileLayout: boolean = false;\n\n  constructor() {}\n\n  onResize(event: any) {\n    // this.isMobileLayout =\n    //   event.target.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n  }\n\n  ngOnInit(): void {\n    // window.onresize = () => this.isMobileLayout = window.innerWidth <= 768;\n    this.isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n  }\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Routes } from '@angular/router';\nimport { CWD_BREAKPOINTS_SIZES } from './cu-ng-design-library.breakpoints';\nimport { theme, logo } from './components/layout/header/header.component';\nimport { fromEvent, Observable, Subscription } from 'rxjs';\n\n@Component({\n  selector: 'lib-cu-ng-design-library',\n  template: `\n    <lib-skip-link></lib-skip-link>\n    <lib-header\n      [title]=\"title\"\n      [subtitle]=\"subtitle\"\n      [logo]=\"logo\"\n      [theme]=\"theme\"\n      [useGradient]=\"useGradient\"\n    >\n      <lib-header-buttons>\n        <lib-utility-nav></lib-utility-nav>\n        <lib-mobile-menu\n          [routes]=\"routes\"\n          *ngIf=\"isMobileLayout\"\n        ></lib-mobile-menu>\n      </lib-header-buttons>\n    </lib-header>\n\n    <lib-main-menu [routes]=\"routes\" *ngIf=\"!isMobileLayout\"></lib-main-menu>\n\n    <router-outlet></router-outlet>\n\n    <lib-footer>\n      <lib-main-footer></lib-main-footer>\n      <lib-sub-footer [isMobileLayout]=\"isMobileLayout\"></lib-sub-footer>\n    </lib-footer>\n  `,\n})\nexport class CuNgDesignLibraryComponent implements OnInit {\n  @Input()\n  routes!: Routes;\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme: theme = 'cu-default';\n  @Input() logo: logo = 'cu-seal';\n  @Input() useGradient: boolean = false;\n  public isMobileLayout!: boolean;\n\n  resizeObservable$?: Observable<Event>;\n  resizeSubscription$?: Subscription;\n\n  constructor() {\n    this.isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n  }\n\n  ngOnInit() {\n    this.resizeObservable$ = fromEvent(window, 'resize');\n    this.resizeSubscription$ = this.resizeObservable$.subscribe(\n      (event: any) => {\n        const innerWidth = event?.target?.innerWidth;\n        if (innerWidth) {\n          this.isMobileLayout = innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n        }\n      }\n    );\n  }\n\n  ngOnDestroy() {\n    this.resizeSubscription$?.unsubscribe();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -211,7 +193,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 44
+                "line": 48
             },
             "implements": [
                 "OnInit"
@@ -2555,7 +2537,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/sub-footer.stories.ts",
+                "file": "stories/two-column.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2565,7 +2547,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/two-column.stories.ts",
+                "file": "stories/sub-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2764,21 +2746,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/sub-footer.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<SubFooterComponent>",
-                "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/two-column.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<TwoColumnComponent>",
                 "defaultValue": "(args: TwoColumnComponent) => ({\n  props: args,\n  template: `\n    <lib-two-column >\n      <div primary>\n        <h1>Template</h1>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n        <h2>Sub Content</h2>\n        <p>\n          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui\n          consectetur voluptate quisquam architecto ducimus\n          earum magni beatae tenetur repellat. Veniam atque vel deleniti\n          voluptatem possimus accusamus quaerat modi eius\n          vitae?\n          Consequatur maiores fuga officiis placeat voluptatem provident non a\n          quam possimus nihil beatae deserunt rem\n          dolore nam, dolor deleniti nemo aspernatur in labore commodi sint,\n          eius quo! Reiciendis, perferendis laborum.\n          Blanditiis, animi possimus quia iste doloremque repudiandae eos\n          voluptatum quam libero in tempora ad, facilis\n          similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem!\n          Sit nulla saepe ullam qui id?\n          Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet\n          velit mollitia quisquam, consequuntur\n          voluptatum minus itaque pariatur voluptatibus autem similique\n          blanditiis atque esse illo aliquid recusandae!\n          Fugit\n          optio atque cum.\n          Officia quod placeat tempora, temporibus ad exercitationem similique\n          dicta ipsa dolores sunt distinctio, sit\n          necessitatibus in. Perferendis harum porro quasi animi deleniti vel\n          corrupti eligendi cumque debitis! Tenetur,\n          eveniet possimus.\n        </p>\n      </div>\n\n      <div secondary>\n        <h2>Secondary Content</h2>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n      </div>\n    </lib-two-column>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/sub-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<SubFooterComponent>",
+                "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3139,28 +3121,6 @@
                     "defaultValue": "(args: SkipLinkComponent) => ({\n  props: args,\n})"
                 }
             ],
-            "stories/sub-footer.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/sub-footer.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/sub-footer.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<SubFooterComponent>",
-                    "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
-                }
-            ],
             "stories/two-column.stories.ts": [
                 {
                     "name": "Default",
@@ -3181,6 +3141,28 @@
                     "deprecationMessage": "",
                     "type": "Story<TwoColumnComponent>",
                     "defaultValue": "(args: TwoColumnComponent) => ({\n  props: args,\n  template: `\n    <lib-two-column >\n      <div primary>\n        <h1>Template</h1>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n        <h2>Sub Content</h2>\n        <p>\n          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui\n          consectetur voluptate quisquam architecto ducimus\n          earum magni beatae tenetur repellat. Veniam atque vel deleniti\n          voluptatem possimus accusamus quaerat modi eius\n          vitae?\n          Consequatur maiores fuga officiis placeat voluptatem provident non a\n          quam possimus nihil beatae deserunt rem\n          dolore nam, dolor deleniti nemo aspernatur in labore commodi sint,\n          eius quo! Reiciendis, perferendis laborum.\n          Blanditiis, animi possimus quia iste doloremque repudiandae eos\n          voluptatum quam libero in tempora ad, facilis\n          similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem!\n          Sit nulla saepe ullam qui id?\n          Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet\n          velit mollitia quisquam, consequuntur\n          voluptatum minus itaque pariatur voluptatibus autem similique\n          blanditiis atque esse illo aliquid recusandae!\n          Fugit\n          optio atque cum.\n          Officia quod placeat tempora, temporibus ad exercitationem similique\n          dicta ipsa dolores sunt distinctio, sit\n          necessitatibus in. Perferendis harum porro quasi animi deleniti vel\n          corrupti eligendi cumque debitis! Tenetur,\n          eveniet possimus.\n        </p>\n      </div>\n\n      <div secondary>\n        <h2>Secondary Content</h2>\n        <p>\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n          dignissimos temporibus enim. Impedit,\n          voluptatum\n          error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n          asperiores nobis beatae voluptatibus\n          commodi\n          natus?\n        </p>\n      </div>\n    </lib-two-column>\n  `,\n})"
+                }
+            ],
+            "stories/sub-footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/sub-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/sub-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<SubFooterComponent>",
+                    "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
                 }
             ],
             "stories/utility-nav.stories.ts": [
@@ -3448,7 +3430,7 @@
                 "linktype": "component",
                 "name": "CuNgDesignLibraryComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/12",
+                "coverageCount": "0/13",
                 "status": "low"
             },
             {
