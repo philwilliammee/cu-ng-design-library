@@ -41,8 +41,8 @@ export class CuNgDesignLibraryComponent implements OnInit {
   @Input() subtitle!: string;
   @Input() theme: theme = 'cu-default';
   @Input() logo: logo = 'cu-seal';
-  @Input() useGradient: boolean = false;
-  public isMobileLayout!: boolean;
+  @Input() useGradient = false;
+  isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
 
   resizeObservable$?: Observable<Event>;
   resizeSubscription$?: Subscription;
@@ -52,13 +52,12 @@ export class CuNgDesignLibraryComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Check is mobile layout
     this.resizeObservable$ = fromEvent(window, 'resize');
     this.resizeSubscription$ = this.resizeObservable$.subscribe(
-      (event: any) => {
-        const innerWidth = event?.target?.innerWidth;
-        if (innerWidth) {
-          this.isMobileLayout = innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
-        }
+      (event: Event) => {
+        const target = event.target as Window;
+        this.isMobileLayout = target.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
       }
     );
   }
