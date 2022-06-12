@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'lib-header-buttons',
   templateUrl: './header-buttons.component.html',
-  styleUrls: ['./header-buttons.component.scss']
+  styleUrls: ['./header-buttons.component.scss'],
 })
-export class HeaderButtonsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class HeaderButtonsComponent {}

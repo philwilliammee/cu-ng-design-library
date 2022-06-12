@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 // Cornell Branding Banner
 // .cu-red - Overrides the default light gray banner to be red with white logo. Affects both 45px and Large Seal options.
@@ -19,8 +19,8 @@ export type logo = 'cu-seal' | 'cu-45';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  public svgIconUrl: string =
+export class HeaderComponent {
+  public svgIconUrl =
     'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';
   @Input() title!: string;
   @Input() subtitle!: string;
@@ -50,6 +50,4 @@ export class HeaderComponent implements OnInit {
     }
     return classes;
   }
-
-  ngOnInit(): void {}
 }

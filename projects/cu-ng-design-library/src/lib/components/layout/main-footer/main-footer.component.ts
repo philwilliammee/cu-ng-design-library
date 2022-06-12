@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'lib-main-footer',
@@ -6,8 +6,4 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./main-footer.component.scss'],
   encapsulation: ViewEncapsulation.None, // apply global styles to this component
 })
-export class MainFooterComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class MainFooterComponent {}

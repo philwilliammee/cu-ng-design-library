@@ -3,7 +3,8 @@
     "path": "./"
   }],
   "settings": {
-    // "eslint.nodePath": "./node_modules/eslint/lib/api.js",
+    "eslint.nodePath": "./node_modules/eslint/lib/api.js",
+    "eslint.enable": true,
     "cSpell.words": [
     ],
     "[javascript]": {
@@ -13,6 +14,9 @@
     "[typescript]": {
       "editor.tabSize": 2,
       "editor.formatOnSave": true,
+    },
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
     },
 
   },

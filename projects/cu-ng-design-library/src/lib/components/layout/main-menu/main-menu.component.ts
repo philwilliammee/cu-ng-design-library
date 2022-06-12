@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Routes } from '@angular/router';
 
 // This component implements the main menu.
@@ -8,10 +8,6 @@ import { Routes } from '@angular/router';
   templateUrl: './main-menu.component.html',
   styleUrls: ['./main-menu.component.scss'],
 })
-export class MainMenuComponent implements OnInit {
+export class MainMenuComponent {
   @Input() routes!: Routes;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

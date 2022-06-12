@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Routes } from '@angular/router';
 import { MobileDialogComponent } from '../mobile-dialog/mobile-dialog.component';
@@ -8,7 +8,7 @@ import { MobileDialogComponent } from '../mobile-dialog/mobile-dialog.component'
   templateUrl: './mobile-menu.component.html',
   styleUrls: ['./mobile-menu.component.scss'],
 })
-export class MobileMenuComponent implements OnInit {
+export class MobileMenuComponent {
   showFiller = false;
   @Input() routes!: Routes;
   constructor(public dialog: MatDialog) {}
@@ -28,6 +28,4 @@ export class MobileMenuComponent implements OnInit {
       },
     });
   }
-
-  ngOnInit(): void {}
 }

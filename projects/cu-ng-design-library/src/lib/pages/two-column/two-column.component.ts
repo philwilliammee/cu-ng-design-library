@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'lib-two-column',
   templateUrl: './two-column.component.html',
-  styleUrls: ['./two-column.component.scss']
+  styleUrls: ['./two-column.component.scss'],
 })
-export class TwoColumnComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class TwoColumnComponent {}

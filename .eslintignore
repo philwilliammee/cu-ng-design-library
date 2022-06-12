@@ -1,0 +1,7 @@
+stories
+dist
+.angular
+.storybook
+.vscode
+node_modules
+*.js

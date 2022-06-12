@@ -6,7 +6,7 @@ import { SubFooterComponent } from './components/layout/sub-footer/sub-footer.co
 import { MaterialModule } from './shared/modules/material/material.module';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { MainMenuComponent } from './components/layout/main-menu/main-menu.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';
 import { MainComponent } from './components/layout/main/main.component';

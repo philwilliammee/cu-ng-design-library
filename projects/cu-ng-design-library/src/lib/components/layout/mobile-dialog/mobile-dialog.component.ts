@@ -1,5 +1,5 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
-import { Route, Router, Routes } from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Route, Routes } from '@angular/router';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 
@@ -66,9 +66,9 @@ export class MobileDialogComponent implements OnInit {
   }
 
   routeHasActiveChild(route: Route): string {
-    var _activeChild = this.activeRouter.children.length;
+    const _activeChild = this.activeRouter.children.length;
     if (_activeChild != 0) {
-      for (var i = 0; i < _activeChild; i++) {
+      for (let i = 0; i < _activeChild; i++) {
         if (this.activeRouter.children[i].outlet === 'primary') {
           if (
             this.activeRouter.children[i].snapshot.url[0].path === route.path
