@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "DialogData",
-            "id": "interface-DialogData-c915283cdd1011e1404f677fa4571a1c59d39d4dbd05a969a3632803f9d50105ad60ab1e15f422f780d7ba1a0f623ca27c00ca7ce7074664a9a283a314cb4740",
+            "id": "interface-DialogData-d94ecc0e97a7e09765924674605941ccee2de73773ccc610db7b44599dd741e269e15e08154924899c45b383a49eae4fec0da74a8f4b59a54d20aacc1c25096d",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-dialog/mobile-dialog.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Component, Inject, Input, OnInit } from '@angular/core';\nimport { Route, Router, Routes } from '@angular/router';\nimport { MAT_DIALOG_DATA } from '@angular/material/dialog';\nimport { ActivatedRoute } from '@angular/router';\n\ninterface DialogData {\n  routes?: Routes;\n}\n\n@Component({\n  selector: 'lib-mobile-dialog',\n  templateUrl: './mobile-dialog.component.html',\n  styleUrls: ['./mobile-dialog.component.scss'],\n})\nexport class MobileDialogComponent implements OnInit {\n  constructor(\n    @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {}\n  public routes?: Routes = this.data.routes;\n  ngOnInit(): void {\n    this.routes = this.data.routes?.filter(\n      (route) => route.data && route.data['menu']\n    );\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    var _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (var i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n}\n",
+            "sourceCode": "import { Component, Inject, OnInit } from '@angular/core';\nimport { Route, Routes } from '@angular/router';\nimport { MAT_DIALOG_DATA } from '@angular/material/dialog';\nimport { ActivatedRoute } from '@angular/router';\n\ninterface DialogData {\n  routes?: Routes;\n}\n\n@Component({\n  selector: 'lib-mobile-dialog',\n  templateUrl: './mobile-dialog.component.html',\n  styleUrls: ['./mobile-dialog.component.scss'],\n})\nexport class MobileDialogComponent implements OnInit {\n  constructor(\n    @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {}\n  public routes?: Routes = this.data.routes;\n  ngOnInit(): void {\n    this.routes = this.data.routes?.filter(\n      (route) => route.data && route.data['menu']\n    );\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    const _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (let i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n}\n",
             "properties": [
                 {
                     "name": "routes",
@@ -28,7 +28,7 @@
     "injectables": [
         {
             "name": "CuNgDesignLibraryService",
-            "id": "injectable-CuNgDesignLibraryService-482bc1e73ba869cb0a5cf8545f1d518f6d1139c6338c4dc625ee1d8f4193ad6b62540167db4000ba1ae8d0436d1022066372d9a5561ac568ec076731b24190e8",
+            "id": "injectable-CuNgDesignLibraryService-e2f06bb8765e2e0b123867d99c92a181ef37e275a907ee1992b5af4134f13f8a9a8ab27d9a530d7dec071c8056284bc40f251f4441cfcf77e0634d41db10daef",
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.service.ts",
             "properties": [],
             "methods": [],
@@ -36,15 +36,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class CuNgDesignLibraryService {\n\n  constructor() { }\n}\n",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 6
-            },
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class CuNgDesignLibraryService {}\n",
             "type": "injectable"
         }
     ],
@@ -55,7 +47,7 @@
     "components": [
         {
             "name": "CuNgDesignLibraryComponent",
-            "id": "component-CuNgDesignLibraryComponent-e67e8e6a651d628c9b9d577314dcbc7fe752eb0c5b71fd79ebd43ee34bbebe29159fda93778c8fb3f54c9cb7d23c16ce08a013e06b5217aa3a8bf7063f5ba65a",
+            "id": "component-CuNgDesignLibraryComponent-026cbfc3656b4f31bd9809b0bc87c7a1c2a7db4142dbd4df0554ecb6b35c5808dab498e3851f58ae8697e6abcd8932cc83fd47283e60bbcae1334ee92e2fb1c5",
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -125,15 +117,13 @@
             "propertiesClass": [
                 {
                     "name": "isMobileLayout",
+                    "defaultValue": "window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "boolean",
+                    "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 45,
-                    "modifierKind": [
-                        123
-                    ]
+                    "line": 45
                 },
                 {
                     "name": "resizeObservable$",
@@ -161,7 +151,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 65,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -183,7 +173,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Routes } from '@angular/router';\nimport { CWD_BREAKPOINTS_SIZES } from './cu-ng-design-library.breakpoints';\nimport { theme, logo } from './components/layout/header/header.component';\nimport { fromEvent, Observable, Subscription } from 'rxjs';\n\n@Component({\n  selector: 'lib-cu-ng-design-library',\n  template: `\n    <lib-skip-link></lib-skip-link>\n    <lib-header\n      [title]=\"title\"\n      [subtitle]=\"subtitle\"\n      [logo]=\"logo\"\n      [theme]=\"theme\"\n      [useGradient]=\"useGradient\"\n    >\n      <lib-header-buttons>\n        <lib-utility-nav></lib-utility-nav>\n        <lib-mobile-menu\n          [routes]=\"routes\"\n          *ngIf=\"isMobileLayout\"\n        ></lib-mobile-menu>\n      </lib-header-buttons>\n    </lib-header>\n\n    <lib-main-menu [routes]=\"routes\" *ngIf=\"!isMobileLayout\"></lib-main-menu>\n\n    <router-outlet></router-outlet>\n\n    <lib-footer>\n      <lib-main-footer></lib-main-footer>\n      <lib-sub-footer [isMobileLayout]=\"isMobileLayout\"></lib-sub-footer>\n    </lib-footer>\n  `,\n})\nexport class CuNgDesignLibraryComponent implements OnInit {\n  @Input()\n  routes!: Routes;\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme: theme = 'cu-default';\n  @Input() logo: logo = 'cu-seal';\n  @Input() useGradient: boolean = false;\n  public isMobileLayout!: boolean;\n\n  resizeObservable$?: Observable<Event>;\n  resizeSubscription$?: Subscription;\n\n  constructor() {\n    this.isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n  }\n\n  ngOnInit() {\n    this.resizeObservable$ = fromEvent(window, 'resize');\n    this.resizeSubscription$ = this.resizeObservable$.subscribe(\n      (event: any) => {\n        const innerWidth = event?.target?.innerWidth;\n        if (innerWidth) {\n          this.isMobileLayout = innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n        }\n      }\n    );\n  }\n\n  ngOnDestroy() {\n    this.resizeSubscription$?.unsubscribe();\n  }\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Routes } from '@angular/router';\nimport { CWD_BREAKPOINTS_SIZES } from './cu-ng-design-library.breakpoints';\nimport { theme, logo } from './components/layout/header/header.component';\nimport { fromEvent, Observable, Subscription } from 'rxjs';\n\n@Component({\n  selector: 'lib-cu-ng-design-library',\n  template: `\n    <lib-skip-link></lib-skip-link>\n    <lib-header\n      [title]=\"title\"\n      [subtitle]=\"subtitle\"\n      [logo]=\"logo\"\n      [theme]=\"theme\"\n      [useGradient]=\"useGradient\"\n    >\n      <lib-header-buttons>\n        <lib-utility-nav></lib-utility-nav>\n        <lib-mobile-menu\n          [routes]=\"routes\"\n          *ngIf=\"isMobileLayout\"\n        ></lib-mobile-menu>\n      </lib-header-buttons>\n    </lib-header>\n\n    <lib-main-menu [routes]=\"routes\" *ngIf=\"!isMobileLayout\"></lib-main-menu>\n\n    <router-outlet></router-outlet>\n\n    <lib-footer>\n      <lib-main-footer></lib-main-footer>\n      <lib-sub-footer [isMobileLayout]=\"isMobileLayout\"></lib-sub-footer>\n    </lib-footer>\n  `,\n})\nexport class CuNgDesignLibraryComponent implements OnInit {\n  @Input()\n  routes!: Routes;\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme: theme = 'cu-default';\n  @Input() logo: logo = 'cu-seal';\n  @Input() useGradient = false;\n  isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n\n  resizeObservable$?: Observable<Event>;\n  resizeSubscription$?: Subscription;\n\n  constructor() {\n    this.isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n  }\n\n  ngOnInit() {\n    // Check is mobile layout\n    this.resizeObservable$ = fromEvent(window, 'resize');\n    this.resizeSubscription$ = this.resizeObservable$.subscribe(\n      (event: Event) => {\n        const target = event.target as Window;\n        this.isMobileLayout = target.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n      }\n    );\n  }\n\n  ngOnDestroy() {\n    this.resizeSubscription$?.unsubscribe();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -201,7 +191,7 @@
         },
         {
             "name": "FooterComponent",
-            "id": "component-FooterComponent-dbc135976858afb59ffef4e44e47069d02addd5de147d0b4a445b638aba96685ac5e59c424ddd3b1ace8453db961bf3d1eff691dcda6b786ca7572ca5a443b49",
+            "id": "component-FooterComponent-20d8992584e49d7e219fefc5cca72e59638527660324ede9be86d8566d3085ff518b859d54a5993f837c5faacd2427a4720425248564fa162220653f69e3d98d",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/footer/footer.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -220,18 +210,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 13,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -239,7 +218,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n\n@Component({\n  selector: 'lib-footer',\n  templateUrl: './footer.component.html',\n  styleUrls: ['./footer.component.scss']\n})\nexport class FooterComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-footer',\n  templateUrl: './footer.component.html',\n  styleUrls: ['./footer.component.scss'],\n})\nexport class FooterComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -248,17 +227,6 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 9
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<footer>\n  <ng-content></ng-content>\n</footer>\n"
         },
         {
@@ -294,7 +262,7 @@
         },
         {
             "name": "HeaderButtonsComponent",
-            "id": "component-HeaderButtonsComponent-2f9ca330c113d0f8eb9885bf7f92bb7e7dbc4463d4af84c5c8543f5c4aae48392cfb897b071db4d37d6f67abe36679e3c727c7182dea5a077bda4b22a98afe9e",
+            "id": "component-HeaderButtonsComponent-33e5a5c23fca8e85dcadd71c949db0672f46dcee0cfdce806d9c1634b1cab4183938f681b959dbd8da72f66364ff9912f130c81d6f0ecb1fc9afc8b0b9fd0a81",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/header-buttons/header-buttons.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -313,18 +281,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -332,7 +289,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-header-buttons',\n  templateUrl: './header-buttons.component.html',\n  styleUrls: ['./header-buttons.component.scss']\n})\nexport class HeaderButtonsComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-header-buttons',\n  templateUrl: './header-buttons.component.html',\n  styleUrls: ['./header-buttons.component.scss'],\n})\nexport class HeaderButtonsComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -341,22 +298,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<div class=\"buttons\">\n  <ng-content></ng-content>\n  <!-- <button class=\"mobile-button\" id=\"mobile-nav\">Main Menu</button> -->\n  <!-- <button class=\"mobile-button\" id=\"cu-search-button\">Toggle Search Form</button> -->\n</div>\n"
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-0cafc1d0c015183209b6fb300484fe2fc85b04e1acd47a9dedc236dddc4493df86c43d8aee0cc79bea18e244176d440b950c70fca659ee105c93dfb17e128c89",
+            "id": "component-HeaderComponent-00ebde4af98ad6bd0ebabb8a4bb9d6d009b9bfdabb3beb0a18cc60532212fa5cd478c5200ef6e136ddd22cd6577a254014e04578e52037d414e84cda0898592f",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -440,16 +386,6 @@
                     "line": 40,
                     "deprecated": false,
                     "deprecationMessage": ""
-                },
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 54,
-                    "deprecated": false,
-                    "deprecationMessage": ""
                 }
             ],
             "deprecated": false,
@@ -459,7 +395,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n// Cornell Branding Banner\n// .cu-red - Overrides the default light gray banner to be red with white logo. Affects both 45px and Large Seal options.\n// .cu-black - Overrides the default light gray banner to be black with white logo. Affects both 45px and Large Seal options.\n// .cu-gray - Overrides the default light gray banner to be dark gray with white logo. Affects both 45px and Large Seal options.\n// .cu-45 - Renders as a ~45px banner with small Cornell logo (this is also the default if no body class is defined). Headings appear below the banner. Note: This class is mutually exclusive with .cu-seal.\n// .cu-seal - Renders as a taller banner with a large standalone Cornell seal. Headings appear to the right of the seal. Note: This class is mutually exclusive with .cu-45.\n// .cu-seal-right - Added to .cu-seal to swap the left and right positions of the seal and headings.\n// .cu-45-mobile - Added to .cu-seal to switch to 45px style at mobile sizes.\n// .cu-45-mobile-red - Added to .cu-seal-mobile also activate the red color option on the 45px banner at mobile sizes.\n// .no-main-nav - When .cu-seal is in use and no main navigation bar is planned, this class can be included to apply some subtle adjustments to the Cornell header.\n\nexport type theme = 'cu-default' | 'cu-red' | 'cu-black' | 'cu-gray';\nexport type logo = 'cu-seal' | 'cu-45';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent implements OnInit {\n  public svgIconUrl: string =\n    'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme!: theme;\n  @Input() logo!: logo;\n  @Input() useGradient!: boolean;\n  constructor() {\n    this.title = this.title || 'CU-NG-Design-Library';\n    this.subtitle =\n      this.subtitle ||\n      'A library of reusable components for the CU-Community-Apps';\n    this.theme = this.theme || 'cu-default';\n    this.logo = this.logo || 'cu-seal';\n    this.useGradient = this.useGradient || false;\n  }\n\n  getClasses(): string[] {\n    const classes: string[] = [];\n    if (this.theme) {\n      classes.push(this.theme);\n    }\n    if (this.logo) {\n      classes.push(this.logo);\n    }\n    if (this.useGradient) {\n      classes.push('gradient');\n    }\n    return classes;\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n// Cornell Branding Banner\n// .cu-red - Overrides the default light gray banner to be red with white logo. Affects both 45px and Large Seal options.\n// .cu-black - Overrides the default light gray banner to be black with white logo. Affects both 45px and Large Seal options.\n// .cu-gray - Overrides the default light gray banner to be dark gray with white logo. Affects both 45px and Large Seal options.\n// .cu-45 - Renders as a ~45px banner with small Cornell logo (this is also the default if no body class is defined). Headings appear below the banner. Note: This class is mutually exclusive with .cu-seal.\n// .cu-seal - Renders as a taller banner with a large standalone Cornell seal. Headings appear to the right of the seal. Note: This class is mutually exclusive with .cu-45.\n// .cu-seal-right - Added to .cu-seal to swap the left and right positions of the seal and headings.\n// .cu-45-mobile - Added to .cu-seal to switch to 45px style at mobile sizes.\n// .cu-45-mobile-red - Added to .cu-seal-mobile also activate the red color option on the 45px banner at mobile sizes.\n// .no-main-nav - When .cu-seal is in use and no main navigation bar is planned, this class can be included to apply some subtle adjustments to the Cornell header.\n\nexport type theme = 'cu-default' | 'cu-red' | 'cu-black' | 'cu-gray';\nexport type logo = 'cu-seal' | 'cu-45';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent {\n  public svgIconUrl =\n    'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme!: theme;\n  @Input() logo!: logo;\n  @Input() useGradient!: boolean;\n  constructor() {\n    this.title = this.title || 'CU-NG-Design-Library';\n    this.subtitle =\n      this.subtitle ||\n      'A library of reusable components for the CU-Community-Apps';\n    this.theme = this.theme || 'cu-default';\n    this.logo = this.logo || 'cu-seal';\n    this.useGradient = this.useGradient || false;\n  }\n\n  getClasses(): string[] {\n    const classes: string[] = [];\n    if (this.theme) {\n      classes.push(this.theme);\n    }\n    if (this.logo) {\n      classes.push(this.logo);\n    }\n    if (this.useGradient) {\n      classes.push('gradient');\n    }\n    return classes;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -476,14 +412,11 @@
                 "args": [],
                 "line": 29
             },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<div [ngClass]=\"getClasses()\">\n  <header id=\"cu-header\">\n    <ng-template [ngIf]=\"logo == 'cu-45'\">\n      <div class=\"cu45-helper\"></div>\n    </ng-template>\n    <div class=\"container-fluid cu-brand\">\n      <h1 class=\"cu-logo\"><a href=\"http://www.cornell.edu\"><img class=\"sr-only\"\n             alt=\"Cornell University\" width=\"245\"\n            [src]=\"svgIconUrl\"\n            height=\"62\"></a></h1>\n      <div class=\"cu-unit\">\n        <h2>{{title}}</h2>\n        <h3 class=\"sans mat-h3\">{{subtitle}}</h3>\n      </div>\n      <ng-content></ng-content>\n    </div>\n  </header>\n<div>\n"
         },
         {
             "name": "MainComponent",
-            "id": "component-MainComponent-3eac429190015bf1dfc4961d28685de615a420495f271cbe56aacf717bd8cc1156bd651160679280f730397bef55450412f7c304d35bdf4421da2e90142f74f8",
+            "id": "component-MainComponent-d949949fb9fad2016e11a2aa723555f661d004d84a730ac7a7abc2496db9f0bbd04cf1586b5d9704d8669877dbcea4e9f4eb0ede5b4231f8aba455db612c0196",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/main/main.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -502,18 +435,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -521,7 +443,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-main',\n  templateUrl: './main.component.html',\n  styleUrls: ['./main.component.scss']\n})\nexport class MainComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-main',\n  templateUrl: './main.component.html',\n  styleUrls: ['./main.component.scss'],\n})\nexport class MainComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -530,22 +452,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<div id=\"main-content\" class=\"band\">\n  <main id=\"main\" class=\"container-fluid aria-target\" tabindex=\"-1\">\n    <ng-content></ng-content>\n  </main>\n</div>\n"
         },
         {
             "name": "MainFooterComponent",
-            "id": "component-MainFooterComponent-66648b51cb1211fee2c60f0b20b55a70a9c7882d27cd9cfd2269d7318e1cd743a3e99a14b2e91558fd8899fa6a3ad284a77fb02de82157d22b6a32d3fa7af9f1",
+            "id": "component-MainFooterComponent-c22deb493d843a94bda494fdd684305c751ca49712f1d4c714a79a4a87fe36be06f7514517ed114055c42b65854e0d4c8ac7678725bc770c72088aafac3d5320",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/main-footer/main-footer.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -566,18 +477,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -585,7 +485,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, ViewEncapsulation } from '@angular/core';\n\n@Component({\n  selector: 'lib-main-footer',\n  templateUrl: './main-footer.component.html',\n  styleUrls: ['./main-footer.component.scss'],\n  encapsulation: ViewEncapsulation.None, // apply global styles to this component\n})\nexport class MainFooterComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, ViewEncapsulation } from '@angular/core';\n\n@Component({\n  selector: 'lib-main-footer',\n  templateUrl: './main-footer.component.html',\n  styleUrls: ['./main-footer.component.scss'],\n  encapsulation: ViewEncapsulation.None, // apply global styles to this component\n})\nexport class MainFooterComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -594,22 +494,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 9
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<div class=\"main-footer\">\n  <div class=\"container-fluid sidebar-left\">\n    <div class=\"row\">\n      <div class=\"primary\">\n        <ng-content select=\"[primary]\"></ng-content>\n      </div>\n      <div class=\"secondary\">\n        <ng-content select=\"[secondary]\"></ng-content>\n      </div>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "MainMenuComponent",
-            "id": "component-MainMenuComponent-0a9afb5910876041ac61782238003f031f076e61f4f54a4b035e83ffa8993966b2770e2ef2a7508f46d69a77766e4f1e6b4fb97d946af89e4af48807a332bddb",
+            "id": "component-MainMenuComponent-4d42c0c7cde0183905587b93f7bc0613737b67e7b6e013c511afb760fbf15d4458aa45f8348bcd249cdea0bb5fb537d02be770f3f7defa1a5e73d3402d733e94",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/main-menu/main-menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -637,18 +526,7 @@
             ],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 16,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -656,7 +534,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Routes } from '@angular/router';\n\n// This component implements the main menu.\n// As outlined in https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html\n@Component({\n  selector: 'lib-main-menu',\n  templateUrl: './main-menu.component.html',\n  styleUrls: ['./main-menu.component.scss'],\n})\nexport class MainMenuComponent implements OnInit {\n  @Input() routes!: Routes;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { Routes } from '@angular/router';\n\n// This component implements the main menu.\n// As outlined in https://www.w3.org/WAI/ARIA/apg/example-index/menubar/menubar-navigation.html\n@Component({\n  selector: 'lib-main-menu',\n  templateUrl: './main-menu.component.html',\n  styleUrls: ['./main-menu.component.scss'],\n})\nexport class MainMenuComponent {\n  @Input() routes!: Routes;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -665,22 +543,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 12
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<nav class=\"dropdown-menu\" id=\"main-navigation\" aria-label=\"Main Navigation\">\n  <div class=\"container-fluid\">\n    <ul class=\"list-menu links\">\n      <ng-container *ngFor=\"let route of routes\">\n        <li class=\"top-level-item parent top-level-li\"\n        *ngIf=\"route.data && route.data['menu'] == 'main'\"\n        routerLinkActive=\"active\"\n        [routerLinkActiveOptions]=\"{exact: true}\">\n\n        <ng-container *ngIf=\"!route.children; else parent \">\n          <a mat-button routerLink=\"{{route.path}}\">\n            {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n          </a>\n        </ng-container>\n\n        <ng-template #parent>\n          <!-- <a mat-button routerLink=\"{{route.path}}\">{{route.path}}</a> -->\n            <button\n              mat-button\n              [matMenuTriggerFor]=\"menu\"\n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions]=\"{exact: false}\"\n            >\n            {{route.data && route.data['title'] ? route.data['title'] : route.path}} <mat-icon>expand_more</mat-icon>\n            </button>\n\n            <mat-menu #menu=\"matMenu\" backdropClass=\"main-menu-backdrop\">\n              <ng-container *ngFor=\"let child of route.children\">\n                <a\n                  mat-menu-item\n                  routerLink=\"{{route.path}}/{{child.path}}\"\n                  routerLinkActive=\"active\"\n                  [routerLinkActiveOptions]=\"{exact: true}\"\n                  >\n                  {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n                </a>\n              </ng-container>\n            </mat-menu>\n        </ng-template>\n\n\n          <!-- <a routerLink=\"{{route.path}}\" >\n            {{route.path}}\n          </a>\n          <ul *ngIf=\"route.children\" class=\"list-menu links vertical children\" style=\"min-width: 138px;\">\n            <ng-container *ngFor=\"let child of route.children\">\n              <li\n              *ngIf=\"child.data && child.data['menu'] == route.path\"\n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions]=\"{exact: true}\">\n                <a\n                routerLink=\"{{child.path}}\"\n                  >{{child.path}}</a>\n              </li>\n            </ng-container>\n          </ul> -->\n        </li>\n      </ng-container>\n    </ul>\n  </div>\n</nav>\n\n"
         },
         {
             "name": "MobileDialogComponent",
-            "id": "component-MobileDialogComponent-c915283cdd1011e1404f677fa4571a1c59d39d4dbd05a969a3632803f9d50105ad60ab1e15f422f780d7ba1a0f623ca27c00ca7ce7074664a9a283a314cb4740",
+            "id": "component-MobileDialogComponent-d94ecc0e97a7e09765924674605941ccee2de73773ccc610db7b44599dd741e269e15e08154924899c45b383a49eae4fec0da74a8f4b59a54d20aacc1c25096d",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-dialog/mobile-dialog.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -834,7 +701,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Inject, Input, OnInit } from '@angular/core';\nimport { Route, Router, Routes } from '@angular/router';\nimport { MAT_DIALOG_DATA } from '@angular/material/dialog';\nimport { ActivatedRoute } from '@angular/router';\n\ninterface DialogData {\n  routes?: Routes;\n}\n\n@Component({\n  selector: 'lib-mobile-dialog',\n  templateUrl: './mobile-dialog.component.html',\n  styleUrls: ['./mobile-dialog.component.scss'],\n})\nexport class MobileDialogComponent implements OnInit {\n  constructor(\n    @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {}\n  public routes?: Routes = this.data.routes;\n  ngOnInit(): void {\n    this.routes = this.data.routes?.filter(\n      (route) => route.data && route.data['menu']\n    );\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    var _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (var i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n}\n",
+            "sourceCode": "import { Component, Inject, OnInit } from '@angular/core';\nimport { Route, Routes } from '@angular/router';\nimport { MAT_DIALOG_DATA } from '@angular/material/dialog';\nimport { ActivatedRoute } from '@angular/router';\n\ninterface DialogData {\n  routes?: Routes;\n}\n\n@Component({\n  selector: 'lib-mobile-dialog',\n  templateUrl: './mobile-dialog.component.html',\n  styleUrls: ['./mobile-dialog.component.scss'],\n})\nexport class MobileDialogComponent implements OnInit {\n  constructor(\n    @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {}\n  public routes?: Routes = this.data.routes;\n  ngOnInit(): void {\n    this.routes = this.data.routes?.filter(\n      (route) => route.data && route.data['menu']\n    );\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    const _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (let i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -891,7 +758,7 @@
         },
         {
             "name": "MobileMenuComponent",
-            "id": "component-MobileMenuComponent-dca134137efd2038899ddc78ced7f3d93fedbeea916afc66cd052ad7133fe4bc7461c29bd75e609d082cc3eae832ad03760007e00153cf2ff0a62cb0f7e472c6",
+            "id": "component-MobileMenuComponent-2ffdea8e53b09884ec2e26c87cd1e9ee80da6f1d9934a38a85e3be2d6f61514aa169770e34126f3666e14f1d437a867e4c0083faf63b7b4e8735d93e4c9214ed",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-menu/mobile-menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -944,16 +811,6 @@
             ],
             "methodsClass": [
                 {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 32,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
                     "name": "openDialog",
                     "args": [],
                     "optional": false,
@@ -971,7 +828,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MatDialog } from '@angular/material/dialog';\nimport { Routes } from '@angular/router';\nimport { MobileDialogComponent } from '../mobile-dialog/mobile-dialog.component';\n\n@Component({\n  selector: 'lib-mobile-menu',\n  templateUrl: './mobile-menu.component.html',\n  styleUrls: ['./mobile-menu.component.scss'],\n})\nexport class MobileMenuComponent implements OnInit {\n  showFiller = false;\n  @Input() routes!: Routes;\n  constructor(public dialog: MatDialog) {}\n\n  openDialog() {\n    this.dialog.open(MobileDialogComponent, {\n      backdropClass: 'mobile-dialog-backdrop',\n      position: {\n        top: '0',\n        left: '0',\n      },\n      width: '100vw',\n      maxWidth: '100vw',\n      panelClass: 'mobile-dialog',\n      data: {\n        routes: this.routes,\n      },\n    });\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { MatDialog } from '@angular/material/dialog';\nimport { Routes } from '@angular/router';\nimport { MobileDialogComponent } from '../mobile-dialog/mobile-dialog.component';\n\n@Component({\n  selector: 'lib-mobile-menu',\n  templateUrl: './mobile-menu.component.html',\n  styleUrls: ['./mobile-menu.component.scss'],\n})\nexport class MobileMenuComponent {\n  showFiller = false;\n  @Input() routes!: Routes;\n  constructor(public dialog: MatDialog) {}\n\n  openDialog() {\n    this.dialog.open(MobileDialogComponent, {\n      backdropClass: 'mobile-dialog-backdrop',\n      position: {\n        top: '0',\n        left: '0',\n      },\n      width: '100vw',\n      maxWidth: '100vw',\n      panelClass: 'mobile-dialog',\n      data: {\n        routes: this.routes,\n      },\n    });\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1006,14 +863,11 @@
                     }
                 ]
             },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<!-- <mat-drawer-container class=\"example-container\" autosize>\n  <mat-drawer #drawer class=\"example-sidenav\" mode=\"side\">\n    <p>Auto-resizing sidenav</p>\n    <p *ngIf=\"showFiller\">Lorem, ipsum dolor sit amet consectetur.</p>\n    <button (click)=\"showFiller = !showFiller\" mat-raised-button>\n      Toggle extra text\n    </button>\n  </mat-drawer>\n\n  <button mat-mini-fab color=\"primary\" aria-label=\"mobile menu\" (click)=\"drawer.toggle()\">\n    <mat-icon>menu</mat-icon>\n  </button>\n\n</mat-drawer-container> -->\n\n<button  mat-flat-button color=\"accent\" aria-label=\"mobile menu\" (click)=\"openDialog()\">\n  <mat-icon>menu</mat-icon>\n</button>\n"
         },
         {
             "name": "OneColumnComponent",
-            "id": "component-OneColumnComponent-1eba6fdd97a4c42bbbfe38942641d4fb440a44ac5c96d63c4bb399114a04aa05c8d2400f5308ac45252940e356b8144f34df87313dbe47492760a6e0f7c56268",
+            "id": "component-OneColumnComponent-980b767527d0c02fe239bcc9f5cec796bf7ecfdc0d70dac50940494d786dd699c24607b44d1c937dec1ee94db0f72f1fa163b18ddd6527d86a00329e952464b0",
             "file": "projects/cu-ng-design-library/src/lib/pages/one-column/one-column.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1032,18 +886,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1051,7 +894,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-one-column',\n  templateUrl: './one-column.component.html',\n  styleUrls: ['./one-column.component.scss']\n})\nexport class OneColumnComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-one-column',\n  templateUrl: './one-column.component.html',\n  styleUrls: ['./one-column.component.scss'],\n})\nexport class OneColumnComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1060,22 +903,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<lib-main>\n  <ng-content></ng-content>\n</lib-main>\n\n"
         },
         {
             "name": "OneColumnExampleComponent",
-            "id": "component-OneColumnExampleComponent-11f6d7c4ee34ec789e1930d20096754f7c69366ea41de25433aa220204ebe425b375edc77f2f4d9ec05ae5e288b1fab13af62b5954dbd884a129630f3dc633f9",
+            "id": "component-OneColumnExampleComponent-225dac2441d918659b66ef93a991101306abc2ebb0012883dc96b7f5991424e99e64ede6ff65f1d86440e98807cffdf7c3117fabc6b708c14b38963109b65dbe",
             "file": "projects/cu-ng-design-library/src/lib/pages/one-column-example/one-column-example.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1094,18 +926,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1113,7 +934,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-one-column-example',\n  templateUrl: './one-column-example.component.html',\n  styleUrls: ['./one-column-example.component.scss']\n})\nexport class OneColumnExampleComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-one-column-example',\n  templateUrl: './one-column-example.component.html',\n  styleUrls: ['./one-column-example.component.scss'],\n})\nexport class OneColumnExampleComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1122,22 +943,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<lib-one-column>\n  <h1>One Column Example</h1>\n  <p class=\"intro\">\n    This is a one column example.\n  </p>\n  <p>\n    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet dignissimos temporibus enim. Impedit, voluptatum\n    error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos asperiores nobis beatae voluptatibus commodi\n    natus?\n  </p>\n  <h2>Sub Content</h2>\n  <p>\n    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui consectetur voluptate quisquam architecto ducimus\n    earum magni beatae tenetur repellat. Veniam atque vel deleniti voluptatem possimus accusamus quaerat modi eius\n    vitae?\n    Consequatur maiores fuga officiis placeat voluptatem provident non a quam possimus nihil beatae deserunt rem\n    dolore nam, dolor deleniti nemo aspernatur in labore commodi sint, eius quo! Reiciendis, perferendis laborum.\n    Blanditiis, animi possimus quia iste doloremque repudiandae eos voluptatum quam libero in tempora ad, facilis\n    similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem! Sit nulla saepe ullam qui id?\n    Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet velit mollitia quisquam, consequuntur\n    voluptatum minus itaque pariatur voluptatibus autem similique blanditiis atque esse illo aliquid recusandae! Fugit\n    optio atque cum.\n    Officia quod placeat tempora, temporibus ad exercitationem similique dicta ipsa dolores sunt distinctio, sit\n    necessitatibus in. Perferendis harum porro quasi animi deleniti vel corrupti eligendi cumque debitis! Tenetur,\n    eveniet possimus.\n  </p>\n  <h3>Example code usually used by a router component</h3>\n<pre>\n<code class=\"html\">\n  &lt;lib-one-column&gt;\n    Content...\n  &lt;/lib-one-column&gt;\n</code>\n</pre>\n\n  </lib-one-column>\n"
         },
         {
             "name": "PrimaryContentComponent",
-            "id": "component-PrimaryContentComponent-9bf6802a3cf05845c6c461d019ce6148b46d5cd472108a16eae2bd5229e2bfd8e507aeeb504370a84daf24d67d8eb9a94133a22723588247baa1a65e2e9fbd75",
+            "id": "component-PrimaryContentComponent-8a8c4839e7b670a7b053c323294243194b19dca13939869a6782adf04f6efdce502c97bb836312146c3f4d09edbe75d6336a226544f35e6874b3b292b5a3a15e",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/primary-content/primary-content.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1156,18 +966,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1175,7 +974,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-primary-content',\n  templateUrl: './primary-content.component.html',\n  styleUrls: ['./primary-content.component.scss']\n})\nexport class PrimaryContentComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-primary-content',\n  templateUrl: './primary-content.component.html',\n  styleUrls: ['./primary-content.component.scss'],\n})\nexport class PrimaryContentComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1184,22 +983,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<div role=\"article\" id=\"main-article\" class=\"primary\">\n  <div class=\"row\">\n    <ng-content></ng-content>\n  </div>\n</div>\n"
         },
         {
             "name": "SecondaryContentComponent",
-            "id": "component-SecondaryContentComponent-f3462491c6b3e9338eb1892ba67b59c64c943e33ae75a938c9d5be8cfb9037ac59e3c462ec2fa1653f6060dc1500969a15a19f007582dbfe1726f0418cdcc16c",
+            "id": "component-SecondaryContentComponent-66dfa08d13277dc7f02f17882fe68cf584e6fa2b68f57228b5c75f2917d614ee8949ae7c1cbf14e748781b360b672062f9e30522a6bf01c14efeafa074e2c496",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/secondary-content/secondary-content.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1218,18 +1006,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1237,7 +1014,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-secondary-content',\n  templateUrl: './secondary-content.component.html',\n  styleUrls: ['./secondary-content.component.scss']\n})\nexport class SecondaryContentComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-secondary-content',\n  templateUrl: './secondary-content.component.html',\n  styleUrls: ['./secondary-content.component.scss'],\n})\nexport class SecondaryContentComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1246,22 +1023,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<div id=\"sidebar-top\" class=\"secondary\">\n  <div id=\"sidebar-bottom\" role=\"complementary\">\n    <ng-content></ng-content>\n  </div>\n</div>\n"
         },
         {
             "name": "SkipLinkComponent",
-            "id": "component-SkipLinkComponent-6a7278b8fed636bf8f44ce3a0ca612719e7ae4a54455b74532f41e3fe3ef8ce9e50bdf356ff4632375cb0b28744e4e916e5a403364288ef1bb32585ac11dcac8",
+            "id": "component-SkipLinkComponent-5aa5899016d01ffc12a0c73a7bebca43d9e17e08e2582fbfc3dc123fedefc95bfa9b28d828a5e04500341398843b88ec1aa8a3647564dbfe4e67c9c641a11aa4",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/skip-link/skip-link.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1280,18 +1046,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1299,7 +1054,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-skip-link',\n  templateUrl: './skip-link.component.html',\n  styleUrls: ['./skip-link.component.scss']\n})\nexport class SkipLinkComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-skip-link',\n  templateUrl: './skip-link.component.html',\n  styleUrls: ['./skip-link.component.scss'],\n})\nexport class SkipLinkComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1308,22 +1063,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<div id=\"skipnav\"><a href=\"#main\">Skip to main content</a></div>\n"
         },
         {
             "name": "SubFooterComponent",
-            "id": "component-SubFooterComponent-483fb2383bcc7c4d7073787e564ab6fe381028b94045e82d64ac97a8778debf5f66a264ee5bb4cd478ac41251a690f249509038a6491f001fc1d57214581811c",
+            "id": "component-SubFooterComponent-d6c08ea9cbf6ec62d8eeebb5b324c0e261ffefa2346f7306d3cb51abd69249c1d33b73aac2b0b300aa8988e899dcd4dde452b0d455b9360c9f87ee9e01b75026",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/sub-footer/sub-footer.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1351,18 +1095,7 @@
             ],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 13,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1370,7 +1103,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\n\n@Component({\n  selector: 'lib-sub-footer',\n  templateUrl: './sub-footer.component.html',\n  styleUrls: ['./sub-footer.component.scss']\n})\nexport class SubFooterComponent implements OnInit {\n  @Input() isMobileLayout!: boolean;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'lib-sub-footer',\n  templateUrl: './sub-footer.component.html',\n  styleUrls: ['./sub-footer.component.scss'],\n})\nexport class SubFooterComponent {\n  @Input() isMobileLayout!: boolean;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1379,22 +1112,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 9
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<div class=\"sub-footer\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n\n      <div class=\"vertical-align\">\n        <mat-icon *ngIf=\"!isMobileLayout\" class=\"icon\">accessibility_new</mat-icon>\n        <p class=\"accessibility-message\">\n          If you have a disability and are having trouble accessing information on this\n          website or need materials in an alternate format, contact <a\n            href=\"mailto:web-accessibility@cornell.edu\">web-accessibility@cornell.edu</a> for assistance.\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "TwoColumnComponent",
-            "id": "component-TwoColumnComponent-a3da9a3647bf977b9f1ab011ce0f42218a63f58903c780f60e88d8b7eee3a4aaf27eb8b8b05d0503fc7c08b3b26a0f86a543be3d734a87de1ebc9bbd948e90cf",
+            "id": "component-TwoColumnComponent-75646fb3032495afae7ca50e03eddd06850dc0b284f874bf33dfa37f0b4a71c43381551398d2a3cfe8330185cf6ae4e522a8efe7b89a022f79532128d82938ac",
             "file": "projects/cu-ng-design-library/src/lib/pages/two-column/two-column.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1413,18 +1135,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1432,7 +1143,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-two-column',\n  templateUrl: './two-column.component.html',\n  styleUrls: ['./two-column.component.scss']\n})\nexport class TwoColumnComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-two-column',\n  templateUrl: './two-column.component.html',\n  styleUrls: ['./two-column.component.scss'],\n})\nexport class TwoColumnComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1441,22 +1152,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<lib-main class=\"sidebar-tint\">\n\n  <div tabindex=\"-1\" fxLayout=\"row\" fxLayout.md=\"column\" fxLayout.sm=\"column\"\n    fxLayout.xs=\"column\" fxLayoutWrap fxLayoutAlign=\"center\">\n\n    <lib-primary-content fxFlex=\"65\" >\n      <ng-content select=\"[primary]\"></ng-content>\n    </lib-primary-content>\n    <div fxFlex=\"10\">\n    </div>\n    <lib-secondary-content fxFlex=\"25\">\n      <ng-content select=\"[secondary]\"></ng-content>\n    </lib-secondary-content>\n  </div>\n</lib-main>\n"
         },
         {
             "name": "TwoColumnExampleComponent",
-            "id": "component-TwoColumnExampleComponent-37ee92799aebe5d9f4669134bfe614892f87b5ca23aed74e81cfc8b3a2bd576dbe2f0fe1471206d183ccc58acb6d08ab5fb87056c4de596175934f9631388d97",
+            "id": "component-TwoColumnExampleComponent-9c8a138cc129c849f25b8d79a4dd4294715bdeecd6e21ac57d9d29268073c5e6c5f5a129c09a4d9d2fd5ec1b6cd8ab6f7cc3e389a000725b795017b39921bf0c",
             "file": "projects/cu-ng-design-library/src/lib/pages/two-column-example/two-column-example.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1475,18 +1175,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1494,7 +1183,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-two-column-example',\n  templateUrl: './two-column-example.component.html',\n  styleUrls: ['./two-column-example.component.scss']\n})\nexport class TwoColumnExampleComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-two-column-example',\n  templateUrl: './two-column-example.component.html',\n  styleUrls: ['./two-column-example.component.scss'],\n})\nexport class TwoColumnExampleComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1503,22 +1192,11 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<lib-two-column >\n  <div primary>\n    <h1>Two Column Example</h1>\n    <p class=\"intro\">\n      The two column layout contains two columns of content. The primary content is placed in the left column and the secondary content is placed in the right column.\n    </p>\n    <p>\n      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n      dignissimos temporibus enim. Impedit,\n      voluptatum\n      error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n      asperiores nobis beatae voluptatibus\n      commodi\n      natus?\n    </p>\n    <h2>Sub Content</h2>\n    <p>\n      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui\n      consectetur voluptate quisquam architecto ducimus\n      earum magni beatae tenetur repellat. Veniam atque vel deleniti\n      voluptatem possimus accusamus quaerat modi eius\n      vitae?\n      Consequatur maiores fuga officiis placeat voluptatem provident non a\n      quam possimus nihil beatae deserunt rem\n      dolore nam, dolor deleniti nemo aspernatur in labore commodi sint,\n      eius quo! Reiciendis, perferendis laborum.\n      Blanditiis, animi possimus quia iste doloremque repudiandae eos\n      voluptatum quam libero in tempora ad, facilis\n      similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem!\n      Sit nulla saepe ullam qui id?\n      Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet\n      velit mollitia quisquam, consequuntur\n      voluptatum minus itaque pariatur voluptatibus autem similique\n      blanditiis atque esse illo aliquid recusandae!\n      Fugit\n      optio atque cum.\n      Officia quod placeat tempora, temporibus ad exercitationem similique\n      dicta ipsa dolores sunt distinctio, sit\n      necessitatibus in. Perferendis harum porro quasi animi deleniti vel\n      corrupti eligendi cumque debitis! Tenetur,\n      eveniet possimus.\n    </p>\n    <h3>Example code usually used by a router component</h3>\n<pre>\n<code class=\"html\">\n  &lt;lib-two-column&gt;\n    &lt;div primary&gt;\n      Primary Content...\n    &lt;/div&gt;\n    &lt;div secondary&gt;\n      Secondary Content...\n    &lt;/div&gt;\n  &lt;/lib-two-column&gt;\n</code>\n</pre>\n  </div>\n\n  <div secondary>\n    <h2>Secondary Content</h2>\n    <p>\n      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet\n      dignissimos temporibus enim. Impedit,\n      voluptatum\n      error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos\n      asperiores nobis beatae voluptatibus\n      commodi\n      natus?\n    </p>\n  </div>\n</lib-two-column>\n"
         },
         {
             "name": "UtilityNavComponent",
-            "id": "component-UtilityNavComponent-131cad1e1539ebb236719179f8ad0abf8c4984d6ab830e45e36cbc82d658ad4c91134d314f0d638a39c4faf1dfa4a12a6aef7a87cd60eccd1f24c261b519f47e",
+            "id": "component-UtilityNavComponent-30e13afc521a55aa9a8e0c1e4400b1b65152c521cf17c324cd196b6698cbef0bdfb76c7c2be515f21fdde0f9bed5b9adedc818261524e7793594f143199f2f1a",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/utility-nav/utility-nav.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1537,18 +1215,7 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1556,7 +1223,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-utility-nav',\n  templateUrl: './utility-nav.component.html',\n  styleUrls: ['./utility-nav.component.scss']\n})\nexport class UtilityNavComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-utility-nav',\n  templateUrl: './utility-nav.component.html',\n  styleUrls: ['./utility-nav.component.scss'],\n})\nexport class UtilityNavComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1565,30 +1232,19 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
             "templateData": "<nav id=\"utility-navigation\" aria-label=\"Supplementary Navigation\">\n  <ul class=\"list-menu links\">\n    <li><a href=\"#\">Login</a></li>\n  </ul>\n</nav>\n\n"
         }
     ],
     "modules": [
         {
             "name": "CuNgDesignLibraryModule",
-            "id": "module-CuNgDesignLibraryModule-48a9e28769278b2524dc3bf49304b989832657eaffb6303f160a19df8d1acb3dd4653ed24f23e27217c2fc2f2e7801e14f532b2e3e3543921d945e6fcfe634e2",
+            "id": "module-CuNgDesignLibraryModule-392de3ab9e9f3fee5dfafb5f192e954bb86760e95405a1bd961d7f9a6a2ddb59e6c3406bbe1985ecc6137e3eef3d08453adcfcad0078163a39a26e5d62988c1f",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule, Routes } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -1978,13 +1634,13 @@
         },
         {
             "name": "MobileDialogModule",
-            "id": "module-MobileDialogModule-84d546b16310f17bacf43d2bac3ba8c450394dca4238e40af0136b146b6374aef5221c9c5da1c0df4dd26b4e92f95e1196814c74b8566415ec9ec19df9ba60bc",
+            "id": "module-MobileDialogModule-d6c2e28650411e4613f9b2866cbb886ebc2d90b34709c34f9dba23a042da0c44a19ffdff8c7aa9b2a27c3946caec4746b5cfcaa25327c87d47471ff2314f06f2",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-dialog/mobile-dialog.module.ts",
             "methods": [],
-            "sourceCode": "import { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { MatIconModule } from '@angular/material/icon';\nimport { MobileDialogComponent } from '../mobile-dialog/mobile-dialog.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from '../../../cu-ng-design-library.breakpoints';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    // MatDialogModule,\n    // BrowserModule,\n    // BrowserAnimationsModule,\n    MatButtonModule,\n    // RouterModule,\n    // BrowserModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileDialogModule {}\n",
+            "sourceCode": "import { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from '../../../cu-ng-design-library.breakpoints';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    // MatDialogModule,\n    // BrowserModule,\n    // BrowserAnimationsModule,\n    MatButtonModule,\n    // RouterModule,\n    // BrowserModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileDialogModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -3276,7 +2932,7 @@
                 "linktype": "component",
                 "name": "FooterComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3285,7 +2941,7 @@
                 "linktype": "component",
                 "name": "HeaderButtonsComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3294,7 +2950,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/10",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -3303,7 +2959,7 @@
                 "linktype": "component",
                 "name": "MainFooterComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3312,7 +2968,7 @@
                 "linktype": "component",
                 "name": "MainMenuComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -3321,7 +2977,7 @@
                 "linktype": "component",
                 "name": "MainComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3348,7 +3004,7 @@
                 "linktype": "component",
                 "name": "MobileMenuComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -3357,7 +3013,7 @@
                 "linktype": "component",
                 "name": "PrimaryContentComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3366,7 +3022,7 @@
                 "linktype": "component",
                 "name": "SecondaryContentComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3375,7 +3031,7 @@
                 "linktype": "component",
                 "name": "SkipLinkComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3384,7 +3040,7 @@
                 "linktype": "component",
                 "name": "SubFooterComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -3393,7 +3049,7 @@
                 "linktype": "component",
                 "name": "UtilityNavComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3441,7 +3097,7 @@
                 "linktype": "injectable",
                 "name": "CuNgDesignLibraryService",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3450,7 +3106,7 @@
                 "linktype": "component",
                 "name": "OneColumnExampleComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3459,7 +3115,7 @@
                 "linktype": "component",
                 "name": "OneColumnComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3468,7 +3124,7 @@
                 "linktype": "component",
                 "name": "TwoColumnExampleComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3477,7 +3133,7 @@
                 "linktype": "component",
                 "name": "TwoColumnComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
