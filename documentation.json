@@ -46,6 +46,68 @@
     "directives": [],
     "components": [
         {
+            "name": "AdminToolbarComponent",
+            "id": "component-AdminToolbarComponent-1b3aa954f0b10b0ce2a2a41d7e1820053dfe410d0d835828e8cab71ea0fec5e75a476061ac92584ef2eef28087344b6fb16a1f09963d4ff7313e0fde66b07601",
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/admin-toolbar/admin-toolbar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-admin-toolbar",
+            "styleUrls": [
+                "./admin-toolbar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./admin-toolbar.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-admin-toolbar',\n  templateUrl: './admin-toolbar.component.html',\n  styleUrls: ['./admin-toolbar.component.scss']\n})\nexport class AdminToolbarComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".example-spacer {\n  flex: 1 1 auto;\n}\n",
+                    "styleUrl": "./admin-toolbar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<mat-toolbar color=\"primary\">\n  <!-- <span class=\"example-spacer\"></span> -->\n  <span style=\"width:100%; text-align:center\">Admin Site</span>\n\n</mat-toolbar>\n"
+        },
+        {
             "name": "CuNgDesignLibraryComponent",
             "id": "component-CuNgDesignLibraryComponent-026cbfc3656b4f31bd9809b0bc87c7a1c2a7db4142dbd4df0554ecb6b35c5808dab498e3851f58ae8697e6abcd8932cc83fd47283e60bbcae1334ee92e2fb1c5",
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.component.ts",
@@ -1026,6 +1088,55 @@
             "templateData": "<div id=\"sidebar-top\" class=\"secondary\">\n  <div id=\"sidebar-bottom\" role=\"complementary\">\n    <ng-content></ng-content>\n  </div>\n</div>\n"
         },
         {
+            "name": "SideMenuComponent",
+            "id": "component-SideMenuComponent-4dfff709d33ab7347aed635f26f4015f522f3a5f4616a4ed9b231b862f2c9cb6be4e8e1ebfacfacb7b6433e42f700b6994d75af22d6862c5449cd96dd1dcb8cd",
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/side-menu/side-menu.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-side-menu",
+            "styleUrls": [
+                "./side-menu.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./side-menu.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "routes",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "Routes",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { Routes } from '@angular/router';\n\n@Component({\n  selector: 'lib-side-menu',\n  templateUrl: './side-menu.component.html',\n  styleUrls: ['./side-menu.component.scss'],\n})\nexport class SideMenuComponent {\n  @Input() routes!: Routes;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "\n\n.pad-left {\n  padding-left: 8px;\n}\n\n.sidbar-logo{\n  // padding: 0;\n  // margin: 0;\n  // // position: relative;\n  // top: 0;\n  // left: 0;\n  // width: 100%;\n  // background-color: #fff;\n\n}\n",
+                    "styleUrl": "./side-menu.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<!-- <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\n  <mat-icon>menu</mat-icon>\n</button> -->\n<mat-drawer-container >\n  <mat-drawer #drawer opened class=\"sidenav\" mode=\"side\" autosize>\n\n    <mat-toolbar class=\"sidbar-logo\" color=\"primary\">\n      <span >Logo</span>\n    </mat-toolbar>\n\n    <mat-nav-list>\n      <ng-container *ngFor=\"let route of routes\">\n        <ng-container *ngIf=\"route.data && route.data['menu'] == 'admin'\" routerLinkActive=\"active\"\n          [routerLinkActiveOptions]=\"{exact: true}\">\n\n          <mat-list-item *ngIf=\"!route.children; else parent \">\n            <a routerLink=\"{{route.path}}\">\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            </a>\n          </mat-list-item>\n\n          <ng-template #parent>\n            <mat-list-item>\n              <a routerLink=\"{{route.path}}\">{{route.data && route.data['title'] ? route.data['title'] : route.path}}</a>\n            </mat-list-item>\n\n            <mat-list-item *ngFor=\"let child of route.children\">\n              <a routerLink=\"{{route.path}}/{{child.path}}\" routerLinkActive=\"active\"\n                [routerLinkActiveOptions]=\"{exact: true}\" class=\"pad-left\">\n                {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n              </a>\n            </mat-list-item>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n\n    </mat-nav-list>\n\n  </mat-drawer>\n\n  <mat-drawer-content>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n\n\n</mat-drawer-container>\n"
+        },
+        {
             "name": "SkipLinkComponent",
             "id": "component-SkipLinkComponent-5aa5899016d01ffc12a0c73a7bebca43d9e17e08e2582fbfc3dc123fedefc95bfa9b28d828a5e04500341398843b88ec1aa8a3647564dbfe4e67c9c641a11aa4",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/skip-link/skip-link.component.ts",
@@ -1237,14 +1348,50 @@
     ],
     "modules": [
         {
+            "name": "AdminToolbarModule",
+            "id": "module-AdminToolbarModule-f4168ac1e1f9dec6f998cf30f4541db25820809f08cc7a89d3a96e1057e48628230c794e11d6f665896bc9e6e3f9133ab1d6df4e7d80177f8b629595586ec71f",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/admin-toolbar/admin-toolbar.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatToolbarModule } from '@angular/material/toolbar';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n  exports: [RouterModule, BrowserModule, MatToolbarModule],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class AdminToolbarModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "CuNgDesignLibraryModule",
-            "id": "module-CuNgDesignLibraryModule-392de3ab9e9f3fee5dfafb5f192e954bb86760e95405a1bd961d7f9a6a2ddb59e6c3406bbe1985ecc6137e3eef3d08453adcfcad0078163a39a26e5d62988c1f",
+            "id": "module-CuNgDesignLibraryModule-f185a4a3b4a5ce89069e4c5e514d1a1ef59d73c687cc7ef831fe070f7a8d054a4960e284e7eba4ad5bc8da7e79ae4e7a2733e08ea56b2c2ee10046263517a5e5",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\nimport { SideMenuComponent } from './components/layout/side-menu/side-menu.component';\nimport { AdminToolbarComponent } from './components/layout/admin-toolbar/admin-toolbar.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    SideMenuComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -1253,6 +1400,9 @@
                 {
                     "type": "declarations",
                     "elements": [
+                        {
+                            "name": "AdminToolbarComponent"
+                        },
                         {
                             "name": "CuNgDesignLibraryComponent"
                         },
@@ -1291,6 +1441,9 @@
                         },
                         {
                             "name": "SecondaryContentComponent"
+                        },
+                        {
+                            "name": "SideMenuComponent"
                         },
                         {
                             "name": "SkipLinkComponent"
@@ -1355,6 +1508,9 @@
                         },
                         {
                             "name": "SecondaryContentComponent"
+                        },
+                        {
+                            "name": "SideMenuComponent"
                         },
                         {
                             "name": "SkipLinkComponent"
@@ -1598,13 +1754,13 @@
         },
         {
             "name": "MaterialModule",
-            "id": "module-MaterialModule-c979726696bf48782089c92e589a6ccc76d2e6fb97c827bc06ab1e5929c980c16ad3e6b2ec43664ea904c52d9e6f29a274e9f6750c22669249493fa0c98453e4",
+            "id": "module-MaterialModule-17abbdbbf17db14eb14adabc394c88fdd3f3d4060079df0f7b971c94b50b5dab0f0045c8961db867e229d90a57e4b5fa00b83ef348557af9df45fdf3f8aa0d06",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/shared/modules/material/material.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { MatIconModule } from '@angular/material/icon';\nimport { MatSidenavModule } from '@angular/material/sidenav';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatListModule } from '@angular/material/list';\nimport { MatMenuModule } from '@angular/material/menu';\nimport { MatExpansionModule } from '@angular/material/expansion';\n\nconst materialModules = [\n  MatIconModule,\n  MatSidenavModule,\n  MatDialogModule,\n  MatButtonModule,\n  MatListModule,\n  MatMenuModule,\n  MatExpansionModule,\n];\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule, ...materialModules],\n  exports: [...materialModules],\n})\nexport class MaterialModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { MatIconModule } from '@angular/material/icon';\nimport { MatSidenavModule } from '@angular/material/sidenav';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatListModule } from '@angular/material/list';\nimport { MatMenuModule } from '@angular/material/menu';\nimport { MatExpansionModule } from '@angular/material/expansion';\nimport { MatToolbarModule } from '@angular/material/toolbar';\n\nconst materialModules = [\n  MatIconModule,\n  MatSidenavModule,\n  MatDialogModule,\n  MatButtonModule,\n  MatListModule,\n  MatMenuModule,\n  MatExpansionModule,\n  MatToolbarModule,\n];\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule, ...materialModules],\n  exports: [...materialModules],\n})\nexport class MaterialModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -1849,6 +2005,42 @@
             ]
         },
         {
+            "name": "SideMenuModule",
+            "id": "module-SideMenuModule-af2801c40879b2ed12fd97e311ab622adfe1760a967aca73b4b83763baa303916a522e8d3ec285817dab07a7f5ea2b11fc52360c96436bf6b8f1bb723cc63e5e",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/side-menu/side-menu.module.ts",
+            "methods": [],
+            "sourceCode": "import { MatButtonModule } from '@angular/material/button';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatIconModule } from '@angular/material/icon';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatMenuModule } from '@angular/material/menu';\nimport { MatSidenavModule } from '@angular/material/sidenav';\nimport { MatListModule } from '@angular/material/list';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    RouterModule,\n    BrowserModule,\n    MatMenuModule,\n    MatIconModule,\n    MatButtonModule,\n    MatSidenavModule,\n    MatListModule,\n  ],\n  exports: [\n    RouterModule,\n    BrowserModule,\n    MatMenuModule,\n    MatIconModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    MatSidenavModule,\n    MatListModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class SideMenuModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "SkipLinkModule",
             "id": "module-SkipLinkModule-d544ff9f0d30353792ea2ab81b4cb3fecdcf94bec9d29095e6c2f72a7e7438548fb6751dea63511660e2838045a51ff93e131fa0bd496ffaddbb2a2276345f12",
             "description": "",
@@ -2032,6 +2224,26 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Admin",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/admin-page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "AdminRoutesModule",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/Routes.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "RouterModule.forRoot(adminRoutes)"
+            },
+            {
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2185,6 +2397,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/side-menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/skip-link.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2239,7 +2461,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "[]",
-                "defaultValue": "[\n  MatIconModule,\n  MatSidenavModule,\n  MatDialogModule,\n  MatButtonModule,\n  MatListModule,\n  MatMenuModule,\n  MatExpansionModule,\n]"
+                "defaultValue": "[\n  MatIconModule,\n  MatSidenavModule,\n  MatDialogModule,\n  MatButtonModule,\n  MatListModule,\n  MatMenuModule,\n  MatExpansionModule,\n  MatToolbarModule,\n]"
             },
             {
                 "name": "require",
@@ -2304,6 +2526,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/admin-page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<GenericComponent>",
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-side-menu [routes]=\"routes\">\n  <lib-admin-toolbar></lib-admin-toolbar>\n  <router-outlet></router-outlet>\n</lib-side-menu>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/example-page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2348,7 +2580,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<MainFooterComponent>",
-                "defaultValue": "(args: MainFooterComponent) => ({\n  props: args,\n  template: `\n  <lib-main-footer>\n  <div primary>\n    <p>\n      Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n    </p>\n  </div>\n  <div secondary>\n    <h2 class=\"h5\">Student &amp; Campus Life</h2>\n    <p>311 Day Hall<br>\n      Cornell University<br>\n      Ithaca, NY 14853</p>\n    </div>\n  </lib-main-footer>\n  `,\n})"
+                "defaultValue": "(args: MainFooterComponent) => ({\n  props: args,\n  template: `\n  <lib-main-footer>\n  <div primary>\n    <p>\n      Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n    </p>\n  </div>\n  <div secondary>\n    <h2 class=\"h5\">Student Services Information Technologies</h2>\n    <p>311 Day Hall<br>\n      Cornell University<br>\n      Ithaca, NY 14853\n      </p>\n      <p>\n        <a mat-button class=\"link-block\" href=\"#\"> Contact SSIT </a>\n      </p>\n    </div>\n  </lib-main-footer>\n  `,\n})"
             },
             {
                 "name": "Template",
@@ -2394,6 +2626,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/side-menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<SideMenuComponent>",
+                "defaultValue": "(args: SideMenuComponent) => ({\n  props: args,\n  template: `\n  <lib-side-menu [routes]=\"routes\">\n    <router-outlet></router-outlet>\n  </lib-side-menu>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/skip-link.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2429,6 +2671,46 @@
                 "deprecationMessage": "",
                 "type": "Story<UtilityNavComponent>",
                 "defaultValue": "(args: UtilityNavComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "ThreeColumn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/main-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "ThreeColumnTemplate.bind({})"
+            },
+            {
+                "name": "ThreeColumnTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/main-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<MainFooterComponent>",
+                "defaultValue": "(\n  args: MainFooterComponent\n) => ({\n  props: args,\n  template: `\n  <lib-main-footer>\n  <div primary>\n  <h2 class=\"h3 hidden\">Quick Links</h2>\n    <div class=\"three-col padded footer-links\">\n      <div>\n        <h3 class=\"h6\">Column Heading</h3>\n        <ul class=\"list-menu vertical\">\n          <li><a href=\"#\">Link List</a></li>\n          <li><a href=\"#\">Another Link</a></li>\n          <li><a href=\"#\">A slightly longer link</a></li>\n        </ul>\n      </div>\n      <div>\n        <h3 class=\"h6\">Another Column Heading</h3>\n        <ul class=\"list-menu vertical\">\n          <li><a href=\"#\">Second column Link</a></li>\n          <li><a href=\"#\">Another example of a link</a></li>\n          <li><a href=\"#\">Link 3</a></li>\n          <li><a href=\"#\">Link 4</a></li>\n        </ul>\n      </div>\n      <div>\n      <h3 class=\"h6\">Third Column Heading</h3>\n      <ul class=\"list-menu vertical\">\n        <li><a href=\"#\">Second column Link</a></li>\n        <li><a href=\"#\">Another example of a link</a></li>\n        <li><a href=\"#\">Link 3</a></li>\n      </ul>\n    </div>\n    </div>\n  </div>\n  <div secondary>\n    <h2 class=\"h5\">Student Services Information Technologies</h2>\n    <p>311 Day Hall<br>\n      Cornell University<br>\n      Ithaca, NY 14853</p>\n    </div>\n  </lib-main-footer>\n  `,\n})"
+            },
+            {
+                "name": "TwoColumn",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/main-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "TwoColumnTemplate.bind({})"
+            },
+            {
+                "name": "TwoColumnTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/main-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<MainFooterComponent>",
+                "defaultValue": "(\n  args: MainFooterComponent\n) => ({\n  props: args,\n  template: `\n  <lib-main-footer>\n  <div primary>\n  <h2 class=\"h3 hidden\">Quick Links</h2>\n    <div class=\"two-col padded footer-links\">\n      <div>\n        <h3 class=\"h6\">Column Heading</h3>\n        <ul class=\"list-menu vertical\">\n          <li><a href=\"#\">Link List</a></li>\n          <li><a href=\"#\">Another Link</a></li>\n          <li><a href=\"#\">A slightly longer link</a></li>\n        </ul>\n      </div>\n      <div>\n        <h3 class=\"h6\">Another Column Heading</h3>\n        <ul class=\"list-menu vertical\">\n          <li><a href=\"#\">Second column Link</a></li>\n          <li><a href=\"#\">Another example of a link</a></li>\n          <li><a href=\"#\">Link 3</a></li>\n          <li><a href=\"#\">Link 4</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div secondary>\n    <h2 class=\"h5\">Student Services Information Technologies</h2>\n    <p>311 Day Hall<br>\n      Cornell University<br>\n      Ithaca, NY 14853</p>\n    </div>\n  </lib-main-footer>\n  `,\n})"
             }
         ],
         "functions": [],
@@ -2458,6 +2740,50 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "stories/admin-page.stories.ts": [
+                {
+                    "name": "Admin",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/admin-page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/admin-page.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<GenericComponent>",
+                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-side-menu [routes]=\"routes\">\n  <lib-admin-toolbar></lib-admin-toolbar>\n  <router-outlet></router-outlet>\n</lib-side-menu>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                }
+            ],
+            "stories/Routes.ts": [
+                {
+                    "name": "AdminRoutesModule",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Routes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "RouterModule.forRoot(adminRoutes)"
+                },
+                {
+                    "name": "RoutesModule",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/Routes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "RouterModule.forRoot(routes)"
+                }
+            ],
             "projects/cu-ng-design-library/src/test.ts": [
                 {
                     "name": "context",
@@ -2666,7 +2992,47 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<MainFooterComponent>",
-                    "defaultValue": "(args: MainFooterComponent) => ({\n  props: args,\n  template: `\n  <lib-main-footer>\n  <div primary>\n    <p>\n      Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n    </p>\n  </div>\n  <div secondary>\n    <h2 class=\"h5\">Student &amp; Campus Life</h2>\n    <p>311 Day Hall<br>\n      Cornell University<br>\n      Ithaca, NY 14853</p>\n    </div>\n  </lib-main-footer>\n  `,\n})"
+                    "defaultValue": "(args: MainFooterComponent) => ({\n  props: args,\n  template: `\n  <lib-main-footer>\n  <div primary>\n    <p>\n      Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n    </p>\n  </div>\n  <div secondary>\n    <h2 class=\"h5\">Student Services Information Technologies</h2>\n    <p>311 Day Hall<br>\n      Cornell University<br>\n      Ithaca, NY 14853\n      </p>\n      <p>\n        <a mat-button class=\"link-block\" href=\"#\"> Contact SSIT </a>\n      </p>\n    </div>\n  </lib-main-footer>\n  `,\n})"
+                },
+                {
+                    "name": "ThreeColumn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/main-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "ThreeColumnTemplate.bind({})"
+                },
+                {
+                    "name": "ThreeColumnTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/main-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<MainFooterComponent>",
+                    "defaultValue": "(\n  args: MainFooterComponent\n) => ({\n  props: args,\n  template: `\n  <lib-main-footer>\n  <div primary>\n  <h2 class=\"h3 hidden\">Quick Links</h2>\n    <div class=\"three-col padded footer-links\">\n      <div>\n        <h3 class=\"h6\">Column Heading</h3>\n        <ul class=\"list-menu vertical\">\n          <li><a href=\"#\">Link List</a></li>\n          <li><a href=\"#\">Another Link</a></li>\n          <li><a href=\"#\">A slightly longer link</a></li>\n        </ul>\n      </div>\n      <div>\n        <h3 class=\"h6\">Another Column Heading</h3>\n        <ul class=\"list-menu vertical\">\n          <li><a href=\"#\">Second column Link</a></li>\n          <li><a href=\"#\">Another example of a link</a></li>\n          <li><a href=\"#\">Link 3</a></li>\n          <li><a href=\"#\">Link 4</a></li>\n        </ul>\n      </div>\n      <div>\n      <h3 class=\"h6\">Third Column Heading</h3>\n      <ul class=\"list-menu vertical\">\n        <li><a href=\"#\">Second column Link</a></li>\n        <li><a href=\"#\">Another example of a link</a></li>\n        <li><a href=\"#\">Link 3</a></li>\n      </ul>\n    </div>\n    </div>\n  </div>\n  <div secondary>\n    <h2 class=\"h5\">Student Services Information Technologies</h2>\n    <p>311 Day Hall<br>\n      Cornell University<br>\n      Ithaca, NY 14853</p>\n    </div>\n  </lib-main-footer>\n  `,\n})"
+                },
+                {
+                    "name": "TwoColumn",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/main-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "TwoColumnTemplate.bind({})"
+                },
+                {
+                    "name": "TwoColumnTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/main-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<MainFooterComponent>",
+                    "defaultValue": "(\n  args: MainFooterComponent\n) => ({\n  props: args,\n  template: `\n  <lib-main-footer>\n  <div primary>\n  <h2 class=\"h3 hidden\">Quick Links</h2>\n    <div class=\"two-col padded footer-links\">\n      <div>\n        <h3 class=\"h6\">Column Heading</h3>\n        <ul class=\"list-menu vertical\">\n          <li><a href=\"#\">Link List</a></li>\n          <li><a href=\"#\">Another Link</a></li>\n          <li><a href=\"#\">A slightly longer link</a></li>\n        </ul>\n      </div>\n      <div>\n        <h3 class=\"h6\">Another Column Heading</h3>\n        <ul class=\"list-menu vertical\">\n          <li><a href=\"#\">Second column Link</a></li>\n          <li><a href=\"#\">Another example of a link</a></li>\n          <li><a href=\"#\">Link 3</a></li>\n          <li><a href=\"#\">Link 4</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n  <div secondary>\n    <h2 class=\"h5\">Student Services Information Technologies</h2>\n    <p>311 Day Hall<br>\n      Cornell University<br>\n      Ithaca, NY 14853</p>\n    </div>\n  </lib-main-footer>\n  `,\n})"
                 }
             ],
             "stories/main-menu.stories.ts": [
@@ -2755,6 +3121,28 @@
                     "deprecationMessage": "",
                     "type": "Story<OneColumnComponent>",
                     "defaultValue": "(args: OneColumnComponent) => ({\n  props: args,\n  template: `\n  <lib-one-column>\n  <h1>One Column</h1>\n  <p>\n    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet dignissimos temporibus enim. Impedit, voluptatum\n    error laborum, dolorem, nulla qui molestiae vitae fugiat adipisci eos asperiores nobis beatae voluptatibus commodi\n    natus?\n  </p>\n  <h2>Sub Content</h2>\n  <p>\n    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui consectetur voluptate quisquam architecto ducimus\n    earum magni beatae tenetur repellat. Veniam atque vel deleniti voluptatem possimus accusamus quaerat modi eius\n    vitae?\n    Consequatur maiores fuga officiis placeat voluptatem provident non a quam possimus nihil beatae deserunt rem\n    dolore nam, dolor deleniti nemo aspernatur in labore commodi sint, eius quo! Reiciendis, perferendis laborum.\n    Blanditiis, animi possimus quia iste doloremque repudiandae eos voluptatum quam libero in tempora ad, facilis\n    similique dolorum! Eveniet fuga assumenda ea dolore, aspernatur autem! Sit nulla saepe ullam qui id?\n    Labore voluptatem ea aperiam repudiandae eum optio doloribus eveniet velit mollitia quisquam, consequuntur\n    voluptatum minus itaque pariatur voluptatibus autem similique blanditiis atque esse illo aliquid recusandae! Fugit\n    optio atque cum.\n    Officia quod placeat tempora, temporibus ad exercitationem similique dicta ipsa dolores sunt distinctio, sit\n    necessitatibus in. Perferendis harum porro quasi animi deleniti vel corrupti eligendi cumque debitis! Tenetur,\n    eveniet possimus.\n  </p>\n  </lib-one-column>`,\n})"
+                }
+            ],
+            "stories/side-menu.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/side-menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/side-menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<SideMenuComponent>",
+                    "defaultValue": "(args: SideMenuComponent) => ({\n  props: args,\n  template: `\n  <lib-side-menu [routes]=\"routes\">\n    <router-outlet></router-outlet>\n  </lib-side-menu>\n  `,\n})"
                 }
             ],
             "stories/skip-link.stories.ts": [
@@ -2876,19 +3264,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "[]",
-                    "defaultValue": "[\n  MatIconModule,\n  MatSidenavModule,\n  MatDialogModule,\n  MatButtonModule,\n  MatListModule,\n  MatMenuModule,\n  MatExpansionModule,\n]"
-                }
-            ],
-            "stories/Routes.ts": [
-                {
-                    "name": "RoutesModule",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/Routes.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "RouterModule.forRoot(routes)"
+                    "defaultValue": "[\n  MatIconModule,\n  MatSidenavModule,\n  MatDialogModule,\n  MatButtonModule,\n  MatListModule,\n  MatMenuModule,\n  MatExpansionModule,\n  MatToolbarModule,\n]"
                 }
             ]
         },
@@ -2926,6 +3302,15 @@
         "count": 0,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/cu-ng-design-library/src/lib/components/layout/admin-toolbar/admin-toolbar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AdminToolbarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
             {
                 "filePath": "projects/cu-ng-design-library/src/lib/components/layout/footer/footer.component.ts",
                 "type": "component",
@@ -3023,6 +3408,15 @@
                 "name": "SecondaryContentComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/cu-ng-design-library/src/lib/components/layout/side-menu/side-menu.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SideMenuComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -3171,7 +3565,37 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "AdminRoutesModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/Routes.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "RoutesModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/admin-page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Admin",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/admin-page.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3356,6 +3780,46 @@
                 "status": "low"
             },
             {
+                "filePath": "stories/main-footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ThreeColumn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/main-footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ThreeColumnTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/main-footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TwoColumn",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/main-footer.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TwoColumnTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "stories/main-menu.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -3427,6 +3891,26 @@
             },
             {
                 "filePath": "stories/one-column.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/side-menu.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/side-menu.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

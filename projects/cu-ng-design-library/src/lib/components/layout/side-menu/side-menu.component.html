@@ -1,0 +1,51 @@
+<!-- <button type="button" mat-button (click)="drawer.toggle()">
+  <mat-icon>menu</mat-icon>
+</button> -->
+<mat-drawer-container >
+  <mat-drawer #drawer opened class="sidenav" mode="side" autosize>
+
+    <mat-toolbar class="sidbar-logo" color="primary">
+      <span >Logo</span>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <ng-container *ngFor="let route of routes">
+        <ng-container *ngIf="route.data && route.data['menu'] == 'admin'" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+
+          <mat-list-item *ngIf="!route.children; else parent ">
+            <a routerLink="{{route.path}}">
+              {{route.data && route.data['title'] ? route.data['title'] : route.path}}
+            </a>
+          </mat-list-item>
+
+          <ng-template #parent>
+            <mat-list-item>
+              <a routerLink="{{route.path}}">{{route.data && route.data['title'] ? route.data['title'] : route.path}}</a>
+            </mat-list-item>
+
+            <mat-list-item *ngFor="let child of route.children">
+              <a routerLink="{{route.path}}/{{child.path}}" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}" class="pad-left">
+                {{child.data && child.data['title'] ? child.data['title'] : child.path}}
+              </a>
+            </mat-list-item>
+          </ng-template>
+        </ng-container>
+      </ng-container>
+
+    </mat-nav-list>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <lib-admin-toolbar
+    [showToggle]="!options.sidenavCollapsed"
+    (toggleSidenav)="drawer.toggle()"
+    (toggleSidenavNotice)="drawer.toggle()"
+  ></lib-admin-toolbar>
+    <ng-content></ng-content>
+  </mat-drawer-content>
+
+
+</mat-drawer-container>

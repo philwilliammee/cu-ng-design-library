@@ -44,4 +44,35 @@ export const routes: Routes = [
   { path: '**', redirectTo: 'template', pathMatch: 'full' },
 ];
 
+export const adminRoutes: Routes = [
+  { path: '', redirectTo: 'template', pathMatch: 'full' },
+  {
+    path: 'template',
+    component: OneColumnExampleComponent,
+    data: { menu: 'admin', title: 'Admin' },
+  },
+  {
+    path: 'parent',
+    component: OneColumnExampleComponent,
+    data: {
+      menu: 'admin',
+      title: 'Parent',
+    },
+    children: [
+      {
+        path: 'child',
+        component: OneColumnExampleComponent,
+        data: {
+          menu: 'admin',
+          title: 'Child',
+        },
+      },
+    ],
+  },
+
+  { path: '**', redirectTo: 'template', pathMatch: 'full' },
+];
+
+export const AdminRoutesModule = RouterModule.forRoot(adminRoutes);
+
 export const RoutesModule = RouterModule.forRoot(routes);

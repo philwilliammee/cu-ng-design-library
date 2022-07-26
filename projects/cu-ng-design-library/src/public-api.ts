@@ -73,6 +73,16 @@ export * from './lib/pages/two-column-example/two-column-example.module';
 export * from './lib/pages/one-column-example/one-column-example.component';
 export * from './lib/pages/one-column-example/one-column-example.module';
 
+// SideMenuComponent
+export * from './lib/components/layout/side-menu/side-menu.component';
+export * from './lib/components/layout/side-menu/side-menu.module';
+
+export * from './lib/components/layout/admin-toolbar/admin-toolbar.component';
+export * from './lib/components/layout/admin-toolbar/admin-toolbar.module';
+
+export * from './lib/components/layout/admin-layout/admin-layout.component';
+export * from './lib/components/layout/admin-layout/admin-layout.module';
+
 // module
 export * from './lib/cu-ng-design-library.service';
 export * from './lib/cu-ng-design-library.component';
