@@ -47,7 +47,7 @@
     "components": [
         {
             "name": "AdminLayoutComponent",
-            "id": "component-AdminLayoutComponent-bb06ba2ad9bf131f9a604aec7b10e4d4cae19a2d116b0e249e0d38c03c57eefbe541f804f5913d564b7b685c72e6448b1a027a79fbf76d2c20ed33c29310c05d",
+            "id": "component-AdminLayoutComponent-5277b7705686f904c932c3660855a38dfdcbb8ca485b23c443e845ac799a2c65c106eb1e1e1853089389852cf1d43a7596512aa9d4117d35a2a76f35f49685eb",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/admin-layout/admin-layout.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -71,22 +71,20 @@
                     "line": 10,
                     "type": "Routes",
                     "decorators": []
+                },
+                {
+                    "name": "toolbarTitle",
+                    "defaultValue": "'SSIT'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 14,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -94,7 +92,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { Routes } from '@angular/router';\n\n@Component({\n  selector: 'lib-admin-layout',\n  templateUrl: './admin-layout.component.html',\n  styleUrls: ['./admin-layout.component.scss'],\n})\nexport class AdminLayoutComponent implements OnInit {\n  @Input() routes!: Routes;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { Routes } from '@angular/router';\n\n@Component({\n  selector: 'lib-admin-layout',\n  templateUrl: './admin-layout.component.html',\n  styleUrls: ['./admin-layout.component.scss'],\n})\nexport class AdminLayoutComponent {\n  @Input() routes!: Routes;\n  @Input() toolbarTitle = 'SSIT';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -103,18 +101,7 @@
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 10
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<lib-side-menu [routes]=\"routes\">\n  <router-outlet></router-outlet>\n</lib-side-menu>\n"
+            "templateData": "<lib-side-menu [routes]=\"routes\" [title]=\"toolbarTitle\">\n  <ng-content ngProjectAs=\"[toolbar]\"></ng-content>\n  <router-outlet></router-outlet>\n</lib-side-menu>\n"
         },
         {
             "name": "AdminToolbarComponent",
@@ -203,7 +190,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<mat-toolbar color=\"primary\">\n  <button mat-icon-button class=\"matero-toolbar-button\" *ngIf=\"showToggle\" (click)=\"toggleSidenav.emit()\">\n    <mat-icon>menu</mat-icon>\n  </button>\n  <span class=\"spacer\"></span>\n  <!-- <span style=\"width:100%; text-align:center\">\n    {{title}}\n  </span> -->\n\n</mat-toolbar>\n"
+            "templateData": "<mat-toolbar color=\"primary\">\n  <button mat-icon-button class=\"matero-toolbar-button\" *ngIf=\"showToggle\" (click)=\"toggleSidenav.emit()\">\n    <mat-icon>menu</mat-icon>\n  </button>\n  <span class=\"spacer\"></span>\n  <!-- <span style=\"width:100%; text-align:center\">\n    {{title}}\n  </span> -->\n  <ng-content></ng-content>\n\n</mat-toolbar>\n"
         },
         {
             "name": "CuNgDesignLibraryComponent",
@@ -1282,7 +1269,7 @@
                 "args": [],
                 "line": 21
             },
-            "templateData": "<mat-drawer-container>\n  <mat-drawer #drawer opened class=\"sidenav\" mode=\"side\" autosize>\n\n    <mat-toolbar class=\"sidebar-logo\" color=\"primary\">\n      <img alt=\"Cornell University\" [src]=\"svgIconUrl\" height=\"45\">\n      {{title}}\n    </mat-toolbar>\n\n    <mat-nav-list>\n      <ng-container *ngFor=\"let route of routes\">\n        <ng-container *ngIf=\"route.data && route.data['menu'] == 'admin'\" routerLinkActive=\"active\"\n          [routerLinkActiveOptions]=\"{exact: true}\">\n\n          <mat-list-item *ngIf=\"!route.children; else parent \">\n\n            <a [routerLink]=\"route.path\">\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            </a>\n          </mat-list-item>\n\n          <ng-template #parent>\n            <mat-list-item>\n              <a\n                routerLink=\"{{route.path}}\">\n                <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n                {{route.data && route.data['title'] ? route.data['title'] : route.path}}</a>\n            </mat-list-item>\n\n            <mat-list-item *ngFor=\"let child of route.children\">\n              <a routerLink=\"{{route.path}}/{{child.path}}\"\n                routerLinkActive=\"active\"\n                [routerLinkActiveOptions]=\"{exact: true}\"\n                class=\"pad-left\"\n              >\n                <mat-icon matListIcon *ngIf=\"child.data && child.data['icon']\">{{ child.data['icon'] }}</mat-icon>\n                {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n              </a>\n            </mat-list-item>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n\n    </mat-nav-list>\n\n  </mat-drawer>\n\n  <mat-drawer-content>\n    <lib-admin-toolbar (toggleSidenav)=\"drawer.toggle()\" (toggleSidenavNotice)=\"drawer.toggle()\">\n    </lib-admin-toolbar>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n\n\n</mat-drawer-container>\n"
+            "templateData": "<mat-drawer-container>\n  <mat-drawer #drawer opened class=\"sidenav\" mode=\"side\" autosize>\n\n    <mat-toolbar class=\"sidebar-logo\" color=\"primary\">\n      <img alt=\"Cornell University\" [src]=\"svgIconUrl\" height=\"45\">\n      {{title}}\n    </mat-toolbar>\n\n    <mat-nav-list>\n      <ng-container *ngFor=\"let route of routes\">\n        <ng-container *ngIf=\"route.data && route.data['menu'] == 'admin'\"\n          >\n\n          <mat-list-item *ngIf=\"!route.children; else parent \">\n\n            <a [routerLink]=\"route.path\"\n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions]=\"{exact: true}\"\n            >\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            </a>\n          </mat-list-item>\n\n          <ng-template #parent>\n            <mat-list-item>\n              <a\n                routerLink=\"{{route.path}}\">\n                <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n                {{route.data && route.data['title'] ? route.data['title'] : route.path}}</a>\n            </mat-list-item>\n\n            <mat-list-item *ngFor=\"let child of route.children\">\n              <a routerLink=\"{{route.path}}/{{child.path}}\"\n                routerLinkActive=\"active\"\n                [routerLinkActiveOptions]=\"{exact: true}\"\n                class=\"pad-left\"\n              >\n                <mat-icon matListIcon *ngIf=\"child.data && child.data['icon']\">{{ child.data['icon'] }}</mat-icon>\n                {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n              </a>\n            </mat-list-item>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n\n    </mat-nav-list>\n\n  </mat-drawer>\n\n  <mat-drawer-content>\n    <lib-admin-toolbar (toggleSidenav)=\"drawer.toggle()\" (toggleSidenavNotice)=\"drawer.toggle()\">\n      <ng-content select=\"[toolbar]\"></ng-content>\n    </lib-admin-toolbar>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n\n\n</mat-drawer-container>\n"
         },
         {
             "name": "SkipLinkComponent",
@@ -2723,7 +2710,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<GenericComponent>",
-                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes'></lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes' [toolbarTitle]='toolbarTitle'>\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
             },
             {
                 "name": "Template",
@@ -2952,7 +2939,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<GenericComponent>",
-                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes'></lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes' [toolbarTitle]='toolbarTitle'>\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
                 }
             ],
             "stories/Routes.ts": [
@@ -3501,7 +3488,7 @@
                 "linktype": "component",
                 "name": "AdminLayoutComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {

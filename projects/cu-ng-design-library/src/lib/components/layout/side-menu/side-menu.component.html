@@ -8,12 +8,15 @@
 
     <mat-nav-list>
       <ng-container *ngFor="let route of routes">
-        <ng-container *ngIf="route.data && route.data['menu'] == 'admin'" routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact: true}">
+        <ng-container *ngIf="route.data && route.data['menu'] == 'admin'"
+          >
 
           <mat-list-item *ngIf="!route.children; else parent ">
 
-            <a [routerLink]="route.path">
+            <a [routerLink]="route.path"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
               <mat-icon matListIcon *ngIf="route.data['icon']">{{route.data['icon']}}</mat-icon>
               {{route.data && route.data['title'] ? route.data['title'] : route.path}}
             </a>
