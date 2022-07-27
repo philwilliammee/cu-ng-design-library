@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Routes } from '@angular/router';
 
 @Component({
@@ -6,10 +6,7 @@ import { Routes } from '@angular/router';
   templateUrl: './admin-layout.component.html',
   styleUrls: ['./admin-layout.component.scss'],
 })
-export class AdminLayoutComponent implements OnInit {
+export class AdminLayoutComponent {
   @Input() routes!: Routes;
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  @Input() toolbarTitle = 'SSIT';
 }

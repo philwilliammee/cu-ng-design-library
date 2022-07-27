@@ -89,7 +89,11 @@ const Template: Story<GenericComponent> = (args: GenericComponent) => ({
   template: `
   <lib-skip-link></lib-skip-link>
 
-<lib-admin-layout [routes]='routes'></lib-admin-layout>
+<lib-admin-layout [routes]='routes' [toolbarTitle]='toolbarTitle'>
+  <div toolbar>
+    <button mat-button>Login</button>
+  </div>
+</lib-admin-layout>
 
 <lib-footer>
   <lib-sub-footer [isMobileLayout]="false"></lib-sub-footer>
@@ -101,4 +105,5 @@ export const Admin = Template.bind({});
 
 Admin.args = {
   routes: adminRoutes,
+  toolbarTitle: 'Admin',
 } as Partial<GenericComponent>;

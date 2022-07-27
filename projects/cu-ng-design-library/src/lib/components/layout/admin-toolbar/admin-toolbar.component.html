@@ -2,7 +2,10 @@
   <button mat-icon-button class="matero-toolbar-button" *ngIf="showToggle" (click)="toggleSidenav.emit()">
     <mat-icon>menu</mat-icon>
   </button>
-  <!-- <span class="example-spacer"></span> -->
-  <span style="width:100%; text-align:center">Admin Site</span>
+  <span class="spacer"></span>
+  <!-- <span style="width:100%; text-align:center">
+    {{title}}
+  </span> -->
+  <ng-content></ng-content>
 
 </mat-toolbar>

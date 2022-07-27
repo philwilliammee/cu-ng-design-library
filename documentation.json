@@ -46,8 +46,79 @@
     "directives": [],
     "components": [
         {
+            "name": "AdminLayoutComponent",
+            "id": "component-AdminLayoutComponent-bb06ba2ad9bf131f9a604aec7b10e4d4cae19a2d116b0e249e0d38c03c57eefbe541f804f5913d564b7b685c72e6448b1a027a79fbf76d2c20ed33c29310c05d",
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/admin-layout/admin-layout.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-admin-layout",
+            "styleUrls": [
+                "./admin-layout.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./admin-layout.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "routes",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "Routes",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, Input } from '@angular/core';\nimport { Routes } from '@angular/router';\n\n@Component({\n  selector: 'lib-admin-layout',\n  templateUrl: './admin-layout.component.html',\n  styleUrls: ['./admin-layout.component.scss'],\n})\nexport class AdminLayoutComponent implements OnInit {\n  @Input() routes!: Routes;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./admin-layout.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 10
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<lib-side-menu [routes]=\"routes\">\n  <router-outlet></router-outlet>\n</lib-side-menu>\n"
+        },
+        {
             "name": "AdminToolbarComponent",
-            "id": "component-AdminToolbarComponent-1b3aa954f0b10b0ce2a2a41d7e1820053dfe410d0d835828e8cab71ea0fec5e75a476061ac92584ef2eef28087344b6fb16a1f09963d4ff7313e0fde66b07601",
+            "id": "component-AdminToolbarComponent-400d4153804fd2b2776f0b9a044132721b9566844b3069844edaae16e76440e9c46c9a3c165aee77613016807001503005d309b3f6f12141803ef9005a5f655e",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/admin-toolbar/admin-toolbar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -63,8 +134,35 @@
                 "./admin-toolbar.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "showToggle",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "toggleSidenav",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "toggleSidenavNotice",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "EventEmitter"
+                }
+            ],
             "propertiesClass": [],
             "methodsClass": [
                 {
@@ -73,7 +171,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 15,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -85,11 +183,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-admin-toolbar',\n  templateUrl: './admin-toolbar.component.html',\n  styleUrls: ['./admin-toolbar.component.scss']\n})\nexport class AdminToolbarComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n@Component({\n  selector: 'lib-admin-toolbar',\n  templateUrl: './admin-toolbar.component.html',\n  styleUrls: ['./admin-toolbar.component.scss'],\n})\nexport class AdminToolbarComponent implements OnInit {\n  @Input() showToggle = true;\n  @Output() toggleSidenav = new EventEmitter<void>();\n  @Output() toggleSidenavNotice = new EventEmitter<void>();\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".example-spacer {\n  flex: 1 1 auto;\n}\n",
+                    "data": ".spacer {\n  flex: 1 1 auto;\n}\n",
                     "styleUrl": "./admin-toolbar.component.scss"
                 }
             ],
@@ -100,12 +198,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 8
+                "line": 11
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<mat-toolbar color=\"primary\">\n  <!-- <span class=\"example-spacer\"></span> -->\n  <span style=\"width:100%; text-align:center\">Admin Site</span>\n\n</mat-toolbar>\n"
+            "templateData": "<mat-toolbar color=\"primary\">\n  <button mat-icon-button class=\"matero-toolbar-button\" *ngIf=\"showToggle\" (click)=\"toggleSidenav.emit()\">\n    <mat-icon>menu</mat-icon>\n  </button>\n  <span class=\"spacer\"></span>\n  <!-- <span style=\"width:100%; text-align:center\">\n    {{title}}\n  </span> -->\n\n</mat-toolbar>\n"
         },
         {
             "name": "CuNgDesignLibraryComponent",
@@ -1089,7 +1187,7 @@
         },
         {
             "name": "SideMenuComponent",
-            "id": "component-SideMenuComponent-4dfff709d33ab7347aed635f26f4015f522f3a5f4616a4ed9b231b862f2c9cb6be4e8e1ebfacfacb7b6433e42f700b6994d75af22d6862c5449cd96dd1dcb8cd",
+            "id": "component-SideMenuComponent-98579f7193021cb86d28f12af3bab0cb8cbf8f27470576ea8b043e4900f728a808261a7af155d4b5781ed1227285979672416248db994babf495601e71976ba8",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/side-menu/side-menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1113,10 +1211,52 @@
                     "line": 10,
                     "type": "Routes",
                     "decorators": []
+                },
+                {
+                    "name": "showToggle",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "'Admin Toolbar'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "options",
+                    "defaultValue": "{\n    autoCollapseOnClick: false,\n    autoCollapseOnHover: false,\n    sidenavCollapsed: false,\n  }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "svgIconUrl",
+                    "defaultValue": "'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -1125,16 +1265,24 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { Routes } from '@angular/router';\n\n@Component({\n  selector: 'lib-side-menu',\n  templateUrl: './side-menu.component.html',\n  styleUrls: ['./side-menu.component.scss'],\n})\nexport class SideMenuComponent {\n  @Input() routes!: Routes;\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { Routes } from '@angular/router';\n\n@Component({\n  selector: 'lib-side-menu',\n  templateUrl: './side-menu.component.html',\n  styleUrls: ['./side-menu.component.scss'],\n})\nexport class SideMenuComponent {\n  @Input() routes!: Routes;\n  @Input() title = 'Admin Toolbar';\n  @Input() showToggle = true;\n\n  public svgIconUrl =\n    'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';\n\n  options = {\n    autoCollapseOnClick: false,\n    autoCollapseOnHover: false,\n    sidenavCollapsed: false,\n  };\n\n  constructor() {\n    this.showToggle = true;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "\n\n.pad-left {\n  padding-left: 8px;\n}\n\n.sidbar-logo{\n  // padding: 0;\n  // margin: 0;\n  // // position: relative;\n  // top: 0;\n  // left: 0;\n  // width: 100%;\n  // background-color: #fff;\n\n}\n",
+                    "data": ".pad-left {\n  padding-left: 16px;\n}\n\n.mat-drawer {\n  min-width: 200px;\n  background-color: #f7f7f7;\n}\n\n.mat-list-base .mat-list-item {\n  font-size: 18px;\n}\n\n.sidebar-logo{\n  img {\n    padding-right: 8px;\n  }\n}\n\n.mat-nav-list a {\n  display: flex;\n  align-items: center;\n}\n",
                     "styleUrl": "./side-menu.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<!-- <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\n  <mat-icon>menu</mat-icon>\n</button> -->\n<mat-drawer-container >\n  <mat-drawer #drawer opened class=\"sidenav\" mode=\"side\" autosize>\n\n    <mat-toolbar class=\"sidbar-logo\" color=\"primary\">\n      <span >Logo</span>\n    </mat-toolbar>\n\n    <mat-nav-list>\n      <ng-container *ngFor=\"let route of routes\">\n        <ng-container *ngIf=\"route.data && route.data['menu'] == 'admin'\" routerLinkActive=\"active\"\n          [routerLinkActiveOptions]=\"{exact: true}\">\n\n          <mat-list-item *ngIf=\"!route.children; else parent \">\n            <a routerLink=\"{{route.path}}\">\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            </a>\n          </mat-list-item>\n\n          <ng-template #parent>\n            <mat-list-item>\n              <a routerLink=\"{{route.path}}\">{{route.data && route.data['title'] ? route.data['title'] : route.path}}</a>\n            </mat-list-item>\n\n            <mat-list-item *ngFor=\"let child of route.children\">\n              <a routerLink=\"{{route.path}}/{{child.path}}\" routerLinkActive=\"active\"\n                [routerLinkActiveOptions]=\"{exact: true}\" class=\"pad-left\">\n                {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n              </a>\n            </mat-list-item>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n\n    </mat-nav-list>\n\n  </mat-drawer>\n\n  <mat-drawer-content>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n\n\n</mat-drawer-container>\n"
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 21
+            },
+            "templateData": "<mat-drawer-container>\n  <mat-drawer #drawer opened class=\"sidenav\" mode=\"side\" autosize>\n\n    <mat-toolbar class=\"sidebar-logo\" color=\"primary\">\n      <img alt=\"Cornell University\" [src]=\"svgIconUrl\" height=\"45\">\n      {{title}}\n    </mat-toolbar>\n\n    <mat-nav-list>\n      <ng-container *ngFor=\"let route of routes\">\n        <ng-container *ngIf=\"route.data && route.data['menu'] == 'admin'\" routerLinkActive=\"active\"\n          [routerLinkActiveOptions]=\"{exact: true}\">\n\n          <mat-list-item *ngIf=\"!route.children; else parent \">\n\n            <a [routerLink]=\"route.path\">\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            </a>\n          </mat-list-item>\n\n          <ng-template #parent>\n            <mat-list-item>\n              <a\n                routerLink=\"{{route.path}}\">\n                <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n                {{route.data && route.data['title'] ? route.data['title'] : route.path}}</a>\n            </mat-list-item>\n\n            <mat-list-item *ngFor=\"let child of route.children\">\n              <a routerLink=\"{{route.path}}/{{child.path}}\"\n                routerLinkActive=\"active\"\n                [routerLinkActiveOptions]=\"{exact: true}\"\n                class=\"pad-left\"\n              >\n                <mat-icon matListIcon *ngIf=\"child.data && child.data['icon']\">{{ child.data['icon'] }}</mat-icon>\n                {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n              </a>\n            </mat-list-item>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n\n    </mat-nav-list>\n\n  </mat-drawer>\n\n  <mat-drawer-content>\n    <lib-admin-toolbar (toggleSidenav)=\"drawer.toggle()\" (toggleSidenavNotice)=\"drawer.toggle()\">\n    </lib-admin-toolbar>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n\n\n</mat-drawer-container>\n"
         },
         {
             "name": "SkipLinkComponent",
@@ -1348,6 +1496,42 @@
     ],
     "modules": [
         {
+            "name": "AdminLayoutModule",
+            "id": "module-AdminLayoutModule-b9b3d7276eca6510d693c0f012e12ad56381fb51cef8a147ba4372d74ca0c20b485edd61c5218c10246698284dafd58df507b9a97e1a5dcd55188101a160dc6b",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/admin-layout/admin-layout.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule\n  ]\n})\nexport class AdminLayoutModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "AdminToolbarModule",
             "id": "module-AdminToolbarModule-f4168ac1e1f9dec6f998cf30f4541db25820809f08cc7a89d3a96e1057e48628230c794e11d6f665896bc9e6e3f9133ab1d6df4e7d80177f8b629595586ec71f",
             "description": "",
@@ -1385,13 +1569,13 @@
         },
         {
             "name": "CuNgDesignLibraryModule",
-            "id": "module-CuNgDesignLibraryModule-f185a4a3b4a5ce89069e4c5e514d1a1ef59d73c687cc7ef831fe070f7a8d054a4960e284e7eba4ad5bc8da7e79ae4e7a2733e08ea56b2c2ee10046263517a5e5",
+            "id": "module-CuNgDesignLibraryModule-f44df3b3e138b2412d6480fe33d398b9f0470b12c256cb89c0ef42f5ab63ce7fde440224d1533172e8c3240ca20521f1baa60ffa0eee686fe18710add104c646",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\nimport { SideMenuComponent } from './components/layout/side-menu/side-menu.component';\nimport { AdminToolbarComponent } from './components/layout/admin-toolbar/admin-toolbar.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    SideMenuComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\nimport { SideMenuComponent } from './components/layout/side-menu/side-menu.component';\nimport { AdminToolbarComponent } from './components/layout/admin-toolbar/admin-toolbar.component';\nimport { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -1400,6 +1584,9 @@
                 {
                     "type": "declarations",
                     "elements": [
+                        {
+                            "name": "AdminLayoutComponent"
+                        },
                         {
                             "name": "AdminToolbarComponent"
                         },
@@ -1473,6 +1660,12 @@
                 {
                     "type": "exports",
                     "elements": [
+                        {
+                            "name": "AdminLayoutComponent"
+                        },
+                        {
+                            "name": "AdminToolbarComponent"
+                        },
                         {
                             "name": "CuNgDesignLibraryComponent"
                         },
@@ -2530,7 +2723,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<GenericComponent>",
-                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-side-menu [routes]=\"routes\">\n  <lib-admin-toolbar></lib-admin-toolbar>\n  <router-outlet></router-outlet>\n</lib-side-menu>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes'></lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
             },
             {
                 "name": "Template",
@@ -2759,7 +2952,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<GenericComponent>",
-                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-side-menu [routes]=\"routes\">\n  <lib-admin-toolbar></lib-admin-toolbar>\n  <router-outlet></router-outlet>\n</lib-side-menu>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes'></lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
                 }
             ],
             "stories/Routes.ts": [
@@ -3303,12 +3496,21 @@
         "status": "low",
         "files": [
             {
+                "filePath": "projects/cu-ng-design-library/src/lib/components/layout/admin-layout/admin-layout.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AdminLayoutComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/cu-ng-design-library/src/lib/components/layout/admin-toolbar/admin-toolbar.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "AdminToolbarComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -3416,7 +3618,7 @@
                 "linktype": "component",
                 "name": "SideMenuComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {

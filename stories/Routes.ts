@@ -45,11 +45,11 @@ export const routes: Routes = [
 ];
 
 export const adminRoutes: Routes = [
-  { path: '', redirectTo: 'template', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
-    path: 'template',
+    path: 'dashboard',
     component: OneColumnExampleComponent,
-    data: { menu: 'admin', title: 'Admin' },
+    data: { menu: 'admin', title: 'Dashboard', icon: 'dashboard' },
   },
   {
     path: 'parent',
@@ -57,6 +57,7 @@ export const adminRoutes: Routes = [
     data: {
       menu: 'admin',
       title: 'Parent',
+      icon: 'comment',
     },
     children: [
       {
@@ -64,13 +65,14 @@ export const adminRoutes: Routes = [
         component: OneColumnExampleComponent,
         data: {
           menu: 'admin',
-          title: 'Child',
+          title: 'Nested Child',
+          icon: 'forum',
         },
       },
     ],
   },
 
-  { path: '**', redirectTo: 'template', pathMatch: 'full' },
+  { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
 
 export const AdminRoutesModule = RouterModule.forRoot(adminRoutes);

@@ -1,16 +1,23 @@
-
-
 .pad-left {
-  padding-left: 8px;
+  padding-left: 16px;
 }
 
-.sidbar-logo{
-  // padding: 0;
-  // margin: 0;
-  // // position: relative;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // background-color: #fff;
+.mat-drawer {
+  min-width: 200px;
+  background-color: #f7f7f7;
+}
 
+.mat-list-base .mat-list-item {
+  font-size: 18px;
+}
+
+.sidebar-logo{
+  img {
+    padding-right: 8px;
+  }
+}
+
+.mat-nav-list a {
+  display: flex;
+  align-items: center;
 }

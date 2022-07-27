@@ -8,7 +8,11 @@ import { Routes } from '@angular/router';
 })
 export class SideMenuComponent {
   @Input() routes!: Routes;
+  @Input() title = 'Admin Toolbar';
   @Input() showToggle = true;
+
+  public svgIconUrl =
+    'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';
 
   options = {
     autoCollapseOnClick: false,
