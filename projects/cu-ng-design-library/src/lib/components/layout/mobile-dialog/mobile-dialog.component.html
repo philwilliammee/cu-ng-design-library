@@ -28,7 +28,9 @@
       </mat-list-item>
     </ng-container>
     <ng-template #parent>
-      <mat-list-item [ngClass]="routeHasActiveChild(route)">
+      <mat-list-item [ngClass]="routeHasActiveChild(route)"
+        *ngIf="route.data && route.data['menu'] != 'hidden'"
+      >
         <button
           mat-button
           (click)="handleExpandClick(route.path)"

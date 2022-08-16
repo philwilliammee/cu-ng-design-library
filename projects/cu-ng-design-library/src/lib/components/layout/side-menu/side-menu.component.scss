@@ -21,3 +21,32 @@
   display: flex;
   align-items: center;
 }
+
+.expand-more {
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.collapsible{
+  width: 100%;
+}
+
+.collapsible[aria-expanded="true"] {
+  .expand-more {
+    transform: rotate(180deg);
+  }
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.content {
+  background: rgba(0, 0, 0, 0.1);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+
+  // a {
+  //   padding: 0 36px;
+  // }
+}
