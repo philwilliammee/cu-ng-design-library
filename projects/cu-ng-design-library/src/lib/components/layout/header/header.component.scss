@@ -3,54 +3,64 @@
 // # @todo set image urls to s3 public bucket
 // @todo get these into material theme mixins?
 
-h2 {
-  // margin-top: 0;
-  line-height: 1.2;
-  // margin-bottom: .7em;
-}
-
 .sans {
   font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;
   font-weight: 400;
 }
 
-// .cu-45 {
-  #cu-header {
-    float: left;
-    width: 100%;
+.cu-unit {
+  a {
+    color: unset;
+    text-decoration: none;
+  }
 
-    .cu-brand {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;
-      font-weight: 500;
-      padding-bottom: 5px;
-      padding-top: 5px;
-      position: relative;
+  a:hover {
+    text-decoration: underline;
+  }
 
-      h1 {
-        margin: 0;
-        width: 100%;
-      }
+  h2 {
+    // margin-top: 0;
+    line-height: 1.2;
+    // margin-bottom: .7em;
+  }
+}
 
-      h2 {
-        margin: 6px 0 0 -.05em;
-      }
 
-      h3 {
-        margin: .3em 0 0;
-        color: #6a6a79;
-        font-weight: 400;
-      }
+#cu-header {
+  float: left;
+  width: 100%;
 
-      .cu-unit {
-        margin: 16px auto 11px;
-        text-align: center;
-      }
+  .cu-brand {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    font-weight: 500;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    position: relative;
+
+    h1 {
+      margin: 0;
+      width: 100%;
+    }
+
+    h2 {
+      margin: 6px 0 0 -.05em;
+    }
+
+    h3 {
+      margin: .3em 0 0;
+      color: #6a6a79;
+      font-weight: 400;
+    }
+
+    .cu-unit {
+      margin: 16px auto 11px;
+      text-align: center;
     }
   }
-// }
+}
 
 .cu-seal {
   #cu-header {

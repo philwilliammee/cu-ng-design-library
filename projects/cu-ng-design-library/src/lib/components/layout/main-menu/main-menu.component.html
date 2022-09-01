@@ -8,8 +8,9 @@
         [routerLinkActiveOptions]="{exact: true}">
 
         <ng-container *ngIf="!route.children; else parent ">
-          <a mat-button routerLink="{{route.path}}">
+          <a mat-button routerLink="{{route.path}}" >
             {{route.data && route.data['title'] ? route.data['title'] : route.path}}
+            <mat-icon *ngIf="route.data && route.data['class'] == 'ext-link'" class="ext-link">launch</mat-icon>
           </a>
         </ng-container>
 

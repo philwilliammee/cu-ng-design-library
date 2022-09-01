@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 // Cornell Branding Banner
 // .cu-red - Overrides the default light gray banner to be red with white logo. Affects both 45px and Large Seal options.
@@ -18,20 +18,17 @@ export type logo = 'cu-seal' | 'cu-45';
   selector: 'lib-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  encapsulation: ViewEncapsulation.None, // apply global styles to this component
 })
 export class HeaderComponent {
   public svgIconUrl =
     'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';
-  @Input() title!: string;
-  @Input() subtitle!: string;
+  @Input() title?: string;
+  @Input() subtitle?: string;
   @Input() theme!: theme;
   @Input() logo!: logo;
   @Input() useGradient!: boolean;
   constructor() {
-    this.title = this.title || 'CU-NG-Design-Library';
-    this.subtitle =
-      this.subtitle ||
-      'A library of reusable components for the CU-Community-Apps';
     this.theme = this.theme || 'cu-default';
     this.logo = this.logo || 'cu-seal';
     this.useGradient = this.useGradient || false;

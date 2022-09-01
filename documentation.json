@@ -23,6 +23,32 @@
             "indexSignatures": [],
             "kind": 165,
             "methods": []
+        },
+        {
+            "name": "DialogData",
+            "id": "interface-DialogData-2184e615cb2c94129525fc8f5ecce26c834e9018e520834f7d7848fe191611837d00f06fabfacac89693b09e20f08ecb7b5254b7d6dd7e4ff23d3b4203c7a007-1",
+            "file": "projects/cu-ng-design-library/src/lib/components/layout/side-menu/side-menu.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, Inject, Input, OnInit } from '@angular/core';\nimport { MAT_DIALOG_DATA } from '@angular/material/dialog';\nimport { Routes, Route, ActivatedRoute } from '@angular/router';\n\ninterface DialogData {\n  routes?: Routes;\n}\n\n@Component({\n  selector: 'lib-side-menu',\n  templateUrl: './side-menu.component.html',\n  styleUrls: ['./side-menu.component.scss'],\n})\nexport class SideMenuComponent implements OnInit {\n  @Input() routes!: Routes;\n  @Input() title = 'Admin Toolbar';\n  @Input() showToggle = true;\n\n  public svgIconUrl =\n    'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';\n\n  options = {\n    autoCollapseOnClick: false,\n    autoCollapseOnHover: false,\n    sidenavCollapsed: false,\n  };\n\n  constructor(\n    // @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {\n    this.showToggle = true;\n  }\n  ngOnInit(): void {\n    // this.routes = this.data.routes?.filter(\n    //   (route) => route.data && route.data['menu']\n    // );\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    console.log('handleExpandClick', contentClass);\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    console.log('handleFocus', contentClass);\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    const _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (let i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n}\n",
+            "properties": [
+                {
+                    "name": "routes",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Routes",
+                    "optional": true,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": [],
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "DialogData-1"
         }
     ],
     "injectables": [
@@ -901,7 +927,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div mat-dialog-title>\n  <h1 class='sr-only'>Mobile Menu</h1>\n  <div fxLayout=\"row\" mat-dialog-actions>\n    <div fxLayoutAlign=\"start\" fxFlex=\"50\" *ngIf=\"data.routes\">\n      <button mat-icon-button aria-label=\"home\" routerLink=\"/\" mat-dialog-close>\n        <mat-icon >home</mat-icon>\n      </button>\n    </div>\n    <div fxLayoutAlign=\"end\" fxFlex=\"50\">\n      <button mat-icon-button aria-label=\"close dialog\" mat-dialog-close>\n        <mat-icon>close</mat-icon>\n      </button>\n    </div>\n  </div>\n</div>\n\n<mat-dialog-content>\n  <mat-nav-list >\n    <ng-container *ngFor=\"let route of routes\">\n    <ng-container *ngIf=\"!route.children; else parent \">\n      <mat-list-item\n      routerLinkActive=\"active\"\n      [routerLinkActiveOptions]=\"{exact: true}\"\n      >\n        <a mat-button routerLink=\"{{route.path}}\" mat-dialog-close >\n          {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n        </a>\n      </mat-list-item>\n    </ng-container>\n    <ng-template #parent>\n      <mat-list-item [ngClass]=\"routeHasActiveChild(route)\">\n        <button\n          mat-button\n          (click)=\"handleExpandClick(route.path)\"\n          [ngClass]=\"['collapsible', route.path]\"\n        >\n          <span class='flex'>\n            {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            <span class=\"flex-grow\"></span>\n            <span class=\"icon-wrapper\"><mat-icon>expand_more</mat-icon></span>\n          </span>\n        </button>\n      </mat-list-item>\n\n      <div [ngClass]=\"['content', route.path]\">\n        <ng-container *ngFor=\"let child of route.children\">\n          <mat-list-item\n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions]=\"{exact: true}\"\n          >\n            <a\n              mat-button\n              mat-dialog-close\n              routerLink=\"{{route.path}}/{{child.path}}\"\n              (focus)=\"handleFocus(route.path)\"\n              >\n              {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n            </a>\n          </mat-list-item>\n        </ng-container>\n      </div>\n\n\n    </ng-template>\n    </ng-container>\n  </mat-nav-list>\n</mat-dialog-content>\n\n"
+            "templateData": "<div mat-dialog-title>\n  <h1 class='sr-only'>Mobile Menu</h1>\n  <div fxLayout=\"row\" mat-dialog-actions>\n    <div fxLayoutAlign=\"start\" fxFlex=\"50\" *ngIf=\"data.routes\">\n      <button mat-icon-button aria-label=\"home\" routerLink=\"/\" mat-dialog-close>\n        <mat-icon >home</mat-icon>\n      </button>\n    </div>\n    <div fxLayoutAlign=\"end\" fxFlex=\"50\">\n      <button mat-icon-button aria-label=\"close dialog\" mat-dialog-close>\n        <mat-icon>close</mat-icon>\n      </button>\n    </div>\n  </div>\n</div>\n\n<mat-dialog-content>\n  <mat-nav-list >\n    <ng-container *ngFor=\"let route of routes\">\n    <ng-container *ngIf=\"!route.children; else parent \">\n      <mat-list-item\n      routerLinkActive=\"active\"\n      [routerLinkActiveOptions]=\"{exact: true}\"\n      >\n        <a mat-button routerLink=\"{{route.path}}\" mat-dialog-close >\n          {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n        </a>\n      </mat-list-item>\n    </ng-container>\n    <ng-template #parent>\n      <mat-list-item [ngClass]=\"routeHasActiveChild(route)\"\n        *ngIf=\"route.data && route.data['menu'] != 'hidden'\"\n      >\n        <button\n          mat-button\n          (click)=\"handleExpandClick(route.path)\"\n          [ngClass]=\"['collapsible', route.path]\"\n        >\n          <span class='flex'>\n            {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            <span class=\"flex-grow\"></span>\n            <span class=\"icon-wrapper\"><mat-icon>expand_more</mat-icon></span>\n          </span>\n        </button>\n      </mat-list-item>\n\n      <div [ngClass]=\"['content', route.path]\">\n        <ng-container *ngFor=\"let child of route.children\">\n          <mat-list-item\n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions]=\"{exact: true}\"\n          >\n            <a\n              mat-button\n              mat-dialog-close\n              routerLink=\"{{route.path}}/{{child.path}}\"\n              (focus)=\"handleFocus(route.path)\"\n              >\n              {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n            </a>\n          </mat-list-item>\n        </ng-container>\n      </div>\n\n\n    </ng-template>\n    </ng-container>\n  </mat-nav-list>\n</mat-dialog-content>\n\n"
         },
         {
             "name": "MobileMenuComponent",
@@ -1174,7 +1200,7 @@
         },
         {
             "name": "SideMenuComponent",
-            "id": "component-SideMenuComponent-98579f7193021cb86d28f12af3bab0cb8cbf8f27470576ea8b043e4900f728a808261a7af155d4b5781ed1227285979672416248db994babf495601e71976ba8",
+            "id": "component-SideMenuComponent-2184e615cb2c94129525fc8f5ecce26c834e9018e520834f7d7848fe191611837d00f06fabfacac89693b09e20f08ecb7b5254b7d6dd7e4ff23d3b4203c7a007",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/side-menu/side-menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1195,7 +1221,7 @@
                     "name": "routes",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 15,
                     "type": "Routes",
                     "decorators": []
                 },
@@ -1204,7 +1230,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 17,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -1213,7 +1239,7 @@
                     "defaultValue": "'Admin Toolbar'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 16,
                     "type": "string",
                     "decorators": []
                 }
@@ -1228,7 +1254,7 @@
                     "type": "object",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 22
                 },
                 {
                     "name": "svgIconUrl",
@@ -1238,13 +1264,108 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 19,
                     "modifierKind": [
                         123
                     ]
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "handleExpandClick",
+                    "args": [
+                        {
+                            "name": "contentClass",
+                            "type": "string | undefined",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "contentClass",
+                            "type": "string | undefined",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "handleFocus",
+                    "args": [
+                        {
+                            "name": "contentClass",
+                            "type": "string | undefined",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 68,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "contentClass",
+                            "type": "string | undefined",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "routeHasActiveChild",
+                    "args": [
+                        {
+                            "name": "route",
+                            "type": "Route",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 83,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "route",
+                            "type": "Route",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -1252,11 +1373,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { Routes } from '@angular/router';\n\n@Component({\n  selector: 'lib-side-menu',\n  templateUrl: './side-menu.component.html',\n  styleUrls: ['./side-menu.component.scss'],\n})\nexport class SideMenuComponent {\n  @Input() routes!: Routes;\n  @Input() title = 'Admin Toolbar';\n  @Input() showToggle = true;\n\n  public svgIconUrl =\n    'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';\n\n  options = {\n    autoCollapseOnClick: false,\n    autoCollapseOnHover: false,\n    sidenavCollapsed: false,\n  };\n\n  constructor() {\n    this.showToggle = true;\n  }\n}\n",
+            "sourceCode": "import { Component, Inject, Input, OnInit } from '@angular/core';\nimport { MAT_DIALOG_DATA } from '@angular/material/dialog';\nimport { Routes, Route, ActivatedRoute } from '@angular/router';\n\ninterface DialogData {\n  routes?: Routes;\n}\n\n@Component({\n  selector: 'lib-side-menu',\n  templateUrl: './side-menu.component.html',\n  styleUrls: ['./side-menu.component.scss'],\n})\nexport class SideMenuComponent implements OnInit {\n  @Input() routes!: Routes;\n  @Input() title = 'Admin Toolbar';\n  @Input() showToggle = true;\n\n  public svgIconUrl =\n    'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';\n\n  options = {\n    autoCollapseOnClick: false,\n    autoCollapseOnHover: false,\n    sidenavCollapsed: false,\n  };\n\n  constructor(\n    // @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {\n    this.showToggle = true;\n  }\n  ngOnInit(): void {\n    // this.routes = this.data.routes?.filter(\n    //   (route) => route.data && route.data['menu']\n    // );\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    console.log('handleExpandClick', contentClass);\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    console.log('handleFocus', contentClass);\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    const _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (let i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".pad-left {\n  padding-left: 16px;\n}\n\n.mat-drawer {\n  min-width: 200px;\n  background-color: #f7f7f7;\n}\n\n.mat-list-base .mat-list-item {\n  font-size: 18px;\n}\n\n.sidebar-logo{\n  img {\n    padding-right: 8px;\n  }\n}\n\n.mat-nav-list a {\n  display: flex;\n  align-items: center;\n}\n",
+                    "data": ".pad-left {\n  padding-left: 16px;\n}\n\n.mat-drawer {\n  min-width: 200px;\n  background-color: #f7f7f7;\n}\n\n.mat-list-base .mat-list-item {\n  font-size: 18px;\n}\n\n.sidebar-logo{\n  img {\n    padding-right: 8px;\n  }\n}\n\n.mat-nav-list a {\n  display: flex;\n  align-items: center;\n}\n\n.expand-more {\n  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n\n.collapsible{\n  width: 100%;\n}\n\n.collapsible[aria-expanded=\"true\"] {\n  .expand-more {\n    transform: rotate(180deg);\n  }\n}\n\n.flex-grow {\n  flex-grow: 1;\n}\n\n.content {\n  background: rgba(0, 0, 0, 0.1);\n  max-height: 0;\n  overflow: hidden;\n  transition: max-height 0.2s ease-out;\n\n  // a {\n  //   padding: 0 36px;\n  // }\n}\n",
                     "styleUrl": "./side-menu.component.scss"
                 }
             ],
@@ -1266,10 +1387,31 @@
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [],
-                "line": 21
+                "args": [
+                    {
+                        "name": "activeRouter",
+                        "type": "ActivatedRoute",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 26,
+                "jsdoctags": [
+                    {
+                        "name": "activeRouter",
+                        "type": "ActivatedRoute",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             },
-            "templateData": "<mat-drawer-container>\n  <mat-drawer #drawer opened class=\"sidenav\" mode=\"side\" autosize>\n\n    <mat-toolbar class=\"sidebar-logo\" color=\"primary\">\n      <img alt=\"Cornell University\" [src]=\"svgIconUrl\" height=\"45\">\n      {{title}}\n    </mat-toolbar>\n\n    <mat-nav-list>\n      <ng-container *ngFor=\"let route of routes\">\n        <ng-container *ngIf=\"route.data && route.data['menu'] == 'admin'\"\n          >\n\n          <mat-list-item *ngIf=\"!route.children; else parent \">\n\n            <a [routerLink]=\"route.path\"\n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions]=\"{exact: true}\"\n            >\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            </a>\n          </mat-list-item>\n\n          <ng-template #parent>\n            <mat-list-item>\n              <a\n                routerLink=\"{{route.path}}\">\n                <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n                {{route.data && route.data['title'] ? route.data['title'] : route.path}}</a>\n            </mat-list-item>\n\n            <mat-list-item *ngFor=\"let child of route.children\">\n              <a routerLink=\"{{route.path}}/{{child.path}}\"\n                routerLinkActive=\"active\"\n                [routerLinkActiveOptions]=\"{exact: true}\"\n                class=\"pad-left\"\n              >\n                <mat-icon matListIcon *ngIf=\"child.data && child.data['icon']\">{{ child.data['icon'] }}</mat-icon>\n                {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n              </a>\n            </mat-list-item>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n\n    </mat-nav-list>\n\n  </mat-drawer>\n\n  <mat-drawer-content>\n    <lib-admin-toolbar (toggleSidenav)=\"drawer.toggle()\" (toggleSidenavNotice)=\"drawer.toggle()\">\n      <ng-content select=\"[toolbar]\"></ng-content>\n    </lib-admin-toolbar>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n\n\n</mat-drawer-container>\n"
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<mat-drawer-container>\n  <mat-drawer #drawer opened class=\"sidenav\" mode=\"side\" autosize>\n\n    <mat-toolbar class=\"sidebar-logo\" color=\"primary\">\n      <img alt=\"Cornell University\" [src]=\"svgIconUrl\" height=\"45\">\n      {{title}}\n    </mat-toolbar>\n\n    <mat-nav-list>\n      <ng-container *ngFor=\"let route of routes\">\n        <ng-container *ngIf=\"route.data && route.data['menu'] == 'admin'\">\n\n          <mat-list-item *ngIf=\"!route.children; else parent \">\n\n            <a [routerLink]=\"route.path\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\">\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            </a>\n          </mat-list-item>\n\n          <ng-template #parent>\n            <mat-list-item [ngClass]=\"routeHasActiveChild(route)\" [ngClass]=\"['collapsible', route.path]\"\n              (click)=\"handleExpandClick(route.path)\">\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n              <span class=\"flex-grow\"></span>\n              <mat-icon class=\"expand-more\">expand_more\n              </mat-icon>\n\n            </mat-list-item>\n\n            <div [ngClass]=\"['content', route.path]\">\n              <ng-container *ngFor=\"let child of route.children\">\n                <mat-list-item routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\">\n                  <a routerLink=\"{{route.path}}/{{child.path}}\"\n                  (focus)=\"handleFocus(child.path)\"\n                  class=\"pad-left\">\n                    <mat-icon matListIcon *ngIf=\"child.data && child.data['icon']\">{{ child.data['icon'] }}</mat-icon>\n                    {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n                  </a>\n                </mat-list-item>\n              </ng-container>\n            </div>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n\n    </mat-nav-list>\n\n  </mat-drawer>\n\n  <mat-drawer-content>\n    <lib-admin-toolbar (toggleSidenav)=\"drawer.toggle()\" (toggleSidenavNotice)=\"drawer.toggle()\">\n      <ng-content select=\"[toolbar]\"></ng-content>\n    </lib-admin-toolbar>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n\n\n</mat-drawer-container>\n"
         },
         {
             "name": "SkipLinkComponent",
@@ -3605,7 +3747,16 @@
                 "linktype": "component",
                 "name": "SideMenuComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/cu-ng-design-library/src/lib/components/layout/side-menu/side-menu.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "DialogData",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

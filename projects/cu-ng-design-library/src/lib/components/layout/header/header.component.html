@@ -4,15 +4,17 @@
       <div class="cu45-helper"></div>
     </ng-template>
     <div class="container-fluid cu-brand">
-      <h1 class="cu-logo"><a href="http://www.cornell.edu"><img class="sr-only"
-             alt="Cornell University" width="245"
-            [src]="svgIconUrl"
-            height="62"></a></h1>
+      <h1 class="cu-logo">
+        <a href="http://www.cornell.edu">
+          <img class="sr-only" alt="Cornell University" width="245" [src]="svgIconUrl" height="62" />
+        </a>
+      </h1>
       <div class="cu-unit">
-        <h2>{{title}}</h2>
-        <h3 class="sans mat-h3">{{subtitle}}</h3>
+        <h2 *ngIf="title">{{title}}</h2>
+        <ng-content select="[unit-title]"></ng-content>
+        <h3 class="sans mat-h3" *ngIf="subtitle">{{subtitle}}</h3>
       </div>
       <ng-content></ng-content>
     </div>
   </header>
-<div>
+  <div>

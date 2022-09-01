@@ -7,7 +7,7 @@ export const routes: Routes = [
   {
     path: 'template',
     component: TwoColumnExampleComponent,
-    data: { menu: 'main', title: 'Template' },
+    data: { menu: 'main', title: 'Template', class: 'ext-link' },
   },
   {
     path: 'dropdown',

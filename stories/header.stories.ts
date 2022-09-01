@@ -52,6 +52,17 @@ const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
   props: args,
 });
 
+const CustomTemplate: Story<HeaderComponent> = (args: HeaderComponent) => ({
+  props: args,
+  template: `
+  <lib-header [subtitle]="subtitle" [theme]="theme" [logo]="logo" [useGradient]="useGradient">
+    <div unit-title>
+      <a href="#"><h2 class="h3">CU-NG-Design-Library</h2></a>
+    </div>
+  </lib-header>
+  `,
+});
+
 export const Cu45Default = Template.bind({});
 
 export const Cu45Gray = Template.bind({});
@@ -67,6 +78,8 @@ export const SealGray = Template.bind({});
 export const SealRed = Template.bind({});
 
 export const SealBlack = Template.bind({});
+
+export const Custom = CustomTemplate.bind({});
 
 SealDefault.args = {
   title: 'CU-NG-Design-Library',
@@ -120,5 +133,11 @@ Cu45Gray.args = {
   title: 'CU-NG-Design-Library',
   subtitle: 'A library of reusable components for the CU-Community-Apps',
   theme: 'cu-gray',
+  logo: 'cu-45',
+} as Partial<HeaderComponent>;
+
+Custom.args = {
+  subtitle: 'Example of a custom linked title',
+  theme: 'cu-red',
   logo: 'cu-45',
 } as Partial<HeaderComponent>;
