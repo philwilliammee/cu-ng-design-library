@@ -151,6 +151,9 @@ button[routerlinkactive="active"] {
 mat-icon.ext-link {
   width: 10px;
   font-size: 10px;
+  height: 10px;
+  position: relative;
+  top: -5px;
 }
 
 // CWD - style hover over menu
