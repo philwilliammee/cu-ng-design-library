@@ -475,9 +475,11 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-00ebde4af98ad6bd0ebabb8a4bb9d6d009b9bfdabb3beb0a18cc60532212fa5cd478c5200ef6e136ddd22cd6577a254014e04578e52037d414e84cda0898592f",
+            "id": "component-HeaderComponent-d0243409ca54b23de076b3b26817478cf1150e0be16b3d9ff1e36e28168a6c65c20567addab96e7f13bf48a0a2757bb49b7232e593e210249019a4061143b37c",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
-            "encapsulation": [],
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
@@ -496,7 +498,7 @@
                     "name": "logo",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 28,
+                    "line": 29,
                     "type": "logo",
                     "decorators": []
                 },
@@ -504,7 +506,7 @@
                     "name": "subtitle",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 27,
                     "type": "string",
                     "decorators": []
                 },
@@ -512,7 +514,7 @@
                     "name": "theme",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 28,
                     "type": "theme",
                     "decorators": []
                 },
@@ -520,7 +522,7 @@
                     "name": "title",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 25,
+                    "line": 26,
                     "type": "string",
                     "decorators": []
                 },
@@ -528,7 +530,7 @@
                     "name": "useGradient",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 30,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -543,7 +545,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 23,
+                    "line": 24,
                     "modifierKind": [
                         123
                     ]
@@ -556,7 +558,7 @@
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 40,
+                    "line": 37,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -568,11 +570,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n// Cornell Branding Banner\n// .cu-red - Overrides the default light gray banner to be red with white logo. Affects both 45px and Large Seal options.\n// .cu-black - Overrides the default light gray banner to be black with white logo. Affects both 45px and Large Seal options.\n// .cu-gray - Overrides the default light gray banner to be dark gray with white logo. Affects both 45px and Large Seal options.\n// .cu-45 - Renders as a ~45px banner with small Cornell logo (this is also the default if no body class is defined). Headings appear below the banner. Note: This class is mutually exclusive with .cu-seal.\n// .cu-seal - Renders as a taller banner with a large standalone Cornell seal. Headings appear to the right of the seal. Note: This class is mutually exclusive with .cu-45.\n// .cu-seal-right - Added to .cu-seal to swap the left and right positions of the seal and headings.\n// .cu-45-mobile - Added to .cu-seal to switch to 45px style at mobile sizes.\n// .cu-45-mobile-red - Added to .cu-seal-mobile also activate the red color option on the 45px banner at mobile sizes.\n// .no-main-nav - When .cu-seal is in use and no main navigation bar is planned, this class can be included to apply some subtle adjustments to the Cornell header.\n\nexport type theme = 'cu-default' | 'cu-red' | 'cu-black' | 'cu-gray';\nexport type logo = 'cu-seal' | 'cu-45';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent {\n  public svgIconUrl =\n    'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme!: theme;\n  @Input() logo!: logo;\n  @Input() useGradient!: boolean;\n  constructor() {\n    this.title = this.title || 'CU-NG-Design-Library';\n    this.subtitle =\n      this.subtitle ||\n      'A library of reusable components for the CU-Community-Apps';\n    this.theme = this.theme || 'cu-default';\n    this.logo = this.logo || 'cu-seal';\n    this.useGradient = this.useGradient || false;\n  }\n\n  getClasses(): string[] {\n    const classes: string[] = [];\n    if (this.theme) {\n      classes.push(this.theme);\n    }\n    if (this.logo) {\n      classes.push(this.logo);\n    }\n    if (this.useGradient) {\n      classes.push('gradient');\n    }\n    return classes;\n  }\n}\n",
+            "sourceCode": "import { Component, Input, ViewEncapsulation } from '@angular/core';\n\n// Cornell Branding Banner\n// .cu-red - Overrides the default light gray banner to be red with white logo. Affects both 45px and Large Seal options.\n// .cu-black - Overrides the default light gray banner to be black with white logo. Affects both 45px and Large Seal options.\n// .cu-gray - Overrides the default light gray banner to be dark gray with white logo. Affects both 45px and Large Seal options.\n// .cu-45 - Renders as a ~45px banner with small Cornell logo (this is also the default if no body class is defined). Headings appear below the banner. Note: This class is mutually exclusive with .cu-seal.\n// .cu-seal - Renders as a taller banner with a large standalone Cornell seal. Headings appear to the right of the seal. Note: This class is mutually exclusive with .cu-45.\n// .cu-seal-right - Added to .cu-seal to swap the left and right positions of the seal and headings.\n// .cu-45-mobile - Added to .cu-seal to switch to 45px style at mobile sizes.\n// .cu-45-mobile-red - Added to .cu-seal-mobile also activate the red color option on the 45px banner at mobile sizes.\n// .no-main-nav - When .cu-seal is in use and no main navigation bar is planned, this class can be included to apply some subtle adjustments to the Cornell header.\n\nexport type theme = 'cu-default' | 'cu-red' | 'cu-black' | 'cu-gray';\nexport type logo = 'cu-seal' | 'cu-45';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n  encapsulation: ViewEncapsulation.None, // apply global styles to this component\n})\nexport class HeaderComponent {\n  public svgIconUrl =\n    'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';\n  @Input() title?: string;\n  @Input() subtitle?: string;\n  @Input() theme!: theme;\n  @Input() logo!: logo;\n  @Input() useGradient!: boolean;\n  constructor() {\n    this.theme = this.theme || 'cu-default';\n    this.logo = this.logo || 'cu-seal';\n    this.useGradient = this.useGradient || false;\n  }\n\n  getClasses(): string[] {\n    const classes: string[] = [];\n    if (this.theme) {\n      classes.push(this.theme);\n    }\n    if (this.logo) {\n      classes.push(this.logo);\n    }\n    if (this.useGradient) {\n      classes.push('gradient');\n    }\n    return classes;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'sass:map';\n@import \"../../../styles.scss\";\n// # @todo set image urls to s3 public bucket\n// @todo get these into material theme mixins?\n\nh2 {\n  // margin-top: 0;\n  line-height: 1.2;\n  // margin-bottom: .7em;\n}\n\n.sans {\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n  font-weight: 400;\n}\n\n// .cu-45 {\n  #cu-header {\n    float: left;\n    width: 100%;\n\n    .cu-brand {\n      align-items: center;\n      display: flex;\n      flex-wrap: wrap;\n      font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n      font-weight: 500;\n      padding-bottom: 5px;\n      padding-top: 5px;\n      position: relative;\n\n      h1 {\n        margin: 0;\n        width: 100%;\n      }\n\n      h2 {\n        margin: 6px 0 0 -.05em;\n      }\n\n      h3 {\n        margin: .3em 0 0;\n        color: #6a6a79;\n        font-weight: 400;\n      }\n\n      .cu-unit {\n        margin: 16px auto 11px;\n        text-align: center;\n      }\n    }\n  }\n// }\n\n.cu-seal {\n  #cu-header {\n    background: #ededed;\n    z-index: 3;\n\n    .cu-brand {\n      h1 {\n        margin: 2px 0 8px;\n\n        a {\n          margin: 0 auto;\n        }\n      }\n\n      .cu-unit {\n        margin: 0 auto 4px;\n        display: block;\n      }\n\n      padding-bottom: 15px;\n      padding-top: 15px;\n    }\n  }\n\n  .cu-logo {\n    a {\n      background: url(\"../../../assets/images/bold_cornell_seal_simple_b31b1b.svg\") 0 0 no-repeat;\n      height: 80px;\n      min-width: 80px;\n      width: 80px;\n    }\n  }\n}\n\n.cu-seal.gradient {\n  #cu-header {\n    background: #f7f7f7;\n    background: linear-gradient(135deg, #f2f2f2, #f7f7f7);\n    border-bottom: 2px solid #ebebeb;\n  }\n}\n\n.cu-logo {\n  a {\n    background: url(\"../../../assets/images/cornell-reduced-red.svg\") 0 0 no-repeat;\n    background-size: 100%;\n    display: block;\n    height: 38px;\n    min-width: 168px;\n    width: 168px;\n  }\n}\n\n\n/* Color Options (red background, black background, gray background, black logo) */\n.cu-red .cu-logo a,\n.cu-black .cu-logo a,\n.cu-gray .cu-logo a {\n  background-image: url('../../../assets/images/cornell-reduced-white.svg');\n}\n\n.cu-logo.black a {\n  background-image: url('../../../assets/images/cornell-reduced-black.svg');\n}\n\n.cu-seal.cu-red .cu-logo a,\n.cu-seal.cu-black .cu-logo a,\n.cu-seal.cu-gray .cu-logo a {\n  background-image: url('../../../assets/images/bold_cornell_seal_simple_white.svg');\n}\n\n.cu-seal .cu-logo.black a {\n  background-image: url('../../../assets/images/bold_cornell_seal_simple_black.svg');\n}\n\n.cu-seal.cu-red #cu-header {\n  // background: #b31b1b;\n  background: map.get($styles-accent-color, 500);\n  color: map.get($styles-accent-color, '500-contrast');\n  border-bottom: 0;\n}\n\n.cu-seal.cu-black #cu-header {\n  background: #000;\n  color: #fff;\n  border-bottom: 0;\n}\n\n.cu-seal.cu-gray #cu-header {\n  background: #222;\n  color: #fff;\n  border-bottom: 0;\n}\n\n.cu-seal.cu-gray.gradient #cu-header {\n  background: linear-gradient(135deg, #222222 0%, #474747 100%);\n}\n\n.cu-red #cu-header .cu-brand h2,\n.cu-black #cu-header .cu-brand h2,\n.cu-gray #cu-header .cu-brand h2 {\n  font-weight: 400;\n}\n\n.ios #cu-header .cu-brand h2 {\n  font-weight: 500;\n}\n\n.cu-seal.cu-red #cu-header .cu-brand h3 {\n  color: #e4c7ae;\n}\n\n.cu-seal.cu-black #cu-header .cu-brand h3,\n.cu-seal.cu-gray #cu-header .cu-brand h3 {\n  color: #c9c9c9;\n}\n\n// end of color options\n\n.cu45-helper {\n  position: relative;\n\n  &:before {\n    content: '';\n    background: #ededed; // default color\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 48px;\n  }\n}\n\n.cu-red #cu-header .cu45-helper:before {\n  background: map.get($styles-accent-color, 500);\n}\n\n.cu-black #cu-header .cu45-helper:before {\n  background: #000;\n}\n\n.cu-gray #cu-header .cu45-helper:before {\n  background: #222;\n}\n\n@media (min-width:868px) {\n  .cu-seal {\n    #cu-header {\n      .cu-brand {\n        flex-wrap: nowrap;\n\n        h1 {\n          margin: 0;\n          width: auto;\n        }\n\n        .cu-unit {\n          margin: 0 70px 0 auto;\n        }\n      }\n    }\n\n    .cu-logo {\n      a {\n        height: 100px;\n        margin: 0 50px 0 0 !important;\n        min-width: 100px;\n        width: 100px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      .cu-unit {\n        margin: 20px auto 16px 1px;\n        text-align: left;\n      }\n    }\n  }\n}\n\n@media (min-width:480px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 30px;\n      }\n\n      h3 {\n        font-size: 15px;\n      }\n    }\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 90px;\n        min-width: 90px;\n        width: 90px;\n      }\n    }\n  }\n}\n\n@media (min-width:992px) {\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 120px;\n        margin: 0 60px 0 0 !important;\n        min-width: 120px;\n        width: 120px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 32px;\n      }\n\n      h3 {\n        font-size: 16px;\n      }\n    }\n  }\n}\n\n@media (min-width:1200px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 36px;\n      }\n\n      h3 {\n        font-size: 18px;\n      }\n    }\n  }\n}\n",
+                    "data": "@use 'sass:map';\n@import \"../../../styles.scss\";\n// # @todo set image urls to s3 public bucket\n// @todo get these into material theme mixins?\n\n.sans {\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n  font-weight: 400;\n}\n\n.cu-unit {\n  a {\n    color: unset;\n    text-decoration: none;\n  }\n\n  a:hover {\n    text-decoration: underline;\n  }\n\n  h2 {\n    // margin-top: 0;\n    line-height: 1.2;\n    // margin-bottom: .7em;\n  }\n}\n\n\n#cu-header {\n  float: left;\n  width: 100%;\n\n  .cu-brand {\n    align-items: center;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n    font-weight: 500;\n    padding-bottom: 5px;\n    padding-top: 5px;\n    position: relative;\n\n    h1 {\n      margin: 0;\n      width: 100%;\n    }\n\n    h2 {\n      margin: 6px 0 0 -.05em;\n    }\n\n    h3 {\n      margin: .3em 0 0;\n      color: #6a6a79;\n      font-weight: 400;\n    }\n\n    .cu-unit {\n      margin: 16px auto 11px;\n      text-align: center;\n    }\n  }\n}\n\n.cu-seal {\n  #cu-header {\n    background: #ededed;\n    z-index: 3;\n\n    .cu-brand {\n      h1 {\n        margin: 2px 0 8px;\n\n        a {\n          margin: 0 auto;\n        }\n      }\n\n      .cu-unit {\n        margin: 0 auto 4px;\n        display: block;\n      }\n\n      padding-bottom: 15px;\n      padding-top: 15px;\n    }\n  }\n\n  .cu-logo {\n    a {\n      background: url(\"../../../assets/images/bold_cornell_seal_simple_b31b1b.svg\") 0 0 no-repeat;\n      height: 80px;\n      min-width: 80px;\n      width: 80px;\n    }\n  }\n}\n\n.cu-seal.gradient {\n  #cu-header {\n    background: #f7f7f7;\n    background: linear-gradient(135deg, #f2f2f2, #f7f7f7);\n    border-bottom: 2px solid #ebebeb;\n  }\n}\n\n.cu-logo {\n  a {\n    background: url(\"../../../assets/images/cornell-reduced-red.svg\") 0 0 no-repeat;\n    background-size: 100%;\n    display: block;\n    height: 38px;\n    min-width: 168px;\n    width: 168px;\n  }\n}\n\n\n/* Color Options (red background, black background, gray background, black logo) */\n.cu-red .cu-logo a,\n.cu-black .cu-logo a,\n.cu-gray .cu-logo a {\n  background-image: url('../../../assets/images/cornell-reduced-white.svg');\n}\n\n.cu-logo.black a {\n  background-image: url('../../../assets/images/cornell-reduced-black.svg');\n}\n\n.cu-seal.cu-red .cu-logo a,\n.cu-seal.cu-black .cu-logo a,\n.cu-seal.cu-gray .cu-logo a {\n  background-image: url('../../../assets/images/bold_cornell_seal_simple_white.svg');\n}\n\n.cu-seal .cu-logo.black a {\n  background-image: url('../../../assets/images/bold_cornell_seal_simple_black.svg');\n}\n\n.cu-seal.cu-red #cu-header {\n  // background: #b31b1b;\n  background: map.get($styles-accent-color, 500);\n  color: map.get($styles-accent-color, '500-contrast');\n  border-bottom: 0;\n}\n\n.cu-seal.cu-black #cu-header {\n  background: #000;\n  color: #fff;\n  border-bottom: 0;\n}\n\n.cu-seal.cu-gray #cu-header {\n  background: #222;\n  color: #fff;\n  border-bottom: 0;\n}\n\n.cu-seal.cu-gray.gradient #cu-header {\n  background: linear-gradient(135deg, #222222 0%, #474747 100%);\n}\n\n.cu-red #cu-header .cu-brand h2,\n.cu-black #cu-header .cu-brand h2,\n.cu-gray #cu-header .cu-brand h2 {\n  font-weight: 400;\n}\n\n.ios #cu-header .cu-brand h2 {\n  font-weight: 500;\n}\n\n.cu-seal.cu-red #cu-header .cu-brand h3 {\n  color: #e4c7ae;\n}\n\n.cu-seal.cu-black #cu-header .cu-brand h3,\n.cu-seal.cu-gray #cu-header .cu-brand h3 {\n  color: #c9c9c9;\n}\n\n// end of color options\n\n.cu45-helper {\n  position: relative;\n\n  &:before {\n    content: '';\n    background: #ededed; // default color\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 48px;\n  }\n}\n\n.cu-red #cu-header .cu45-helper:before {\n  background: map.get($styles-accent-color, 500);\n}\n\n.cu-black #cu-header .cu45-helper:before {\n  background: #000;\n}\n\n.cu-gray #cu-header .cu45-helper:before {\n  background: #222;\n}\n\n@media (min-width:868px) {\n  .cu-seal {\n    #cu-header {\n      .cu-brand {\n        flex-wrap: nowrap;\n\n        h1 {\n          margin: 0;\n          width: auto;\n        }\n\n        .cu-unit {\n          margin: 0 70px 0 auto;\n        }\n      }\n    }\n\n    .cu-logo {\n      a {\n        height: 100px;\n        margin: 0 50px 0 0 !important;\n        min-width: 100px;\n        width: 100px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      .cu-unit {\n        margin: 20px auto 16px 1px;\n        text-align: left;\n      }\n    }\n  }\n}\n\n@media (min-width:480px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 30px;\n      }\n\n      h3 {\n        font-size: 15px;\n      }\n    }\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 90px;\n        min-width: 90px;\n        width: 90px;\n      }\n    }\n  }\n}\n\n@media (min-width:992px) {\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 120px;\n        margin: 0 60px 0 0 !important;\n        min-width: 120px;\n        width: 120px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 32px;\n      }\n\n      h3 {\n        font-size: 16px;\n      }\n    }\n  }\n}\n\n@media (min-width:1200px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 36px;\n      }\n\n      h3 {\n        font-size: 18px;\n      }\n    }\n  }\n}\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -583,9 +585,9 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 29
+                "line": 30
             },
-            "templateData": "<div [ngClass]=\"getClasses()\">\n  <header id=\"cu-header\">\n    <ng-template [ngIf]=\"logo == 'cu-45'\">\n      <div class=\"cu45-helper\"></div>\n    </ng-template>\n    <div class=\"container-fluid cu-brand\">\n      <h1 class=\"cu-logo\"><a href=\"http://www.cornell.edu\"><img class=\"sr-only\"\n             alt=\"Cornell University\" width=\"245\"\n            [src]=\"svgIconUrl\"\n            height=\"62\"></a></h1>\n      <div class=\"cu-unit\">\n        <h2>{{title}}</h2>\n        <h3 class=\"sans mat-h3\">{{subtitle}}</h3>\n      </div>\n      <ng-content></ng-content>\n    </div>\n  </header>\n<div>\n"
+            "templateData": "<div [ngClass]=\"getClasses()\">\n  <header id=\"cu-header\">\n    <ng-template [ngIf]=\"logo == 'cu-45'\">\n      <div class=\"cu45-helper\"></div>\n    </ng-template>\n    <div class=\"container-fluid cu-brand\">\n      <h1 class=\"cu-logo\">\n        <a href=\"http://www.cornell.edu\">\n          <img class=\"sr-only\" alt=\"Cornell University\" width=\"245\" [src]=\"svgIconUrl\" height=\"62\" />\n        </a>\n      </h1>\n      <div class=\"cu-unit\">\n        <h2 *ngIf=\"title\">{{title}}</h2>\n        <ng-content select=\"[unit-title]\"></ng-content>\n        <h3 class=\"sans mat-h3\" *ngIf=\"subtitle\">{{subtitle}}</h3>\n      </div>\n      <ng-content></ng-content>\n    </div>\n  </header>\n  <div>\n"
         },
         {
             "name": "MainComponent",
@@ -711,12 +713,12 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../styles.scss\";\n\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.links {\n  li {\n    padding: 0;\n    margin: 0 2px 2px 0;\n  }\n\n\n  a {\n    text-transform: capitalize;\n    display: block;\n    // background: #f5f5f5;\n    // background: rgba(0, 0, 0, 0.04);\n    padding: 0.4em 0.7em;\n\n    &:hover {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:focus {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.12);\n    }\n  }\n}\n\n#main-navigation {\n  background: #666;\n  color: #fff;\n  // This is needed to fix the overlay being really big\n  display: block;\n  float: left;\n  width: 100%;\n\n  li {\n    margin: 0 1px 0 0;\n\n    a {\n      font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n      font-size: 15px;\n      line-height: 18px;\n      border-radius: 0;\n    }\n\n\n    &:hover {\n      >a {\n        background: #444;\n        background: rgba(0, 0, 0, 0.3);\n      }\n    }\n  }\n\n  a {\n    color: #fff;\n    padding: 14px 1.5em;\n    text-decoration: none;\n    background: transparent;\n    transition: background-color .15s;\n\n    &:hover {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n\n    &:focus {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n\n  li.active {\n    >a {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n}\n\n\n// Rotate the menu icon\n.mat-menu-trigger[aria-expanded=\"true\"] {\n  .mat-icon {\n    transform: rotate(180deg);\n  }\n}\n\n.mat-icon {\n  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n\n// Expand button\nbutton.mat-menu-trigger,\nbutton.mat-button {\n  font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n  font-size: 15px;\n  border-radius: 0;\n  height: 46px;\n  text-transform: capitalize;\n  display: block;\n  color: white;\n  background-color: #666;\n  text-align: center;\n  border: none;\n  border-radius: 0;\n\n  &:hover,\n  &:focus {\n    background: rgba(0, 0, 0, 0.3) !important;\n  }\n}\n\nbutton[routerlinkactive=\"active\"] {\n  background: #444;\n  background: rgba(0, 0, 0, 0.3);\n}\n\n// CWD - style hover over menu\n// .dropdown-menu ul ul {\n//   position: absolute;\n//   z-index: 100;\n//   background: #555;\n//   width: auto;\n//   min-width: 12em;\n//   max-width: 24em;\n//   margin: 0 !important;\n//   overflow: hidden;\n//   height: 0;\n//   opacity: 0;\n//   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';\n\n//   -webkit-transition: opacity 0s linear .15s;\n//   -moz-transition: opacity 0s linear .15s;\n//   -o-transition: opacity 0s linear .15s;\n//   -ms-transition: opacity 0s linear .15s;\n//   transition: opacity 0s linear .15s;\n// }\n\n// .list-menu.vertical li {\n//   float: none;\n//   padding: 0.4em 0;\n//   margin: 0;\n//   border-width: 0 0 1px 0;\n// }\n\n// li.parent {\n//   position: relative;\n\n//   &:hover {\n//     ul {\n//       overflow: visible;\n//       height: auto;\n//       opacity: 1;\n//       z-index: 101;\n\n//       li {\n//         padding: 0;\n//       }\n//     }\n//   }\n// }\n",
+                    "data": "@import \"../../../styles.scss\";\n\n.list-menu {\n  padding: 0;\n  margin: 0 0 1.5em;\n  list-style: none;\n  float: left;\n  width: 100%;\n  clear: both;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  li {\n    float: left;\n    display: block;\n    background: none !important;\n    padding: 0 0.6em 0 0;\n    margin: 0 0.6em 0.6em 0;\n    border-width: 0 1px 0 0;\n\n    &:last-child {\n      border-right-width: 0;\n    }\n  }\n}\n\n.list-menu.links {\n  li {\n    padding: 0;\n    margin: 0 2px 2px 0;\n  }\n\n\n  a {\n    text-transform: capitalize;\n    display: block;\n    // background: #f5f5f5;\n    // background: rgba(0, 0, 0, 0.04);\n    padding: 0.4em 0.7em;\n\n    &:hover {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:focus {\n      background: rgba(0, 0, 0, 0.07);\n      color: #000;\n    }\n\n    &:active {\n      background: rgba(0, 0, 0, 0.12);\n    }\n  }\n}\n\n#main-navigation {\n  background: #666;\n  color: #fff;\n  // This is needed to fix the overlay being really big\n  display: block;\n  float: left;\n  width: 100%;\n\n  li {\n    margin: 0 1px 0 0;\n\n    a {\n      font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n      font-size: 15px;\n      line-height: 18px;\n      border-radius: 0;\n    }\n\n\n    &:hover {\n      >a {\n        background: #444;\n        background: rgba(0, 0, 0, 0.3);\n      }\n    }\n  }\n\n  a {\n    color: #fff;\n    padding: 14px 1.5em;\n    text-decoration: none;\n    background: transparent;\n    transition: background-color .15s;\n\n    &:hover {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n\n    &:focus {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n\n  li.active {\n    >a {\n      background: #444;\n      background: rgba(0, 0, 0, 0.3);\n    }\n  }\n}\n\n\n// Rotate the menu icon\n.mat-menu-trigger[aria-expanded=\"true\"] {\n  .mat-icon {\n    transform: rotate(180deg);\n  }\n}\n\n.mat-icon {\n  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n\n// Expand button\nbutton.mat-menu-trigger,\nbutton.mat-button {\n  font-family: -apple-system, system-ui, BlinkMacSystemFont, Avenir Next, \"Segoe UI\", Roboto, Helvetica Neue, sans-serif;\n  font-size: 15px;\n  border-radius: 0;\n  height: 46px;\n  text-transform: capitalize;\n  display: block;\n  color: white;\n  background-color: #666;\n  text-align: center;\n  border: none;\n  border-radius: 0;\n\n  &:hover,\n  &:focus {\n    background: rgba(0, 0, 0, 0.3) !important;\n  }\n}\n\nbutton[routerlinkactive=\"active\"] {\n  background: #444;\n  background: rgba(0, 0, 0, 0.3);\n}\n\n\nmat-icon.ext-link {\n  width: 10px;\n  font-size: 10px;\n  height: 10px;\n  position: relative;\n  top: -5px;\n}\n\n// CWD - style hover over menu\n// .dropdown-menu ul ul {\n//   position: absolute;\n//   z-index: 100;\n//   background: #555;\n//   width: auto;\n//   min-width: 12em;\n//   max-width: 24em;\n//   margin: 0 !important;\n//   overflow: hidden;\n//   height: 0;\n//   opacity: 0;\n//   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';\n\n//   -webkit-transition: opacity 0s linear .15s;\n//   -moz-transition: opacity 0s linear .15s;\n//   -o-transition: opacity 0s linear .15s;\n//   -ms-transition: opacity 0s linear .15s;\n//   transition: opacity 0s linear .15s;\n// }\n\n// .list-menu.vertical li {\n//   float: none;\n//   padding: 0.4em 0;\n//   margin: 0;\n//   border-width: 0 0 1px 0;\n// }\n\n// li.parent {\n//   position: relative;\n\n//   &:hover {\n//     ul {\n//       overflow: visible;\n//       height: auto;\n//       opacity: 1;\n//       z-index: 101;\n\n//       li {\n//         padding: 0;\n//       }\n//     }\n//   }\n// }\n",
                     "styleUrl": "./main-menu.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<nav class=\"dropdown-menu\" id=\"main-navigation\" aria-label=\"Main Navigation\">\n  <div class=\"container-fluid\">\n    <ul class=\"list-menu links\">\n      <ng-container *ngFor=\"let route of routes\">\n        <li class=\"top-level-item parent top-level-li\"\n        *ngIf=\"route.data && route.data['menu'] == 'main'\"\n        routerLinkActive=\"active\"\n        [routerLinkActiveOptions]=\"{exact: true}\">\n\n        <ng-container *ngIf=\"!route.children; else parent \">\n          <a mat-button routerLink=\"{{route.path}}\">\n            {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n          </a>\n        </ng-container>\n\n        <ng-template #parent>\n          <!-- <a mat-button routerLink=\"{{route.path}}\">{{route.path}}</a> -->\n            <button\n              mat-button\n              [matMenuTriggerFor]=\"menu\"\n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions]=\"{exact: false}\"\n            >\n            {{route.data && route.data['title'] ? route.data['title'] : route.path}} <mat-icon>expand_more</mat-icon>\n            </button>\n\n            <mat-menu #menu=\"matMenu\" backdropClass=\"main-menu-backdrop\">\n              <ng-container *ngFor=\"let child of route.children\">\n                <a\n                  mat-menu-item\n                  routerLink=\"{{route.path}}/{{child.path}}\"\n                  routerLinkActive=\"active\"\n                  [routerLinkActiveOptions]=\"{exact: true}\"\n                  >\n                  {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n                </a>\n              </ng-container>\n            </mat-menu>\n        </ng-template>\n\n\n          <!-- <a routerLink=\"{{route.path}}\" >\n            {{route.path}}\n          </a>\n          <ul *ngIf=\"route.children\" class=\"list-menu links vertical children\" style=\"min-width: 138px;\">\n            <ng-container *ngFor=\"let child of route.children\">\n              <li\n              *ngIf=\"child.data && child.data['menu'] == route.path\"\n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions]=\"{exact: true}\">\n                <a\n                routerLink=\"{{child.path}}\"\n                  >{{child.path}}</a>\n              </li>\n            </ng-container>\n          </ul> -->\n        </li>\n      </ng-container>\n    </ul>\n  </div>\n</nav>\n\n"
+            "templateData": "<nav class=\"dropdown-menu\" id=\"main-navigation\" aria-label=\"Main Navigation\">\n  <div class=\"container-fluid\">\n    <ul class=\"list-menu links\">\n      <ng-container *ngFor=\"let route of routes\">\n        <li class=\"top-level-item parent top-level-li\"\n        *ngIf=\"route.data && route.data['menu'] == 'main'\"\n        routerLinkActive=\"active\"\n        [routerLinkActiveOptions]=\"{exact: true}\">\n\n        <ng-container *ngIf=\"!route.children; else parent \">\n          <a mat-button routerLink=\"{{route.path}}\" >\n            {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            <mat-icon *ngIf=\"route.data && route.data['class'] == 'ext-link'\" class=\"ext-link\">launch</mat-icon>\n          </a>\n        </ng-container>\n\n        <ng-template #parent>\n          <!-- <a mat-button routerLink=\"{{route.path}}\">{{route.path}}</a> -->\n            <button\n              mat-button\n              [matMenuTriggerFor]=\"menu\"\n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions]=\"{exact: false}\"\n            >\n            {{route.data && route.data['title'] ? route.data['title'] : route.path}} <mat-icon>expand_more</mat-icon>\n            </button>\n\n            <mat-menu #menu=\"matMenu\" backdropClass=\"main-menu-backdrop\">\n              <ng-container *ngFor=\"let child of route.children\">\n                <a\n                  mat-menu-item\n                  routerLink=\"{{route.path}}/{{child.path}}\"\n                  routerLinkActive=\"active\"\n                  [routerLinkActiveOptions]=\"{exact: true}\"\n                  >\n                  {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n                </a>\n              </ng-container>\n            </mat-menu>\n        </ng-template>\n\n\n          <!-- <a routerLink=\"{{route.path}}\" >\n            {{route.path}}\n          </a>\n          <ul *ngIf=\"route.children\" class=\"list-menu links vertical children\" style=\"min-width: 138px;\">\n            <ng-container *ngFor=\"let child of route.children\">\n              <li\n              *ngIf=\"child.data && child.data['menu'] == route.path\"\n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions]=\"{exact: true}\">\n                <a\n                routerLink=\"{{child.path}}\"\n                  >{{child.path}}</a>\n              </li>\n            </ng-container>\n          </ul> -->\n        </li>\n      </ng-container>\n    </ul>\n  </div>\n</nav>\n\n"
         },
         {
             "name": "MobileDialogComponent",
@@ -1540,7 +1542,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<lib-main class=\"sidebar-tint\">\n\n  <div tabindex=\"-1\" fxLayout=\"row\" fxLayout.md=\"column\" fxLayout.sm=\"column\"\n    fxLayout.xs=\"column\" fxLayoutWrap fxLayoutAlign=\"center\">\n\n    <lib-primary-content fxFlex=\"65\" >\n      <ng-content select=\"[primary]\"></ng-content>\n    </lib-primary-content>\n    <div fxFlex=\"10\">\n    </div>\n    <lib-secondary-content fxFlex=\"25\">\n      <ng-content select=\"[secondary]\"></ng-content>\n    </lib-secondary-content>\n  </div>\n</lib-main>\n"
+            "templateData": "<lib-main class=\"sidebar-tint\">\n\n  <div tabindex=\"-1\" fxLayout=\"row\" fxLayout.md=\"column\" fxLayout.sm=\"column\"\n    fxLayout.xs=\"column\" fxLayoutWrap fxLayoutAlign=\"center\">\n\n    <lib-primary-content fxFlex=\"65\" fxFlexOrder='1'>\n      <ng-content select=\"[primary]\"></ng-content>\n    </lib-primary-content>\n    <div fxFlex=\"10\">\n    </div>\n    <lib-secondary-content fxFlex=\"25\" fxFlexOrder='2'>\n      <ng-content select=\"[secondary]\"></ng-content>\n    </lib-secondary-content>\n  </div>\n</lib-main>\n"
         },
         {
             "name": "TwoColumnExampleComponent",
@@ -2616,6 +2618,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Custom",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "CustomTemplate.bind({})"
+            },
+            {
                 "name": "CustomBreakPointsProvider",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2624,6 +2636,16 @@
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  provide: BREAKPOINT,\n  useValue: [...CWD_BREAKPOINTS],\n  multi: true,\n}"
+            },
+            {
+                "name": "CustomTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<HeaderComponent>",
+                "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n  template: `\n  <lib-header [subtitle]=\"subtitle\" [theme]=\"theme\" [logo]=\"logo\" [useGradient]=\"useGradient\">\n    <div unit-title>\n      <a href=\"#\"><h2 class=\"h3\">CU-NG-Design-Library</h2></a>\n    </div>\n  </lib-header>\n  `,\n})"
             },
             {
                 "name": "CWD_BREAKPOINTS",
@@ -3167,6 +3189,26 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Custom",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "CustomTemplate.bind({})"
+                },
+                {
+                    "name": "CustomTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<HeaderComponent>",
+                    "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n  template: `\n  <lib-header [subtitle]=\"subtitle\" [theme]=\"theme\" [logo]=\"logo\" [useGradient]=\"useGradient\">\n    <div unit-title>\n      <a href=\"#\"><h2 class=\"h3\">CU-NG-Design-Library</h2></a>\n    </div>\n  </lib-header>\n  `,\n})"
                 },
                 {
                     "name": "SealBlack",
@@ -4025,6 +4067,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Cu45Red",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Custom",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CustomTemplate",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
