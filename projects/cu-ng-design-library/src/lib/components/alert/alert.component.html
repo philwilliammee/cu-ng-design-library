@@ -1,0 +1,163 @@
+<section>
+  <h2 id="section-18" class="toc">Panels and Accent Options</h2>
+  <a href="#main-article" class="back-to-toc" title="Back to Top"
+    ><span class="sr-only">Back to Top</span></a
+  >
+  <p>
+    Content can be wrapped in containers to create visual groupings, or to
+    draw attention to special notes or messages. The CSS classes used below
+    can be applied to regular <code>&lt;DIV&gt;</code> tags, or to specialized
+    tags like <code>&lt;ASIDE&gt;</code>, <code>&lt;SECTION&gt;</code>, and
+    possibly others. <strong class="tutorial">Aside</strong> tags should be
+    used when the content fits the
+    <a href="http://www.w3.org/TR/html-markup/aside.html"
+      >W3C HTML5 Specification</a
+    >
+    (<code>aside</code> content should be secondary, but related to the nearby
+    flow of information). <strong class="tutorial">Section</strong> tags can
+    be used to wrap information that forms a thematic group (one which would
+    be appropriate in a document outline). See the
+    <a href="http://www.w3.org/TR/html-markup/section.html"
+      >W3C HTML5 Specification</a
+    >
+    and
+    <a href="https://www.w3.org/wiki/HTML/Elements/section">W3C Wiki</a> for
+    more information.
+  </p>
+
+  <aside>
+    <strong class="tutorial note">Note:</strong> Keep accessibility in mind
+    when deciding to group content with DIVs. The content will only be grouped
+    <em>visually</em>. To a screen-reader, it will appear like any other
+    content in the flow of the document. This may be desirable, if the visual
+    grouping does not communicate essential document structure. However, you
+    could add an
+    <a href="http://www.w3.org/TR/wai-aria/roles">ARIA role</a> to the DIV
+    (e.g.,
+    <code
+      >&lt;div class="panel" role="alert" aria-label="User Warning"&gt;</code
+    >) to define its function. Or, if appropriate, use an
+    <code>&lt;ASIDE&gt;</code> or <code>&lt;SECTION&gt;</code> tag to take
+    advantage of their implied roles.
+  </aside>
+
+  <aside>
+    <strong class="tutorial note">Note:</strong> The <code>.panel</code> class
+    name is also used by Bootstrap. The options below should be compatible,
+    but keep an eye out for anything unexpected! These options were not built
+    on Bootstrap's implementation.
+  </aside>
+
+  <h3 id="section-19" class="toc">Panels</h3>
+  <a href="#main-article" class="back-to-toc" title="Back to Top"
+    ><span class="sr-only">Back to Top</span></a
+  >
+
+  <p>
+    <strong class="tutorial tip">Hint:</strong> All options below can be mixed
+    and matched.
+  </p>
+
+  <div class="panel">
+    <p>Default (<code>class="panel"</code>)</p>
+  </div>
+  <div class="panel accent-blue-green">
+    <p>Blue-Green (<code>class="panel accent-blue-green"</code>)</p>
+  </div>
+  <div class="panel accent-blue">
+    <p>Blue (<code>class="panel accent-blue"</code>)</p>
+  </div>
+  <div class="panel accent-purple">
+    <p>Purple (<code>class="panel accent-purple"</code>)</p>
+  </div>
+  <div class="panel accent-gold">
+    <p>Gold (<code>class="panel accent-gold"</code>)</p>
+  </div>
+  <div class="panel accent-green">
+    <p>Green (<code>class="panel accent-green"</code>)</p>
+  </div>
+  <div class="panel accent-red">
+    <p>Red (<code>class="panel accent-red"</code>)</p>
+  </div>
+
+  <h3 id="section-20" class="toc">Fill Background</h3>
+  <a href="#main-article" class="back-to-toc" title="Back to Top"
+    ><span class="sr-only">Back to Top</span></a
+  >
+
+  <p>
+    <strong class="tutorial tip">Hint:</strong> Use the
+    <code>.no-border</code> class to omit the default 1px border.
+  </p>
+
+  <div class="panel fill">
+    <p>Default (<code>class="panel fill"</code>)</p>
+  </div>
+  <div class="panel accent-blue-green fill">
+    <p>Blue-Green (<code>class="panel accent-blue-green fill"</code>)</p>
+  </div>
+  <div class="panel accent-blue fill">
+    <p>Blue (<code>class="panel accent-blue fill"</code>)</p>
+  </div>
+  <div class="panel accent-purple fill">
+    <p>Purple (<code>class="panel accent-purple fill"</code>)</p>
+  </div>
+  <div class="panel accent-gold fill">
+    <p>Gold (<code>class="panel accent-gold fill"</code>)</p>
+  </div>
+  <div class="panel accent-green fill">
+    <p>Green (<code>class="panel accent-green fill"</code>)</p>
+  </div>
+  <div class="panel accent-red fill">
+    <p>Red (<code>class="panel accent-red fill"</code>)</p>
+  </div>
+
+  <h3 id="section-21" class="toc">
+    Heavy Border (left or top, with or without fills)
+  </h3>
+  <a href="#main-article" class="back-to-toc" title="Back to Top"
+    ><span class="sr-only">Back to Top</span></a
+  >
+
+  <div class="panel fill heavy-left">
+    <p>Default (<code>class="panel fill heavy-left"</code>)</p>
+  </div>
+  <div class="panel accent-blue-green heavy-left">
+    <p>
+      Blue-Green (<code>class="panel accent-blue-green heavy-left"</code>)
+    </p>
+  </div>
+  <div class="panel accent-blue fill heavy-left">
+    <p>Blue (<code>class="panel accent-blue fill heavy-left"</code>)</p>
+  </div>
+  <div class="panel accent-purple heavy-top">
+    <p>Purple (<code>class="panel accent-purple heavy-top"</code>)</p>
+  </div>
+  <div class="panel accent-gold fill heavy-top">
+    <p>Gold (<code>class="panel accent-gold fill heavy-top"</code>)</p>
+  </div>
+  <div class="panel accent-green heavy-top">
+    <p>Green (<code>class="panel accent-green heavy-top"</code>)</p>
+  </div>
+  <div class="panel accent-red fill heavy-top">
+    <p>Red (<code>class="panel accent-red fill heavy-top"</code>)</p>
+  </div>
+
+  <h3 id="section-22" class="toc">Indenting</h3>
+  <a href="#main-article" class="back-to-toc" title="Back to Top"
+    ><span class="sr-only">Back to Top</span></a
+  >
+
+  <div class="panel indent1">
+    <p>Indent 1 Step (<code>class="panel indent1"</code>)</p>
+  </div>
+  <div class="panel indent2">
+    <p>Indent 2 Steps (<code>class="panel indent2"</code>)</p>
+  </div>
+  <div class="panel indent3">
+    <p>Indent 3 Steps (<code>class="panel indent3"</code>)</p>
+  </div>
+  <div class="panel indent4">
+    <p>Indent 4 Steps (<code>class="panel indent4"</code>)</p>
+  </div>
+</section>

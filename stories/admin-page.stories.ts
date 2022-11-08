@@ -1,5 +1,3 @@
-import { AdminLayoutComponent } from './../projects/cu-ng-design-library/src/lib/components/layout/admin-layout/admin-layout.component';
-import { AdminToolbarComponent } from './../projects/cu-ng-design-library/src/lib/components/layout/admin-toolbar/admin-toolbar.component';
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import {
   AdminLayoutModule,
@@ -20,6 +18,8 @@ import {
   SubFooterModule,
   TwoColumnModule,
   UtilityNavModule,
+  AdminLayoutComponent,
+  AdminToolbarComponent,
 } from 'cu-ng-design-library';
 import { SkipLinkComponent } from 'cu-ng-design-library';
 import { HeaderComponent } from 'cu-ng-design-library';

@@ -1,0 +1,87 @@
+/* Grouping Panels */ // Note: this class name is also used by Bootstrap, so watch out!
+
+.panel {
+	//float: left;
+	width: 100%;
+	padding: 5px 8px;
+	border: 1px solid #dbdbdb;
+	margin-bottom: 1.5em;
+	overflow: hidden;
+
+	/* Bootstrap Overrides */
+	background-color: transparent;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.panel.align-right {
+	float: right;
+}
+.panel.fill {
+	background-color: #f7f7f7;
+}
+.panel.collapse {
+	padding: 0;
+}
+
+/* group options */
+.accent-blue-green { border-color: #9eddeb !important; }
+.accent-blue { border-color: #9ebceb !important; }
+.accent-purple { border-color: #ad9eeb !important; }
+.accent-gold { border-color: #ebd59e !important; }
+.accent-green { border-color: #9eeba5 !important; }
+.accent-red { border-color: #ffc3b8 !important; }
+
+.accent-blue-green.fill { background-color: #ecf8fb !important; }
+.accent-blue.fill { background-color: #ecf2fb !important; }
+.accent-purple.fill { background-color: #f3f1fc !important; }
+.accent-gold.fill { background-color: #fbf7ec !important; }
+.accent-green.fill { background-color: #ecfbed !important; }
+.accent-red.fill { background-color: #ffede9 !important; }
+
+.indent1 { width: 98%; margin-left: 2%; }
+.indent2 { width: 96%; margin-left: 4%; }
+.indent3 { width: 94%; margin-left: 6%; }
+.indent4 { width: 92%; margin-left: 8%; }
+.no-indent-mobile { width: 100%; margin-left: 0; }
+
+.heavy-left { border-left-width: 3px; }
+.heavy-top { border-top-width: 3px; }
+
+/* dialog options */
+.panel.dialog, .panel.padded {
+	padding: 20px;
+}
+.panel.dialog h1, .panel.dialog h2, .panel.dialog h3, .panel.dialog h4, .panel.dialog h5, .panel.dialog h6 {
+	margin-bottom: 0.5em;
+}
+.panel.dialog p, .panel.dialog ul, .panel.dialog ol, .panel.dialog dl {
+	margin-bottom: 0.75em;
+}
+.panel.dialog *:last-child {
+	margin-bottom: 0;
+}
+.panel.dialog h1 .fa, .panel.dialog h2 .fa, .panel.dialog h3 .fa, .panel.dialog h4 .fa,
+.panel.dialog h1 .zmdi, .panel.dialog h2 .zmdi, .panel.dialog h3 .zmdi, .panel.dialog h4 .zmdi {
+	margin: 0 8px 0 -1px;
+	padding-left: 1px;
+	font-size: 28px;
+	line-height: 0.55;
+	opacity: 0.3;
+	position: relative;
+	top: 2px;
+}
+.panel.dialog-error h1 .fa:before, .panel.dialog-error h2 .fa:before, .panel.dialog-error h3 .fa:before, .panel.dialog-error h4 .fa:before {
+	content: '\f05e';
+}
+.panel.dialog-warning h1 .fa:before, .panel.dialog-warning h2 .fa:before, .panel.dialog-warning h3 .fa:before, .panel.dialog-warning h4 .fa:before {
+	content: '\f071';
+}
+.panel.dialog-notice h1 .fa:before, .panel.dialog-notice h2 .fa:before, .panel.dialog-notice h3 .fa:before, .panel.dialog-notice h4 .fa:before {
+	content: '\f05a';
+}
+.panel.dialog-success h1 .fa:before, .panel.dialog-success h2 .fa:before, .panel.dialog-success h3 .fa:before, .panel.dialog-success h4 .fa:before {
+	content: '\f058';
+}

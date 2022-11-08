@@ -83,6 +83,15 @@ export * from './lib/components/layout/admin-toolbar/admin-toolbar.module';
 export * from './lib/components/layout/admin-layout/admin-layout.component';
 export * from './lib/components/layout/admin-layout/admin-layout.module';
 
+export * from './lib/components/loading/loading.component';
+export * from './lib/components/loading/loading.module';
+
+export * from './lib/components/announcement/announcement.component';
+export * from './lib/components/announcement/announcement.module';
+
+export * from './lib/components/alert/alert.component';
+export * from './lib/components/alert/alert.module';
+
 // module
 export * from './lib/cu-ng-design-library.service';
 export * from './lib/cu-ng-design-library.component';

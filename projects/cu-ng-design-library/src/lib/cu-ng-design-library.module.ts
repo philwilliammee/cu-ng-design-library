@@ -27,6 +27,9 @@ import { TwoColumnExampleComponent } from './pages/two-column-example/two-column
 import { SideMenuComponent } from './components/layout/side-menu/side-menu.component';
 import { AdminToolbarComponent } from './components/layout/admin-toolbar/admin-toolbar.component';
 import { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { AnnouncementComponent } from './components/announcement/announcement.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { AdminLayoutComponent } from './components/layout/admin-layout/admin-lay
     SideMenuComponent,
     AdminToolbarComponent,
     AdminLayoutComponent,
+    LoadingComponent,
+    AnnouncementComponent,
+    AlertComponent,
   ],
   imports: [
     MaterialModule,
@@ -79,6 +85,9 @@ import { AdminLayoutComponent } from './components/layout/admin-layout/admin-lay
     SideMenuComponent,
     AdminToolbarComponent,
     AdminLayoutComponent,
+    LoadingComponent,
+    AnnouncementComponent,
+    AlertComponent,
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
 })

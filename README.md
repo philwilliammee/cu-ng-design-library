@@ -26,8 +26,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ### Storybook
 
-Run `npm run storybook` to start the storybook server. Navigate to `http://localhost:6006/`.
-Run `npm run watch` to build the library and watch for changes.
+1. Run `npm run storybook` to start the storybook server. Navigate to `http://localhost:6006/`.
+2. Run `npm run watch` to build the library and watch for changes.
 
 ## Code scaffolding
 
