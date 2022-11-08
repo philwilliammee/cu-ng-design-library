@@ -192,7 +192,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<lib-side-menu [routes]=\"routes\" [title]=\"toolbarTitle\" [svgIconUrl=\"svgIconUrl\">\n  <ng-content ngProjectAs=\"[toolbar]\"></ng-content>\n  <router-outlet></router-outlet>\n</lib-side-menu>\n"
+            "templateData": "<lib-side-menu [routes]=\"routes\" [title]=\"toolbarTitle\" [svgIconUrl]=\"svgIconUrl\">\n  <ng-content ngProjectAs=\"[toolbar]\"></ng-content>\n  <router-outlet></router-outlet>\n</lib-side-menu>\n"
         },
         {
             "name": "AdminToolbarComponent",
@@ -3144,7 +3144,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/skip-link.stories.ts",
+                "file": "stories/sub-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3154,7 +3154,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/sub-footer.stories.ts",
+                "file": "stories/skip-link.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3267,7 +3267,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<GenericComponent>",
-                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes' [toolbarTitle]='toolbarTitle' svgIconUrl=\"https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg\" >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes' [toolbarTitle]='toolbarTitle' svgIconUrl='https://localhost:4200/assets/Cornell-Store-Logo.png' >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
             },
             {
                 "name": "Template",
@@ -3403,21 +3403,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/skip-link.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<SkipLinkComponent>",
-                "defaultValue": "(args: SkipLinkComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/sub-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<SubFooterComponent>",
                 "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/skip-link.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<SkipLinkComponent>",
+                "defaultValue": "(args: SkipLinkComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3537,7 +3537,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<GenericComponent>",
-                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes' [toolbarTitle]='toolbarTitle' svgIconUrl=\"https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg\" >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes' [toolbarTitle]='toolbarTitle' svgIconUrl='https://localhost:4200/assets/Cornell-Store-Logo.png' >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
                 }
             ],
             "stories/Routes.ts": [
@@ -4009,28 +4009,6 @@
                     "defaultValue": "(args: SideMenuComponent) => ({\n  props: args,\n  template: `\n  <lib-side-menu [routes]=\"routes\">\n    <router-outlet></router-outlet>\n  </lib-side-menu>\n  `,\n})"
                 }
             ],
-            "stories/skip-link.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/skip-link.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/skip-link.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<SkipLinkComponent>",
-                    "defaultValue": "(args: SkipLinkComponent) => ({\n  props: args,\n})"
-                }
-            ],
             "stories/sub-footer.stories.ts": [
                 {
                     "name": "Default",
@@ -4051,6 +4029,28 @@
                     "deprecationMessage": "",
                     "type": "Story<SubFooterComponent>",
                     "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "stories/skip-link.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/skip-link.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/skip-link.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<SkipLinkComponent>",
+                    "defaultValue": "(args: SkipLinkComponent) => ({\n  props: args,\n})"
                 }
             ],
             "stories/two-column.stories.ts": [

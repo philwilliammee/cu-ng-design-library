@@ -89,7 +89,7 @@ const Template: Story<GenericComponent> = (args: GenericComponent) => ({
   template: `
   <lib-skip-link></lib-skip-link>
 
-<lib-admin-layout [routes]='routes' [toolbarTitle]='toolbarTitle' svgIconUrl='https://localhost:4200/assets/Cornell-Store-Logo.png' >
+<lib-admin-layout [routes]='routes' toolbarTitle='' imgHeight='26' svgIconUrl='https://localhost:4200/assets/Cornell-Store-Logo.png' >
   <div toolbar>
     <button mat-button>Login</button>
   </div>
