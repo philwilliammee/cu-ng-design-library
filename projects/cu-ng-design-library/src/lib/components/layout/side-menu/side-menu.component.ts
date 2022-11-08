@@ -1,10 +1,5 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Input, OnInit } from '@angular/core';
 import { Routes, Route, ActivatedRoute } from '@angular/router';
-
-interface DialogData {
-  routes?: Routes;
-}
 
 @Component({
   selector: 'lib-side-menu',
@@ -15,8 +10,7 @@ export class SideMenuComponent implements OnInit {
   @Input() routes!: Routes;
   @Input() title = 'Admin Toolbar';
   @Input() showToggle = true;
-
-  public svgIconUrl =
+  @Input() svgIconUrl =
     'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';
 
   options = {
