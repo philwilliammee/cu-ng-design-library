@@ -2,15 +2,19 @@
   <mat-drawer #drawer opened class="sidenav" mode="side" autosize>
 
     <mat-toolbar class="sidebar-logo" color="primary">
-      <img alt="Cornell University" [src]="svgIconUrl" height="{{imgHeight}}">
-      {{title}}
+      <a routerLink="/">
+        <img alt="Cornell University" [src]="svgIconUrl" height="{{imgHeight}}">
+        {{title}}
+      </a>
+
     </mat-toolbar>
 
     <mat-nav-list>
       <ng-container *ngFor="let route of routes">
         <ng-container *ngIf="route.data && route.data['menu'] == 'admin'">
 
-          <mat-list-item *ngIf="!route.children; else parent "  [routerLink]="route.path" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <mat-list-item *ngIf="!route.children; else parent " [routerLink]="route.path" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
             <a>
               <mat-icon matListIcon *ngIf="route.data['icon']">{{route.data['icon']}}</mat-icon>
               {{route.data && route.data['title'] ? route.data['title'] : route.path}}
@@ -31,9 +35,7 @@
             <div [ngClass]="['content', route.path]">
               <ng-container *ngFor="let child of route.children">
                 <mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                  <a routerLink="{{route.path}}/{{child.path}}"
-                  (focus)="handleFocus(child.path)"
-                  class="pad-left">
+                  <a routerLink="{{route.path}}/{{child.path}}" (focus)="handleFocus(child.path)" class="pad-left">
                     <mat-icon matListIcon *ngIf="child.data && child.data['icon']">{{ child.data['icon'] }}</mat-icon>
                     {{child.data && child.data['title'] ? child.data['title'] : child.path}}
                   </a>
