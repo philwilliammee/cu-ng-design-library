@@ -5,6 +5,7 @@ $grid-gutter-width: 30px;
 $screen-xs-min: 480px;
 $screen-ks-min: 624px;
 $screen-sm-min: 768px;
+$screen-mobile-min: 868px;
 $screen-md-min: 992px;
 $screen-ml-min: 1080px;
 $screen-lg-min: 1200px;
@@ -137,6 +138,7 @@ body {
     position: relative;
     z-index: 1;
   }
+
   .sidebar-tint #main-content:before {
     display: block !important;
     top: 0;
@@ -162,6 +164,7 @@ body {
   .mat-dialog-container {
     background-color: transparent;
     color: white;
+
     button,
     a {
       color: white;
@@ -170,30 +173,42 @@ body {
 }
 
 // Utility Nav.
-.cu-black #utility-navigation a, .cu-gray #utility-navigation a {
-	color: #ddd !important;
-	background: rgba(255,255,255,0.1) !important;
+.cu-black #utility-navigation a,
+.cu-gray #utility-navigation a {
+  color: #ddd !important;
+  background: rgba(255, 255, 255, 0.1) !important;
 }
-.cu-black #utility-navigation a:hover, .cu-gray #utility-navigation a:hover,
-.cu-black #utility-navigation a:focus, .cu-gray #utility-navigation a:focus {
-	background: rgba(255,255,255,0.2) !important;;
+
+.cu-black #utility-navigation a:hover,
+.cu-gray #utility-navigation a:hover,
+.cu-black #utility-navigation a:focus,
+.cu-gray #utility-navigation a:focus {
+  background: rgba(255, 255, 255, 0.2) !important;
+  ;
 }
-.cu-black #utility-navigation a:active, .cu-gray #utility-navigation a:active {
-	background: rgba(0,0,0,0.8) !important;;
+
+.cu-black #utility-navigation a:active,
+.cu-gray #utility-navigation a:active {
+  background: rgba(0, 0, 0, 0.8) !important;
+  ;
 }
 
 // Main menu panel
 .mat-menu-panel {
   border-radius: 0 !important;
   background-color: rgb(85, 85, 85);
+
   .mat-menu-content {
     padding: 0 !important;
+
     a {
       color: white !important;
+
       &:focus,
       &:hover {
         background: rgba(0, 0, 0, 0.3) !important;
       }
+
       &.active {
         border-left: solid 3px #b31b1b;
       }

@@ -49,3 +49,9 @@ a {
 .icon {
   margin-right: .5em;
 }
+
+@media (max-width: $screen-sm-min) {
+  .icon {
+    display: none;
+  }
+}

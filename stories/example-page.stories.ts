@@ -104,7 +104,7 @@ const Template: Story<GenericComponent> = (args: GenericComponent) => ({
         Ithaca, NY 14853</p>
       </div>
   </lib-main-footer>
-  <lib-sub-footer [isMobileLayout]="false"></lib-sub-footer>
+  <lib-sub-footer ></lib-sub-footer>
 </lib-footer>
 `,
 });

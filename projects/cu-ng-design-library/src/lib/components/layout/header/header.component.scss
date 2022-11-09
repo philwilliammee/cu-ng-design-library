@@ -107,6 +107,7 @@
 .cu-logo {
   a {
     background: url("../../../assets/images/cornell-reduced-red.svg") 0 0 no-repeat;
+    // this matches cornell.css but maybe background cover would be better?
     background-size: 100%;
     display: block;
     height: 38px;

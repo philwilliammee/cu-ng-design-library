@@ -1,68 +1,38 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Routes } from '@angular/router';
-import { CWD_BREAKPOINTS_SIZES } from './cu-ng-design-library.breakpoints';
-import { theme, logo } from './components/layout/header/header.component';
-import { fromEvent, Observable, Subscription } from 'rxjs';
+import { Component } from '@angular/core';
 
+/**
+ * We are moving away from useMobileLayout instead we will show and hide using css
+ */
 @Component({
   selector: 'lib-cu-ng-design-library',
   template: `
-    <lib-skip-link></lib-skip-link>
-    <lib-header
-      [title]="title"
-      [subtitle]="subtitle"
-      [logo]="logo"
-      [theme]="theme"
-      [useGradient]="useGradient"
-    >
-      <lib-header-buttons>
-        <lib-utility-nav></lib-utility-nav>
-        <lib-mobile-menu
-          [routes]="routes"
-          *ngIf="isMobileLayout"
-        ></lib-mobile-menu>
-      </lib-header-buttons>
-    </lib-header>
-
-    <lib-main-menu [routes]="routes" *ngIf="!isMobileLayout"></lib-main-menu>
-
-    <router-outlet></router-outlet>
-
-    <lib-footer>
-      <lib-main-footer></lib-main-footer>
-      <lib-sub-footer [isMobileLayout]="isMobileLayout"></lib-sub-footer>
-    </lib-footer>
+    <div class="wrapper">
+      <ng-content select="[header]"></ng-content>
+      <div class="main-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+      <ng-content select="[footer]"></ng-content>
+    </div>
   `,
-})
-export class CuNgDesignLibraryComponent implements OnInit {
-  @Input()
-  routes!: Routes;
-  @Input() title!: string;
-  @Input() subtitle!: string;
-  @Input() theme: theme = 'cu-default';
-  @Input() logo: logo = 'cu-seal';
-  @Input() useGradient = false;
-  isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
-
-  resizeObservable$?: Observable<Event>;
-  resizeSubscription$?: Subscription;
-
-  constructor() {
-    this.isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
-  }
-
-  ngOnInit() {
-    // Check is mobile layout
-    this.resizeObservable$ = fromEvent(window, 'resize');
-    this.resizeSubscription$ = this.resizeObservable$.subscribe(
-      (event: Event) => {
-        const target = event.target as Window;
-        this.isMobileLayout = target.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;
+  styles: [
+    `
+      .wrapper {
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
       }
-    );
-  }
 
-  ngOnDestroy() {
-    this.resizeSubscription$?.unsubscribe();
-  }
-}
+      .main-wrapper {
+        flex: 1;
+      }
+
+      @media screen and (max-width: 768px) {
+        .mobile-hidden {
+          display: none;
+        }
+      }
+    `,
+  ],
+})
+export class CuNgDesignLibraryComponent {}

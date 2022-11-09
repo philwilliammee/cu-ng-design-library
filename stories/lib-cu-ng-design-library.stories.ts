@@ -67,6 +67,17 @@ const Template: Story<CuNgDesignLibraryComponent> = (
   args: CuNgDesignLibraryComponent
 ) => ({
   props: args,
+  template: `
+  <lib-cu-ng-design-library>
+    <div header>
+      <div >
+        <a href="#"><h2 class="h3">{{title}}</h2></a>
+      </div>
+    </div>
+    <div content>This is content</div>
+    <div footer>This is the footer</div>
+  </lib-cu-ng-design-library>
+  `,
 });
 
 export const Default = Template.bind({});

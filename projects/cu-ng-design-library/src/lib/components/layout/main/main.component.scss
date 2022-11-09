@@ -1,7 +1,5 @@
 @import "../../../styles.scss";
 
-$footer-height: 527px;
-
 article {
   display: block;
 }
@@ -17,9 +15,14 @@ article {
   overflow-y: visible;
 }
 
-@media (min-width:868px) {
-  #main {
+#main.padding-top {
+  padding-top: 2.5em;
+}
+
+@media (min-width: $screen-mobile-min) {
+  #main.padding-top {
     padding-top: 3.5em;
-    min-height: calc(100vh - $footer-height);
   }
 }
+
+

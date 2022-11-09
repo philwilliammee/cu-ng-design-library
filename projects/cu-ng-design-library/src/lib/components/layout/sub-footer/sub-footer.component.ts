@@ -6,5 +6,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./sub-footer.component.scss'],
 })
 export class SubFooterComponent {
-  @Input() isMobileLayout!: boolean;
+  // deprecated
+  @Input() isMobileLayout?: boolean;
+
+  constructor() {
+    if (this.isMobileLayout !== undefined) {
+      console.log(
+        "isMobileLayout is deprecated. Use the 'mobile' class on the host element instead."
+      );
+    }
+  }
 }
