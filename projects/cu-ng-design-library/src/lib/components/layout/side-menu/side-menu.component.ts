@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MatDrawerMode } from '@angular/material/sidenav';
 import { Routes, Route, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,13 +7,16 @@ import { Routes, Route, ActivatedRoute } from '@angular/router';
   templateUrl: './side-menu.component.html',
   styleUrls: ['./side-menu.component.scss'],
 })
-export class SideMenuComponent implements OnInit {
+export class SideMenuComponent {
   @Input() routes!: Routes;
   @Input() title = 'Admin Toolbar';
   @Input() showToggle = true;
   @Input() svgIconUrl =
     'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';
   @Input() imgHeight = '45px';
+  @Input() mode: MatDrawerMode = 'side'; // 'over' | 'push' | 'side'
+  @Input() opened = true;
+  @Input() isMobileLayout = false;
 
   options = {
     autoCollapseOnClick: false,
@@ -25,11 +29,6 @@ export class SideMenuComponent implements OnInit {
     private activeRouter: ActivatedRoute
   ) {
     this.showToggle = true;
-  }
-  ngOnInit(): void {
-    // this.routes = this.data.routes?.filter(
-    //   (route) => route.data && route.data['menu']
-    // );
   }
 
   // @todo do this in a more angular way.

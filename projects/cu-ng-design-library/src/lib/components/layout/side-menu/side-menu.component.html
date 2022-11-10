@@ -1,12 +1,11 @@
 <mat-drawer-container>
-  <mat-drawer #drawer opened class="sidenav" mode="side" autosize>
+  <mat-drawer #drawer [opened]="opened" class="sidenav" [mode]="mode" autosize [ngClass]="{ 'mobile': isMobileLayout }">
 
     <mat-toolbar class="sidebar-logo" color="primary">
-      <a routerLink="/">
-        <img alt="Cornell University" [src]="svgIconUrl" height="{{imgHeight}}">
-        {{title}}
-      </a>
-
+        <a routerLink="/">
+          <img alt="Cornell University" [src]="svgIconUrl" height="{{imgHeight}}">
+          {{title}}
+        </a>
     </mat-toolbar>
 
     <mat-nav-list>
