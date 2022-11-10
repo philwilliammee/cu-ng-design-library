@@ -129,7 +129,7 @@
     "components": [
         {
             "name": "AdminLayoutComponent",
-            "id": "component-AdminLayoutComponent-90b63d6b9bb79b5db67233450451758bc34872203f5369b334b6c17748a1bae3de6cfba0c345c46caf5885f50b7aa1dbe0593dacc0aa24faf76675eee68f7b13",
+            "id": "component-AdminLayoutComponent-f401a3cb8a9a5edfc7926148cbd55b1669de1f99634574163016ba4cdb18c22e2ef612d542c020f64657b95158c7f7726b9fb5fb16379e76d5392cd2f5c527d7",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/admin-layout/admin-layout.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -137,20 +137,55 @@
             "outputs": [],
             "providers": [],
             "selector": "lib-admin-layout",
-            "styleUrls": [
-                "./admin-layout.component.scss"
+            "styleUrls": [],
+            "styles": [
+                "\n      :host {\n        display: block;\n      }\n    "
             ],
-            "styles": [],
-            "templateUrl": [
-                "./admin-layout.component.html"
-            ],
+            "template": "<lib-side-menu\n  [routes]=\"routes\"\n  [title]=\"toolbarTitle\"\n  [svgIconUrl]=\"svgIconUrl\"\n  [imgHeight]=\"imgHeight\"\n  [showToggle]=\"true\"\n  [mode]=\"mode\"\n  [opened]=\"opened\"\n  [isMobileLayout]=\"isMobileLayout\"\n>\n  <ng-content ngProjectAs=\"[toolbar]\"></ng-content>\n  <router-outlet></router-outlet>\n</lib-side-menu>\n",
+            "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
+                {
+                    "name": "imgHeight",
+                    "defaultValue": "'45px'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "isMobileLayout",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "mode",
+                    "defaultValue": "'side'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "MatDrawerMode",
+                    "decorators": []
+                },
+                {
+                    "name": "opened",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "boolean",
+                    "decorators": []
+                },
                 {
                     "name": "routes",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 31,
                     "type": "Routes",
                     "decorators": []
                 },
@@ -159,7 +194,7 @@
                     "defaultValue": "'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 33,
                     "type": "string",
                     "decorators": []
                 },
@@ -168,14 +203,25 @@
                     "defaultValue": "'SSIT'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 32,
                     "type": "string",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 40,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -183,16 +229,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { Routes } from '@angular/router';\n\n@Component({\n  selector: 'lib-admin-layout',\n  templateUrl: './admin-layout.component.html',\n  styleUrls: ['./admin-layout.component.scss'],\n})\nexport class AdminLayoutComponent {\n  @Input() routes!: Routes;\n  @Input() toolbarTitle = 'SSIT';\n  @Input() svgIconUrl =\n    'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MatDrawerMode } from '@angular/material/sidenav';\nimport { Routes } from '@angular/router';\n\n@Component({\n  selector: 'lib-admin-layout',\n  template: `\n    <lib-side-menu\n      [routes]=\"routes\"\n      [title]=\"toolbarTitle\"\n      [svgIconUrl]=\"svgIconUrl\"\n      [imgHeight]=\"imgHeight\"\n      [showToggle]=\"true\"\n      [mode]=\"mode\"\n      [opened]=\"opened\"\n      [isMobileLayout]=\"isMobileLayout\"\n    >\n      <ng-content ngProjectAs=\"[toolbar]\"></ng-content>\n      <router-outlet></router-outlet>\n    </lib-side-menu>\n  `,\n  styles: [\n    `\n      :host {\n        display: block;\n      }\n    `,\n  ],\n})\nexport class AdminLayoutComponent implements OnInit {\n  @Input() routes!: Routes;\n  @Input() toolbarTitle = 'SSIT';\n  @Input() svgIconUrl =\n    'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';\n  @Input() imgHeight = '45px';\n  @Input() mode: MatDrawerMode = 'side'; // 'over' | 'push' | 'side'\n  @Input() opened = true;\n  @Input() isMobileLayout = false;\n\n  ngOnInit(): void {\n    if (this.isMobileLayout) {\n      this.mode = 'over';\n      this.opened = false;\n    }\n  }\n}\n",
             "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "",
-                    "styleUrl": "./admin-layout.component.scss"
-                }
-            ],
-            "stylesData": "",
-            "templateData": "<lib-side-menu [routes]=\"routes\" [title]=\"toolbarTitle\" [svgIconUrl]=\"svgIconUrl\">\n  <ng-content ngProjectAs=\"[toolbar]\"></ng-content>\n  <router-outlet></router-outlet>\n</lib-side-menu>\n"
+            "styleUrlsData": "",
+            "stylesData": "\n      :host {\n        display: block;\n      }\n    \n",
+            "implements": [
+                "OnInit"
+            ]
         },
         {
             "name": "AdminToolbarComponent",
@@ -418,8 +461,8 @@
         },
         {
             "name": "CuNgDesignLibraryComponent",
-            "id": "component-CuNgDesignLibraryComponent-026cbfc3656b4f31bd9809b0bc87c7a1c2a7db4142dbd4df0554ecb6b35c5808dab498e3851f58ae8697e6abcd8932cc83fd47283e60bbcae1334ee92e2fb1c5",
-            "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.component.ts",
+            "id": "component-CuNgDesignLibraryComponent-eacb246527385f0de452b38f3cda81f30bbf7b07d1c72e49318e17fd6f1abe37d493cd344ef3e22e9f9a6a1e6770b6ab684f58cb572b82f4ddab2f9bf2ac4fc8",
+            "file": ".local/cu-ng-design-library.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -427,8 +470,10 @@
             "providers": [],
             "selector": "lib-cu-ng-design-library",
             "styleUrls": [],
-            "styles": [],
-            "template": "<lib-skip-link></lib-skip-link>\n<lib-header\n  [title]=\"title\"\n  [subtitle]=\"subtitle\"\n  [logo]=\"logo\"\n  [theme]=\"theme\"\n  [useGradient]=\"useGradient\"\n>\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu\n      [routes]=\"routes\"\n      *ngIf=\"isMobileLayout\"\n    ></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\" *ngIf=\"!isMobileLayout\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer></lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"isMobileLayout\"></lib-sub-footer>\n</lib-footer>\n",
+            "styles": [
+                "\n      .wrapper {\n        min-height: 100vh;\n        margin: 0;\n        display: flex;\n        flex-direction: column;\n      }\n\n      .main-wrapper {\n        flex: 1;\n      }\n\n      @media screen and (max-width: 768px) {\n        .mobile-hidden {\n          display: none;\n        }\n      }\n    "
+            ],
+            "template": "<ng-template class=\"wrapper\">\n  <ng-content select=\"[header]\"></ng-content>\n  <div class=\"main-wrapper\">\n    <router-outlet></router-outlet>\n  </div>\n  <ng-content select=\"[footer]\"></ng-content>\n</ng-template>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
@@ -437,7 +482,7 @@
                     "defaultValue": "'cu-seal'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 43,
+                    "line": 48,
                     "type": "logo",
                     "decorators": []
                 },
@@ -445,7 +490,7 @@
                     "name": "routes",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 39,
+                    "line": 44,
                     "type": "Routes",
                     "decorators": []
                 },
@@ -453,7 +498,7 @@
                     "name": "subtitle",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 41,
+                    "line": 46,
                     "type": "string",
                     "decorators": []
                 },
@@ -462,7 +507,7 @@
                     "defaultValue": "'cu-default'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 42,
+                    "line": 47,
                     "type": "theme",
                     "decorators": []
                 },
@@ -470,7 +515,7 @@
                     "name": "title",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 40,
+                    "line": 45,
                     "type": "string",
                     "decorators": []
                 },
@@ -479,7 +524,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 44,
+                    "line": 49,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -494,7 +539,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 45
+                    "line": 50
                 },
                 {
                     "name": "resizeObservable$",
@@ -503,7 +548,7 @@
                     "type": "Observable<Event>",
                     "optional": true,
                     "description": "",
-                    "line": 47
+                    "line": 52
                 },
                 {
                     "name": "resizeSubscription$",
@@ -512,7 +557,7 @@
                     "type": "Subscription",
                     "optional": true,
                     "description": "",
-                    "line": 48
+                    "line": 53
                 }
             ],
             "methodsClass": [
@@ -522,7 +567,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 65,
+                    "line": 70,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -532,7 +577,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 54,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -541,24 +586,60 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
+            "description": "<p>We are moving away from useMobileLayout instead we will show and hide using css</p>\n",
+            "rawdescription": "\n\nWe are moving away from useMobileLayout instead we will show and hide using css\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Routes } from '@angular/router';\nimport { CWD_BREAKPOINTS_SIZES } from './cu-ng-design-library.breakpoints';\nimport { theme, logo } from './components/layout/header/header.component';\nimport { fromEvent, Observable, Subscription } from 'rxjs';\n\n@Component({\n  selector: 'lib-cu-ng-design-library',\n  template: `\n    <lib-skip-link></lib-skip-link>\n    <lib-header\n      [title]=\"title\"\n      [subtitle]=\"subtitle\"\n      [logo]=\"logo\"\n      [theme]=\"theme\"\n      [useGradient]=\"useGradient\"\n    >\n      <lib-header-buttons>\n        <lib-utility-nav></lib-utility-nav>\n        <lib-mobile-menu\n          [routes]=\"routes\"\n          *ngIf=\"isMobileLayout\"\n        ></lib-mobile-menu>\n      </lib-header-buttons>\n    </lib-header>\n\n    <lib-main-menu [routes]=\"routes\" *ngIf=\"!isMobileLayout\"></lib-main-menu>\n\n    <router-outlet></router-outlet>\n\n    <lib-footer>\n      <lib-main-footer></lib-main-footer>\n      <lib-sub-footer [isMobileLayout]=\"isMobileLayout\"></lib-sub-footer>\n    </lib-footer>\n  `,\n})\nexport class CuNgDesignLibraryComponent implements OnInit {\n  @Input()\n  routes!: Routes;\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme: theme = 'cu-default';\n  @Input() logo: logo = 'cu-seal';\n  @Input() useGradient = false;\n  isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n\n  resizeObservable$?: Observable<Event>;\n  resizeSubscription$?: Subscription;\n\n  constructor() {\n    this.isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n  }\n\n  ngOnInit() {\n    // Check is mobile layout\n    this.resizeObservable$ = fromEvent(window, 'resize');\n    this.resizeSubscription$ = this.resizeObservable$.subscribe(\n      (event: Event) => {\n        const target = event.target as Window;\n        this.isMobileLayout = target.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n      }\n    );\n  }\n\n  ngOnDestroy() {\n    this.resizeSubscription$?.unsubscribe();\n  }\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Routes } from '@angular/router';\nimport { CWD_BREAKPOINTS_SIZES } from './cu-ng-design-library.breakpoints';\nimport { theme, logo } from './components/layout/header/header.component';\nimport { fromEvent, Observable, Subscription } from 'rxjs';\n\n/**\n * We are moving away from useMobileLayout instead we will show and hide using css\n */\n@Component({\n  selector: 'lib-cu-ng-design-library',\n  template: `\n    <ng-template class=\"wrapper\">\n      <ng-content select=\"[header]\"></ng-content>\n      <div class=\"main-wrapper\">\n        <router-outlet></router-outlet>\n      </div>\n      <ng-content select=\"[footer]\"></ng-content>\n    </ng-template>\n  `,\n  styles: [\n    `\n      .wrapper {\n        min-height: 100vh;\n        margin: 0;\n        display: flex;\n        flex-direction: column;\n      }\n\n      .main-wrapper {\n        flex: 1;\n      }\n\n      @media screen and (max-width: 768px) {\n        .mobile-hidden {\n          display: none;\n        }\n      }\n    `,\n  ],\n})\nexport class CuNgDesignLibraryComponent implements OnInit {\n  @Input()\n  routes!: Routes;\n  @Input() title!: string;\n  @Input() subtitle!: string;\n  @Input() theme: theme = 'cu-default';\n  @Input() logo: logo = 'cu-seal';\n  @Input() useGradient = false;\n  isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n\n  resizeObservable$?: Observable<Event>;\n  resizeSubscription$?: Subscription;\n\n  constructor() {\n    this.isMobileLayout = window.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n  }\n\n  ngOnInit() {\n    // Check is mobile layout\n    this.resizeObservable$ = fromEvent(window, 'resize');\n    this.resizeSubscription$ = this.resizeObservable$.subscribe(\n      (event: Event) => {\n        const target = event.target as Window;\n        this.isMobileLayout = target.innerWidth <= CWD_BREAKPOINTS_SIZES.md.max;\n      }\n    );\n  }\n\n  ngOnDestroy() {\n    this.resizeSubscription$?.unsubscribe();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": "",
+            "stylesData": "\n      .wrapper {\n        min-height: 100vh;\n        margin: 0;\n        display: flex;\n        flex-direction: column;\n      }\n\n      .main-wrapper {\n        flex: 1;\n      }\n\n      @media screen and (max-width: 768px) {\n        .mobile-hidden {\n          display: none;\n        }\n      }\n    \n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 48
+                "line": 53
             },
             "implements": [
                 "OnInit"
             ]
+        },
+        {
+            "name": "CuNgDesignLibraryComponent",
+            "id": "component-CuNgDesignLibraryComponent-ba0e1d4b48d843fc56bf2bbffe8e9dd48a23a821da492ac2e68c71a8d2fb2aa9d883da3c2ec51ced7b102bea3c9facfcdb2197ad4e0fe5d39126c5ba69d2e366-1",
+            "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-cu-ng-design-library",
+            "styleUrls": [],
+            "styles": [
+                "\n      .wrapper {\n        min-height: 100vh;\n        margin: 0;\n        display: flex;\n        flex-direction: column;\n      }\n\n      .main-wrapper {\n        flex: 1;\n      }\n\n      @media screen and (max-width: 768px) {\n        .mobile-hidden {\n          display: none;\n        }\n      }\n    "
+            ],
+            "template": "<div class=\"wrapper\">\n  <ng-content select=\"[header]\"></ng-content>\n  <div class=\"main-wrapper\">\n    <router-outlet></router-outlet>\n  </div>\n  <ng-content select=\"[footer]\"></ng-content>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "<p>We are moving away from useMobileLayout instead we will show and hide using css</p>\n",
+            "rawdescription": "\n\nWe are moving away from useMobileLayout instead we will show and hide using css\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n/**\n * We are moving away from useMobileLayout instead we will show and hide using css\n */\n@Component({\n  selector: 'lib-cu-ng-design-library',\n  template: `\n    <div class=\"wrapper\">\n      <ng-content select=\"[header]\"></ng-content>\n      <div class=\"main-wrapper\">\n        <router-outlet></router-outlet>\n      </div>\n      <ng-content select=\"[footer]\"></ng-content>\n    </div>\n  `,\n  styles: [\n    `\n      .wrapper {\n        min-height: 100vh;\n        margin: 0;\n        display: flex;\n        flex-direction: column;\n      }\n\n      .main-wrapper {\n        flex: 1;\n      }\n\n      @media screen and (max-width: 768px) {\n        .mobile-hidden {\n          display: none;\n        }\n      }\n    `,\n  ],\n})\nexport class CuNgDesignLibraryComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      .wrapper {\n        min-height: 100vh;\n        margin: 0;\n        display: flex;\n        flex-direction: column;\n      }\n\n      .main-wrapper {\n        flex: 1;\n      }\n\n      @media screen and (max-width: 768px) {\n        .mobile-hidden {\n          display: none;\n        }\n      }\n    \n",
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "CuNgDesignLibraryComponent-1"
         },
         {
             "name": "FooterComponent",
@@ -673,7 +754,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-d0243409ca54b23de076b3b26817478cf1150e0be16b3d9ff1e36e28168a6c65c20567addab96e7f13bf48a0a2757bb49b7232e593e210249019a4061143b37c",
+            "id": "component-HeaderComponent-a7fa4e5dc1471d87764ea181c2be878a2526927d56b57fc8082fa4e27a173fccd7947d96b04d6557a8414e220d855026af58356fc392d4f8c906095b7c5c0228",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/header/header.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -696,7 +777,7 @@
                     "name": "logo",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 28,
                     "type": "logo",
                     "decorators": []
                 },
@@ -704,7 +785,7 @@
                     "name": "subtitle",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 26,
                     "type": "string",
                     "decorators": []
                 },
@@ -712,7 +793,7 @@
                     "name": "theme",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 28,
+                    "line": 27,
                     "type": "theme",
                     "decorators": []
                 },
@@ -720,7 +801,7 @@
                     "name": "title",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 25,
                     "type": "string",
                     "decorators": []
                 },
@@ -728,27 +809,13 @@
                     "name": "useGradient",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 29,
                     "type": "boolean",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "svgIconUrl",
-                    "defaultValue": "'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 24,
-                    "modifierKind": [
-                        123
-                    ]
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [
                 {
                     "name": "getClasses",
@@ -756,7 +823,7 @@
                     "optional": false,
                     "returnType": "string[]",
                     "typeParameters": [],
-                    "line": 37,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -768,11 +835,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, ViewEncapsulation } from '@angular/core';\n\n// Cornell Branding Banner\n// .cu-red - Overrides the default light gray banner to be red with white logo. Affects both 45px and Large Seal options.\n// .cu-black - Overrides the default light gray banner to be black with white logo. Affects both 45px and Large Seal options.\n// .cu-gray - Overrides the default light gray banner to be dark gray with white logo. Affects both 45px and Large Seal options.\n// .cu-45 - Renders as a ~45px banner with small Cornell logo (this is also the default if no body class is defined). Headings appear below the banner. Note: This class is mutually exclusive with .cu-seal.\n// .cu-seal - Renders as a taller banner with a large standalone Cornell seal. Headings appear to the right of the seal. Note: This class is mutually exclusive with .cu-45.\n// .cu-seal-right - Added to .cu-seal to swap the left and right positions of the seal and headings.\n// .cu-45-mobile - Added to .cu-seal to switch to 45px style at mobile sizes.\n// .cu-45-mobile-red - Added to .cu-seal-mobile also activate the red color option on the 45px banner at mobile sizes.\n// .no-main-nav - When .cu-seal is in use and no main navigation bar is planned, this class can be included to apply some subtle adjustments to the Cornell header.\n\nexport type theme = 'cu-default' | 'cu-red' | 'cu-black' | 'cu-gray';\nexport type logo = 'cu-seal' | 'cu-45';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n  encapsulation: ViewEncapsulation.None, // apply global styles to this component\n})\nexport class HeaderComponent {\n  public svgIconUrl =\n    'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';\n  @Input() title?: string;\n  @Input() subtitle?: string;\n  @Input() theme!: theme;\n  @Input() logo!: logo;\n  @Input() useGradient!: boolean;\n  constructor() {\n    this.theme = this.theme || 'cu-default';\n    this.logo = this.logo || 'cu-seal';\n    this.useGradient = this.useGradient || false;\n  }\n\n  getClasses(): string[] {\n    const classes: string[] = [];\n    if (this.theme) {\n      classes.push(this.theme);\n    }\n    if (this.logo) {\n      classes.push(this.logo);\n    }\n    if (this.useGradient) {\n      classes.push('gradient');\n    }\n    return classes;\n  }\n}\n",
+            "sourceCode": "import { Component, Input, ViewEncapsulation } from '@angular/core';\n\n// Cornell Branding Banner\n// .cu-red - Overrides the default light gray banner to be red with white logo. Affects both 45px and Large Seal options.\n// .cu-black - Overrides the default light gray banner to be black with white logo. Affects both 45px and Large Seal options.\n// .cu-gray - Overrides the default light gray banner to be dark gray with white logo. Affects both 45px and Large Seal options.\n// .cu-45 - Renders as a ~45px banner with small Cornell logo (this is also the default if no body class is defined). Headings appear below the banner. Note: This class is mutually exclusive with .cu-seal.\n// .cu-seal - Renders as a taller banner with a large standalone Cornell seal. Headings appear to the right of the seal. Note: This class is mutually exclusive with .cu-45.\n// .cu-seal-right - Added to .cu-seal to swap the left and right positions of the seal and headings.\n// .cu-45-mobile - Added to .cu-seal to switch to 45px style at mobile sizes.\n// .cu-45-mobile-red - Added to .cu-seal-mobile also activate the red color option on the 45px banner at mobile sizes.\n// .no-main-nav - When .cu-seal is in use and no main navigation bar is planned, this class can be included to apply some subtle adjustments to the Cornell header.\n\nexport type theme = 'cu-default' | 'cu-red' | 'cu-black' | 'cu-gray';\nexport type logo = 'cu-seal' | 'cu-45';\n\n@Component({\n  selector: 'lib-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n  encapsulation: ViewEncapsulation.None, // apply global styles to this component\n})\nexport class HeaderComponent {\n  // public svgIconUrl = 'https://rawcdn.githack.com/CU-CommunityApps/cwd_base/734e40e6a6e21bf5cc8afff65096b452d864480e/images/cornell/bold_cornell_logo_simple_b31b1b.svg';\n  @Input() title?: string;\n  @Input() subtitle?: string;\n  @Input() theme!: theme;\n  @Input() logo!: logo;\n  @Input() useGradient!: boolean;\n  constructor() {\n    this.theme = this.theme || 'cu-default';\n    this.logo = this.logo || 'cu-seal';\n    this.useGradient = this.useGradient || false;\n  }\n\n  getClasses(): string[] {\n    const classes: string[] = [];\n    if (this.theme) {\n      classes.push(this.theme);\n    }\n    if (this.logo) {\n      classes.push(this.logo);\n    }\n    if (this.useGradient) {\n      classes.push('gradient');\n    }\n    return classes;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use 'sass:map';\n@import \"../../../styles.scss\";\n// # @todo set image urls to s3 public bucket\n// @todo get these into material theme mixins?\n\n.sans {\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n  font-weight: 400;\n}\n\n.cu-unit {\n  a {\n    color: unset;\n    text-decoration: none;\n  }\n\n  a:hover {\n    text-decoration: underline;\n  }\n\n  h2 {\n    // margin-top: 0;\n    line-height: 1.2;\n    // margin-bottom: .7em;\n  }\n}\n\n\n#cu-header {\n  float: left;\n  width: 100%;\n\n  .cu-brand {\n    align-items: center;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n    font-weight: 500;\n    padding-bottom: 5px;\n    padding-top: 5px;\n    position: relative;\n\n    h1 {\n      margin: 0;\n      width: 100%;\n    }\n\n    h2 {\n      margin: 6px 0 0 -.05em;\n    }\n\n    h3 {\n      margin: .3em 0 0;\n      color: #6a6a79;\n      font-weight: 400;\n    }\n\n    .cu-unit {\n      margin: 16px auto 11px;\n      text-align: center;\n    }\n  }\n}\n\n.cu-seal {\n  #cu-header {\n    background: #ededed;\n    z-index: 3;\n\n    .cu-brand {\n      h1 {\n        margin: 2px 0 8px;\n\n        a {\n          margin: 0 auto;\n        }\n      }\n\n      .cu-unit {\n        margin: 0 auto 4px;\n        display: block;\n      }\n\n      padding-bottom: 15px;\n      padding-top: 15px;\n    }\n  }\n\n  .cu-logo {\n    a {\n      background: url(\"../../../assets/images/bold_cornell_seal_simple_b31b1b.svg\") 0 0 no-repeat;\n      height: 80px;\n      min-width: 80px;\n      width: 80px;\n    }\n  }\n}\n\n.cu-seal.gradient {\n  #cu-header {\n    background: #f7f7f7;\n    background: linear-gradient(135deg, #f2f2f2, #f7f7f7);\n    border-bottom: 2px solid #ebebeb;\n  }\n}\n\n.cu-logo {\n  a {\n    background: url(\"../../../assets/images/cornell-reduced-red.svg\") 0 0 no-repeat;\n    background-size: 100%;\n    display: block;\n    height: 38px;\n    min-width: 168px;\n    width: 168px;\n  }\n}\n\n\n/* Color Options (red background, black background, gray background, black logo) */\n.cu-red .cu-logo a,\n.cu-black .cu-logo a,\n.cu-gray .cu-logo a {\n  background-image: url('../../../assets/images/cornell-reduced-white.svg');\n}\n\n.cu-logo.black a {\n  background-image: url('../../../assets/images/cornell-reduced-black.svg');\n}\n\n.cu-seal.cu-red .cu-logo a,\n.cu-seal.cu-black .cu-logo a,\n.cu-seal.cu-gray .cu-logo a {\n  background-image: url('../../../assets/images/bold_cornell_seal_simple_white.svg');\n}\n\n.cu-seal .cu-logo.black a {\n  background-image: url('../../../assets/images/bold_cornell_seal_simple_black.svg');\n}\n\n.cu-seal.cu-red #cu-header {\n  // background: #b31b1b;\n  background: map.get($styles-accent-color, 500);\n  color: map.get($styles-accent-color, '500-contrast');\n  border-bottom: 0;\n}\n\n.cu-seal.cu-black #cu-header {\n  background: #000;\n  color: #fff;\n  border-bottom: 0;\n}\n\n.cu-seal.cu-gray #cu-header {\n  background: #222;\n  color: #fff;\n  border-bottom: 0;\n}\n\n.cu-seal.cu-gray.gradient #cu-header {\n  background: linear-gradient(135deg, #222222 0%, #474747 100%);\n}\n\n.cu-red #cu-header .cu-brand h2,\n.cu-black #cu-header .cu-brand h2,\n.cu-gray #cu-header .cu-brand h2 {\n  font-weight: 400;\n}\n\n.ios #cu-header .cu-brand h2 {\n  font-weight: 500;\n}\n\n.cu-seal.cu-red #cu-header .cu-brand h3 {\n  color: #e4c7ae;\n}\n\n.cu-seal.cu-black #cu-header .cu-brand h3,\n.cu-seal.cu-gray #cu-header .cu-brand h3 {\n  color: #c9c9c9;\n}\n\n// end of color options\n\n.cu45-helper {\n  position: relative;\n\n  &:before {\n    content: '';\n    background: #ededed; // default color\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 48px;\n  }\n}\n\n.cu-red #cu-header .cu45-helper:before {\n  background: map.get($styles-accent-color, 500);\n}\n\n.cu-black #cu-header .cu45-helper:before {\n  background: #000;\n}\n\n.cu-gray #cu-header .cu45-helper:before {\n  background: #222;\n}\n\n@media (min-width:868px) {\n  .cu-seal {\n    #cu-header {\n      .cu-brand {\n        flex-wrap: nowrap;\n\n        h1 {\n          margin: 0;\n          width: auto;\n        }\n\n        .cu-unit {\n          margin: 0 70px 0 auto;\n        }\n      }\n    }\n\n    .cu-logo {\n      a {\n        height: 100px;\n        margin: 0 50px 0 0 !important;\n        min-width: 100px;\n        width: 100px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      .cu-unit {\n        margin: 20px auto 16px 1px;\n        text-align: left;\n      }\n    }\n  }\n}\n\n@media (min-width:480px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 30px;\n      }\n\n      h3 {\n        font-size: 15px;\n      }\n    }\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 90px;\n        min-width: 90px;\n        width: 90px;\n      }\n    }\n  }\n}\n\n@media (min-width:992px) {\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 120px;\n        margin: 0 60px 0 0 !important;\n        min-width: 120px;\n        width: 120px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 32px;\n      }\n\n      h3 {\n        font-size: 16px;\n      }\n    }\n  }\n}\n\n@media (min-width:1200px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 36px;\n      }\n\n      h3 {\n        font-size: 18px;\n      }\n    }\n  }\n}\n",
+                    "data": "@use 'sass:map';\n@import \"../../../styles.scss\";\n// # @todo set image urls to s3 public bucket\n// @todo get these into material theme mixins?\n\n.sans {\n  font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n  font-weight: 400;\n}\n\n.cu-unit {\n  a {\n    color: unset;\n    text-decoration: none;\n  }\n\n  a:hover {\n    text-decoration: underline;\n  }\n\n  h2 {\n    // margin-top: 0;\n    line-height: 1.2;\n    // margin-bottom: .7em;\n  }\n}\n\n\n#cu-header {\n  float: left;\n  width: 100%;\n\n  .cu-brand {\n    align-items: center;\n    display: flex;\n    flex-wrap: wrap;\n    font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, sans-serif;\n    font-weight: 500;\n    padding-bottom: 5px;\n    padding-top: 5px;\n    position: relative;\n\n    h1 {\n      margin: 0;\n      width: 100%;\n    }\n\n    h2 {\n      margin: 6px 0 0 -.05em;\n    }\n\n    h3 {\n      margin: .3em 0 0;\n      color: #6a6a79;\n      font-weight: 400;\n    }\n\n    .cu-unit {\n      margin: 16px auto 11px;\n      text-align: center;\n    }\n  }\n}\n\n.cu-seal {\n  #cu-header {\n    background: #ededed;\n    z-index: 3;\n\n    .cu-brand {\n      h1 {\n        margin: 2px 0 8px;\n\n        a {\n          margin: 0 auto;\n        }\n      }\n\n      .cu-unit {\n        margin: 0 auto 4px;\n        display: block;\n      }\n\n      padding-bottom: 15px;\n      padding-top: 15px;\n    }\n  }\n\n  .cu-logo {\n    a {\n      background: url(\"../../../assets/images/bold_cornell_seal_simple_b31b1b.svg\") 0 0 no-repeat;\n      height: 80px;\n      min-width: 80px;\n      width: 80px;\n    }\n  }\n}\n\n.cu-seal.gradient {\n  #cu-header {\n    background: #f7f7f7;\n    background: linear-gradient(135deg, #f2f2f2, #f7f7f7);\n    border-bottom: 2px solid #ebebeb;\n  }\n}\n\n.cu-logo {\n  a {\n    background: url(\"../../../assets/images/cornell-reduced-red.svg\") 0 0 no-repeat;\n    // this matches cornell.css but maybe background cover would be better?\n    background-size: 100%;\n    display: block;\n    height: 38px;\n    min-width: 168px;\n    width: 168px;\n  }\n}\n\n\n/* Color Options (red background, black background, gray background, black logo) */\n.cu-red .cu-logo a,\n.cu-black .cu-logo a,\n.cu-gray .cu-logo a {\n  background-image: url('../../../assets/images/cornell-reduced-white.svg');\n}\n\n.cu-logo.black a {\n  background-image: url('../../../assets/images/cornell-reduced-black.svg');\n}\n\n.cu-seal.cu-red .cu-logo a,\n.cu-seal.cu-black .cu-logo a,\n.cu-seal.cu-gray .cu-logo a {\n  background-image: url('../../../assets/images/bold_cornell_seal_simple_white.svg');\n}\n\n.cu-seal .cu-logo.black a {\n  background-image: url('../../../assets/images/bold_cornell_seal_simple_black.svg');\n}\n\n.cu-seal.cu-red #cu-header {\n  // background: #b31b1b;\n  background: map.get($styles-accent-color, 500);\n  color: map.get($styles-accent-color, '500-contrast');\n  border-bottom: 0;\n}\n\n.cu-seal.cu-black #cu-header {\n  background: #000;\n  color: #fff;\n  border-bottom: 0;\n}\n\n.cu-seal.cu-gray #cu-header {\n  background: #222;\n  color: #fff;\n  border-bottom: 0;\n}\n\n.cu-seal.cu-gray.gradient #cu-header {\n  background: linear-gradient(135deg, #222222 0%, #474747 100%);\n}\n\n.cu-red #cu-header .cu-brand h2,\n.cu-black #cu-header .cu-brand h2,\n.cu-gray #cu-header .cu-brand h2 {\n  font-weight: 400;\n}\n\n.ios #cu-header .cu-brand h2 {\n  font-weight: 500;\n}\n\n.cu-seal.cu-red #cu-header .cu-brand h3 {\n  color: #e4c7ae;\n}\n\n.cu-seal.cu-black #cu-header .cu-brand h3,\n.cu-seal.cu-gray #cu-header .cu-brand h3 {\n  color: #c9c9c9;\n}\n\n// end of color options\n\n.cu45-helper {\n  position: relative;\n\n  &:before {\n    content: '';\n    background: #ededed; // default color\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 48px;\n  }\n}\n\n.cu-red #cu-header .cu45-helper:before {\n  background: map.get($styles-accent-color, 500);\n}\n\n.cu-black #cu-header .cu45-helper:before {\n  background: #000;\n}\n\n.cu-gray #cu-header .cu45-helper:before {\n  background: #222;\n}\n\n@media (min-width:868px) {\n  .cu-seal {\n    #cu-header {\n      .cu-brand {\n        flex-wrap: nowrap;\n\n        h1 {\n          margin: 0;\n          width: auto;\n        }\n\n        .cu-unit {\n          margin: 0 70px 0 auto;\n        }\n      }\n    }\n\n    .cu-logo {\n      a {\n        height: 100px;\n        margin: 0 50px 0 0 !important;\n        min-width: 100px;\n        width: 100px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      .cu-unit {\n        margin: 20px auto 16px 1px;\n        text-align: left;\n      }\n    }\n  }\n}\n\n@media (min-width:480px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 30px;\n      }\n\n      h3 {\n        font-size: 15px;\n      }\n    }\n  }\n\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 90px;\n        min-width: 90px;\n        width: 90px;\n      }\n    }\n  }\n}\n\n@media (min-width:992px) {\n  .cu-seal {\n    .cu-logo {\n      a {\n        height: 120px;\n        margin: 0 60px 0 0 !important;\n        min-width: 120px;\n        width: 120px;\n      }\n    }\n  }\n\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 32px;\n      }\n\n      h3 {\n        font-size: 16px;\n      }\n    }\n  }\n}\n\n@media (min-width:1200px) {\n  #cu-header {\n    .cu-brand {\n      h2 {\n        font-size: 36px;\n      }\n\n      h3 {\n        font-size: 18px;\n      }\n    }\n  }\n}\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -783,9 +850,9 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 30
+                "line": 29
             },
-            "templateData": "<div [ngClass]=\"getClasses()\">\n  <header id=\"cu-header\">\n    <ng-template [ngIf]=\"logo == 'cu-45'\">\n      <div class=\"cu45-helper\"></div>\n    </ng-template>\n    <div class=\"container-fluid cu-brand\">\n      <h1 class=\"cu-logo\">\n        <a href=\"http://www.cornell.edu\">\n          <img class=\"sr-only\" alt=\"Cornell University\" width=\"245\" [src]=\"svgIconUrl\" height=\"62\" />\n        </a>\n      </h1>\n      <div class=\"cu-unit\">\n        <h2 *ngIf=\"title\">{{title}}</h2>\n        <ng-content select=\"[unit-title]\"></ng-content>\n        <h3 class=\"sans mat-h3\" *ngIf=\"subtitle\">{{subtitle}}</h3>\n      </div>\n      <ng-content></ng-content>\n    </div>\n  </header>\n  <div>\n"
+            "templateData": "<div [ngClass]=\"getClasses()\">\n  <header id=\"cu-header\">\n    <ng-template [ngIf]=\"logo == 'cu-45'\">\n      <div class=\"cu45-helper\"></div>\n    </ng-template>\n    <div class=\"container-fluid cu-brand\">\n      <h1 class=\"cu-logo\">\n        <a href=\"http://www.cornell.edu\">\n          <!-- <img class=\"sr-only\" alt=\"Cornell University\" width=\"245\" [src]=\"svgIconUrl\" height=\"62\" /> -->\n          <span class=\"sr-only\">Cornell University</span>\n        </a>\n      </h1>\n      <div class=\"cu-unit\">\n        <h2 *ngIf=\"title\">{{title}}</h2>\n        <ng-content select=\"[unit-title]\"></ng-content>\n        <h3 class=\"sans mat-h3\" *ngIf=\"subtitle\">{{subtitle}}</h3>\n      </div>\n      <ng-content></ng-content>\n    </div>\n  </header>\n</div>\n"
         },
         {
             "name": "LoadingComponent",
@@ -822,7 +889,7 @@
         },
         {
             "name": "MainComponent",
-            "id": "component-MainComponent-d949949fb9fad2016e11a2aa723555f661d004d84a730ac7a7abc2496db9f0bbd04cf1586b5d9704d8669877dbcea4e9f4eb0ede5b4231f8aba455db612c0196",
+            "id": "component-MainComponent-b9095495390e784bcf25a74230dd2a687e0b42bffbebd4392a93093461c070177b638d9763d30c28865df7f3bb116023c5566b7e3854313d747c4fbecdd9337c",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/main/main.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -834,13 +901,33 @@
                 "./main.component.scss"
             ],
             "styles": [],
-            "templateUrl": [
-                "./main.component.html"
-            ],
+            "template": "<div id=\"main-content\" class=\"band\">\n  <main\n    id=\"main\"\n    [ngClass]=\"['container-fluid', 'aria-target', paddingClass]\"\n    tabindex=\"-1\"\n  >\n    <ng-content></ng-content>\n  </main>\n</div>\n",
+            "templateUrl": [],
             "viewProviders": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "useTopPadding",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "paddingClass",
+                    "defaultValue": "'padding-top'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                }
+            ],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -849,16 +936,23 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-main',\n  templateUrl: './main.component.html',\n  styleUrls: ['./main.component.scss'],\n})\nexport class MainComponent {}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'lib-main',\n  template: `\n    <div id=\"main-content\" class=\"band\">\n      <main\n        id=\"main\"\n        [ngClass]=\"['container-fluid', 'aria-target', paddingClass]\"\n        tabindex=\"-1\"\n      >\n        <ng-content></ng-content>\n      </main>\n    </div>\n  `,\n  styleUrls: ['./main.component.scss'],\n})\nexport class MainComponent {\n  @Input() useTopPadding = true;\n  paddingClass = 'padding-top';\n\n  constructor() {\n    if (!this.useTopPadding) {\n      this.paddingClass = '';\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../styles.scss\";\n\n$footer-height: 527px;\n\narticle {\n  display: block;\n}\n\n.band {\n  line-height: 1.6;\n  width: 100%;\n}\n\n#main-content {\n  background: #fff;\n  overflow-x: hidden;\n  overflow-y: visible;\n}\n\n@media (min-width:868px) {\n  #main {\n    padding-top: 3.5em;\n    min-height: calc(100vh - $footer-height);\n  }\n}\n",
+                    "data": "@import \"../../../styles.scss\";\n\narticle {\n  display: block;\n}\n\n.band {\n  line-height: 1.6;\n  width: 100%;\n}\n\n#main-content {\n  background: #fff;\n  overflow-x: hidden;\n  overflow-y: visible;\n}\n\n#main.padding-top {\n  padding-top: 2.5em;\n}\n\n@media (min-width: $screen-mobile-min) {\n  #main.padding-top {\n    padding-top: 3.5em;\n  }\n}\n\n\n",
                     "styleUrl": "./main.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<div id=\"main-content\" class=\"band\">\n  <main id=\"main\" class=\"container-fluid aria-target\" tabindex=\"-1\">\n    <ng-content></ng-content>\n  </main>\n</div>\n"
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 20
+            }
         },
         {
             "name": "MainFooterComponent",
@@ -1433,7 +1527,7 @@
         },
         {
             "name": "SideMenuComponent",
-            "id": "component-SideMenuComponent-740bd5a6f9dace5375b486d99e1ab9deadc6545c31a1ddfb486b5984dc4c5d69d8897d2db403cdce472085e4108960e84f30a94a4f4eb4bd99be0ec37dc97e10",
+            "id": "component-SideMenuComponent-1c4e98b7b64ee024938f06006a6996df3bd564c35cb388941fd55391edeeabe54cd9ce225ddcdc58b579f327e6bc9f0653f84514e8eec9d856f425c8b2f683bf",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/side-menu/side-menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1451,10 +1545,46 @@
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "imgHeight",
+                    "defaultValue": "'45px'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "isMobileLayout",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "mode",
+                    "defaultValue": "'side'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "MatDrawerMode",
+                    "decorators": []
+                },
+                {
+                    "name": "opened",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
                     "name": "routes",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 11,
                     "type": "Routes",
                     "decorators": []
                 },
@@ -1463,7 +1593,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -1472,7 +1602,7 @@
                     "defaultValue": "'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 14,
                     "type": "string",
                     "decorators": []
                 },
@@ -1481,7 +1611,7 @@
                     "defaultValue": "'Admin Toolbar'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 12,
                     "type": "string",
                     "decorators": []
                 }
@@ -1490,13 +1620,13 @@
             "propertiesClass": [
                 {
                     "name": "options",
-                    "defaultValue": "{\n    autoCollapseOnClick: false,\n    autoCollapseOnHover: false,\n    sidenavCollapsed: false,\n  }",
+                    "defaultValue": "{\n    autoCollapseOnClick: this.isMobileLayout ? true : false,\n    autoCollapseOnHover: false,\n    sidenavCollapsed: false,\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 21
                 }
             ],
             "methodsClass": [
@@ -1541,7 +1671,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 62,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1557,16 +1687,6 @@
                     ]
                 },
                 {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 28,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
-                {
                     "name": "routeHasActiveChild",
                     "args": [
                         {
@@ -1579,7 +1699,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 77,
+                    "line": 76,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1602,11 +1722,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Routes, Route, ActivatedRoute } from '@angular/router';\n\n@Component({\n  selector: 'lib-side-menu',\n  templateUrl: './side-menu.component.html',\n  styleUrls: ['./side-menu.component.scss'],\n})\nexport class SideMenuComponent implements OnInit {\n  @Input() routes!: Routes;\n  @Input() title = 'Admin Toolbar';\n  @Input() showToggle = true;\n  @Input() svgIconUrl =\n    'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';\n\n  options = {\n    autoCollapseOnClick: false,\n    autoCollapseOnHover: false,\n    sidenavCollapsed: false,\n  };\n\n  constructor(\n    // @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {\n    this.showToggle = true;\n  }\n  ngOnInit(): void {\n    // this.routes = this.data.routes?.filter(\n    //   (route) => route.data && route.data['menu']\n    // );\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    console.log('handleExpandClick', contentClass);\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    console.log('handleFocus', contentClass);\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    const _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (let i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { MatDrawerMode } from '@angular/material/sidenav';\nimport { Routes, Route, ActivatedRoute } from '@angular/router';\n\n@Component({\n  selector: 'lib-side-menu',\n  templateUrl: './side-menu.component.html',\n  styleUrls: ['./side-menu.component.scss'],\n})\nexport class SideMenuComponent {\n  @Input() routes!: Routes;\n  @Input() title = 'Admin Toolbar';\n  @Input() showToggle = true;\n  @Input() svgIconUrl =\n    'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';\n  @Input() imgHeight = '45px';\n  @Input() mode: MatDrawerMode = 'side'; // 'over' | 'push' | 'side'\n  @Input() opened = true;\n  @Input() isMobileLayout = false;\n\n  options = {\n    autoCollapseOnClick: this.isMobileLayout ? true : false,\n    autoCollapseOnHover: false,\n    sidenavCollapsed: false,\n  };\n\n  constructor(\n    // @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {\n    this.showToggle = true;\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    console.log('handleExpandClick', contentClass);\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    console.log('handleFocus', contentClass);\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    const _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (let i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n\n  // handleLinkClick() {\n  //   if (this.isMobileLayout) {\n  //     console.log('handleLinkClick');\n  //     this.opened = false;\n  //   }\n  // }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".pad-left {\n  padding-left: 16px;\n}\n\n.mat-drawer {\n  min-width: 200px;\n  background-color: #f7f7f7;\n}\n\n.mat-list-base .mat-list-item {\n  font-size: 18px;\n}\n\n.sidebar-logo {\n  img {\n    padding-right: 8px;\n  }\n}\n\n.mat-nav-list a {\n  display: flex;\n  align-items: center;\n}\n\n.expand-more {\n  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n\n.collapsible {\n  width: 100%;\n}\n\n.collapsible[aria-expanded=\"true\"] {\n  .expand-more {\n    transform: rotate(180deg);\n  }\n}\n\n.flex-grow {\n  flex-grow: 1;\n}\n\n.content {\n  background: rgba(0, 0, 0, 0.1);\n  max-height: 0;\n  overflow: hidden;\n  transition: max-height 0.2s ease-out;\n\n  // a {\n  //   padding: 0 36px;\n  // }\n}\n\nmat-list-item.active {\n  background: rgba(0, 0, 0, 0.2);\n  &:focus {\n    background: rgba(0, 0, 0, 0.2);\n  }\n}\n.mat-list-base{\n  padding-top: 0px;\n}\n",
+                    "data": ".pad-left {\n  padding-left: 16px;\n}\n\n.mat-drawer {\n  min-width: 200px;\n  background-color: #f7f7f7;\n}\n\n.mat-drawer.mobile {\n  min-width: 80%;\n}\n\n.mat-list-base .mat-list-item {\n  font-size: 18px;\n}\n\n.sidebar-logo {\n  a {\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    color: white;\n    text-decoration: none;\n    &:hover {\n      text-decoration: underline;\n    }\n    img {\n      // width: 50%;\n      // max-width: 75px;\n      padding-right: 8px;\n    }\n  }\n}\n\n.mat-nav-list a {\n  display: flex;\n  align-items: center;\n}\n\n.expand-more {\n  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n\n.collapsible {\n  width: 100%;\n}\n\n.collapsible[aria-expanded=\"true\"] {\n  .expand-more {\n    transform: rotate(180deg);\n  }\n}\n\n.flex-grow {\n  flex-grow: 1;\n}\n\n.content {\n  background: rgba(0, 0, 0, 0.1);\n  max-height: 0;\n  overflow: hidden;\n  transition: max-height 0.2s ease-out;\n}\n\nmat-list-item.active {\n  background: rgba(0, 0, 0, 0.2);\n\n  &:focus {\n    background: rgba(0, 0, 0, 0.2);\n  }\n}\n\n.mat-list-base {\n  padding-top: 0px;\n}\n",
                     "styleUrl": "./side-menu.component.scss"
                 }
             ],
@@ -1624,7 +1744,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 20,
+                "line": 25,
                 "jsdoctags": [
                     {
                         "name": "activeRouter",
@@ -1637,10 +1757,7 @@
                     }
                 ]
             },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<mat-drawer-container>\n  <mat-drawer #drawer opened class=\"sidenav\" mode=\"side\" autosize>\n\n    <mat-toolbar class=\"sidebar-logo\" color=\"primary\">\n      <img alt=\"Cornell University\" [src]=\"svgIconUrl\" height=\"45\">\n      {{title}}\n    </mat-toolbar>\n\n    <mat-nav-list>\n      <ng-container *ngFor=\"let route of routes\">\n        <ng-container *ngIf=\"route.data && route.data['menu'] == 'admin'\">\n\n          <mat-list-item *ngIf=\"!route.children; else parent \"  [routerLink]=\"route.path\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\">\n            <a>\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            </a>\n          </mat-list-item>\n\n          <ng-template #parent>\n            <mat-list-item [ngClass]=\"routeHasActiveChild(route)\" [ngClass]=\"['collapsible', route.path]\"\n              (click)=\"handleExpandClick(route.path)\">\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n              <span class=\"flex-grow\"></span>\n              <mat-icon class=\"expand-more\">expand_more\n              </mat-icon>\n\n            </mat-list-item>\n\n            <div [ngClass]=\"['content', route.path]\">\n              <ng-container *ngFor=\"let child of route.children\">\n                <mat-list-item routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\">\n                  <a routerLink=\"{{route.path}}/{{child.path}}\"\n                  (focus)=\"handleFocus(child.path)\"\n                  class=\"pad-left\">\n                    <mat-icon matListIcon *ngIf=\"child.data && child.data['icon']\">{{ child.data['icon'] }}</mat-icon>\n                    {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n                  </a>\n                </mat-list-item>\n              </ng-container>\n            </div>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n\n    </mat-nav-list>\n\n  </mat-drawer>\n\n  <mat-drawer-content>\n    <lib-admin-toolbar (toggleSidenav)=\"drawer.toggle()\" (toggleSidenavNotice)=\"drawer.toggle()\">\n      <ng-content select=\"[toolbar]\"></ng-content>\n    </lib-admin-toolbar>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n\n\n</mat-drawer-container>\n"
+            "templateData": "<mat-drawer-container>\n  <mat-drawer #drawer [opened]=\"opened\" class=\"sidenav\" [mode]=\"mode\" autosize [ngClass]=\"{ 'mobile': isMobileLayout }\">\n\n    <mat-toolbar class=\"sidebar-logo\" color=\"primary\">\n      <a routerLink=\"/\">\n        <img alt=\"Cornell University\" [src]=\"svgIconUrl\" height=\"{{imgHeight}}\">\n        {{title}}\n      </a>\n    </mat-toolbar>\n\n    <mat-nav-list>\n      <ng-container *ngFor=\"let route of routes\">\n        <ng-container *ngIf=\"route.data && route.data['menu'] == 'admin'\">\n\n          <mat-list-item *ngIf=\"!route.children; else parent \" [routerLink]=\"route.path\" routerLinkActive=\"active\"\n            [routerLinkActiveOptions]=\"{exact: true}\">\n            <a>\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            </a>\n          </mat-list-item>\n\n          <ng-template #parent>\n            <mat-list-item [ngClass]=\"routeHasActiveChild(route)\" [ngClass]=\"['collapsible', route.path]\"\n              (click)=\"handleExpandClick(route.path)\">\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n              <span class=\"flex-grow\"></span>\n              <mat-icon class=\"expand-more\">expand_more\n              </mat-icon>\n\n            </mat-list-item>\n\n            <div [ngClass]=\"['content', route.path]\">\n              <ng-container *ngFor=\"let child of route.children\">\n                <mat-list-item routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\">\n                  <a routerLink=\"{{route.path}}/{{child.path}}\" (focus)=\"handleFocus(child.path)\" class=\"pad-left\">\n                    <mat-icon matListIcon *ngIf=\"child.data && child.data['icon']\">{{ child.data['icon'] }}</mat-icon>\n                    {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n                  </a>\n                </mat-list-item>\n              </ng-container>\n            </div>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n\n    </mat-nav-list>\n\n  </mat-drawer>\n\n  <mat-drawer-content>\n    <lib-admin-toolbar (toggleSidenav)=\"drawer.toggle()\" (toggleSidenavNotice)=\"drawer.toggle()\">\n      <ng-content select=\"[toolbar]\"></ng-content>\n    </lib-admin-toolbar>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n\n\n</mat-drawer-container>\n"
         },
         {
             "name": "SkipLinkComponent",
@@ -1684,7 +1801,7 @@
         },
         {
             "name": "SubFooterComponent",
-            "id": "component-SubFooterComponent-d6c08ea9cbf6ec62d8eeebb5b324c0e261ffefa2346f7306d3cb51abd69249c1d33b73aac2b0b300aa8988e899dcd4dde452b0d455b9360c9f87ee9e01b75026",
+            "id": "component-SubFooterComponent-a6032d118a237f23c3c9281e52580505f778f20b36b3e987b19516420573b3223501f26293e55efa49b69ef74e75a9c00dbdac830764b66340f5910cb156cea5",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/sub-footer/sub-footer.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1705,7 +1822,7 @@
                     "name": "isMobileLayout",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 9,
+                    "line": 10,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -1720,16 +1837,24 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'lib-sub-footer',\n  templateUrl: './sub-footer.component.html',\n  styleUrls: ['./sub-footer.component.scss'],\n})\nexport class SubFooterComponent {\n  @Input() isMobileLayout!: boolean;\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'lib-sub-footer',\n  templateUrl: './sub-footer.component.html',\n  styleUrls: ['./sub-footer.component.scss'],\n})\nexport class SubFooterComponent {\n  // deprecated\n  @Input() isMobileLayout?: boolean;\n\n  constructor() {\n    if (this.isMobileLayout !== undefined) {\n      console.log(\n        \"isMobileLayout is deprecated. Use the 'mobile' class on the host element instead.\"\n      );\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../styles.scss\";\n.sub-footer {\n  line-height: 1.6;\n  color: #bbb;\n  font-size: 13px;\n  position: relative;\n  z-index: 2;\n  float: left;\n  width: 100%;\n  display: block;\n  background: #292929;\n  padding: 20px 0;\n}\n\n.vertical-align {\n  display: flex;\n  align-items: center;\n}\n\np {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\na {\n  color: #fff;\n  text-decoration-color: hsla(0, 0%, 100%, .4);\n\n  &:focus {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:hover {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:active {\n    color: #666;\n    text-decoration-color: hsla(0, 0%, 100%, .4);\n  }\n}\n\n.icon {\n  margin-right: .5em;\n}\n",
+                    "data": "@import \"../../../styles.scss\";\n.sub-footer {\n  line-height: 1.6;\n  color: #bbb;\n  font-size: 13px;\n  position: relative;\n  z-index: 2;\n  float: left;\n  width: 100%;\n  display: block;\n  background: #292929;\n  padding: 20px 0;\n}\n\n.vertical-align {\n  display: flex;\n  align-items: center;\n}\n\np {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\na {\n  color: #fff;\n  text-decoration-color: hsla(0, 0%, 100%, .4);\n\n  &:focus {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:hover {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:active {\n    color: #666;\n    text-decoration-color: hsla(0, 0%, 100%, .4);\n  }\n}\n\n.icon {\n  margin-right: .5em;\n}\n\n@media (max-width: $screen-sm-min) {\n  .icon {\n    display: none;\n  }\n}\n",
                     "styleUrl": "./sub-footer.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"sub-footer\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n\n      <div class=\"vertical-align\">\n        <mat-icon *ngIf=\"!isMobileLayout\" class=\"icon\">accessibility_new</mat-icon>\n        <p class=\"accessibility-message\">\n          If you have a disability and are having trouble accessing information on this\n          website or need materials in an alternate format, contact <a\n            href=\"mailto:web-accessibility@cornell.edu\">web-accessibility@cornell.edu</a> for assistance.\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n"
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 10
+            },
+            "templateData": "<div class=\"sub-footer\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"vertical-align\">\n        <mat-icon class=\"icon \">accessibility_new</mat-icon>\n        <p class=\"accessibility-message\">\n          If you have a disability and are having trouble accessing information on this\n          website or need materials in an alternate format, contact <a\n            href=\"mailto:web-accessibility@cornell.edu\">web-accessibility@cornell.edu</a> for assistance.\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "TwoColumnComponent",
@@ -2120,9 +2245,6 @@
                         },
                         {
                             "name": "AnnouncementComponent"
-                        },
-                        {
-                            "name": "CuNgDesignLibraryComponent"
                         },
                         {
                             "name": "FooterComponent"
@@ -3144,7 +3266,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/sub-footer.stories.ts",
+                "file": "stories/skip-link.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3154,7 +3276,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/skip-link.stories.ts",
+                "file": "stories/sub-footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -3267,7 +3389,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<GenericComponent>",
-                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes' [toolbarTitle]='toolbarTitle' svgIconUrl='https://localhost:4200/assets/Cornell-Store-Logo.png' >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout\n  [routes]='routes'\n  toolbarTitle='Admin'\n  imgHeight='45'\n  svgIconUrl='https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg'\n  [isMobileLayout]=\"true\"\n  >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
             },
             {
                 "name": "Template",
@@ -3297,7 +3419,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<GenericComponent>",
-                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header title=\"Example Title\" subtitle=\"A short description usually longer than the title\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer>\n    <div primary>\n      <p>\n        Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n      </p>\n      <p>\n        <a href=\"https://www.cornell.edu/privacy-policy\">Privacy Policy</a>\n      </p>\n    </div>\n    <div secondary>\n      <h2 class=\"h5\">Student &amp; Campus Life</h2>\n      <p>311 Day Hall<br>\n        Cornell University<br>\n        Ithaca, NY 14853</p>\n      </div>\n  </lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header title=\"Example Title\" subtitle=\"A short description usually longer than the title\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer>\n    <div primary>\n      <p>\n        Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n      </p>\n      <p>\n        <a href=\"https://www.cornell.edu/privacy-policy\">Privacy Policy</a>\n      </p>\n    </div>\n    <div secondary>\n      <h2 class=\"h5\">Student &amp; Campus Life</h2>\n      <p>311 Day Hall<br>\n        Cornell University<br>\n        Ithaca, NY 14853</p>\n      </div>\n  </lib-main-footer>\n  <lib-sub-footer ></lib-sub-footer>\n</lib-footer>\n`,\n})"
             },
             {
                 "name": "Template",
@@ -3327,7 +3449,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<CuNgDesignLibraryComponent>",
-                "defaultValue": "(\n  args: CuNgDesignLibraryComponent\n) => ({\n  props: args,\n})"
+                "defaultValue": "(\n  args: CuNgDesignLibraryComponent\n) => ({\n  props: args,\n  template: `\n  <lib-cu-ng-design-library>\n    <div header>\n      <div >\n        <a href=\"#\"><h2 class=\"h3\">{{title}}</h2></a>\n      </div>\n    </div>\n    <div content>This is content</div>\n    <div footer>This is the footer</div>\n  </lib-cu-ng-design-library>\n  `,\n})"
             },
             {
                 "name": "Template",
@@ -3403,21 +3525,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/sub-footer.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<SubFooterComponent>",
-                "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/skip-link.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<SkipLinkComponent>",
                 "defaultValue": "(args: SkipLinkComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/sub-footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<SubFooterComponent>",
+                "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -3537,7 +3659,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<GenericComponent>",
-                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout [routes]='routes' [toolbarTitle]='toolbarTitle' svgIconUrl='https://localhost:4200/assets/Cornell-Store-Logo.png' >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout\n  [routes]='routes'\n  toolbarTitle='Admin'\n  imgHeight='45'\n  svgIconUrl='https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg'\n  [isMobileLayout]=\"true\"\n  >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
                 }
             ],
             "stories/Routes.ts": [
@@ -3812,7 +3934,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<CuNgDesignLibraryComponent>",
-                    "defaultValue": "(\n  args: CuNgDesignLibraryComponent\n) => ({\n  props: args,\n})"
+                    "defaultValue": "(\n  args: CuNgDesignLibraryComponent\n) => ({\n  props: args,\n  template: `\n  <lib-cu-ng-design-library>\n    <div header>\n      <div >\n        <a href=\"#\"><h2 class=\"h3\">{{title}}</h2></a>\n      </div>\n    </div>\n    <div content>This is content</div>\n    <div footer>This is the footer</div>\n  </lib-cu-ng-design-library>\n  `,\n})"
                 }
             ],
             "stories/loading.stories.ts": [
@@ -4009,28 +4131,6 @@
                     "defaultValue": "(args: SideMenuComponent) => ({\n  props: args,\n  template: `\n  <lib-side-menu [routes]=\"routes\">\n    <router-outlet></router-outlet>\n  </lib-side-menu>\n  `,\n})"
                 }
             ],
-            "stories/sub-footer.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/sub-footer.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/sub-footer.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<SubFooterComponent>",
-                    "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
-                }
-            ],
             "stories/skip-link.stories.ts": [
                 {
                     "name": "Default",
@@ -4051,6 +4151,28 @@
                     "deprecationMessage": "",
                     "type": "Story<SkipLinkComponent>",
                     "defaultValue": "(args: SkipLinkComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "stories/sub-footer.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/sub-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/sub-footer.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<SubFooterComponent>",
+                    "defaultValue": "(args: SubFooterComponent) => ({\n  props: args,\n})"
                 }
             ],
             "stories/two-column.stories.ts": [
@@ -4116,7 +4238,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<GenericComponent>",
-                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header title=\"Example Title\" subtitle=\"A short description usually longer than the title\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer>\n    <div primary>\n      <p>\n        Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n      </p>\n      <p>\n        <a href=\"https://www.cornell.edu/privacy-policy\">Privacy Policy</a>\n      </p>\n    </div>\n    <div secondary>\n      <h2 class=\"h5\">Student &amp; Campus Life</h2>\n      <p>311 Day Hall<br>\n        Cornell University<br>\n        Ithaca, NY 14853</p>\n      </div>\n  </lib-main-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header title=\"Example Title\" subtitle=\"A short description usually longer than the title\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer>\n    <div primary>\n      <p>\n        Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n      </p>\n      <p>\n        <a href=\"https://www.cornell.edu/privacy-policy\">Privacy Policy</a>\n      </p>\n    </div>\n    <div secondary>\n      <h2 class=\"h5\">Student &amp; Campus Life</h2>\n      <p>311 Day Hall<br>\n        Cornell University<br>\n        Ithaca, NY 14853</p>\n      </div>\n  </lib-main-footer>\n  <lib-sub-footer ></lib-sub-footer>\n</lib-footer>\n`,\n})"
                 }
             ],
             "projects/cu-ng-design-library/src/lib/shared/modules/material/material.module.ts": [
@@ -4176,9 +4298,18 @@
     },
     "routes": [],
     "coverage": {
-        "count": 0,
+        "count": 1,
         "status": "low",
         "files": [
+            {
+                "filePath": ".local/cu-ng-design-library.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CuNgDesignLibraryComponent",
+                "coveragePercent": 7,
+                "coverageCount": "1/13",
+                "status": "low"
+            },
             {
                 "filePath": "projects/cu-ng-design-library/src/lib/components/alert/alert.component.ts",
                 "type": "component",
@@ -4221,7 +4352,7 @@
                 "linktype": "component",
                 "name": "AdminLayoutComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -4257,7 +4388,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -4284,7 +4415,7 @@
                 "linktype": "component",
                 "name": "MainComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -4338,7 +4469,7 @@
                 "linktype": "component",
                 "name": "SideMenuComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/14",
                 "status": "low"
             },
             {
@@ -4356,7 +4487,7 @@
                 "linktype": "component",
                 "name": "SubFooterComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -4412,9 +4543,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "CuNgDesignLibraryComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/13",
-                "status": "low"
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
             },
             {
                 "filePath": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.service.ts",

@@ -2,10 +2,10 @@
   <mat-drawer #drawer [opened]="opened" class="sidenav" [mode]="mode" autosize [ngClass]="{ 'mobile': isMobileLayout }">
 
     <mat-toolbar class="sidebar-logo" color="primary">
-        <a routerLink="/">
-          <img alt="Cornell University" [src]="svgIconUrl" height="{{imgHeight}}">
-          {{title}}
-        </a>
+      <a routerLink="/">
+        <img alt="Cornell University" [src]="svgIconUrl" height="{{imgHeight}}">
+        {{title}}
+      </a>
     </mat-toolbar>
 
     <mat-nav-list>
@@ -13,7 +13,7 @@
         <ng-container *ngIf="route.data && route.data['menu'] == 'admin'">
 
           <mat-list-item *ngIf="!route.children; else parent " [routerLink]="route.path" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">
+            [routerLinkActiveOptions]="{exact: true}" (click)="handleLinkClick()">
             <a>
               <mat-icon matListIcon *ngIf="route.data['icon']">{{route.data['icon']}}</mat-icon>
               {{route.data && route.data['title'] ? route.data['title'] : route.path}}
@@ -33,7 +33,8 @@
 
             <div [ngClass]="['content', route.path]">
               <ng-container *ngFor="let child of route.children">
-                <mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                  (click)="handleLinkClick()">
                   <a routerLink="{{route.path}}/{{child.path}}" (focus)="handleFocus(child.path)" class="pad-left">
                     <mat-icon matListIcon *ngIf="child.data && child.data['icon']">{{ child.data['icon'] }}</mat-icon>
                     {{child.data && child.data['title'] ? child.data['title'] : child.path}}
@@ -50,11 +51,9 @@
   </mat-drawer>
 
   <mat-drawer-content>
-    <lib-admin-toolbar (toggleSidenav)="drawer.toggle()" (toggleSidenavNotice)="drawer.toggle()">
+    <lib-admin-toolbar (toggleSidenav)="handleToggleClick()" (toggleSidenavNotice)="handleToggleClick()">
       <ng-content select="[toolbar]"></ng-content>
     </lib-admin-toolbar>
     <ng-content></ng-content>
   </mat-drawer-content>
-
-
 </mat-drawer-container>

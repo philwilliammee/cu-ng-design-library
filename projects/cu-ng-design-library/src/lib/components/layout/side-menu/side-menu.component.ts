@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { Routes, Route, ActivatedRoute } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Routes, Route, ActivatedRoute } from '@angular/router';
   templateUrl: './side-menu.component.html',
   styleUrls: ['./side-menu.component.scss'],
 })
-export class SideMenuComponent {
+export class SideMenuComponent implements OnInit {
   @Input() routes!: Routes;
   @Input() title = 'Admin Toolbar';
   @Input() showToggle = true;
@@ -18,17 +18,25 @@ export class SideMenuComponent {
   @Input() opened = true;
   @Input() isMobileLayout = false;
 
-  options = {
-    autoCollapseOnClick: false,
-    autoCollapseOnHover: false,
-    sidenavCollapsed: false,
-  };
+  // options = {
+  //   autoCollapseOnClick: false,
+  //   autoCollapseOnHover: false,
+  //   sidenavCollapsed: false,
+  // };
 
   constructor(
     // @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private activeRouter: ActivatedRoute
   ) {
     this.showToggle = true;
+  }
+
+  ngOnInit(): void {
+    // this.options.autoCollapseOnClick = this.isMobileLayout;
+    if (this.isMobileLayout) {
+      this.mode = 'over';
+      this.opened = false;
+    }
   }
 
   // @todo do this in a more angular way.
@@ -46,7 +54,6 @@ export class SideMenuComponent {
         content.style.maxHeight = content?.scrollHeight + 'px';
       }
     }
-
     // toggle aria attributes
     const collapsible = document.querySelector('.collapsible.' + contentClass);
     if (collapsible) {
@@ -88,5 +95,15 @@ export class SideMenuComponent {
       }
     }
     return '';
+  }
+
+  handleLinkClick() {
+    if (this.isMobileLayout) {
+      this.handleToggleClick();
+    }
+  }
+
+  handleToggleClick() {
+    this.opened = !this.opened;
   }
 }
