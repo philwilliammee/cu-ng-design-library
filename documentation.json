@@ -239,7 +239,7 @@
         },
         {
             "name": "AdminToolbarComponent",
-            "id": "component-AdminToolbarComponent-400d4153804fd2b2776f0b9a044132721b9566844b3069844edaae16e76440e9c46c9a3c165aee77613016807001503005d309b3f6f12141803ef9005a5f655e",
+            "id": "component-AdminToolbarComponent-237a123e0da277611253082c485bafccd7511990451da811de465d88ffddc7e3c45ee9043cbd117ad12c7e7c854dff8104d21dee541578eddda0d74b32020ccc",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/admin-toolbar/admin-toolbar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -251,9 +251,8 @@
                 "./admin-toolbar.component.scss"
             ],
             "styles": [],
-            "templateUrl": [
-                "./admin-toolbar.component.html"
-            ],
+            "template": "<mat-toolbar color=\"primary\">\n  <button\n    mat-icon-button\n    class=\"matero-toolbar-button\"\n    *ngIf=\"showToggle\"\n    (click)=\"toggleSidenav.emit()\"\n  >\n    <mat-icon>menu</mat-icon>\n  </button>\n  <span class=\"spacer\"></span>\n  <ng-content></ng-content>\n</mat-toolbar>\n",
+            "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
                 {
@@ -261,7 +260,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 9,
+                    "line": 22,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -272,7 +271,7 @@
                     "defaultValue": "new EventEmitter<void>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 23,
                     "type": "EventEmitter"
                 },
                 {
@@ -280,23 +279,12 @@
                     "defaultValue": "new EventEmitter<void>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 24,
                     "type": "EventEmitter"
                 }
             ],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 15,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -304,7 +292,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n@Component({\n  selector: 'lib-admin-toolbar',\n  templateUrl: './admin-toolbar.component.html',\n  styleUrls: ['./admin-toolbar.component.scss'],\n})\nexport class AdminToolbarComponent implements OnInit {\n  @Input() showToggle = true;\n  @Output() toggleSidenav = new EventEmitter<void>();\n  @Output() toggleSidenavNotice = new EventEmitter<void>();\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'lib-admin-toolbar',\n  template: `\n    <mat-toolbar color=\"primary\">\n      <button\n        mat-icon-button\n        class=\"matero-toolbar-button\"\n        *ngIf=\"showToggle\"\n        (click)=\"toggleSidenav.emit()\"\n      >\n        <mat-icon>menu</mat-icon>\n      </button>\n      <span class=\"spacer\"></span>\n      <ng-content></ng-content>\n    </mat-toolbar>\n  `,\n  styleUrls: ['./admin-toolbar.component.scss'],\n})\nexport class AdminToolbarComponent {\n  @Input() showToggle = true;\n  @Output() toggleSidenav = new EventEmitter<void>();\n  @Output() toggleSidenavNotice = new EventEmitter<void>();\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -312,19 +300,7 @@
                     "styleUrl": "./admin-toolbar.component.scss"
                 }
             ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 11
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<mat-toolbar color=\"primary\">\n  <button mat-icon-button class=\"matero-toolbar-button\" *ngIf=\"showToggle\" (click)=\"toggleSidenav.emit()\">\n    <mat-icon>menu</mat-icon>\n  </button>\n  <span class=\"spacer\"></span>\n  <!-- <span style=\"width:100%; text-align:center\">\n    {{title}}\n  </span> -->\n  <ng-content></ng-content>\n\n</mat-toolbar>\n"
+            "stylesData": ""
         },
         {
             "name": "AlertComponent",
@@ -1527,7 +1503,7 @@
         },
         {
             "name": "SideMenuComponent",
-            "id": "component-SideMenuComponent-1c4e98b7b64ee024938f06006a6996df3bd564c35cb388941fd55391edeeabe54cd9ce225ddcdc58b579f327e6bc9f0653f84514e8eec9d856f425c8b2f683bf",
+            "id": "component-SideMenuComponent-4e0d5891d3af55e4f17eff945dde4b22801ae4fd5fe0bc187e4bc0ae92b8176aba83f42e54d73489dcd82fac786152eaff6b9ded512da3fbbe2e0c78fd12f38e",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/side-menu/side-menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1617,18 +1593,7 @@
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "options",
-                    "defaultValue": "{\n    autoCollapseOnClick: this.isMobileLayout ? true : false,\n    autoCollapseOnHover: false,\n    sidenavCollapsed: false,\n  }",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "optional": false,
-                    "description": "",
-                    "line": 21
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [
                 {
                     "name": "handleExpandClick",
@@ -1643,7 +1608,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35,
+                    "line": 43,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1671,7 +1636,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 61,
+                    "line": 69,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1687,6 +1652,36 @@
                     ]
                 },
                 {
+                    "name": "handleLinkClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 100,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "handleToggleClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 106,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
                     "name": "routeHasActiveChild",
                     "args": [
                         {
@@ -1699,7 +1694,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 76,
+                    "line": 84,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1722,11 +1717,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { MatDrawerMode } from '@angular/material/sidenav';\nimport { Routes, Route, ActivatedRoute } from '@angular/router';\n\n@Component({\n  selector: 'lib-side-menu',\n  templateUrl: './side-menu.component.html',\n  styleUrls: ['./side-menu.component.scss'],\n})\nexport class SideMenuComponent {\n  @Input() routes!: Routes;\n  @Input() title = 'Admin Toolbar';\n  @Input() showToggle = true;\n  @Input() svgIconUrl =\n    'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';\n  @Input() imgHeight = '45px';\n  @Input() mode: MatDrawerMode = 'side'; // 'over' | 'push' | 'side'\n  @Input() opened = true;\n  @Input() isMobileLayout = false;\n\n  options = {\n    autoCollapseOnClick: this.isMobileLayout ? true : false,\n    autoCollapseOnHover: false,\n    sidenavCollapsed: false,\n  };\n\n  constructor(\n    // @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {\n    this.showToggle = true;\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    console.log('handleExpandClick', contentClass);\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    console.log('handleFocus', contentClass);\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    const _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (let i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n\n  // handleLinkClick() {\n  //   if (this.isMobileLayout) {\n  //     console.log('handleLinkClick');\n  //     this.opened = false;\n  //   }\n  // }\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MatDrawerMode } from '@angular/material/sidenav';\nimport { Routes, Route, ActivatedRoute } from '@angular/router';\n\n@Component({\n  selector: 'lib-side-menu',\n  templateUrl: './side-menu.component.html',\n  styleUrls: ['./side-menu.component.scss'],\n})\nexport class SideMenuComponent implements OnInit {\n  @Input() routes!: Routes;\n  @Input() title = 'Admin Toolbar';\n  @Input() showToggle = true;\n  @Input() svgIconUrl =\n    'https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg';\n  @Input() imgHeight = '45px';\n  @Input() mode: MatDrawerMode = 'side'; // 'over' | 'push' | 'side'\n  @Input() opened = true;\n  @Input() isMobileLayout = false;\n\n  // options = {\n  //   autoCollapseOnClick: false,\n  //   autoCollapseOnHover: false,\n  //   sidenavCollapsed: false,\n  // };\n\n  constructor(\n    // @Inject(MAT_DIALOG_DATA) public data: DialogData,\n    private activeRouter: ActivatedRoute\n  ) {\n    this.showToggle = true;\n  }\n\n  ngOnInit(): void {\n    // this.options.autoCollapseOnClick = this.isMobileLayout;\n    if (this.isMobileLayout) {\n      this.mode = 'over';\n      this.opened = false;\n    }\n  }\n\n  // @todo do this in a more angular way.\n  handleExpandClick(contentClass: string | undefined): void {\n    console.log('handleExpandClick', contentClass);\n    // slide opn and close\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n\n    if (content) {\n      if (content?.style.maxHeight) {\n        content.style.maxHeight = '';\n      } else {\n        content.style.maxHeight = content?.scrollHeight + 'px';\n      }\n    }\n    // toggle aria attributes\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      // toggle aria expanded attribute\n      if (collapsible.getAttribute('aria-expanded') === 'true') {\n        collapsible.setAttribute('aria-expanded', 'false');\n      } else {\n        collapsible.setAttribute('aria-expanded', 'true');\n      }\n    }\n  }\n\n  handleFocus(contentClass: string | undefined): void {\n    console.log('handleFocus', contentClass);\n    const content = document.querySelector(\n      '.content.' + contentClass\n    ) as HTMLElement;\n    if (content) {\n      content.style.maxHeight = content?.scrollHeight + 'px';\n    }\n\n    const collapsible = document.querySelector('.collapsible.' + contentClass);\n    if (collapsible) {\n      collapsible.setAttribute('aria-expanded', 'true');\n    }\n  }\n\n  routeHasActiveChild(route: Route): string {\n    const _activeChild = this.activeRouter.children.length;\n    if (_activeChild != 0) {\n      for (let i = 0; i < _activeChild; i++) {\n        if (this.activeRouter.children[i].outlet === 'primary') {\n          if (\n            this.activeRouter.children[i].snapshot.url[0].path === route.path\n          ) {\n            return 'active-parent';\n          }\n        }\n      }\n    }\n    return '';\n  }\n\n  handleLinkClick() {\n    if (this.isMobileLayout) {\n      this.handleToggleClick();\n    }\n  }\n\n  handleToggleClick() {\n    this.opened = !this.opened;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".pad-left {\n  padding-left: 16px;\n}\n\n.mat-drawer {\n  min-width: 200px;\n  background-color: #f7f7f7;\n}\n\n.mat-drawer.mobile {\n  min-width: 80%;\n}\n\n.mat-list-base .mat-list-item {\n  font-size: 18px;\n}\n\n.sidebar-logo {\n  a {\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    color: white;\n    text-decoration: none;\n    &:hover {\n      text-decoration: underline;\n    }\n    img {\n      // width: 50%;\n      // max-width: 75px;\n      padding-right: 8px;\n    }\n  }\n}\n\n.mat-nav-list a {\n  display: flex;\n  align-items: center;\n}\n\n.expand-more {\n  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n\n.collapsible {\n  width: 100%;\n}\n\n.collapsible[aria-expanded=\"true\"] {\n  .expand-more {\n    transform: rotate(180deg);\n  }\n}\n\n.flex-grow {\n  flex-grow: 1;\n}\n\n.content {\n  background: rgba(0, 0, 0, 0.1);\n  max-height: 0;\n  overflow: hidden;\n  transition: max-height 0.2s ease-out;\n}\n\nmat-list-item.active {\n  background: rgba(0, 0, 0, 0.2);\n\n  &:focus {\n    background: rgba(0, 0, 0, 0.2);\n  }\n}\n\n.mat-list-base {\n  padding-top: 0px;\n}\n",
+                    "data": ".pad-left {\n  padding-left: 16px;\n}\n\n.mat-drawer {\n  min-width: 200px;\n  background-color: #f7f7f7;\n}\n\n.mat-drawer.mobile {\n  // min-width: 80%;\n}\n\n.mat-list-base .mat-list-item {\n  font-size: 18px;\n}\n\n.sidebar-logo {\n  a {\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    color: white;\n    text-decoration: none;\n    &:hover {\n      text-decoration: underline;\n    }\n    img {\n      // width: 50%;\n      // max-width: 75px;\n      padding-right: 8px;\n    }\n  }\n}\n\n.mat-nav-list a {\n  display: flex;\n  align-items: center;\n}\n\n.expand-more {\n  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n\n.collapsible {\n  width: 100%;\n}\n\n.collapsible[aria-expanded=\"true\"] {\n  .expand-more {\n    transform: rotate(180deg);\n  }\n}\n\n.flex-grow {\n  flex-grow: 1;\n}\n\n.content {\n  background: rgba(0, 0, 0, 0.1);\n  max-height: 0;\n  overflow: hidden;\n  transition: max-height 0.2s ease-out;\n}\n\nmat-list-item.active {\n  background: rgba(0, 0, 0, 0.2);\n\n  &:focus {\n    background: rgba(0, 0, 0, 0.2);\n  }\n}\n\n.mat-list-base {\n  padding-top: 0px;\n}\n",
                     "styleUrl": "./side-menu.component.scss"
                 }
             ],
@@ -1744,7 +1739,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 25,
+                "line": 19,
                 "jsdoctags": [
                     {
                         "name": "activeRouter",
@@ -1757,7 +1752,10 @@
                     }
                 ]
             },
-            "templateData": "<mat-drawer-container>\n  <mat-drawer #drawer [opened]=\"opened\" class=\"sidenav\" [mode]=\"mode\" autosize [ngClass]=\"{ 'mobile': isMobileLayout }\">\n\n    <mat-toolbar class=\"sidebar-logo\" color=\"primary\">\n      <a routerLink=\"/\">\n        <img alt=\"Cornell University\" [src]=\"svgIconUrl\" height=\"{{imgHeight}}\">\n        {{title}}\n      </a>\n    </mat-toolbar>\n\n    <mat-nav-list>\n      <ng-container *ngFor=\"let route of routes\">\n        <ng-container *ngIf=\"route.data && route.data['menu'] == 'admin'\">\n\n          <mat-list-item *ngIf=\"!route.children; else parent \" [routerLink]=\"route.path\" routerLinkActive=\"active\"\n            [routerLinkActiveOptions]=\"{exact: true}\">\n            <a>\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            </a>\n          </mat-list-item>\n\n          <ng-template #parent>\n            <mat-list-item [ngClass]=\"routeHasActiveChild(route)\" [ngClass]=\"['collapsible', route.path]\"\n              (click)=\"handleExpandClick(route.path)\">\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n              <span class=\"flex-grow\"></span>\n              <mat-icon class=\"expand-more\">expand_more\n              </mat-icon>\n\n            </mat-list-item>\n\n            <div [ngClass]=\"['content', route.path]\">\n              <ng-container *ngFor=\"let child of route.children\">\n                <mat-list-item routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\">\n                  <a routerLink=\"{{route.path}}/{{child.path}}\" (focus)=\"handleFocus(child.path)\" class=\"pad-left\">\n                    <mat-icon matListIcon *ngIf=\"child.data && child.data['icon']\">{{ child.data['icon'] }}</mat-icon>\n                    {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n                  </a>\n                </mat-list-item>\n              </ng-container>\n            </div>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n\n    </mat-nav-list>\n\n  </mat-drawer>\n\n  <mat-drawer-content>\n    <lib-admin-toolbar (toggleSidenav)=\"drawer.toggle()\" (toggleSidenavNotice)=\"drawer.toggle()\">\n      <ng-content select=\"[toolbar]\"></ng-content>\n    </lib-admin-toolbar>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n\n\n</mat-drawer-container>\n"
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<mat-drawer-container>\n  <mat-drawer #drawer [opened]=\"opened\" class=\"sidenav\" [mode]=\"mode\" autosize [ngClass]=\"{ 'mobile': isMobileLayout }\">\n\n    <mat-toolbar class=\"sidebar-logo\" color=\"primary\">\n      <a routerLink=\"/\">\n        <img alt=\"Cornell University\" [src]=\"svgIconUrl\" height=\"{{imgHeight}}\">\n        {{title}}\n      </a>\n    </mat-toolbar>\n\n    <mat-nav-list>\n      <ng-container *ngFor=\"let route of routes\">\n        <ng-container *ngIf=\"route.data && route.data['menu'] == 'admin'\">\n\n          <mat-list-item *ngIf=\"!route.children; else parent \" [routerLink]=\"route.path\" routerLinkActive=\"active\"\n            [routerLinkActiveOptions]=\"{exact: true}\" (click)=\"handleLinkClick()\">\n            <a>\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            </a>\n          </mat-list-item>\n\n          <ng-template #parent>\n            <mat-list-item [ngClass]=\"routeHasActiveChild(route)\" [ngClass]=\"['collapsible', route.path]\"\n              (click)=\"handleExpandClick(route.path)\">\n              <mat-icon matListIcon *ngIf=\"route.data['icon']\">{{route.data['icon']}}</mat-icon>\n              {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n              <span class=\"flex-grow\"></span>\n              <mat-icon class=\"expand-more\">expand_more\n              </mat-icon>\n\n            </mat-list-item>\n\n            <div [ngClass]=\"['content', route.path]\">\n              <ng-container *ngFor=\"let child of route.children\">\n                <mat-list-item routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact: true}\"\n                  (click)=\"handleLinkClick()\">\n                  <a routerLink=\"{{route.path}}/{{child.path}}\" (focus)=\"handleFocus(child.path)\" class=\"pad-left\">\n                    <mat-icon matListIcon *ngIf=\"child.data && child.data['icon']\">{{ child.data['icon'] }}</mat-icon>\n                    {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n                  </a>\n                </mat-list-item>\n              </ng-container>\n            </div>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n\n    </mat-nav-list>\n\n  </mat-drawer>\n\n  <mat-drawer-content>\n    <lib-admin-toolbar (toggleSidenav)=\"handleToggleClick()\" (toggleSidenavNotice)=\"handleToggleClick()\">\n      <ng-content select=\"[toolbar]\"></ng-content>\n    </lib-admin-toolbar>\n    <ng-content></ng-content>\n  </mat-drawer-content>\n</mat-drawer-container>\n"
         },
         {
             "name": "SkipLinkComponent",
@@ -3389,7 +3387,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<GenericComponent>",
-                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout\n  [routes]='routes'\n  toolbarTitle='Admin'\n  imgHeight='45'\n  svgIconUrl='https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg'\n  [isMobileLayout]=\"true\"\n  >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout\n  [routes]='routes'\n  toolbarTitle='Admin'\n  imgHeight='45'\n  svgIconUrl='https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg'\n  [isMobileLayout]=\"false\"\n  >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer></lib-sub-footer>\n</lib-footer>\n`,\n})"
             },
             {
                 "name": "Template",
@@ -3415,21 +3413,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/example-page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<GenericComponent>",
-                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header title=\"Example Title\" subtitle=\"A short description usually longer than the title\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer>\n    <div primary>\n      <p>\n        Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n      </p>\n      <p>\n        <a href=\"https://www.cornell.edu/privacy-policy\">Privacy Policy</a>\n      </p>\n    </div>\n    <div secondary>\n      <h2 class=\"h5\">Student &amp; Campus Life</h2>\n      <p>311 Day Hall<br>\n        Cornell University<br>\n        Ithaca, NY 14853</p>\n      </div>\n  </lib-main-footer>\n  <lib-sub-footer ></lib-sub-footer>\n</lib-footer>\n`,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<FooterComponent>",
                 "defaultValue": "(args: FooterComponent) => ({\n  props: args,\n  template: `\n  <lib-footer>\n  <div class=\"secondary\" style='margin:auto; max-width:90%'>\n    <h2>SSIT - The footer content container</h2>\n    <p>311 Day Hall<br>Cornell University<br>Ithaca, NY 14853</p>\n  </div>\n  </lib-footer>`,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/example-page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<GenericComponent>",
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header title=\"Example Title\" subtitle=\"A short description usually longer than the title\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer>\n    <div primary>\n      <p>\n        Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n      </p>\n      <p>\n        <a href=\"https://www.cornell.edu/privacy-policy\">Privacy Policy</a>\n      </p>\n    </div>\n    <div secondary>\n      <h2 class=\"h5\">Student &amp; Campus Life</h2>\n      <p>311 Day Hall<br>\n        Cornell University<br>\n        Ithaca, NY 14853</p>\n      </div>\n  </lib-main-footer>\n  <lib-sub-footer ></lib-sub-footer>\n</lib-footer>\n`,\n})"
             },
             {
                 "name": "Template",
@@ -3659,7 +3657,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<GenericComponent>",
-                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout\n  [routes]='routes'\n  toolbarTitle='Admin'\n  imgHeight='45'\n  svgIconUrl='https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg'\n  [isMobileLayout]=\"true\"\n  >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer [isMobileLayout]=\"false\"></lib-sub-footer>\n</lib-footer>\n`,\n})"
+                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n\n<lib-admin-layout\n  [routes]='routes'\n  toolbarTitle='Admin'\n  imgHeight='45'\n  svgIconUrl='https://cdn.jsdelivr.net/gh/CU-CommunityApps/cwd_base/images/cornell/bold_cornell_seal_simple_white.svg'\n  [isMobileLayout]=\"false\"\n  >\n  <div toolbar>\n    <button mat-button>Login</button>\n  </div>\n</lib-admin-layout>\n\n<lib-footer>\n  <lib-sub-footer></lib-sub-footer>\n</lib-footer>\n`,\n})"
                 }
             ],
             "stories/Routes.ts": [
@@ -4361,7 +4359,7 @@
                 "linktype": "component",
                 "name": "AdminToolbarComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -4469,7 +4467,7 @@
                 "linktype": "component",
                 "name": "SideMenuComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/14",
+                "coverageCount": "0/16",
                 "status": "low"
             },
             {

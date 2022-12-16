@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Story, Meta, moduleMetadata } from '@storybook/angular';
 import { LoadingComponent, LoadingModule } from 'cu-ng-design-library';
 
-import LoadingDocumentation from './skip-link.mdx';
+import LoadingDocumentation from './loading.mdx';
 
 export default {
   title: 'CU-NG-Design-Library/Components/Loading',
