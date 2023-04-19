@@ -4,14 +4,14 @@
 $heading-font-family: Georgia, serif;
 $text-font-family: Verdana, Geneva, Tahoma, sans-serif;
 $custom-typography: mat.define-typography-config(
-  $display-4: mat.define-typography-level(112px, $font-family: $heading-font-family),
-  $display-3: mat.define-typography-level(56px, $font-family: $heading-font-family),
-  $display-2: mat.define-typography-level(45px, $font-family: $heading-font-family),
-  $display-1: mat.define-typography-level(34px, $font-family: $heading-font-family),
-  $headline:  mat.define-typography-level(36px, $font-family: $heading-font-family),
-  $title: mat.define-typography-level(30px, $font-family: $heading-font-family),
-  $subheading-2: mat.define-typography-level(24px, $font-family: $heading-font-family),
-  $subheading-1: mat.define-typography-level(18px, $font-family: $heading-font-family),
+  $headline-1: mat.define-typography-level(112px, $font-family: $heading-font-family),
+  $headline-2: mat.define-typography-level(56px, $font-family: $heading-font-family),
+  $headline-3: mat.define-typography-level(45px, $font-family: $heading-font-family),
+  $headline-4: mat.define-typography-level(34px, $font-family: $heading-font-family),
+  $headline-5:  mat.define-typography-level(36px, $font-family: $heading-font-family),
+  $headline-6: mat.define-typography-level(30px, $font-family: $heading-font-family),
+  $subtitle-1: mat.define-typography-level(24px, $font-family: $heading-font-family),
+  $subtitle-2: mat.define-typography-level(18px, $font-family: $heading-font-family),
   $body-1: mat.define-typography-level(14px, $font-family: $text-font-family),
   $body-2: mat.define-typography-level(14px, $font-family: $text-font-family),
   $caption: mat.define-typography-level(12px, $font-family: $text-font-family),

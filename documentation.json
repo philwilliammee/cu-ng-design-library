@@ -3051,16 +3051,6 @@
                 "defaultValue": "RouterModule.forRoot(adminRoutes)"
             },
             {
-                "name": "context",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/cu-ng-design-library/src/test.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-            },
-            {
                 "name": "Cu45Black",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -3319,15 +3309,6 @@
                 "deprecationMessage": "",
                 "type": "[]",
                 "defaultValue": "[\n  MatIconModule,\n  MatSidenavModule,\n  MatDialogModule,\n  MatButtonModule,\n  MatListModule,\n  MatMenuModule,\n  MatExpansionModule,\n  MatToolbarModule,\n  MatProgressSpinnerModule,\n]"
-            },
-            {
-                "name": "require",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/cu-ng-design-library/src/test.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "literal type"
             },
             {
                 "name": "RoutesModule",
@@ -3680,27 +3661,6 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "RouterModule.forRoot(routes)"
-                }
-            ],
-            "projects/cu-ng-design-library/src/test.ts": [
-                {
-                    "name": "context",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/cu-ng-design-library/src/test.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-                },
-                {
-                    "name": "require",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/cu-ng-design-library/src/test.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "literal type"
                 }
             ],
             "stories/header.stories.ts": [
@@ -4596,26 +4556,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "materialModules",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/cu-ng-design-library/src/test.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "context",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/cu-ng-design-library/src/test.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "require",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

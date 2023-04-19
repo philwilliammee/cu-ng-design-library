@@ -11,7 +11,8 @@
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat.core($custom-typography);
+// @include mat.core($custom-typography);
+@include mat.core();
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -29,7 +30,8 @@ $styles-theme: mat.define-light-theme((
     primary: $styles-primary-color,
     accent: $styles-accent-color,
     warn: $styles-warn-color,
-  )
+  ),
+  typography: $custom-typography,
 ));
 
 // Include theme styles for core and each component used in your app.
