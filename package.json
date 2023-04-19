@@ -1,6 +1,6 @@
 {
   "name": "cu-ng-design-system",
-  "version": "14.0.0",
+  "version": "15.0.0",
   "description": "CU Angular Design System",
   "scripts": {
     "ng": "ng",
@@ -11,7 +11,7 @@
     "package": "ng-packagr -p ng-package.json",
     "copyScss": "cp ./projects/cu-ng-design-library/src/lib/styles.scss ./dist/cu-ng-design-library/lib/styles.scss && cp -r ./projects/cu-ng-design-library/src/lib/theme --target=./dist/cu-ng-design-library/lib/",
     "test": "ng test",
-    "publish": "ng build && npm run copyScss && cd dist/cu-ng-design-library && npm publish",
+    "publish": "ng build cu-ng-design-library && npm run copyScss && cd dist/cu-ng-design-library && npm publish",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook",
