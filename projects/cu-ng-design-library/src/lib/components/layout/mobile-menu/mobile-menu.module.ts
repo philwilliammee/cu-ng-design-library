@@ -11,26 +11,25 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    MatDialogModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    RouterModule,
-    BrowserModule,
-  ],
-  exports: [
-    MatIconModule,
-    MatDialogModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    RouterModule,
-    BrowserModule,
-    FlexLayoutModule,
-    MatListModule,
-  ],
-  entryComponents: [],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+    declarations: [],
+    imports: [
+        CommonModule,
+        MatDialogModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        RouterModule,
+        BrowserModule,
+    ],
+    exports: [
+        MatIconModule,
+        MatDialogModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        RouterModule,
+        BrowserModule,
+        FlexLayoutModule,
+        MatListModule,
+    ],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
 })
 export class MobileMenuModule {}
