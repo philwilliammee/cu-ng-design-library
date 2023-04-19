@@ -52,5 +52,6 @@
         }
       }
     }
-  }
+  },
+  "defaultProject": "cu-ng-design-library"
 }
