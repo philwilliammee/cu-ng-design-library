@@ -3413,21 +3413,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/footer.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<FooterComponent>",
-                "defaultValue": "(args: FooterComponent) => ({\n  props: args,\n  template: `\n  <lib-footer>\n  <div class=\"secondary\" style='margin:auto; max-width:90%'>\n    <h2>SSIT - The footer content container</h2>\n    <p>311 Day Hall<br>Cornell University<br>Ithaca, NY 14853</p>\n  </div>\n  </lib-footer>`,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/example-page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<GenericComponent>",
                 "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-skip-link></lib-skip-link>\n<lib-header title=\"Example Title\" subtitle=\"A short description usually longer than the title\">\n  <lib-header-buttons>\n    <lib-utility-nav></lib-utility-nav>\n    <lib-mobile-menu [routes]=\"routes\"></lib-mobile-menu>\n  </lib-header-buttons>\n</lib-header>\n\n<lib-main-menu [routes]=\"routes\"></lib-main-menu>\n\n<router-outlet></router-outlet>\n\n<lib-footer>\n  <lib-main-footer>\n    <div primary>\n      <p>\n        Security Notice: To fully clear Cornell login credentials, exit or quit this browser, including any other open tabs.\n      </p>\n      <p>\n        <a href=\"https://www.cornell.edu/privacy-policy\">Privacy Policy</a>\n      </p>\n    </div>\n    <div secondary>\n      <h2 class=\"h5\">Student &amp; Campus Life</h2>\n      <p>311 Day Hall<br>\n        Cornell University<br>\n        Ithaca, NY 14853</p>\n      </div>\n  </lib-main-footer>\n  <lib-sub-footer ></lib-sub-footer>\n</lib-footer>\n`,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/footer.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<FooterComponent>",
+                "defaultValue": "(args: FooterComponent) => ({\n  props: args,\n  template: `\n  <lib-footer>\n  <div class=\"secondary\" style='margin:auto; max-width:90%'>\n    <h2>SSIT - The footer content container</h2>\n    <p>311 Day Hall<br>Cornell University<br>Ithaca, NY 14853</p>\n  </div>\n  </lib-footer>`,\n})"
             },
             {
                 "name": "Template",

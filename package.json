@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "npm run watch && npm run storybook",
     "build": "ng build && npm run copyScss",
     "watch": "ng build --watch --configuration development",
     "package": "ng-packagr -p ng-package.json",
