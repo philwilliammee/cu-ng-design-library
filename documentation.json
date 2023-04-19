@@ -2633,13 +2633,13 @@
         },
         {
             "name": "MobileMenuModule",
-            "id": "module-MobileMenuModule-b04c374ab28b402f089dbef97c3ce382eca6870a102a79103c09b5e383458e85f9bbb62abafcd3375b6e778466a54dfcd602ae1c858a61a6af0f2196db9c5a4c",
+            "id": "module-MobileMenuModule-6c5518f8310973967cba3563ed21675843257ad93f1de725932bc6bf641a40948607b244adc6a5f1c803b53de7d97dca76aa97562d8ad73c2c61c6b4df4c17e4",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-menu/mobile-menu.module.ts",
             "methods": [],
-            "sourceCode": "import { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { MatIconModule } from '@angular/material/icon';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\nimport { RouterModule } from '@angular/router';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { MatListModule } from '@angular/material/list';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n  ],\n  exports: [\n    MatIconModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n    FlexLayoutModule,\n    MatListModule,\n  ],\n  entryComponents: [],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileMenuModule {}\n",
+            "sourceCode": "import { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { MatIconModule } from '@angular/material/icon';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\nimport { RouterModule } from '@angular/router';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { MatListModule } from '@angular/material/list';\n\n@NgModule({\n    declarations: [],\n    imports: [\n        CommonModule,\n        MatDialogModule,\n        BrowserAnimationsModule,\n        MatButtonModule,\n        RouterModule,\n        BrowserModule,\n    ],\n    exports: [\n        MatIconModule,\n        MatDialogModule,\n        BrowserAnimationsModule,\n        MatButtonModule,\n        RouterModule,\n        BrowserModule,\n        FlexLayoutModule,\n        MatListModule,\n    ],\n    providers: [{ provide: APP_BASE_HREF, useValue: '/' }]\n})\nexport class MobileMenuModule {}\n",
             "children": [
                 {
                     "type": "providers",
