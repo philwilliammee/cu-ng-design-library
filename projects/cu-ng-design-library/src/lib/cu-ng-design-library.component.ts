@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
   template: `
     <div class="wrapper">
       <ng-content select="[header]"></ng-content>
+      <ng-content select="[main-menu]"></ng-content>
       <div class="main-wrapper">
         <router-outlet></router-outlet>
       </div>
