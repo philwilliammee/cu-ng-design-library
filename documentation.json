@@ -436,6 +436,39 @@
             ]
         },
         {
+            "name": "BreadCrumbComponent",
+            "id": "component-BreadCrumbComponent-8364f4d6dee0d6a8389f54c7600d25fa3f64b914e57429715b94e6a87908e1effdc2f1677f7d9f27b68b767a45b05b80533d9bc4e94c57b4962c7e7800d43478",
+            "file": "projects/cu-ng-design-library/src/lib/components/bread-crumb/bread-crumb.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-bread-crumb",
+            "styleUrls": [],
+            "styles": [
+                "\n      .bread-crumb {\n        margin-bottom: 1rem;\n        font-size: 0.8rem;\n      }\n      ::ng-deep .bread-crumb a {\n        color: #666;\n      }\n      ::ng-deep .bread-crumb a:hover {\n        color: #333;\n        text-decoration: underline;\n      }\n    "
+            ],
+            "template": "<div class=\"bread-crumb\">\n\t<ng-content />\n</div>\n\t",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-bread-crumb',\n  template: `\n\t\t<div class=\"bread-crumb\">\n\t\t\t<ng-content />\n\t\t</div>\n\t`,\n  styles: [\n    `\n      .bread-crumb {\n        margin-bottom: 1rem;\n        font-size: 0.8rem;\n      }\n      ::ng-deep .bread-crumb a {\n        color: #666;\n      }\n      ::ng-deep .bread-crumb a:hover {\n        color: #333;\n        text-decoration: underline;\n      }\n    `,\n  ],\n})\nexport class BreadCrumbComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      .bread-crumb {\n        margin-bottom: 1rem;\n        font-size: 0.8rem;\n      }\n      ::ng-deep .bread-crumb a {\n        color: #666;\n      }\n      ::ng-deep .bread-crumb a:hover {\n        color: #333;\n        text-decoration: underline;\n      }\n    \n"
+        },
+        {
             "name": "CuNgDesignLibraryComponent",
             "id": "component-CuNgDesignLibraryComponent-eacb246527385f0de452b38f3cda81f30bbf7b07d1c72e49318e17fd6f1abe37d493cd344ef3e22e9f9a6a1e6770b6ab684f58cb572b82f4ddab2f9bf2ac4fc8",
             "file": ".local/cu-ng-design-library.component.ts",
@@ -583,7 +616,7 @@
         },
         {
             "name": "CuNgDesignLibraryComponent",
-            "id": "component-CuNgDesignLibraryComponent-ba0e1d4b48d843fc56bf2bbffe8e9dd48a23a821da492ac2e68c71a8d2fb2aa9d883da3c2ec51ced7b102bea3c9facfcdb2197ad4e0fe5d39126c5ba69d2e366-1",
+            "id": "component-CuNgDesignLibraryComponent-39d46d1586c48a7d881df12c72f3905870c3caffc24520d5880b9bf6cb480d19141feffde828a1a87b8245891aaafbaf508751f650b442cf09fa01a59e6b48b5-1",
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -595,7 +628,7 @@
             "styles": [
                 "\n      .wrapper {\n        min-height: 100vh;\n        margin: 0;\n        display: flex;\n        flex-direction: column;\n      }\n\n      .main-wrapper {\n        flex: 1;\n      }\n\n      @media screen and (max-width: 768px) {\n        .mobile-hidden {\n          display: none;\n        }\n      }\n    "
             ],
-            "template": "<div class=\"wrapper\">\n  <ng-content select=\"[header]\"></ng-content>\n  <div class=\"main-wrapper\">\n    <router-outlet></router-outlet>\n  </div>\n  <ng-content select=\"[footer]\"></ng-content>\n</div>\n",
+            "template": "<div class=\"wrapper\">\n  <ng-content select=\"[header]\"></ng-content>\n  <ng-content select=\"[main-menu]\"></ng-content>\n  <div class=\"main-wrapper\">\n    <router-outlet></router-outlet>\n  </div>\n  <ng-content select=\"[footer]\"></ng-content>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [],
@@ -609,7 +642,7 @@
             "description": "<p>We are moving away from useMobileLayout instead we will show and hide using css</p>\n",
             "rawdescription": "\n\nWe are moving away from useMobileLayout instead we will show and hide using css\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n/**\n * We are moving away from useMobileLayout instead we will show and hide using css\n */\n@Component({\n  selector: 'lib-cu-ng-design-library',\n  template: `\n    <div class=\"wrapper\">\n      <ng-content select=\"[header]\"></ng-content>\n      <div class=\"main-wrapper\">\n        <router-outlet></router-outlet>\n      </div>\n      <ng-content select=\"[footer]\"></ng-content>\n    </div>\n  `,\n  styles: [\n    `\n      .wrapper {\n        min-height: 100vh;\n        margin: 0;\n        display: flex;\n        flex-direction: column;\n      }\n\n      .main-wrapper {\n        flex: 1;\n      }\n\n      @media screen and (max-width: 768px) {\n        .mobile-hidden {\n          display: none;\n        }\n      }\n    `,\n  ],\n})\nexport class CuNgDesignLibraryComponent {}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n/**\n * We are moving away from useMobileLayout instead we will show and hide using css\n */\n@Component({\n  selector: 'lib-cu-ng-design-library',\n  template: `\n    <div class=\"wrapper\">\n      <ng-content select=\"[header]\"></ng-content>\n      <ng-content select=\"[main-menu]\"></ng-content>\n      <div class=\"main-wrapper\">\n        <router-outlet></router-outlet>\n      </div>\n      <ng-content select=\"[footer]\"></ng-content>\n    </div>\n  `,\n  styles: [\n    `\n      .wrapper {\n        min-height: 100vh;\n        margin: 0;\n        display: flex;\n        flex-direction: column;\n      }\n\n      .main-wrapper {\n        flex: 1;\n      }\n\n      @media screen and (max-width: 768px) {\n        .mobile-hidden {\n          display: none;\n        }\n      }\n    `,\n  ],\n})\nexport class CuNgDesignLibraryComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "\n      .wrapper {\n        min-height: 100vh;\n        margin: 0;\n        display: flex;\n        flex-direction: column;\n      }\n\n      .main-wrapper {\n        flex: 1;\n      }\n\n      @media screen and (max-width: 768px) {\n        .mobile-hidden {\n          display: none;\n        }\n      }\n    \n",
@@ -2131,14 +2164,50 @@
             ]
         },
         {
+            "name": "BreadCrumbModule",
+            "id": "module-BreadCrumbModule-3c09a7a6992b2456033603a1fe9dde8fb317a667039246d6c2ebf716ac1a2a403f977ee6cc324322c9ff27c034d3b46606ae749674cb2c0a9d5defaa6e5b8e9e",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/cu-ng-design-library/src/lib/components/bread-crumb/bread-crumb.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n})\nexport class BreadCrumbModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "CuNgDesignLibraryModule",
-            "id": "module-CuNgDesignLibraryModule-a95f6c98c3d01adc0bdcb4cf86ad594b13de060c8e8b8dd11fd59a564ee0b0f3c68b8eada20b881fb9c61016e3566a37df4972f1641c91597e6747db3bca63de",
+            "id": "module-CuNgDesignLibraryModule-94b67032ed088e6c1eb397cd2f9dcc4a7d80f43bca9ded60412720d59e235ddd5c85c15d8b24446f0bd3906f93e783288bb28f66726269c0a8a3a6494a74eff6",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\nimport { SideMenuComponent } from './components/layout/side-menu/side-menu.component';\nimport { AdminToolbarComponent } from './components/layout/admin-toolbar/admin-toolbar.component';\nimport { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';\nimport { LoadingComponent } from './components/loading/loading.component';\nimport { AnnouncementComponent } from './components/announcement/announcement.component';\nimport { AlertComponent } from './components/alert/alert.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\nimport { SideMenuComponent } from './components/layout/side-menu/side-menu.component';\nimport { AdminToolbarComponent } from './components/layout/admin-toolbar/admin-toolbar.component';\nimport { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';\nimport { LoadingComponent } from './components/loading/loading.component';\nimport { AnnouncementComponent } from './components/announcement/announcement.component';\nimport { AlertComponent } from './components/alert/alert.component';\nimport { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n    BreadCrumbComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n    BreadCrumbComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2158,6 +2227,9 @@
                         },
                         {
                             "name": "AnnouncementComponent"
+                        },
+                        {
+                            "name": "BreadCrumbComponent"
                         },
                         {
                             "name": "CuNgDesignLibraryComponent"
@@ -2243,6 +2315,9 @@
                         },
                         {
                             "name": "AnnouncementComponent"
+                        },
+                        {
+                            "name": "BreadCrumbComponent"
                         },
                         {
                             "name": "FooterComponent"
@@ -3164,6 +3239,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/bread-crumb.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/footer.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3385,6 +3470,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/announcements.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<GenericComponent>",
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-announcement [announcement]=\"announcement\" (onClose)=\"onClose\" >\n  </lib-announcement>\n  `,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/bread-crumb.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<GenericComponent>",
@@ -3851,6 +3946,28 @@
                     "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-announcement [announcement]=\"announcement\" (onClose)=\"onClose\" >\n  </lib-announcement>\n  `,\n})"
                 }
             ],
+            "stories/bread-crumb.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/bread-crumb.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/bread-crumb.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<GenericComponent>",
+                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-announcement [announcement]=\"announcement\" (onClose)=\"onClose\" >\n  </lib-announcement>\n  `,\n})"
+                }
+            ],
             "stories/footer.stories.ts": [
                 {
                     "name": "Default",
@@ -4305,6 +4422,15 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/cu-ng-design-library/src/lib/components/bread-crumb/bread-crumb.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BreadCrumbComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/cu-ng-design-library/src/lib/components/layout/admin-layout/admin-layout.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -4632,6 +4758,26 @@
             },
             {
                 "filePath": "stories/announcements.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/bread-crumb.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/bread-crumb.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

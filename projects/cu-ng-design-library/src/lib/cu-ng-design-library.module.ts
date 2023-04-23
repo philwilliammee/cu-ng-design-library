@@ -30,6 +30,7 @@ import { AdminLayoutComponent } from './components/layout/admin-layout/admin-lay
 import { LoadingComponent } from './components/loading/loading.component';
 import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { AlertComponent } from './components/alert/alert.component';
     LoadingComponent,
     AnnouncementComponent,
     AlertComponent,
+    BreadCrumbComponent,
   ],
   imports: [
     MaterialModule,
@@ -88,6 +90,7 @@ import { AlertComponent } from './components/alert/alert.component';
     LoadingComponent,
     AnnouncementComponent,
     AlertComponent,
+    BreadCrumbComponent,
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
 })

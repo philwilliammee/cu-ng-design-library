@@ -92,6 +92,9 @@ export * from './lib/components/announcement/announcement.module';
 export * from './lib/components/alert/alert.component';
 export * from './lib/components/alert/alert.module';
 
+export * from './lib/components/bread-crumb/bread-crumb.component';
+export * from './lib/components/bread-crumb/bread-crumb.module';
+
 // module
 export * from './lib/cu-ng-design-library.service';
 export * from './lib/cu-ng-design-library.component';
