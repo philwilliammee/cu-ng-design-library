@@ -215,3 +215,8 @@ body {
     }
   }
 }
+
+// mobile menu expand button label make full width
+lib-mobile-dialog .parent .mdc-button__label {
+  width: 100%;
+}

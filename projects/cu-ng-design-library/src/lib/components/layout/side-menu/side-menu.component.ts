@@ -58,10 +58,10 @@ export class SideMenuComponent implements OnInit {
     const collapsible = document.querySelector('.collapsible.' + contentClass);
     if (collapsible) {
       // toggle aria expanded attribute
-      if (collapsible.getAttribute('aria-expanded') === 'true') {
-        collapsible.setAttribute('aria-expanded', 'false');
-      } else {
+      if (collapsible.getAttribute('aria-expanded') !== 'true') {
         collapsible.setAttribute('aria-expanded', 'true');
+      } else {
+        collapsible.setAttribute('aria-expanded', 'false');
       }
     }
   }

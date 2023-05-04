@@ -1,69 +1,94 @@
-<div mat-dialog-title>
-  <h1 class='sr-only'>Mobile Menu</h1>
-  <div class="flex-row" mat-dialog-actions>
-    <div class="flex-start flex-50" *ngIf="data.routes">
-      <button mat-icon-button aria-label="home" routerLink="/" mat-dialog-close>
-        <mat-icon >home</mat-icon>
+<div
+  mat-dialog-title
+  class="drk-dialog"
+>
+  <h1 class="sr-only">Mobile Menu</h1>
+  <div mat-dialog-actions>
+    <div *ngIf="data.routes">
+      <button
+        mat-icon-button
+        aria-label="home"
+        routerLink="/"
+        mat-dialog-close
+      >
+        <mat-icon>home</mat-icon>
       </button>
     </div>
-    <div class="flex-end flex-50">
-      <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+    <div>
+      <button
+        mat-icon-button
+        aria-label="close dialog"
+        mat-dialog-close
+      >
         <mat-icon>close</mat-icon>
       </button>
     </div>
   </div>
 </div>
 
-<mat-dialog-content>
-  <mat-nav-list >
+<div
+  mat-dialog-content
+  class="drk-dialog"
+>
+  <mat-nav-list>
     <ng-container *ngFor="let route of routes">
-    <ng-container *ngIf="!route.children; else parent ">
-      <mat-list-item
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{exact: true}"
-      >
-        <a mat-button routerLink="{{route.path}}" mat-dialog-close >
-          {{route.data && route.data['title'] ? route.data['title'] : route.path}}
-        </a>
-      </mat-list-item>
-    </ng-container>
-    <ng-template #parent>
-      <mat-list-item [ngClass]="routeHasActiveChild(route)"
-        *ngIf="route.data && route.data['menu'] != 'hidden'"
-      >
-        <button
-          mat-button
-          (click)="handleExpandClick(route.path)"
-          [ngClass]="['collapsible', route.path]"
+      <ng-container *ngIf="!route.children; else parent ">
+        <mat-list-item
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"
         >
-          <span class='flex'>
-            {{route.data && route.data['title'] ? route.data['title'] : route.path}}
-            <span class="flex-grow"></span>
-            <span class="icon-wrapper"><mat-icon>expand_more</mat-icon></span>
-          </span>
-        </button>
-      </mat-list-item>
-
-      <div [ngClass]="['content', route.path]">
-        <ng-container *ngFor="let child of route.children">
-          <mat-list-item
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}"
+          <a
+            mat-button
+            routerLink="{{route.path}}"
+            mat-dialog-close
+            class="mat-button-link"
           >
-            <a
-              mat-button
-              mat-dialog-close
-              routerLink="{{route.path}}/{{child.path}}"
-              (focus)="handleFocus(route.path)"
+            {{route.data && route.data['title'] ? route.data['title'] : route.path}}
+          </a>
+        </mat-list-item>
+      </ng-container>
+
+      <ng-template #parent>
+        <mat-list-item
+          [ngClass]="[routeHasActiveChild(route), 'parent']"
+          *ngIf="route.data && route.data['menu'] != 'hidden'"
+        >
+          <button
+            mat-button
+            (click)="handleExpandClick(route.path)"
+            [ngClass]="['collapsible mat-button-expand', route.path]"
+          >
+            <span class="flex justify-content-space-between">
+              <span>
+                {{route.data && route.data['title'] ? route.data['title'] : route.path}}
+              </span>
+              <span class="icon-wrapper flex-1">
+                <mat-icon>expand_more</mat-icon>
+              </span>
+            </span>
+
+          </button>
+        </mat-list-item>
+
+        <div [ngClass]="['content', route.path]">
+          <ng-container *ngFor="let child of route.children">
+            <mat-list-item
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
+              <a
+                mat-button
+                mat-dialog-close
+                routerLink="{{route.path}}/{{child.path}}"
+                (focus)="handleFocus(route.path)"
               >
-              {{child.data && child.data['title'] ? child.data['title'] : child.path}}
-            </a>
-          </mat-list-item>
-        </ng-container>
-      </div>
+                {{child.data && child.data['title'] ? child.data['title'] : child.path}}
+              </a>
+            </mat-list-item>
+          </ng-container>
+        </div>
 
-
-    </ng-template>
+      </ng-template>
     </ng-container>
   </mat-nav-list>
-</mat-dialog-content>
+</div>

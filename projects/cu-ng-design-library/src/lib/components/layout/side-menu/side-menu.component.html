@@ -1,9 +1,23 @@
 <mat-drawer-container>
-  <mat-drawer #drawer [opened]="opened" class="sidenav" [mode]="mode" autosize [ngClass]="{ 'mobile': isMobileLayout }">
+  <mat-drawer
+    #drawer
+    [opened]="opened"
+    class="sidenav"
+    [mode]="mode"
+    autosize
+    [ngClass]="{ 'mobile': isMobileLayout }"
+  >
 
-    <mat-toolbar class="sidebar-logo" color="primary">
+    <mat-toolbar
+      class="sidebar-logo"
+      color="primary"
+    >
       <a routerLink="/">
-        <img alt="Cornell University" [src]="svgIconUrl" height="{{imgHeight}}">
+        <img
+          alt="Cornell University"
+          [src]="svgIconUrl"
+          height="{{imgHeight}}"
+        >
         {{title}}
       </a>
     </mat-toolbar>
@@ -11,33 +25,79 @@
     <mat-nav-list>
       <ng-container *ngFor="let route of routes">
         <ng-container *ngIf="route.data && route.data['menu'] == 'admin'">
+          <a
+            mat-list-item
+            *ngIf="!route.children; else parent "
+            [routerLink]="route.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+            (click)="handleLinkClick()"
+          >
+            <span class="flex align-items-center">
+              <span>
+                <mat-icon
+                  matListIcon
+                  *ngIf="route.data['icon']"
+                >
+                  {{route.data['icon']}}
+                </mat-icon>
+              </span>
+              <span class="pl-1">
+                {{route.data && route.data['title'] ? route.data['title'] : route.path}}
+              </span>
+            </span>
 
-          <mat-list-item *ngIf="!route.children; else parent " [routerLink]="route.path" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}" (click)="handleLinkClick()">
-            <a>
-              <mat-icon matListIcon *ngIf="route.data['icon']">{{route.data['icon']}}</mat-icon>
-              {{route.data && route.data['title'] ? route.data['title'] : route.path}}
-            </a>
-          </mat-list-item>
+          </a>
 
           <ng-template #parent>
-            <mat-list-item [ngClass]="routeHasActiveChild(route)" [ngClass]="['collapsible', route.path]"
-              (click)="handleExpandClick(route.path)">
-              <mat-icon matListIcon *ngIf="route.data['icon']">{{route.data['icon']}}</mat-icon>
-              {{route.data && route.data['title'] ? route.data['title'] : route.path}}
-              <span class="flex-grow"></span>
-              <mat-icon class="expand-more">expand_more
-              </mat-icon>
+            <mat-list-item
+              [ngClass]="routeHasActiveChild(route)"
+              [ngClass]="['collapsible', route.path]"
+              (click)="handleExpandClick(route.path)"
+            >
+              <span class="flex align-items-center">
+                <span>
+                  <mat-icon
+                    matListIcon
+                    *ngIf="route.data['icon']"
+                  >
+                    {{route.data['icon']}}
+                  </mat-icon>
+                </span>
+                <span class="pl-1">
+                  {{route.data && route.data['title'] ? route.data['title'] : route.path}}
+                </span>
+                <span class="flex-grow"></span>
+                <span>
+                  <mat-icon class="expand-more">expand_more</mat-icon>
+                </span>
+              </span>
 
             </mat-list-item>
 
             <div [ngClass]="['content', route.path]">
               <ng-container *ngFor="let child of route.children">
-                <mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                  (click)="handleLinkClick()">
-                  <a routerLink="{{route.path}}/{{child.path}}" (focus)="handleFocus(child.path)" class="pad-left">
-                    <mat-icon matListIcon *ngIf="child.data && child.data['icon']">{{ child.data['icon'] }}</mat-icon>
-                    {{child.data && child.data['title'] ? child.data['title'] : child.path}}
+                <mat-list-item
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact: true}"
+                  (click)="handleLinkClick()"
+                >
+                  <a
+                    routerLink="{{route.path}}/{{child.path}}"
+                    (focus)="handleFocus(child.path)"
+                    class="pad-left"
+                  >
+                    <span>
+                      <mat-icon
+                        matListIcon
+                        *ngIf="child.data && child.data['icon']"
+                      >
+                        {{ child.data['icon'] }}
+                      </mat-icon>
+                    </span>
+                    <span class="pl-1">
+                      {{child.data && child.data['title'] ? child.data['title'] : child.path}}
+                    </span>
                   </a>
                 </mat-list-item>
               </ng-container>
@@ -51,7 +111,10 @@
   </mat-drawer>
 
   <mat-drawer-content>
-    <lib-admin-toolbar (toggleSidenav)="handleToggleClick()" (toggleSidenavNotice)="handleToggleClick()">
+    <lib-admin-toolbar
+      (toggleSidenav)="handleToggleClick()"
+      (toggleSidenavNotice)="handleToggleClick()"
+    >
       <ng-content select="[toolbar]"></ng-content>
     </lib-admin-toolbar>
     <ng-content></ng-content>
