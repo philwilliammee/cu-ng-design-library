@@ -1,5 +1,6 @@
-import { BREAKPOINT } from '@angular/flex-layout';
+// import { BREAKPOINT } from '@angular/flex-layout';
 
+export const BREAKPOINT = [];
 // A standalone version of CWD Design Patterns
 // ---------------------------------------------------------------------------
 // Recommended breakpoints to match base theme:

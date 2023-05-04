@@ -6,8 +6,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { CWD_BREAKPOINTS } from '../../../cu-ng-design-library.breakpoints';
+// import { CWD_BREAKPOINTS } from '../../../cu-ng-design-library.breakpoints';
 
 @NgModule({
   declarations: [],
@@ -19,7 +18,6 @@ import { CWD_BREAKPOINTS } from '../../../cu-ng-design-library.breakpoints';
     MatButtonModule,
     RouterModule,
     BrowserModule,
-    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),
   ],
   exports: [
     // MatDialogModule,

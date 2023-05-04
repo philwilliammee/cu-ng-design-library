@@ -1,12 +1,12 @@
 <div mat-dialog-title>
   <h1 class='sr-only'>Mobile Menu</h1>
-  <div fxLayout="row" mat-dialog-actions>
-    <div fxLayoutAlign="start" fxFlex="50" *ngIf="data.routes">
+  <div class="flex-row" mat-dialog-actions>
+    <div class="flex-start flex-50" *ngIf="data.routes">
       <button mat-icon-button aria-label="home" routerLink="/" mat-dialog-close>
         <mat-icon >home</mat-icon>
       </button>
     </div>
-    <div fxLayoutAlign="end" fxFlex="50">
+    <div class="flex-end flex-50">
       <button mat-icon-button aria-label="close dialog" mat-dialog-close>
         <mat-icon>close</mat-icon>
       </button>
@@ -67,4 +67,3 @@
     </ng-container>
   </mat-nav-list>
 </mat-dialog-content>
-

@@ -1,44 +1,61 @@
-<nav class="dropdown-menu" id="main-navigation" aria-label="Main Navigation">
+<nav
+  class="dropdown-menu"
+  id="main-navigation"
+  aria-label="Main Navigation"
+>
   <div class="container-fluid">
     <ul class="list-menu links">
       <ng-container *ngFor="let route of routes">
-        <li class="top-level-item parent top-level-li"
-        *ngIf="route.data && route.data['menu'] == 'main'"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{exact: true}">
+        <li
+          class="top-level-item parent top-level-li"
+          *ngIf="route.data && route.data['menu'] == 'main'"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"
+        >
 
-        <ng-container *ngIf="!route.children; else parent ">
-          <a mat-button routerLink="{{route.path}}" >
-            {{route.data && route.data['title'] ? route.data['title'] : route.path}}
-            <mat-icon *ngIf="route.data && route.data['class'] == 'ext-link'" class="ext-link">launch</mat-icon>
-          </a>
-        </ng-container>
+          <ng-container *ngIf="!route.children; else parent ">
+            <a
+              mat-button
+              routerLink="{{route.path}}"
+            >
+              {{route.data && route.data['title'] ? route.data['title'] : route.path}}
+              <mat-icon
+                *ngIf="route.data && route.data['class'] == 'ext-link'"
+                class="ext-link"
+              >
+                launch
+              </mat-icon>
+            </a>
+          </ng-container>
 
-        <ng-template #parent>
-          <!-- <a mat-button routerLink="{{route.path}}">{{route.path}}</a> -->
+          <ng-template #parent>
+            <!-- <a mat-button routerLink="{{route.path}}">{{route.path}}</a> -->
             <button
               mat-button
               [matMenuTriggerFor]="menu"
               routerLinkActive="active"
               [routerLinkActiveOptions]="{exact: false}"
             >
-            {{route.data && route.data['title'] ? route.data['title'] : route.path}} <mat-icon>expand_more</mat-icon>
+              {{route.data && route.data['title'] ? route.data['title'] : route.path}}
+              <mat-icon>expand_more</mat-icon>
             </button>
 
-            <mat-menu #menu="matMenu" backdropClass="main-menu-backdrop">
+            <mat-menu
+              #menu="matMenu"
+              backdropClass="main-menu-backdrop"
+            >
               <ng-container *ngFor="let child of route.children">
                 <a
                   mat-menu-item
                   routerLink="{{route.path}}/{{child.path}}"
                   routerLinkActive="active"
                   [routerLinkActiveOptions]="{exact: true}"
-                  >
+                >
                   {{child.data && child.data['title'] ? child.data['title'] : child.path}}
                 </a>
               </ng-container>
             </mat-menu>
-        </ng-template>
-
+          </ng-template>
 
           <!-- <a routerLink="{{route.path}}" >
             {{route.path}}
@@ -60,4 +77,3 @@
     </ul>
   </div>
 </nav>
-

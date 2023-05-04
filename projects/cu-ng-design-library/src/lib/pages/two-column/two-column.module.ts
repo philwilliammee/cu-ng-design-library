@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule],
-  exports: [FlexLayoutModule],
+  exports: [],
 })
 export class TwoColumnModule {}

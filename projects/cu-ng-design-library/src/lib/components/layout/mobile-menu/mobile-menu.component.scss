@@ -1,7 +1,17 @@
 @import "../../../styles.scss";
-button {
-  border-radius: 0px;
-  min-width: 36px;
-  width: 40px;
-  padding: 0px;
+
+:host {
+  button {
+    border-radius: 0px;
+    min-width: 36px;
+    width: 40px;
+    padding: 0px;
+  }
+
+  .mobile-menu {
+    height: 24px;
+    width: 24px;
+    font-size: 24px;
+    margin: auto;
+  }
 }

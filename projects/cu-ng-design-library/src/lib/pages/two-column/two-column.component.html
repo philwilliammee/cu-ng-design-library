@@ -1,14 +1,13 @@
 <lib-main class="sidebar-tint">
-
-  <div tabindex="-1" fxLayout="row" fxLayout.md="column" fxLayout.sm="column"
-    fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
-
-    <lib-primary-content fxFlex="65" fxFlexOrder.md='1' fxFlexOrder.sm='1' fxFlexOrder.xs='1' >
+  <div
+    tabindex="-1"
+    class="flex gap-6"
+    [ngClass]="order === '1' ? 'flex-row' : 'flex-row-reverse'"
+  >
+    <lib-primary-content class="flex-2">
       <ng-content select="[primary]"></ng-content>
     </lib-primary-content>
-    <div fxFlex="10">
-    </div>
-    <lib-secondary-content fxFlex="25" [fxFlexOrder.md]="order" [fxFlexOrder.sm]="order" [fxFlexOrder.xs]="order">
+    <lib-secondary-content class="flex-1">
       <ng-content select="[secondary]"></ng-content>
     </lib-secondary-content>
   </div>

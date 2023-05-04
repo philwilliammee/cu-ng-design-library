@@ -1214,7 +1214,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../styles.scss\";\n\nbutton {\n  border-radius: 0;\n}\na {\n  text-transform: capitalize;\n  border-radius: 0;\n}\n\n.mat-dialog-content a {\n  text-align: left;\n  width: 100%;\n}\n\n.mat-dialog-content {\n  .active {\n    background-color: rgba(0, 104, 172, 0.5);\n  }\n  .active-parent {\n    border-left: solid 3px #b31b1b;\n  }\n}\n\n.mat-list-item {\n  border-bottom: white 1px solid;\n\n  &:first-child {\n    border-top: white 1px solid;\n  }\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n\n  .flex-grow {\n    flex-grow: 1;\n  }\n\n  .icon-wrapper {\n    // margin-right: -1.2em;\n    height: 46px;\n    text-align: center;\n    background: #555;\n    border-left: 1px solid #777;\n    padding: 8px 12px 0px 12px;\n  }\n}\n\n.content {\n  background: rgba(0, 0, 0, 0.3);\n  max-height: 0;\n  overflow: hidden;\n  transition: max-height 0.2s ease-out;\n\n  a {\n    padding: 0 36px;\n  }\n}\n\n.mat-icon {\n  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n\n.collapsible{\n  width: 100%;\n}\n\n.collapsible[aria-expanded=\"true\"] {\n  .mat-icon {\n    transform: rotate(180deg);\n  }\n}\n",
+                    "data": "@import \"../../../styles.scss\";\n\nbutton {\n  border-radius: 0;\n}\na {\n  text-transform: capitalize;\n  border-radius: 0;\n}\n\n.mat-dialog-content a {\n  text-align: left;\n  width: 100%;\n}\n\n.mat-dialog-content {\n  .active {\n    background-color: rgba(0, 104, 172, 0.5);\n  }\n  .active-parent {\n    border-left: solid 3px #b31b1b;\n  }\n}\n\n.mat-list-item {\n  border-bottom: white 1px solid;\n\n  &:first-child {\n    border-top: white 1px solid;\n  }\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n\n  .flex-grow {\n    flex-grow: 1;\n  }\n\n  .icon-wrapper {\n    // margin-right: -1.2em;\n    height: 46px;\n    text-align: center;\n    background: #555;\n    border-left: 1px solid #777;\n    padding: 8px 12px 0px 12px;\n  }\n}\n\n.content {\n  background: rgba(0, 0, 0, 0.3);\n  max-height: 0;\n  overflow: hidden;\n  transition: max-height 0.2s ease-out;\n\n  a {\n    padding: 0 36px;\n  }\n}\n\n.mat-icon {\n  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n}\n\n.collapsible{\n  width: 100%;\n}\n\n.collapsible[aria-expanded=\"true\"] {\n  .mat-icon {\n    transform: rotate(180deg);\n  }\n}\n\n.flex-row {\n  display: flex;\n  flex-direction: row;\n}\n\n.flex-start {\n  justify-content: flex-start;\n  align-items: center;\n}\n\n.flex-end {\n  justify-content: flex-end;\n  align-items: center;\n}\n\n.flex-50 {\n  flex: 0 0 50%;\n  max-width: 50%;\n}\n\n.flex-grow {\n  flex-grow: 1;\n}\n",
                     "styleUrl": "./mobile-dialog.component.scss"
                 }
             ],
@@ -1263,7 +1263,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div mat-dialog-title>\n  <h1 class='sr-only'>Mobile Menu</h1>\n  <div fxLayout=\"row\" mat-dialog-actions>\n    <div fxLayoutAlign=\"start\" fxFlex=\"50\" *ngIf=\"data.routes\">\n      <button mat-icon-button aria-label=\"home\" routerLink=\"/\" mat-dialog-close>\n        <mat-icon >home</mat-icon>\n      </button>\n    </div>\n    <div fxLayoutAlign=\"end\" fxFlex=\"50\">\n      <button mat-icon-button aria-label=\"close dialog\" mat-dialog-close>\n        <mat-icon>close</mat-icon>\n      </button>\n    </div>\n  </div>\n</div>\n\n<mat-dialog-content>\n  <mat-nav-list >\n    <ng-container *ngFor=\"let route of routes\">\n    <ng-container *ngIf=\"!route.children; else parent \">\n      <mat-list-item\n      routerLinkActive=\"active\"\n      [routerLinkActiveOptions]=\"{exact: true}\"\n      >\n        <a mat-button routerLink=\"{{route.path}}\" mat-dialog-close >\n          {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n        </a>\n      </mat-list-item>\n    </ng-container>\n    <ng-template #parent>\n      <mat-list-item [ngClass]=\"routeHasActiveChild(route)\"\n        *ngIf=\"route.data && route.data['menu'] != 'hidden'\"\n      >\n        <button\n          mat-button\n          (click)=\"handleExpandClick(route.path)\"\n          [ngClass]=\"['collapsible', route.path]\"\n        >\n          <span class='flex'>\n            {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            <span class=\"flex-grow\"></span>\n            <span class=\"icon-wrapper\"><mat-icon>expand_more</mat-icon></span>\n          </span>\n        </button>\n      </mat-list-item>\n\n      <div [ngClass]=\"['content', route.path]\">\n        <ng-container *ngFor=\"let child of route.children\">\n          <mat-list-item\n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions]=\"{exact: true}\"\n          >\n            <a\n              mat-button\n              mat-dialog-close\n              routerLink=\"{{route.path}}/{{child.path}}\"\n              (focus)=\"handleFocus(route.path)\"\n              >\n              {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n            </a>\n          </mat-list-item>\n        </ng-container>\n      </div>\n\n\n    </ng-template>\n    </ng-container>\n  </mat-nav-list>\n</mat-dialog-content>\n\n"
+            "templateData": "<div mat-dialog-title>\n  <h1 class='sr-only'>Mobile Menu</h1>\n  <div class=\"flex-row\" mat-dialog-actions>\n    <div class=\"flex-start flex-50\" *ngIf=\"data.routes\">\n      <button mat-icon-button aria-label=\"home\" routerLink=\"/\" mat-dialog-close>\n        <mat-icon >home</mat-icon>\n      </button>\n    </div>\n    <div class=\"flex-end flex-50\">\n      <button mat-icon-button aria-label=\"close dialog\" mat-dialog-close>\n        <mat-icon>close</mat-icon>\n      </button>\n    </div>\n  </div>\n</div>\n\n<mat-dialog-content>\n  <mat-nav-list >\n    <ng-container *ngFor=\"let route of routes\">\n    <ng-container *ngIf=\"!route.children; else parent \">\n      <mat-list-item\n      routerLinkActive=\"active\"\n      [routerLinkActiveOptions]=\"{exact: true}\"\n      >\n        <a mat-button routerLink=\"{{route.path}}\" mat-dialog-close >\n          {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n        </a>\n      </mat-list-item>\n    </ng-container>\n    <ng-template #parent>\n      <mat-list-item [ngClass]=\"routeHasActiveChild(route)\"\n        *ngIf=\"route.data && route.data['menu'] != 'hidden'\"\n      >\n        <button\n          mat-button\n          (click)=\"handleExpandClick(route.path)\"\n          [ngClass]=\"['collapsible', route.path]\"\n        >\n          <span class='flex'>\n            {{route.data && route.data['title'] ? route.data['title'] : route.path}}\n            <span class=\"flex-grow\"></span>\n            <span class=\"icon-wrapper\"><mat-icon>expand_more</mat-icon></span>\n          </span>\n        </button>\n      </mat-list-item>\n\n      <div [ngClass]=\"['content', route.path]\">\n        <ng-container *ngFor=\"let child of route.children\">\n          <mat-list-item\n            routerLinkActive=\"active\"\n            [routerLinkActiveOptions]=\"{exact: true}\"\n          >\n            <a\n              mat-button\n              mat-dialog-close\n              routerLink=\"{{route.path}}/{{child.path}}\"\n              (focus)=\"handleFocus(route.path)\"\n              >\n              {{child.data && child.data['title'] ? child.data['title'] : child.path}}\n            </a>\n          </mat-list-item>\n        </ng-container>\n      </div>\n\n\n    </ng-template>\n    </ng-container>\n  </mat-nav-list>\n</mat-dialog-content>\n"
         },
         {
             "name": "MobileMenuComponent",
@@ -1930,12 +1930,12 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../styles.scss\";\n",
+                    "data": "@import \"../../styles.scss\";\n\n.flex-row {\n  display: flex;\n  flex-direction: row;\n}\n\n.flex-md-column,\n.flex-sm-column,\n.flex-xs-column {\n  display: flex;\n  flex-direction: column;\n}\n\n.flex-wrap {\n  flex-wrap: wrap;\n}\n\n.flex-align-center {\n  align-items: center;\n}\n\n.flex-10,\n.flex-25,\n.flex-65 {\n  flex-basis: 10%;\n  max-width: 10%;\n}\n\n.flex-order-md-1,\n.flex-order-sm-1,\n.flex-order-xs-1 {\n  order: 1;\n}\n",
                     "styleUrl": "./two-column.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<lib-main class=\"sidebar-tint\">\n\n  <div tabindex=\"-1\" fxLayout=\"row\" fxLayout.md=\"column\" fxLayout.sm=\"column\"\n    fxLayout.xs=\"column\" fxLayoutWrap fxLayoutAlign=\"center\">\n\n    <lib-primary-content fxFlex=\"65\" fxFlexOrder.md='1' fxFlexOrder.sm='1' fxFlexOrder.xs='1' >\n      <ng-content select=\"[primary]\"></ng-content>\n    </lib-primary-content>\n    <div fxFlex=\"10\">\n    </div>\n    <lib-secondary-content fxFlex=\"25\" [fxFlexOrder.md]=\"order\" [fxFlexOrder.sm]=\"order\" [fxFlexOrder.xs]=\"order\">\n      <ng-content select=\"[secondary]\"></ng-content>\n    </lib-secondary-content>\n  </div>\n</lib-main>\n"
+            "templateData": "<lib-main class=\"sidebar-tint\">\n  <div\n    tabindex=\"-1\"\n    class=\"flex-row flex-md-column flex-sm-column flex-xs-column flex-wrap flex-align-center\"\n  >\n    <lib-primary-content class=\"flex-65 flex-order-md-1 flex-order-sm-1 flex-order-xs-1\">\n      <ng-content select=\"[primary]\"></ng-content>\n    </lib-primary-content>\n    <div class=\"flex-10\"></div>\n    <lib-secondary-content\n      class=\"flex-25\"\n      [ngClass]=\"{'flex-order-md': order, 'flex-order-sm': order, 'flex-order-xs': order}\"\n    >\n      <ng-content select=\"[secondary]\"></ng-content>\n    </lib-secondary-content>\n  </div>\n</lib-main>\n"
         },
         {
             "name": "TwoColumnExampleComponent",
@@ -2201,13 +2201,13 @@
         },
         {
             "name": "CuNgDesignLibraryModule",
-            "id": "module-CuNgDesignLibraryModule-94b67032ed088e6c1eb397cd2f9dcc4a7d80f43bca9ded60412720d59e235ddd5c85c15d8b24446f0bd3906f93e783288bb28f66726269c0a8a3a6494a74eff6",
+            "id": "module-CuNgDesignLibraryModule-5bb8a26296ce892acf0e1ca767f4761ded80708350215ceff1ae7d76787de6644e9ec1463df2ae41a58e47461d0f56da292697b90e56a549e00e13af20be8106",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\nimport { SideMenuComponent } from './components/layout/side-menu/side-menu.component';\nimport { AdminToolbarComponent } from './components/layout/admin-toolbar/admin-toolbar.component';\nimport { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';\nimport { LoadingComponent } from './components/loading/loading.component';\nimport { AnnouncementComponent } from './components/announcement/announcement.component';\nimport { AlertComponent } from './components/alert/alert.component';\nimport { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n    BreadCrumbComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n    BreadCrumbComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n// import { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\nimport { SideMenuComponent } from './components/layout/side-menu/side-menu.component';\nimport { AdminToolbarComponent } from './components/layout/admin-toolbar/admin-toolbar.component';\nimport { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';\nimport { LoadingComponent } from './components/loading/loading.component';\nimport { AnnouncementComponent } from './components/announcement/announcement.component';\nimport { AlertComponent } from './components/alert/alert.component';\nimport { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n    BreadCrumbComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n    BreadCrumbComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2672,13 +2672,13 @@
         },
         {
             "name": "MobileDialogModule",
-            "id": "module-MobileDialogModule-d6c2e28650411e4613f9b2866cbb886ebc2d90b34709c34f9dba23a042da0c44a19ffdff8c7aa9b2a27c3946caec4746b5cfcaa25327c87d47471ff2314f06f2",
+            "id": "module-MobileDialogModule-e50f37dbc802bf9fe6e92c0b01d840e1c7681b0805ab1e0e3140ae1dc87814f152766d8d7f97e339faed79f59e7b909474b1a0573fe46010e810fc6eb96dbb5c",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-dialog/mobile-dialog.module.ts",
             "methods": [],
-            "sourceCode": "import { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { CWD_BREAKPOINTS } from '../../../cu-ng-design-library.breakpoints';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),\n  ],\n  exports: [\n    // MatDialogModule,\n    // BrowserModule,\n    // BrowserAnimationsModule,\n    MatButtonModule,\n    // RouterModule,\n    // BrowserModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileDialogModule {}\n",
+            "sourceCode": "import { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\n// import { CWD_BREAKPOINTS } from '../../../cu-ng-design-library.breakpoints';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    BrowserModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n  ],\n  exports: [\n    // MatDialogModule,\n    // BrowserModule,\n    // BrowserAnimationsModule,\n    MatButtonModule,\n    // RouterModule,\n    // BrowserModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileDialogModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2708,13 +2708,13 @@
         },
         {
             "name": "MobileMenuModule",
-            "id": "module-MobileMenuModule-6c5518f8310973967cba3563ed21675843257ad93f1de725932bc6bf641a40948607b244adc6a5f1c803b53de7d97dca76aa97562d8ad73c2c61c6b4df4c17e4",
+            "id": "module-MobileMenuModule-03b7b5b76d56690b7ebcde7b44154fe4f0869511fad13987458b06a2a0d1e42ae6bcc93a01989b71c61c71c0d0b3e406a516801ec475ebd1320bb793e27e2ecf",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-menu/mobile-menu.module.ts",
             "methods": [],
-            "sourceCode": "import { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { MatIconModule } from '@angular/material/icon';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\nimport { RouterModule } from '@angular/router';\nimport { FlexLayoutModule } from '@angular/flex-layout';\nimport { MatListModule } from '@angular/material/list';\n\n@NgModule({\n    declarations: [],\n    imports: [\n        CommonModule,\n        MatDialogModule,\n        BrowserAnimationsModule,\n        MatButtonModule,\n        RouterModule,\n        BrowserModule,\n    ],\n    exports: [\n        MatIconModule,\n        MatDialogModule,\n        BrowserAnimationsModule,\n        MatButtonModule,\n        RouterModule,\n        BrowserModule,\n        FlexLayoutModule,\n        MatListModule,\n    ],\n    providers: [{ provide: APP_BASE_HREF, useValue: '/' }]\n})\nexport class MobileMenuModule {}\n",
+            "sourceCode": "import { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { MatIconModule } from '@angular/material/icon';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\nimport { RouterModule } from '@angular/router';\nimport { MatListModule } from '@angular/material/list';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n  ],\n  exports: [\n    MatIconModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n    MatListModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileMenuModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -3032,13 +3032,13 @@
         },
         {
             "name": "TwoColumnModule",
-            "id": "module-TwoColumnModule-3be4918f764bd46c97bb1b34237d98ab6a309218a5af86728ce67fdb555e6bfbe09e6d7136d60603dfe98ac6d9f26edab9f19f678663fdeebd33b98bc831c18d",
+            "id": "module-TwoColumnModule-31010452ba42048530df9a2709098f36051c3df62c1a22536f68745725e49c2c0d9345923f013a105ae2ac56ce4467344835ade29eab9249c32335c42ca7b71e",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/pages/two-column/two-column.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FlexLayoutModule } from '@angular/flex-layout';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n  exports: [FlexLayoutModule],\n})\nexport class TwoColumnModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n  exports: [],\n})\nexport class TwoColumnModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -3124,6 +3124,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "RouterModule.forRoot(adminRoutes)"
+            },
+            {
+                "name": "BREAKPOINT",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[]"
             },
             {
                 "name": "Cu45Black",
@@ -3483,7 +3493,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<GenericComponent>",
-                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-announcement [announcement]=\"announcement\" (onClose)=\"onClose\" >\n  </lib-announcement>\n  `,\n})"
+                "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-bread-crumb>\n  <a href=\"# \">Home</a> / <a href=\"# \">Page</a> / <a href=\"# \">Sub Page</a> / <a href=\"# \">Current Page</a>\n  </lib-bread-crumb>\n  `,\n})"
             },
             {
                 "name": "Template",
@@ -3758,6 +3768,48 @@
                     "defaultValue": "RouterModule.forRoot(routes)"
                 }
             ],
+            "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts": [
+                {
+                    "name": "BREAKPOINT",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[]"
+                },
+                {
+                    "name": "CustomBreakPointsProvider",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  provide: BREAKPOINT,\n  useValue: [...CWD_BREAKPOINTS],\n  multi: true,\n}"
+                },
+                {
+                    "name": "CWD_BREAKPOINTS",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  {\n    alias: 'xs',\n    suffix: 'Xs',\n    mediaQuery: 'screen and (min-width: 0px) and (max-width: 480px)',\n    overlapping: false,\n    priority: 1002,\n  },\n  {\n    alias: 'sm',\n    suffix: 'Sm',\n    mediaQuery: 'screen and (min-width: 480px) and (max-width: 624px)',\n    overlapping: false,\n    priority: 1003,\n  },\n  {\n    alias: 'md',\n    suffix: 'Md',\n    mediaQuery: 'screen and (min-width: 624px) and (max-width: 768px)',\n    overlapping: false,\n    priority: 1004,\n  },\n  {\n    alias: 'lg',\n    suffix: 'Lg',\n    mediaQuery: 'screen and (min-width: 768px) and (max-width: 992px)',\n    overlapping: false,\n    priority: 1005,\n  },\n  {\n    alias: 'xl',\n    suffix: 'Xl',\n    mediaQuery: 'screen and (min-width: 992px) and (max-width: 1200px)',\n    overlapping: false,\n    priority: 1006,\n  },\n  {\n    alias: 'xxl',\n    suffix: 'Xxl',\n    mediaQuery: 'screen and (min-width: 1200px) and (max-width: 1400px)',\n    overlapping: false,\n    priority: 1007,\n  },\n  {\n    alias: 'xxxl',\n    suffix: 'Xxxl',\n    mediaQuery: 'screen and (min-width: 1400px)',\n    overlapping: false,\n    priority: 1008,\n  },\n]"
+                },
+                {
+                    "name": "CWD_BREAKPOINTS_SIZES",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  xs: { max: 575 },\n  sm: { min: 576, max: 767 },\n  md: { min: 768, max: 991 },\n  lg: { min: 992, max: 1199 },\n  xl: { min: 1200 },\n}"
+                }
+            ],
             "stories/header.stories.ts": [
                 {
                     "name": "Cu45Black",
@@ -3870,38 +3922,6 @@
                     "defaultValue": "(args: HeaderComponent) => ({\n  props: args,\n})"
                 }
             ],
-            "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts": [
-                {
-                    "name": "CustomBreakPointsProvider",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  provide: BREAKPOINT,\n  useValue: [...CWD_BREAKPOINTS],\n  multi: true,\n}"
-                },
-                {
-                    "name": "CWD_BREAKPOINTS",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "[]",
-                    "defaultValue": "[\n  {\n    alias: 'xs',\n    suffix: 'Xs',\n    mediaQuery: 'screen and (min-width: 0px) and (max-width: 480px)',\n    overlapping: false,\n    priority: 1002,\n  },\n  {\n    alias: 'sm',\n    suffix: 'Sm',\n    mediaQuery: 'screen and (min-width: 480px) and (max-width: 624px)',\n    overlapping: false,\n    priority: 1003,\n  },\n  {\n    alias: 'md',\n    suffix: 'Md',\n    mediaQuery: 'screen and (min-width: 624px) and (max-width: 768px)',\n    overlapping: false,\n    priority: 1004,\n  },\n  {\n    alias: 'lg',\n    suffix: 'Lg',\n    mediaQuery: 'screen and (min-width: 768px) and (max-width: 992px)',\n    overlapping: false,\n    priority: 1005,\n  },\n  {\n    alias: 'xl',\n    suffix: 'Xl',\n    mediaQuery: 'screen and (min-width: 992px) and (max-width: 1200px)',\n    overlapping: false,\n    priority: 1006,\n  },\n  {\n    alias: 'xxl',\n    suffix: 'Xxl',\n    mediaQuery: 'screen and (min-width: 1200px) and (max-width: 1400px)',\n    overlapping: false,\n    priority: 1007,\n  },\n  {\n    alias: 'xxxl',\n    suffix: 'Xxxl',\n    mediaQuery: 'screen and (min-width: 1400px)',\n    overlapping: false,\n    priority: 1008,\n  },\n]"
-                },
-                {
-                    "name": "CWD_BREAKPOINTS_SIZES",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  xs: { max: 575 },\n  sm: { min: 576, max: 767 },\n  md: { min: 768, max: 991 },\n  lg: { min: 992, max: 1199 },\n  xl: { min: 1200 },\n}"
-                }
-            ],
             "stories/alert.stories.ts": [
                 {
                     "name": "Default",
@@ -3965,7 +3985,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<GenericComponent>",
-                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-announcement [announcement]=\"announcement\" (onClose)=\"onClose\" >\n  </lib-announcement>\n  `,\n})"
+                    "defaultValue": "(args: GenericComponent) => ({\n  props: args,\n  template: `\n  <lib-bread-crumb>\n  <a href=\"# \">Home</a> / <a href=\"# \">Page</a> / <a href=\"# \">Sub Page</a> / <a href=\"# \">Current Page</a>\n  </lib-bread-crumb>\n  `,\n})"
                 }
             ],
             "stories/footer.stories.ts": [
@@ -4588,6 +4608,16 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "LoadingComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.breakpoints.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BREAKPOINT",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

@@ -17,8 +17,7 @@ import { UtilityNavComponent } from './components/layout/utility-nav/utility-nav
 import { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';
 import { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';
+// import { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';
 import { TwoColumnComponent } from './pages/two-column/two-column.component';
 import { OneColumnComponent } from './pages/one-column/one-column.component';
 import { APP_BASE_HREF } from '@angular/common';
@@ -65,7 +64,6 @@ import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.compon
     RouterModule,
     BrowserModule,
     BrowserAnimationsModule,
-    FlexLayoutModule.withConfig({ disableDefaultBps: true }, CWD_BREAKPOINTS),
   ],
   exports: [
     CuNgDesignLibraryComponent,

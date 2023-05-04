@@ -1,7 +1,5 @@
 # CuNgDesignSystem
 
-
-
 ## NPM
 
 [CU NG Design Library NPM Package](https://www.npmjs.com/package/cu-ng-design-library)
@@ -20,7 +18,7 @@ link to the [StackBlitz demo](https://stackblitz.com/edit/angular-ivy-j8ckge?dev
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
-## Development server (this doesn't work looks like the library was never intended to be used like this)
+## Development server (this doesn't work looks like NG library was never intended to be used like this)
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
