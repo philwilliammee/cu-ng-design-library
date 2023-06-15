@@ -17,7 +17,7 @@ import { MatListModule } from '@angular/material/list';
     BrowserAnimationsModule,
     MatButtonModule,
     RouterModule,
-    BrowserModule,
+    CommonModule,
   ],
   exports: [
     MatIconModule,

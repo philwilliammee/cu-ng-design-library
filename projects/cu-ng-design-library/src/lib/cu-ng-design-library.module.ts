@@ -63,6 +63,7 @@ import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.compon
     MaterialModule,
     RouterModule,
     BrowserModule,
+    // CommonModule,
     BrowserAnimationsModule,
   ],
   exports: [

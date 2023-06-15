@@ -1,5 +1,4 @@
 import { RouterModule } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { APP_BASE_HREF } from '@angular/common';
@@ -13,19 +12,17 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     MatDialogModule,
-    BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
     RouterModule,
-    BrowserModule,
   ],
   exports: [
     // MatDialogModule,
-    // BrowserModule,
+    // CommonModule,
     // BrowserAnimationsModule,
     MatButtonModule,
     // RouterModule,
-    // BrowserModule,
+    // CommonModule,
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
 })

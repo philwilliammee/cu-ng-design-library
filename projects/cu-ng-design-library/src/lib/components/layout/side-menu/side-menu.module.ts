@@ -4,7 +4,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -15,7 +14,6 @@ import { MatListModule } from '@angular/material/list';
   imports: [
     CommonModule,
     RouterModule,
-    BrowserModule,
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
@@ -24,7 +22,7 @@ import { MatListModule } from '@angular/material/list';
   ],
   exports: [
     RouterModule,
-    BrowserModule,
+    CommonModule,
     MatMenuModule,
     MatIconModule,
     BrowserAnimationsModule,

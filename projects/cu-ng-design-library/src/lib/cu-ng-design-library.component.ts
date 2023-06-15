@@ -12,6 +12,7 @@ import { Component } from '@angular/core';
       <div class="main-wrapper">
         <router-outlet></router-outlet>
       </div>
+      <ng-content select="[secondary]"></ng-content>
       <ng-content select="[footer]"></ng-content>
     </div>
   `,

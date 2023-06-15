@@ -2,12 +2,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="vertical-align">
-        <mat-icon class="icon ">accessibility_new</mat-icon>
-        <p class="accessibility-message">
-          If you have a disability and are having trouble accessing information on this
-          website or need materials in an alternate format, contact <a
-            href="mailto:web-accessibility@cornell.edu">web-accessibility@cornell.edu</a> for assistance.
-        </p>
+        <mat-icon class="icon">accessibility_new</mat-icon>
+        <p class="accessibility-message" [innerHTML]="message"></p>
       </div>
     </div>
   </div>

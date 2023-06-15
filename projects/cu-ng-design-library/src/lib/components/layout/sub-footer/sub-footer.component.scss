@@ -1,4 +1,5 @@
 @import "../../../styles.scss";
+
 .sub-footer {
   line-height: 1.6;
   color: #bbb;
@@ -46,8 +47,25 @@ a {
   }
 }
 
+
 .icon {
   margin-right: .5em;
+  color: #292929;
+  position: relative;
+  overflow: initial !important
+}
+
+.icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px; /* Set to the desired size */
+  height: 30px; /* Set to the desired size */
+  background-color: #bbb; /* This is the new background color */
+  border-radius: 50%; /* Makes the background circular */
+  transform: translate(-50%, -50%); /* Centers the background */
+  z-index: -1; /* Places the background behind the icon */
 }
 
 @media (max-width: $screen-sm-min) {
