@@ -49,7 +49,7 @@ a {
 
 
 .icon {
-  margin-right: .5em;
+  margin-right: 12px;
   color: #292929;
   position: relative;
   overflow: initial !important
@@ -60,16 +60,23 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 30px; /* Set to the desired size */
-  height: 30px; /* Set to the desired size */
+  width: 28px; /* Set to the desired size */
+  height: 28px; /* Set to the desired size */
   background-color: #bbb; /* This is the new background color */
+  border: #292929 solid 1px; /* Creates a thin border */
   border-radius: 50%; /* Makes the background circular */
   transform: translate(-50%, -50%); /* Centers the background */
   z-index: -1; /* Places the background behind the icon */
+  box-shadow: 0 0 0 2px #bbb; /* Creates the outer circle */
 }
+
+
 
 @media (max-width: $screen-sm-min) {
   .icon {
+    display: none !important
+  }
+  .icon::before {
     display: none;
   }
 }
