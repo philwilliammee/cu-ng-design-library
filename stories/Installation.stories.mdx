@@ -1,6 +1,8 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="CU-NG-Design-Library/Installation" />
+
+# <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" height="36px" alt="GitHub"/> [cu-ng-design-library](https://github.com/philwilliammee/cu-ng-design-library)
 
 # Library Installation
 
@@ -29,56 +31,54 @@ cp -r ./node_modules/cu-ng-design-library/lib/theme/ ./src/
 
 ```typescript
 // client/src/app/app.module.ts
-import { CuNgDesignLibraryModule } from 'cu-ng-design-library'; // <-- 👀 import the library
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CuNgDesignLibraryModule } from "cu-ng-design-library"; // <-- 👀 import the library
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CuNgDesignLibraryModule // <-- 👀 add the library to the imports
+    CuNgDesignLibraryModule, // <-- 👀 add the library to the imports
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 ```
 
 3. Update routes file to your app with example routes.
 
 ```typescript
 // client/src/app/app-routing.module.ts
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { TwoColumnComponent, OneColumnComponent } from 'cu-ng-design-library'; // <-- 👀 import the example components
+import { TwoColumnComponent, OneColumnComponent } from "cu-ng-design-library"; // <-- 👀 import the example components
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'two-col-page', pathMatch: 'full' },
+  { path: "", redirectTo: "two-col-page", pathMatch: "full" },
   {
-    path: 'two-col-page',
+    path: "two-col-page",
     component: TwoColumnComponent,
-    data: { menu: 'main' },
+    data: { menu: "main" },
   },
   {
-    path: 'one-col-page',
+    path: "one-col-page",
     component: OneColumnComponent,
-    data: { menu: 'main' },
+    data: { menu: "main" },
   },
 
   {
-    path: 'utility',
+    path: "utility",
     component: OneColumnComponent,
-    data: { menu: 'utility' },
+    data: { menu: "utility" },
   },
-  { path: '**', redirectTo: 'two-col-page', pathMatch: 'full' },
+  { path: "**", redirectTo: "two-col-page", pathMatch: "full" },
 ];
 
 @NgModule({
@@ -93,17 +93,17 @@ export class AppRoutingModule {}
 ```typescript
 // client/src/app/app.component.ts
 
-import { Component } from '@angular/core';
-import { routes } from './app-routing.module';
+import { Component } from "@angular/core";
+import { routes } from "./app-routing.module";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = 'client';
-  routes = routes // <-- 👀 export the routes
+  title = "client";
+  routes = routes; // <-- 👀 export the routes
 }
 ```
 
@@ -146,7 +146,8 @@ export class AppComponent {
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
       rel="stylesheet"
     />
   </head>
@@ -171,4 +172,3 @@ see a working example [StackBlitz Demo](https://stackblitz.com/edit/angular-ivy-
 [CWD-Lite(private)](https://github.com/CU-CommunityApps/cwd_framework_lite)
 
 [Cornell-CSS-Framework](https://iws-preview.hosting.cornell.edu/ama39/cssf/index.html)
-

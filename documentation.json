@@ -1832,9 +1832,11 @@
         },
         {
             "name": "SubFooterComponent",
-            "id": "component-SubFooterComponent-a6032d118a237f23c3c9281e52580505f778f20b36b3e987b19516420573b3223501f26293e55efa49b69ef74e75a9c00dbdac830764b66340f5910cb156cea5",
+            "id": "component-SubFooterComponent-e76d908dd5880e030b46f1f3046c9264359e668dba824cfc549fb6c3a61a1071a7821a68be0aba1d7a94b7e1b7725600fbe48c51a0a0f169c66f2bae95397778",
             "file": "projects/cu-ng-design-library/src/lib/components/layout/sub-footer/sub-footer.component.ts",
-            "encapsulation": [],
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
@@ -1853,8 +1855,17 @@
                     "name": "isMobileLayout",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 11,
                     "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "message",
+                    "defaultValue": "`If you have a disability and are having trouble accessing information on this website or need materials in an alternate format, contact <a href=\"mailto:web-accessibility@cornell.edu\">web-accessibility@cornell.edu</a> for assistance.`",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
                     "decorators": []
                 }
             ],
@@ -1868,11 +1879,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'lib-sub-footer',\n  templateUrl: './sub-footer.component.html',\n  styleUrls: ['./sub-footer.component.scss'],\n})\nexport class SubFooterComponent {\n  // deprecated\n  @Input() isMobileLayout?: boolean;\n\n  constructor() {\n    if (this.isMobileLayout !== undefined) {\n      console.log(\n        \"isMobileLayout is deprecated. Use the 'mobile' class on the host element instead.\"\n      );\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, Input, ViewEncapsulation } from '@angular/core';\n\n@Component({\n  selector: 'lib-sub-footer',\n  templateUrl: './sub-footer.component.html',\n  styleUrls: ['./sub-footer.component.scss'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class SubFooterComponent {\n  // deprecated\n  @Input() isMobileLayout?: boolean;\n  @Input()\n  message = `If you have a disability and are having trouble accessing information on this website or need materials in an alternate format, contact <a href=\"mailto:web-accessibility@cornell.edu\">web-accessibility@cornell.edu</a> for assistance.`;\n  constructor() {\n    if (this.isMobileLayout !== undefined) {\n      console.log(\n        \"isMobileLayout is deprecated. Use the 'mobile' class on the host element instead.\"\n      );\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../styles.scss\";\n.sub-footer {\n  line-height: 1.6;\n  color: #bbb;\n  font-size: 13px;\n  position: relative;\n  z-index: 2;\n  float: left;\n  width: 100%;\n  display: block;\n  background: #292929;\n  padding: 20px 0;\n}\n\n.vertical-align {\n  display: flex;\n  align-items: center;\n}\n\np {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\na {\n  color: #fff;\n  text-decoration-color: hsla(0, 0%, 100%, .4);\n\n  &:focus {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:hover {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:active {\n    color: #666;\n    text-decoration-color: hsla(0, 0%, 100%, .4);\n  }\n}\n\n.icon {\n  margin-right: .5em;\n}\n\n@media (max-width: $screen-sm-min) {\n  .icon {\n    display: none;\n  }\n}\n",
+                    "data": "@import \"../../../styles.scss\";\n\n.sub-footer {\n  line-height: 1.6;\n  color: #bbb;\n  font-size: 13px;\n  position: relative;\n  z-index: 2;\n  float: left;\n  width: 100%;\n  display: block;\n  background: #292929;\n  padding: 20px 0;\n}\n\n.vertical-align {\n  display: flex;\n  align-items: center;\n}\n\np {\n  margin-top: 0;\n  margin-bottom: 1.5em;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n}\n\na {\n  color: #fff;\n  text-decoration-color: hsla(0, 0%, 100%, .4);\n\n  &:focus {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:hover {\n    color: #fff;\n    text-decoration-color: #fff;\n  }\n\n  &:active {\n    color: #666;\n    text-decoration-color: hsla(0, 0%, 100%, .4);\n  }\n}\n\n\n.icon {\n  margin-right: 12px;\n  color: #292929;\n  position: relative;\n  overflow: initial !important\n}\n\n.icon::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 28px; /* Set to the desired size */\n  height: 28px; /* Set to the desired size */\n  background-color: #bbb; /* This is the new background color */\n  border: #292929 solid 1px; /* Creates a thin border */\n  border-radius: 50%; /* Makes the background circular */\n  transform: translate(-50%, -50%); /* Centers the background */\n  z-index: -1; /* Places the background behind the icon */\n  box-shadow: 0 0 0 2px #bbb; /* Creates the outer circle */\n}\n\n\n\n@media (max-width: $screen-sm-min) {\n  .icon {\n    display: none !important\n  }\n  .icon::before {\n    display: none;\n  }\n}\n",
                     "styleUrl": "./sub-footer.component.scss"
                 }
             ],
@@ -1883,9 +1894,9 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 10
+                "line": 13
             },
-            "templateData": "<div class=\"sub-footer\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"vertical-align\">\n        <mat-icon class=\"icon \">accessibility_new</mat-icon>\n        <p class=\"accessibility-message\">\n          If you have a disability and are having trouble accessing information on this\n          website or need materials in an alternate format, contact <a\n            href=\"mailto:web-accessibility@cornell.edu\">web-accessibility@cornell.edu</a> for assistance.\n        </p>\n      </div>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"sub-footer\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"vertical-align\">\n        <mat-icon class=\"icon\">accessibility_new</mat-icon>\n        <p class=\"accessibility-message\" [innerHTML]=\"message\"></p>\n      </div>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "TwoColumnComponent",
@@ -2201,13 +2212,13 @@
         },
         {
             "name": "CuNgDesignLibraryModule",
-            "id": "module-CuNgDesignLibraryModule-3d94032fda46fb652b4fd11ef2dcc6d3a080b6a8a86a8c45e3503c9b876b410ee55e2835d3126b625cbbd6db21154e9653d50b9e2e719bcdacfba4ce79a6d76c",
+            "id": "module-CuNgDesignLibraryModule-ec2d01265dc5484644a37dfeba385ba89ad4b5af7de28026154360e14d28fa5319c65409ab4e5f01c6a36d21e96141fba9f99237d436480066b7174b3225b4b4",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/cu-ng-design-library.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n// import { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF, CommonModule } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\nimport { SideMenuComponent } from './components/layout/side-menu/side-menu.component';\nimport { AdminToolbarComponent } from './components/layout/admin-toolbar/admin-toolbar.component';\nimport { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';\nimport { LoadingComponent } from './components/loading/loading.component';\nimport { AnnouncementComponent } from './components/announcement/announcement.component';\nimport { AlertComponent } from './components/alert/alert.component';\nimport { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n    BreadCrumbComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    CommonModule,\n    BrowserAnimationsModule,\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n    BreadCrumbComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CuNgDesignLibraryComponent } from './cu-ng-design-library.component';\nimport { SkipLinkComponent } from './components/layout/skip-link/skip-link.component';\nimport { FooterComponent } from './components/layout/footer/footer.component';\nimport { SubFooterComponent } from './components/layout/sub-footer/sub-footer.component';\nimport { MaterialModule } from './shared/modules/material/material.module';\nimport { HeaderComponent } from './components/layout/header/header.component';\nimport { MainMenuComponent } from './components/layout/main-menu/main-menu.component';\nimport { RouterModule } from '@angular/router';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';\nimport { MainComponent } from './components/layout/main/main.component';\nimport { MainFooterComponent } from './components/layout/main-footer/main-footer.component';\nimport { PrimaryContentComponent } from './components/layout/primary-content/primary-content.component';\nimport { SecondaryContentComponent } from './components/layout/secondary-content/secondary-content.component';\nimport { UtilityNavComponent } from './components/layout/utility-nav/utility-nav.component';\nimport { MobileDialogComponent } from './components/layout/mobile-dialog/mobile-dialog.component';\nimport { MobileMenuComponent } from './components/layout/mobile-menu/mobile-menu.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n// import { CWD_BREAKPOINTS } from './cu-ng-design-library.breakpoints';\nimport { TwoColumnComponent } from './pages/two-column/two-column.component';\nimport { OneColumnComponent } from './pages/one-column/one-column.component';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { OneColumnExampleComponent } from './pages/one-column-example/one-column-example.component';\nimport { TwoColumnExampleComponent } from './pages/two-column-example/two-column-example.component';\nimport { SideMenuComponent } from './components/layout/side-menu/side-menu.component';\nimport { AdminToolbarComponent } from './components/layout/admin-toolbar/admin-toolbar.component';\nimport { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';\nimport { LoadingComponent } from './components/loading/loading.component';\nimport { AnnouncementComponent } from './components/announcement/announcement.component';\nimport { AlertComponent } from './components/alert/alert.component';\nimport { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';\n\n@NgModule({\n  declarations: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    OneColumnExampleComponent,\n    TwoColumnExampleComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n    BreadCrumbComponent,\n  ],\n  imports: [\n    MaterialModule,\n    RouterModule,\n    BrowserModule,\n    // CommonModule,\n    BrowserAnimationsModule,\n  ],\n  exports: [\n    CuNgDesignLibraryComponent,\n    SkipLinkComponent,\n    FooterComponent,\n    SubFooterComponent,\n    HeaderComponent,\n    MainMenuComponent,\n    HeaderButtonsComponent,\n    MainComponent,\n    MainFooterComponent,\n    PrimaryContentComponent,\n    SecondaryContentComponent,\n    UtilityNavComponent,\n    MobileDialogComponent,\n    MobileMenuComponent,\n    TwoColumnComponent,\n    OneColumnComponent,\n    SideMenuComponent,\n    AdminToolbarComponent,\n    AdminLayoutComponent,\n    LoadingComponent,\n    AnnouncementComponent,\n    AlertComponent,\n    BreadCrumbComponent,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class CuNgDesignLibraryModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2564,13 +2575,13 @@
         },
         {
             "name": "MainMenuModule",
-            "id": "module-MainMenuModule-ee2ce5e1c371e593f23072c3bcfd3b1f273dc8926008ea800733af2ee1b99397882ce40ed5b592b31961df175662930fa0bcaeec63407830e3a5b1f5b3f28d6a",
+            "id": "module-MainMenuModule-8b6cd2c2801e1d41daf9653ee081da018e413a8a93585e642a45f0688bf1e51757edfe9fa46e0c46b0496e4f15773dca677fd6b2bcfce5becc401756524d8531",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/components/layout/main-menu/main-menu.module.ts",
             "methods": [],
-            "sourceCode": "import { MatButtonModule } from '@angular/material/button';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatIconModule } from '@angular/material/icon';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterModule } from '@angular/router';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatMenuModule } from '@angular/material/menu';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    RouterModule,\n    CommonModule,\n    MatMenuModule,\n    MatIconModule,\n    MatButtonModule,\n  ],\n  exports: [\n    RouterModule,\n    CommonModule,\n    MatMenuModule,\n    MatIconModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MainMenuModule {}\n",
+            "sourceCode": "import { MatButtonModule } from '@angular/material/button';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatIconModule } from '@angular/material/icon';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterModule } from '@angular/router';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatMenuModule } from '@angular/material/menu';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    RouterModule,\n    MatMenuModule,\n    MatIconModule,\n    MatButtonModule,\n  ],\n  exports: [\n    RouterModule,\n    CommonModule,\n    MatMenuModule,\n    MatIconModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MainMenuModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2672,13 +2683,13 @@
         },
         {
             "name": "MobileDialogModule",
-            "id": "module-MobileDialogModule-48da9e243ecbdb4157718eee0c9f9e7aa625e507fbdae92109c28f6962fb0836af2a59d853d087d63928943736e27293964befe0ff2f8517329e3e93ff7b54a1",
+            "id": "module-MobileDialogModule-868b9516d6cb9785b638557060b03b8f04b409b92be948ef50fb53098e219b5ee52671f2e4e0b95bd9784c760cf5f88cfd48ffc4a471900ca95562f9b3c5c058",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-dialog/mobile-dialog.module.ts",
             "methods": [],
-            "sourceCode": "import { RouterModule } from '@angular/router';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\n// import { CWD_BREAKPOINTS } from '../../../cu-ng-design-library.breakpoints';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    CommonModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    CommonModule,\n  ],\n  exports: [\n    // MatDialogModule,\n    // CommonModule,\n    // BrowserAnimationsModule,\n    MatButtonModule,\n    // RouterModule,\n    // CommonModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileDialogModule {}\n",
+            "sourceCode": "import { RouterModule } from '@angular/router';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\n// import { CWD_BREAKPOINTS } from '../../../cu-ng-design-library.breakpoints';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n  ],\n  exports: [\n    // MatDialogModule,\n    // CommonModule,\n    // BrowserAnimationsModule,\n    MatButtonModule,\n    // RouterModule,\n    // CommonModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileDialogModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2708,13 +2719,13 @@
         },
         {
             "name": "MobileMenuModule",
-            "id": "module-MobileMenuModule-a1d113dfa3dc7366d87f6dac71756a1246ed02961b7bc1a91b08239e8483c133366672a60b8f752b85172cb50d689757d5fabc597663c1b7e137ea90ea918534",
+            "id": "module-MobileMenuModule-957f209afc504f4b852ddc22401c27571593678b428f144a2cbb9b532921c96dea40f3c803027df6ab78401db700c4c0f97d72e645df0b91e0856a6876c48116",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/components/layout/mobile-menu/mobile-menu.module.ts",
             "methods": [],
-            "sourceCode": "import { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { MatIconModule } from '@angular/material/icon';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\nimport { RouterModule } from '@angular/router';\nimport { MatListModule } from '@angular/material/list';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    CommonModule,\n  ],\n  exports: [\n    MatIconModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    BrowserModule,\n    MatListModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileMenuModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatDialogModule } from '@angular/material/dialog';\nimport { MatIconModule } from '@angular/material/icon';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatButtonModule } from '@angular/material/button';\nimport { RouterModule } from '@angular/router';\nimport { MatListModule } from '@angular/material/list';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    CommonModule,\n  ],\n  exports: [\n    MatIconModule,\n    MatDialogModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    RouterModule,\n    MatListModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class MobileMenuModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2888,13 +2899,13 @@
         },
         {
             "name": "SideMenuModule",
-            "id": "module-SideMenuModule-6658d23082fbe9592b82f547de09dc48c3beb2bc46a46a5cabd0d242c605fb1fd0bb609fd3f65f1a32e417ce728ad2716e48d7a8c4a1b2718c3c6a9158377301",
+            "id": "module-SideMenuModule-809f9f1e25a23ecbffc880442531c0293538e45502d4a1bf83bd31e76f80316fcfc78f2bd190b0a0aa384eff2c933a2c148f24caa664fda37d8270640d166cce",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/cu-ng-design-library/src/lib/components/layout/side-menu/side-menu.module.ts",
             "methods": [],
-            "sourceCode": "import { MatButtonModule } from '@angular/material/button';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatIconModule } from '@angular/material/icon';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterModule } from '@angular/router';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatMenuModule } from '@angular/material/menu';\nimport { MatSidenavModule } from '@angular/material/sidenav';\nimport { MatListModule } from '@angular/material/list';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    RouterModule,\n    CommonModule,\n    MatMenuModule,\n    MatIconModule,\n    MatButtonModule,\n    MatSidenavModule,\n    MatListModule,\n  ],\n  exports: [\n    RouterModule,\n    CommonModule,\n    MatMenuModule,\n    MatIconModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    MatSidenavModule,\n    MatListModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class SideMenuModule {}\n",
+            "sourceCode": "import { MatButtonModule } from '@angular/material/button';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { MatIconModule } from '@angular/material/icon';\nimport { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterModule } from '@angular/router';\nimport { APP_BASE_HREF } from '@angular/common';\nimport { MatMenuModule } from '@angular/material/menu';\nimport { MatSidenavModule } from '@angular/material/sidenav';\nimport { MatListModule } from '@angular/material/list';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    RouterModule,\n    MatMenuModule,\n    MatIconModule,\n    MatButtonModule,\n    MatSidenavModule,\n    MatListModule,\n  ],\n  exports: [\n    RouterModule,\n    CommonModule,\n    MatMenuModule,\n    MatIconModule,\n    BrowserAnimationsModule,\n    MatButtonModule,\n    MatSidenavModule,\n    MatListModule,\n  ],\n  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],\n})\nexport class SideMenuModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -4591,7 +4602,7 @@
                 "linktype": "component",
                 "name": "SubFooterComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {

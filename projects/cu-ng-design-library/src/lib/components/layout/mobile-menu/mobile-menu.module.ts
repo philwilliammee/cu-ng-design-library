@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { APP_BASE_HREF } from '@angular/common';
@@ -25,7 +24,6 @@ import { MatListModule } from '@angular/material/list';
     BrowserAnimationsModule,
     MatButtonModule,
     RouterModule,
-    BrowserModule,
     MatListModule,
   ],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
