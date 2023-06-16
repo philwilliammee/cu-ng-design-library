@@ -1,6 +1,6 @@
 {
   "name": "cu-ng-design-system",
-  "version": "16.1.0",
+  "version": "16.2.0",
   "description": "CU Angular Design System",
   "scripts": {
     "ng": "ng",

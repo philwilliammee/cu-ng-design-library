@@ -7,7 +7,7 @@ import { MaterialModule } from './shared/modules/material/material.module';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { MainMenuComponent } from './components/layout/main-menu/main-menu.component';
 import { RouterModule } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { HeaderButtonsComponent } from './components/layout/header-buttons/header-buttons.component';
 import { MainComponent } from './components/layout/main/main.component';
 import { MainFooterComponent } from './components/layout/main-footer/main-footer.component';
@@ -62,7 +62,7 @@ import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.compon
   imports: [
     MaterialModule,
     RouterModule,
-    BrowserModule,
+    // BrowserModule,
     // CommonModule,
     BrowserAnimationsModule,
   ],
